@@ -4,7 +4,7 @@ $inputUsername = $_POST['username'];
 $inputPassword = $_POST['password'];
 
 //Initialize Database Connection
-$conn = new mysqli("localhost", "root", "", "ceumoodle_database");
+$conn = new mysqli("localhost", "root", "", "mole_database");
 
 //Check Connection
 if($conn->connect_error){
@@ -35,7 +35,7 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword){
 	// header("Location: login.htm");
 	readfile("login.htm");
 	// echo '<head>';
- //    echo ' <link rel="stylesheet" href="login.css" type="text/css">';
+    // echo ' <link rel="stylesheet" href="login.css" type="text/css">';
 	// echo '</head>';
 	echo '<p id="invalid"> Invalid Login </p>';
 }
