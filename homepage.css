@@ -1,0 +1,50 @@
+body{
+	/*background-image: url("_backgrounds/gradient_pink_2391416.jpg");*/
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+}
+div#nav-bar{
+	position: fixed;
+	width:98.5%;
+	height:6%;
+	/*border: solid 1px;*/
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.5);
+}
+div#mid-div{
+	position: relative;
+	width:50%;
+	height: 2000px;
+	border: solid 1px;
+	border-radius: 5px;
+	top: 70px;
+	margin-top: -12px;
+}
+div.centered {
+  /*position: fixed;*/
+ /* top: 50%;*/
+  left: 50%;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
+}
+#ceu-logo{
+	position:absolute;
+	width: 17%;
+	height: 20%;
+	padding-left: 2.5%;
+	padding-top: 6%;
+	z-index: -1;
+}
+#title{
+	position: fixed;
+	/*padding-top: -50px;*/
+	color: white;
+	padding-left: 10px;
+	font-family: Calibri;
+	font-size: 30px;
+	text-align: left;
+	padding-bottom: 
+}

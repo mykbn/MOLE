@@ -1,0 +1,117 @@
+body{
+	/*background-image: url("_backgrounds/gradient_pink_2391416.jpg");*/
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+ 	-o-background-size: cover;
+ 	background-size: cover;
+}
+
+/*#wrapper{
+	overflow: hidden;
+	width: 000px;
+	height:1000px;
+}*/
+
+div#header-div{
+	position: relative;
+	width:100%;
+	height:5%;
+	background-color: rgba(255,51,51,.5);
+	border-radius: 5px;
+	resize: none;
+	
+}
+
+div#ceu-logo{
+	position: absolute;
+	background-image: url("_assets/CEULOGO1.png");
+	height: 70%;
+	width: 70%;
+	z-index: 1;
+	background-size: 100% 100%;
+	top: -30%;
+	left: 15%;
+}
+
+div#main-div{
+	/*position: absolute;*/
+	width: 30%;
+	height: 40%;
+	background-color: rgba(0,0,0,.2);
+	border-radius: 25px;
+	z-index: 0;
+}
+
+div.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+}
+
+.textbox{
+	position:absolute;
+	width: 80%;
+	height: 12%;
+	border-style: none;
+	border: solid rgba(0,0,0,.2) 0.1px;
+	border-radius: 5px;
+	top: 50%;
+	left: 50%;
+}
+
+#username-textbox.textbox{
+	transform:translate(-50%, -50%);
+	-webkit-transform:translate(-50%, -50%);
+}
+
+#password-textbox.textbox{
+	transform:translate(-50%, 60%);
+	-webkit-transform:translate(-50%, 60%);
+}
+
+input{
+	font-size: 20px;
+	padding-left: 10px;
+}
+
+.button{
+	position:absolute;
+	background-color: #1E90FF;
+	border: none;
+	outline: none;
+	outline-color: white;
+	border-radius: 5px;
+	font-family: Calibri;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+
+#login-button{
+	width: 30%;
+	height: 10%;
+	top: 50%;
+ 	left: 50%;
+	transform: translate(-50%, 250%);
+  	-webkit-transform: translate(-50%, 250%);
+}
+#signup-button{
+	width:10%;
+	height:80%;
+	top: 10%;
+	left: 89%;
+	/*transform: translate(-50%, -50%);
+  	-webkit-transform: translate(-50%, -50%);*/
+}
+
+#invalid{
+	text-align: center;
+	font-family: Calibri;
+	font-size: 15px;
+	color: red;
+	transform: translate(0%, 2770%);
+  	-webkit-transform: translate(0%, 250%);
+}

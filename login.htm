@@ -1,0 +1,51 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="login.css">
+<title>Login or SignUp</title>
+</head>
+<script type="text/javascript">
+	function ClearUserOnFocus(){
+		var userNameTextBox = document.getElementById("username-textbox");
+		var passWordTextBox = document.getElementById("password-textbox");
+		if(userNameTextBox.value=='Username'){
+			userNameTextBox.value='';	
+		} 
+		if (passWordTextBox.value == ''){
+			passWordTextBox.value = 'Password';
+			passWordTextBox.type = "text";
+		}
+	}
+	function ClearPassOnFocus(){
+		var userNameTextBox = document.getElementById("username-textbox");
+		var passWordTextBox = document.getElementById("password-textbox");
+		if(passWordTextBox.value == 'Password'){
+			passWordTextBox.value = '';	
+			passWordTextBox.type = "password";
+		} 
+		if (userNameTextBox.value == ''){
+			userNameTextBox.value = 'Username';
+		}
+	}
+</script>
+<body>
+<div id="wrapper">
+	<div id="header-div">
+		<form action="signup.php" method="post">
+			<button type="submit" id="signup-button" class="button">SIGN UP</button>
+		</form>
+	</div>
+
+	<div id="main-div" class="centered">
+		<div id="ceu-logo">
+		</div>
+		<div id="login-form-div">
+			<form action="login.php" method="post">
+				<input class="textbox" type="text" name="username" value="Username" id="username-textbox" onfocus="ClearUserOnFocus()"></input>
+				<input class="textbox" type="text" name="password" value="Password" id="password-textbox" onfocus="ClearPassOnFocus()"></input>
+				<button type="submit" class="button" id="login-button">LOGIN</button>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
