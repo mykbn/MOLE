@@ -1,0 +1,43 @@
+<html>
+<head>
+<link type="text/css" rel="stylesheet" href="signup.css">
+<title>Sign Up!</title>
+</head>
+<script type="text/javascript">
+</script>
+<body>
+<div id="parent-container">
+	<div id="header">
+		<p id="title">MOLE</p>
+	</div>
+
+	<div id="info-div" class="to_the_left">
+		<div id="info-text-container">
+			<p id="info">CEU MOLE is a web-based system that has some of the capabilities of both Trello and Moodle. Trello, being known as a site that is mainly used as an organized workspace for software development teams and the like, can be used in schools too, because it can provide easy access to course materials given by professors, and professors can keep track of every students' progress. Along with this feature, the developers will add the capability for the site to host classroom examinations and other classroom activities.</p>
+		</div>
+	</div>
+
+	<div id="signup-div" class="to_the_right">
+		<div id="form-div">
+			<form action="signup.php" method="post">
+					<p class="text"> Username: 
+						<input class="textbox" type="text" name="username" value="Username" id="username-textbox"></input></p>
+					<p class="text"> Password: 
+						<input class="textbox" type="text" name="password" value="Password" id="password-textbox"></input></p>
+					<p class="text"> Re-Enter Password: 
+						<input class="textbox" type="text" name="retype-password" value="Re-Enter Password" id="retype-password-textbox"></input><br></p>
+					<center>
+					<p class="text">Are you a student or a Professor</p>
+					<p class="text">
+						<input type="radio" name="position" value="student">Student</input>
+						<input type="radio" name="position" value="professor">Professor</input>
+					</p>
+					<br>
+					<button type="submit" class="button" id="signup-button">SIGN UP</button>
+					</center>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
