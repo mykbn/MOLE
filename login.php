@@ -32,9 +32,9 @@ $serverPosition = $rowPosition["Position"];
 //Check if login credentials are correct
 if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "student"){
 	// echo "<br/>Correct Credentials!";
-	header("Location: homepage.htm");
+	header("Location: Homepage.html");
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "professor"){
-	readfile("homepage.htm");
+	readfile("Homepage.html");
 	echo '<a id=add-classes href="addclasses.htm">Create a Class</p>';
 }else{
 	// echo "<br/>Incorrect Login Information";
