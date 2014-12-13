@@ -1,16 +1,10 @@
 <?php
 
+include "connect.php";
+
 $inputUsername = $_POST['username'];
 $inputPassword = $_POST['password'];
 
-//Initialize Database Connection
-$conn = new mysqli("localhost", "root", "", "mole_database");
-
-//Check Connection
-if($conn->connect_error){
-	die("Connection Failed:" .$conn->connect_error);
-}
-// echo "Connected Successfully To Database!";
 
 //Username
 $queryUsername = "SELECT * FROM users WHERE '$inputUsername' = Username";
@@ -26,10 +20,20 @@ $resultPassword = mysqli_query($conn,$queryPassword)
 $rowPassword = mysqli_fetch_array($resultPassword);
 $serverPassword = $rowPassword["Password"];
 
+//Position
+$queryPosition = "SELECT Position FROM users WHERE '$inputUsername' = Username";
+$resultPosition = mysqli_query($conn,$queryPosition)
+	or die("Error: ".mysqli_error($conn));
+$rowPosition = mysqli_fetch_array($resultPosition);
+$serverPosition = $rowPosition["Position"];
+
 //Check if login credentials are correct
-if($inputUsername == $serverUser && $inputPassword == $serverPassword){
+if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "student"){
 	// echo "<br/>Correct Credentials!";
 	header("Location: homepage.htm");
+}else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "professor"){
+	readfile("homepage.htm");
+	echo '<a id=add-classes href="addclasses.htm">Create a Class</p>';
 }else{
 	// echo "<br/>Incorrect Login Information";
 	// header("Location: login.htm");

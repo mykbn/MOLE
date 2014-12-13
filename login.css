@@ -7,24 +7,28 @@ body{
  	background-size: cover;
 }
 
-/*#wrapper{
-	overflow: hidden;
-	width: 000px;
-	height:1000px;
-}*/
+#parent-container {
+	position: relative;
+	/*border: solid;*/
+	height: 100%;
+	width: 100%;
+    min-width: 1000px;
+    overflow: hidden;
+}
 
 #title{
-	position: absolute;
-	left: 50%;
-	transform: translate(-50%, 0%);
-	-webkit-transform: translate(-50%, 0%);
+	position: relative;
+	text-align: center;
+	/*left: 60%;*/
+	/*transform: translate(-50%, 0%);*/
+	/*-webkit-transform: translate(-50%, 0%);*/
 	font-family: Calibri;
 	font-size: 30px;
 	line-height: 6%;		
 }
 
 div#header-div{
-	position: relative;
+	position: absolute;
 	width:100%;
 	height:6%;
 	background-color: rgba(255,51,51,.5);
@@ -34,7 +38,7 @@ div#header-div{
 }
 
 div#ceu-logo{
-	position: absolute;
+	position: relative;
 	background-image: url("_assets/CEULOGO1.png");
 	height: 70%;
 	width: 70%;
@@ -54,7 +58,7 @@ div#main-div{
 }
 
 div.centered {
-  position: fixed;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -118,10 +122,11 @@ input{
 }
 
 #invalid{
+	/*position: static;*/
 	text-align: center;
 	font-family: Calibri;
 	font-size: 15px;
 	color: red;
-	transform: translate(0%, 2770%);
-  	-webkit-transform: translate(0%, 250%);
+	transform: translate(0%, -1700%);
+  	-webkit-transform: translate(0%, -1700%);
 }

@@ -84,6 +84,15 @@ div#info-div{
 
 
 /*CLASSES*/
+.invalid{
+	position: absolute;
+	text-align: right;
+	font-family: Calibri;
+	font-size: 15px;
+	color: red;
+	transform: translate(650%, -1000%);
+  	-webkit-transform: translate(650%, -1000%);
+}
 
 div.centered {
   position: fixed;

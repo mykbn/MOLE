@@ -6,42 +6,71 @@ body{
  	-o-background-size: cover;
  	background-size: cover;
 }
-div#nav-bar{
-	position: relative;
-	width:100%;
-	height:6%;
-	/*border: solid 1px;*/
-	border-radius: 5px;
-	background-color: rgba(0,0,0,0.5);
+
+/* unvisited link */
+a:link {
+    color: rgb(0,0,0, 1);
 }
 
-div.centered {
-  left: 50%;
-  transform: translate(-50%, 0%);
-  -webkit-transform: translate(-50%, 0%);
+/* visited link */
+a:visited {
+    color: rgb(0,0,0, 1);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgb(0,0,0, 1);
+}
+
+/* selected link */
+a:active {
+    color: rgb(0,0,0, 1);
+}
+
+/*ID's*/
+
+#parent-container {
+	position: relative;
+	/*border: solid;*/
+	height: 100%;
+	width: 100%;
+    min-width: 1000px;
+    overflow: hidden;
+}
+
+div#nav-bar{
+	position: absolute;
+	width:100%;
+	height:6%;
+	background-color: rgba(255,51,51,.5);
+	border-radius: 5px;
+	/*resize: none;*/
+	
 }
 
 #title{
-	position: absolute;
+	position: relative;
 	color: black;
 	font-family: Calibri;
 	font-size: 30px;
-	/*text-align: center;*/
+	text-align: center;
 	/*vertical-align: middle;*/
 	line-height: 6%;
-	left: 50%;
+	/*left: 50%;
 	transform: translate(-50%, 0%);
-	-webkit-transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);*/
 }
+
 #class_lbl{
-	position: static;
-	margin-top: 3%;
+	position: relative;
+	margin-top: 5%;
 	margin-left: 2%;
 	/*transform: translate(3%, 300%);*/
 	/*-webkit-transform: translate(3%, 300%);*/
 	font-family: Calibri;
 	font-size: 20px;
 }
+
 #classes{
 	position: static;
 	border: solid;
@@ -51,4 +80,28 @@ div.centered {
 	margin-left: 2%;
 	/*transform: translate(3%, 300%);*/
 	
+}
+
+#find-classes{
+	position: relative;
+	left: 1%;
+	top: 93%;
+	/*font-style: Calibri;
+	color: rgb(0,0,0, 0.2);*/
+	/*transform: translate(100%, 100%);
+	-webkit-transform: translate(100%, 100%);*/
+}
+
+#add-classes{
+	position: absolute;
+	left: 1%;
+	top: 90%;
+}
+
+/*CLASSES*/
+
+div.centered {
+  left: 50%;
+  transform: translate(-50%, 0%);
+  -webkit-transform: translate(-50%, 0%);
 }
