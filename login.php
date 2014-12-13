@@ -2,6 +2,7 @@
 
 
 include "connect.php";
+// include "CheckDatabase.php";
 // include "CreateDatabase.php";
 
 $inputUsername = $_POST['emailTxt'];
@@ -35,14 +36,10 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword && $server
 	header("Location: Homepage.html");
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "professor"){
 	readfile("Homepage.html");
-	echo '<a id=add-classes href="addclasses.htm">Create a Class</p>';
+	// echo "<br>";
+	echo '<a id="add-classes" href="addclasses.htm">Create a Class</a>';
 }else{
-	// echo "<br/>Incorrect Login Information";
-	// header("Location: login.htm");
 	readfile("Login.html");
-	// echo '<head>';
-    // echo ' <link rel="stylesheet" href="login.css" type="text/css">';
-	// echo '</head>';
 	echo '<p id="invalid"> Invalid Login </p>';
 }
 

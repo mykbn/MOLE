@@ -1,6 +1,7 @@
 <?php
 //Initialize Database Connection
-$conn = new mysqli("localhost", "root", "", "mole_database");
+// $checkconn = new mysqli("localhost", "root", "", "");
+$conn = new mysqli("localhost", "root", NULL, "mole_database");
 
 //Check Connection
 if($conn->connect_error){
