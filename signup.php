@@ -36,7 +36,7 @@ else if($inputSignUpUsername == $serverUser && $inputPassword != $inputRePasswor
 else{
 	$sql = "INSERT INTO users (`ID`, `Username`, `Password`, `Position`)VALUES (NULL, '$inputSignUpUsername', '$inputPassword', '$position')";
 	if (mysqli_query($conn, $sql)) {
-		readfile("login.htm");
+		readfile("Login.html");
 	    echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
 	} else {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);

@@ -1,9 +1,11 @@
 <?php
 
-include "connect.php";
 
-$inputUsername = $_POST['username'];
-$inputPassword = $_POST['password'];
+include "connect.php";
+// include "CreateDatabase.php";
+
+$inputUsername = $_POST['emailTxt'];
+$inputPassword = $_POST['passTxt'];
 
 
 //Username
@@ -37,7 +39,7 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword && $server
 }else{
 	// echo "<br/>Incorrect Login Information";
 	// header("Location: login.htm");
-	readfile("login.htm");
+	readfile("Login.html");
 	// echo '<head>';
     // echo ' <link rel="stylesheet" href="login.css" type="text/css">';
 	// echo '</head>';

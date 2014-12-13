@@ -1,0 +1,45 @@
+<html>
+<head>
+<link type = "text/css" rel = "stylesheet" href = "login.css">
+<title></title>
+</head>
+<script type="text/javascript">
+	function ClearEmailOnFocus(){
+		var userNameTextBox = document.getElementById("emailTxt");
+		var passWordTextBox = document.getElementById("passTxt");
+		if(userNameTextBox.value=='Email'){
+			userNameTextBox.value='';	
+		} 
+		if (passWordTextBox.value == ''){
+			passWordTextBox.value = 'Password';
+			passWordTextBox.type = "text";
+		}
+	}
+	function ClearPassOnFocus(){
+		var userNameTextBox = document.getElementById("emailTxt");
+		var passWordTextBox = document.getElementById("passTxt");
+		if(passWordTextBox.value == 'Password'){
+			passWordTextBox.value = '';	
+			passWordTextBox.type = "password";
+		} 
+		if (userNameTextBox.value == ''){
+			userNameTextBox.value = 'Email';
+		}
+	}
+</script>
+<body>
+	<div id = "main">
+		<img src="_assets\Logo.png" class="centered-image">
+		<form id = "create-form" method = "post" action="signup.htm">
+			<input id = "create" type = "submit" value = "Create" name = "createBtn">
+		</form>
+		<div id = "form" class = "centered">
+			<form id = "login-form" method = "post" action="login.php">
+				<input id = "emailTxt" type = "textbox" value = "Email" name = "emailTxt" class = "emailtextbox" onfocus = "ClearEmailOnFocus()">
+				<input id = "passTxt" type = "text" value = "Password" name = "passTxt" class = "passtextbox" onfocus = "ClearPassOnFocus()">
+				<input id = "loginbutton" type = "submit" value = "Login" name = "loginBtn">
+			</form>
+		</div>	
+	</div>
+</body>
+</html>
