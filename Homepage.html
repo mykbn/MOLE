@@ -5,17 +5,32 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript">
 	function searchq(){
-	var searchform = document.getElementById("searchform");
-	searchform.setAttribute("autocomplete", "off");
-	var searchTxt = $("input[name='searchTxt']").val();
-		$.post("search.php", {searchVal: searchTxt}, function(output){
-			$("#output").html(output);
-		});
+		var searchform = document.getElementById("searchform");
+		searchform.setAttribute("autocomplete", "off");
+		var searchTxt = $("input[name='searchTxt']").val();
+			$.post("search.php", {searchVal: searchTxt}, function(output){
+				$("#output").html(output);
+			});
+		var listbox = document.getElementById("output");
+		var searchbox = document.getElementById("enrollme");
+		if(searchbox.value == "Search"){
+			listbox.style.display = 'none';
+		}else{
+			listbox.style.display = 'block';
+		}
+	}
+	function Hide(){
+		var listbox = document.getElementById("output");
+		listbox.style.display = 'none';
+	}
+	function Show(){
+		var listbox = document.getElementById("output");
+		listbox.style.display = 'block';
 	}
 </script>
 </head>
 <body>
-	<div id = "header">
+	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
 			<img id = "logo" src = "_assets\Logo.png">
 			<img id = "mole" src = "_assets\Mole.png">
@@ -35,15 +50,19 @@
 				<form method="post" action="Homepage.html" id="searchform">
 					<!-- <input type="submit" value="Search" name="search"> -->
 					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown="searchq();">	
-					<div id="output">
+					<!-- <div id="output">
 
-					</div>				
+					</div>	 -->	
+					<select id="output" size="5" style="display:none">
+
+					</select>		
 				</form>
 				
 		</div>
 
 		<div id = "class-div">
 		</div>
+
 	</div>
 </body>
 </html>

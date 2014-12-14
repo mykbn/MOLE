@@ -18,12 +18,12 @@ if(isset($_POST['searchVal'])){
 		while($row = mysqli_fetch_array($result)){
 			$classes = $row['Classes'];
 
-			$output .= '<div> '.$classes.'</div>';
+			$output .= '<option value='.$classes.' id="class-option"> '.$classes.'</option>';
 		}
 	}
 
 }
 echo ($output);
-
+mysqli_close($conn);
 
 ?>

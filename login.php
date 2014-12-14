@@ -31,10 +31,10 @@ $rowPosition = mysqli_fetch_array($resultPosition);
 $serverPosition = $rowPosition["Position"];
 
 //Check if login credentials are correct
-if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "student"){
+if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Student"){
 	// echo "<br/>Correct Credentials!";
 	header("Location: Homepage.html");
-}else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "professor"){
+}else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Professor"){
 	readfile("Homepage.html");
 	// echo "<br>";
 	echo '<a id="add-classes" href="addclasses.html">Create a Class</a>';

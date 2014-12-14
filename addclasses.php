@@ -9,7 +9,9 @@ $inputClassDescription = $_POST['classdescription'];
 //CREATE DATABASE ENTRY
 $queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`)VALUES (NULL, '$inputClassName')"; ;
 if (mysqli_query($conn, $queryCreateEntry)) {
-	    echo "New class created successfully";
+		readfile("Homepage.html");
+	    echo "<p>New class created successfully</p>";
+	    echo '<a id="add-classes" href="addclasses.html" align="right">Create a Class</a>';
 	} else {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
@@ -35,4 +37,5 @@ if (mysqli_query($conn, $sql)) {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 	}
 
+mysqli_close($conn);
 ?>

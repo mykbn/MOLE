@@ -7,7 +7,7 @@
 	function ClearEmailOnFocus(){
 		var userNameTextBox = document.getElementById("emailTxt");
 		var passWordTextBox = document.getElementById("passTxt");
-		if(userNameTextBox.value=='Email'){
+		if(userNameTextBox.value=='Username'){
 			userNameTextBox.value='';	
 		} 
 		if (passWordTextBox.value == ''){
@@ -23,7 +23,7 @@
 			passWordTextBox.type = "password";
 		} 
 		if (userNameTextBox.value == ''){
-			userNameTextBox.value = 'Email';
+			userNameTextBox.value = 'Username';
 		}
 	}
 </script>
@@ -35,7 +35,7 @@
 		</form>
 		<div id = "form" class = "centered">
 			<form id = "login-form" method = "post" action="login.php">
-				<input id = "emailTxt" type = "textbox" value = "Email" name = "emailTxt" class = "emailtextbox" onfocus = "ClearEmailOnFocus()">
+				<input id = "emailTxt" type = "textbox" value = "Username" name = "emailTxt" class = "emailtextbox" onfocus = "ClearEmailOnFocus()">
 				<input id = "passTxt" type = "text" value = "Password" name = "passTxt" class = "passtextbox" onfocus = "ClearPassOnFocus()">
 				<input id = "loginbutton" type = "submit" value = "Login" name = "loginBtn">
 			</form>

@@ -153,24 +153,27 @@
 #class-div{
 	position: relative;
 	/*border:solid;*/
+	/*background-color:Black; */
 	top: 50%;
 	left:50%;
 	transform: translate(-50%,-50%);
 	-webkit-transform: translate(-50%,-50%);
 	width: 90%;
 	height: 90%;
+	z-index: -1;
 }
 #output{
 	position: absolute;
-	border:solid;
+	/*border:solid;*/
 	width:200px;
 	top:40px;
 	right:3px;
+	overflow: hidden;
+	font-family: Calibri;
+	font-size: 20px;
+	z-index:1;
 }
-/*#searchresults{
-	position: absolute;
-	right:0px;
-	top: 12S0px;
-	border:solid;
-	width: 245px;
-}*/
+#class-option{
+	border: solid;
+	border-width: thin;
+}

@@ -6,13 +6,12 @@
 <body>
 	<div id = "main">
 		<div id = "logo-mole">
-			<!-- <img id = "logo" src = "Logo.png"> -->
 			<img id = "mole" src = "_assets/Mole.png">
 		</div>
 		<div id = "form-div">
-			<form id = "create-form" method = "post">
+			<form id = "create-form" method = "post" action="Create.php">
 				<div id = "studentnodiv" class = "label">
-					Student No.<input id = "studentno" type = "textbox" placeholder = "Student No." name = "studentno.Text" class = "form-class">
+					Student No.<input id = "studentno" type = "textbox" placeholder = "Student No." name = "studentnoText" class = "form-class">
 				</div>
 				<div id = "firstnamediv" class = "label">
 					First Name<input type = "textbox" placeholder = "First Name" name = "firstnameText" class = "form-class">
@@ -24,18 +23,36 @@
 					Username<input type = "textbox" placeholder = "User Name" name = "usernameText" class = "form-class">
 				</div>
 				<div id = "passworddiv" class = "label">
-					Password<input type = "textbox" placeholder = "Password" name = "passwordText" class = "form-class">
+					Password<input type = "password" placeholder = "Password" name = "passwordText" class = "form-class">
 				</div>
 				<div id = "confirmdiv" class = "label">
-					Confirm<input type = "textbox" placeholder = "Confirm" name = "cornfirmText" class = "form-class">
+					Confirm<input type = "password" placeholder = "Confirm" name = "confirmText" class = "form-class">
 				</div>
 				<div id = "emaildiv" class = "label">
 					Email<input type = "textbox" placeholder = "Email" name = "emailText" class = "form-class">
 				</div>
 				<div id = "schoolcollegediv" class = "label">
-					School/College<input id = "schoolcollegediv" type = "combobox" placeholder = "School/College" name = "school/treasure" class = "form-class">
+					School/College
+					<select id = "schoolcollegediv" placeholder = "School/College" name = "school/college" class = "form-class">
+						<option value="Sci-Tech">Science And Technology</option>
+						<option value="Dent">Dentistry</option>
+						<option value="Med-tech">Medical Technology</option>
+						<option value="Nursing">Nursing</option>
+						<option value="Optometry">Optometry</option>
+						<option value="Pharmacy">Pharmacy</option>
+						<option value="SAM">Accountancy And Management</option>
+						<option value="SELAMS">SELAMS</option>
+						<option value="NHM">Nutrition and Hospitality Management</option>
+					</select>
 				</div>
-					<input id = "create" type = "button" value = "Create" name = "crateComBox">
+				<div id = "positiondiv" class = "label">
+					Position
+					<select id = "positiondiv" placeholder = "Position" name = "position" class = "form-class">
+						<option value="Student">Student</option>
+						<option value="Professor">Professor</option>
+					</select>
+				</div>
+					<input id = "create" type = "submit" value = "Create" name = "crateComBox">
 			</form>
 		</div>	
 	</div>
