@@ -1,0 +1,44 @@
+<html>
+<head>
+<link type = "text/css" rel = "stylesheet" href = "Header-class.css">
+<title></title>
+<script type = "text/javascript">
+	function SearchFocus(){
+		var SearchTextBox = document.getElementById("enrollme");
+		if(SearchTextBox.value=='Search'){
+			SearchTextBox.value='';	
+		} 
+}
+</script>
+</head>
+<body>
+	<div id = "header">
+		<div id = "logo-mole">
+			<img id = "logo" src = "_assets\Logo.png">
+			<img id = "mole" src = "_assets\Mole.png">
+		</div>
+		<div id = "profilepic-div">
+			<img id = "profilepicture" src="_assets\ProfilePicture.png">
+		</div>
+		<form id = "class-form" method = "post">
+			<input id = "class" type = "submit" value = "Class" name = "classBtn">
+			<input id = "profilename" type = "submit" value = "Patricia Dela Rosa" name = "profilenameBtn">
+			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
+		</form>
+	</div>
+	<div id = "mainpage">
+		<div id = "searchbar">
+				<img id = "searchicon" src="_assets\SearchIcon.png">
+			<form>
+				<input id = "enrollme" type = "textbox" value = "Search" name = "searchTxt" onfocus = "SearchFocus()">
+			</form>
+		</div>
+		<p id = "classes">My Classes</p>
+			<form id = "form-div">
+				<p id = "capstone">Capstone</p>
+				<p id = "montero">Montero</p>
+				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
+			</form>
+	</div>
+</body>
+</html>
