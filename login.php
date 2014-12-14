@@ -1,6 +1,5 @@
 <?php
 
-
 include "connect.php";
 // include "CheckDatabase.php";
 // include "CreateDatabase.php";

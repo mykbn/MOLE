@@ -6,6 +6,15 @@ $inputPassword = $_POST['password'];
 $inputConfirmationPassword = $_POST['confirmationpassword'];
 $inputClassDescription = $_POST['classdescription'];
 
+$create_classes =
+"CREATE TABLE IF NOT EXISTS classes
+(
+    ID INT NOT NULL AUTO_INCREMENT,
+    Classes VARCHAR(200) NOT NULL,
+    PRIMARY KEY(id)
+)";
+$create_class = $conn->query($create_classes);
+
 //CREATE DATABASE ENTRY
 $queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`)VALUES (NULL, '$inputClassName')"; ;
 if (mysqli_query($conn, $queryCreateEntry)) {
@@ -13,7 +22,7 @@ if (mysqli_query($conn, $queryCreateEntry)) {
 	    echo "<p>New class created successfully</p>";
 	    echo '<a id="add-classes" href="addclasses.html" align="right">Create a Class</a>';
 	} else {
-	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+	    echo "Error: " . $queryCreateEntry . "<br>" . mysqli_error($conn);
 	}
 
 //CREATE CLASS TABLE

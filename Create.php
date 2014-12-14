@@ -1,6 +1,7 @@
 <?php
 
 include "connect.php";
+
 // execute_query("query", $conn);
 $inputStudNo = $_POST['studentnoText'];
 $inputfName = $_POST['firstnameText'];
