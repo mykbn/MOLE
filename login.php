@@ -37,7 +37,7 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword && $server
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "professor"){
 	readfile("Homepage.html");
 	// echo "<br>";
-	echo '<a id="add-classes" href="addclasses.htm">Create a Class</a>';
+	echo '<a id="add-classes" href="addclasses.html">Create a Class</a>';
 }else{
 	readfile("Login.html");
 	echo '<p id="invalid"> Invalid Login </p>';
