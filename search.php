@@ -2,20 +2,28 @@
 
 include "connect.php";
 
-$queryClasses = "SELECT Classes FROM classes";
-
-
-// run query
-$query = mysqli_query($conn, $queryClasses)
+$output = '';
+//COLLECT
+if(isset($_POST['searchVal'])){
+	$searchq = $_POST['searchVal'];
+	$query =  "SELECT `Classes` FROM classes WHERE `Classes` LIKE '%$searchq%'";
+	$result = mysqli_query($conn, $query)
 		or die("Error: ".mysqli_error($conn));
 
-// set array
-$array = array();
+	$count = mysqli_num_rows($result);
 
-// look through query
-while($row = mysqli_fetch_assoc($query)){
-  $array[] = $row;
-  echo $row['Classes']. "<br>"; 
+	if($count == 0){
+		$output = 'There was no search results';
+	}else{
+		while($row = mysqli_fetch_array($result)){
+			$classes = $row['Classes'];
+
+			$output .= '<div> '.$classes.'</div>';
+		}
+	}
+
 }
+echo ($output);
+
 
 ?>

@@ -1,16 +1,17 @@
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "Homepage.css">
-<title></title>
+<title>Home</title>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript">
-	function SearchFocus(){
-		var SearchTextBox = document.getElementById("enrollme");
-		if(SearchTextBox.value=='Search'){
-			SearchTextBox.value='';	
-		} 
-
-		
-}
+	function searchq(){
+	var searchform = document.getElementById("searchform");
+	searchform.setAttribute("autocomplete", "off");
+	var searchTxt = $("input[name='searchTxt']").val();
+		$.post("search.php", {searchVal: searchTxt}, function(output){
+			$("#output").html(output);
+		});
+	}
 </script>
 </head>
 <body>
@@ -31,10 +32,16 @@
 	<div id = "mainpage">
 		<div id = "searchbar">
 				<img id = "searchicon" src="_assets\SearchIcon.png">
-			<form>
-				<input id = "enrollme" type = "textbox" value = "Search" name = "searchTxt" onfocus = "SearchFocus()">
-			</form>
+				<form method="post" action="Homepage.html" id="searchform">
+					<!-- <input type="submit" value="Search" name="search"> -->
+					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown="searchq();">	
+					<div id="output">
+
+					</div>				
+				</form>
+				
 		</div>
+
 		<div id = "class-div">
 		</div>
 	</div>

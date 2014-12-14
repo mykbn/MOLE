@@ -1,14 +1,14 @@
-$ ('#enrollme').keyup(function()
+$('#enrollme').keyup(function()
 {
 	var searchterm = $('#search').val();
 
 	if(searchterm!=''){
-		$.post('search.php', {searchterm:searchterm},
-		function(data)
+		$.post('search.php', {searchTxt:searchTxt},
+		function(data)	
 		{
 			$('#searchresults').html(data);
 		});
 	}else{
-		$('')
+		$('#searchresults').html('');
 	}
 });
