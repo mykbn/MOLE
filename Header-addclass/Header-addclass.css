@@ -1,4 +1,3 @@
-/*HEADER*/
 #main{
 	border: solid;
 	width: 100%;
@@ -94,7 +93,6 @@
 	top: 50px;
 	left: 0px;
 }
-/*SEARCH*/
 #searchbar{
 	position: relative;
 	height: 37px;
@@ -121,6 +119,8 @@
 	left: 2px;
 	height: 30px;
 	width: 30px;
+
+
 }
 #enrollme{
 	position: relative;
@@ -150,103 +150,30 @@
 	transform: translate(0%, 101%);
 	-webkit-transform: translate(0%, 101%);
 }
-#classes{
+#class-div{
 	position: relative;
-	top: -50px;
-	/*border: solid;*/
-	width: 200px;
-	padding-left: 10px;
-	font-size: 25px;
-	font-family: Calibri;
-	font-weight: 3px;
-        
+	/*border:solid;*/
+	/*background-color:Black; */
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	width: 90%;
+	height: 90%;
+	z-index: -1;
 }
-#cards{
-	position: relative;
-	top: -78px;
-	height: 120px;
-	width: 300px;
-	border: none;
-	border-radius: 5px;
-	background-color: rgba(0,0,0,0);
-}
-#form-div{
-	position: relative;
-	height: 120px;
-	width: 300px;
-	top: -60px;
-	left: 30px;
-	/*border: solid;*/
-	border: none;
-	border-radius: 5px;
-	background-color: fec4cd;
-	
-}
-#capstone{
-	position: relative;
-	top: 8px;
-	left: 8px;
-	font-size: 20px;
-	font-family: Calibri;
-}
-
-#montero{
-	position: relative;
-	top: -15px;
-	left: 9px;
-	font-size: 15px;
-	font-family: Calibri;
-}
-#dropdowndiv{
-	position: relative;
-	display: block;
-	z-index: 1;
-	top: -42px;
-	left: 5px;
-	height: 750%;
-	width: 20%;
-	/*border:solid .9px;*/
-	border-radius: 5px;
-	background-color: white;
-	box-shadow: 3px 3px 3px gray;
-}
-#createclass{
-	position: relative;
-	height: 38px;
-	width: 263px;
-	top: 6px;
-	left: 5px;
-	border-radius: 3px;
-	border: none;
-	background-color: ef4d4a;
+#output{
+	position: absolute;
+	/*border:solid;*/
+	width:200px;
+	top:40px;
+	right:3px;
+	overflow: hidden;
 	font-family: Calibri;
 	font-size: 20px;
-	color: white;
+	z-index:1;
 }
-#creatediv{
-	position: relative;
-	display: block;
-	z-index: 1;
-	top: -415px;
-	left: 285px;
-	height: 750%;
-	width: 20%;
-	/*border:solid .9px;*/
-	border-radius: 5px;
-	background-color: white;
-	box-shadow: 3px 3px 3px gray;
-}
-.create-form{
-	position: relative;
-	height: 38px;
-	width: 263px;
-	top: 6px;
-	left: 5px;
-	border-radius: 3px;
-	border: none;
-	background-color: fbbcab;
-	font-family: Calibri;
-	font-size: 20px;
-	color: white;
-	padding-left: 4px;
+#class-option{
+	border: solid;
+	border-width: thin;
 }
