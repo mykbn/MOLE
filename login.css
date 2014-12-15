@@ -1,17 +1,21 @@
+body{
+	overflow: hidden;
+}
 /*ID's*/
-
 #main{
-	/*position: absolute;*/
+	position: absolute;
 	/*border: solid;*/
-	width: 100%;
+	width: 99%;
 	height: 95%;
 	min-width: 900px;
 	/*min-height: 100px;*/
 }
 #logo{
+	
 	/*border: solid;*/
 	position: relative;
 	height: 30%;
+	
 	/*width: 25%;*/
 }
 #form{
@@ -52,13 +56,19 @@
 }
 #invalid{
 	/*border: solid;*/
-	position: relative;
+	overflow:hidden;
+	border-radius: 5px;
+	padding: 5px 15px;
+	background: rgba(0,0,0, 0.1);
+	position: absolute;
 	text-align: center;
 	font-family: Calibri;
 	font-size: 15px;
-	color: red;
-	bottom: 0px;
+	color: rgba(255,0,0, 1);
+	bottom: 10px;
 	left: 50%;
+	vertical-align: bottom;
+	-moz-animation:    invalid 0.3s; 
 	transform: translate(-50%, 0%);
   	-webkit-transform: translate(-50%, 0%);
 }
@@ -73,13 +83,16 @@
 	-webkit- transform: translate(-50%,-50%);
 }
 .centered-image{
+	-webkit-animation: fadeIn 2s; 
+	-moz-animation:    fadeIn 2s; 
+	-o-animation:      fadeIn 2s; 
+	animation:         fadeIn 2s;
 	position: relative;
 	top: 40%;
 	left: 50%;
 	width:300px;
 	transform: translate(-50%,-50%);
 	-webkit- transform: translate(-50%,-50%);
-	/*z-index: 1;	*/
 }
 .emailtextbox{
 	border: solid 1px;
@@ -115,4 +128,34 @@
 	padding-left: 7px;
 	transform: translate(-50%, 0%);
 	-webkit- transform: translate(-50%, 0%);
+}
+
+/*ANIMATIONS*/
+
+/*FADE IN*/
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/*POSITION*/
+@-webkit-keyframes invalid {
+    from {bottom: -50px;}
+    to {bottom: 10px;}
+}
+@-moz-keyframes invalid {
+    from {bottom: -50px;}
+    to {bottom: 10px;}
+}
+@keyframes invalid {
+    from {bottom: -50px;}
+    to {bottom: 10px;}
 }

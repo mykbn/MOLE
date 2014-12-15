@@ -13,23 +13,43 @@
 			});
 		var listbox = document.getElementById("output");
 		var searchbox = document.getElementById("enrollme");
+
 		if(searchbox.value == "Search"){
 			listbox.style.display = 'none';
 		}else{
 			listbox.style.display = 'block';
 		}
 	}
+	//HIDE SEARCH RESULTS
 	function Hide(){
 		var listbox = document.getElementById("output");
 		listbox.style.display = 'none';
 	}
+	//SHOW SEARCH RESULTS
 	function Show(){
 		var listbox = document.getElementById("output");
 		listbox.style.display = 'block';
 	}
+	//TOGGLE CREATE CLASS DIV
+	function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block'){
+          e.style.display = 'none';
+      }else{
+          e.style.display = 'block';
+      }
+   }
+   //GET FIRST AND LAST NAME FROM DATABASE
+   function FirstLastName(){
+   		var firstName = <?php Print($someVar); ?>;
+   		var profileName = document.getElementById("profilename");
+   		alert(firstName);
+   		profileName.value = firstName;
+   }
 </script>
 </head>
 <body>
+<div id="main">
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
 			<img id = "logo" src = "_assets/Logo.png">
@@ -38,31 +58,35 @@
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/ProfilePicture.png">
 		</div>
+		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
+		<input id = "profilename" type = "submit" value = "Patricia Dela Rosa" name = "profilenameBtn" onclick="FirstLastName()">
 		<form id = "class-form" method = "post">
-			<input id = "class" type = "submit" value = "Class" name = "classBtn">
-			<input id = "profilename" type = "submit" value = "Patricia Dela Rosa" name = "profilenameBtn">
+			
 			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
 		</form>
+		<div id = "dropdowndiv" name = "dropdowndiv" >
+		</div>
 	</div>
 	<div id = "mainpage">
 		<div id = "searchbar">
 				<img id = "searchicon" src="_assets/SearchIcon.png">
 				<form method="post" action="Homepage.html" id="searchform">
-					<!-- <input type="submit" value="Search" name="search"> -->
 					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown="searchq();">	
-					<!-- <div id="output">
-
-					</div>	 -->	
 					<select id="output" size="5" style="display:none">
-
 					</select>		
 				</form>
 				
 		</div>
-
+		<p id = "classes">My Classes</p>
+			<form id = "form-div">
+				<p id = "capstone">Capstone</p>
+				<p id = "montero">	Montero</p>
+				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
+			</form>
 		<div id = "class-div">
 		</div>
 
 	</div>
+</div>
 </body>
 </html>

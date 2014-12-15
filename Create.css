@@ -1,7 +1,13 @@
+body{
+	overflow:hidden;
+}
+/*ID's*/
 #main{
 	/*border: solid;*/
-	width: 100%;
-	height: 100%;
+	position: absolute;
+	width: 99%;
+	height: 99%;
+	overflow: hidden;
 	min-width: 900px;
 }
 #form-div{
@@ -53,6 +59,27 @@
 	color: white;
 	
 }
+
+
+/*CLASS*/
+.invalid{
+	/*border: solid;*/
+	overflow:hidden;
+	border-radius: 5px;
+	padding: 5px 15px;
+	background: rgba(0,0,0, 0.1);
+	position: absolute;
+	text-align: center;
+	font-family: Calibri;
+	font-size: 15px;
+	color: rgba(255,0,0, 1);
+	bottom: 10px;
+	left: 50%;
+	vertical-align: bottom;
+	-moz-animation:    invalid 0.3s; 
+	transform: translate(-50%, 0%);
+  	-webkit-transform: translate(-50%, 0%);
+}
 .form-class{
 	position: relative;
 	border: solid 1px;
@@ -85,3 +112,32 @@
 	padding-left: 7px; 
 }
 
+/*ANIMATIONS*/
+
+/*FADE IN*/
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-moz-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/*POSITION*/
+@-webkit-keyframes invalid {
+    from {bottom: -50px;}
+    to {bottom: 10px;}
+}
+@-moz-keyframes invalid {
+    from {bottom: -50px;}
+    to {bottom: 10px;}
+}
+@keyframes invalid {
+    from {bottom: -50px;}
+    to {bottom: 10px;}
+}

@@ -22,18 +22,18 @@ $serverUser = $rowUser["Username"];
 
 //Username already taken
 if($inputUsername == $serverUser && $inputPassword == $inputConfirm){
-	readfile("signup.htm");
-	echo '<p class="invalid">Username Already Taken</p>';
+	readfile("Create.html");
+	echo '<label class="invalid">Username Already Taken</label>';
 }
 
 //Check if password fields are equal
 else if($inputPassword != $inputConfirm && $inputUsername != $serverUser){
-	readfile("signup.htm");
-	echo '<p class="invalid">Passwords do not match</p>';
+	readfile("Create.html");
+	echo '<label class="invalid">Passwords do not match</label>';
 }
 
 else if($inputUsername == $serverUser && $inputPassword != $inputConfirm){
-	readfile("signup.htm");
+	readfile("Create.html");
 	echo '<p class="invalid">Username Already Taken</p>';
 	echo '<br/><p class="invalid">Passwords do not match</p>';
 }

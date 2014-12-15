@@ -7,7 +7,17 @@ include "connect.php";
 $inputUsername = $_POST['emailTxt'];
 $inputPassword = $_POST['passTxt'];
 
-
+//GET FIRSTNAME AND LASTNAME FOR HOMEPAGE
+$queryFirstLast = "SELECT Firstname, Lastname FROM users WHERE '$inputUsername' = Username";
+$resultFirstLast = mysqli_query($conn, $queryFirstLast)
+	or die ("Error: ".mysqli_error($conn));
+$rowFirstLast = mysqli_fetch_array($resultFirstLast);
+// $serverFirstLast = $rowFirstLast["Firstname"]["Lastname"];
+// Print ($rowFirstLast[0]);
+// Print ($rowFirstLast[1]);
+// foreach ($rowFirstLast as $item) {
+//     var_dump($item);
+// }
 //Username
 $queryUsername = "SELECT * FROM users WHERE '$inputUsername' = Username";
 $resultUsername = mysqli_query($conn,$queryUsername)
@@ -39,7 +49,7 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword && $server
 	echo '<a id="add-classes" href="addclasses.html">Create a Class</a>';
 }else{
 	readfile("Login.html");
-	echo '<p id="invalid"> Invalid Login </p>';
+	echo '<label id="invalid"> Invalid Login </label>';
 }
 
 
