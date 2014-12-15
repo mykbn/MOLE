@@ -9,10 +9,6 @@
 			SearchTextBox.value='';	
 		}
 	}
-	function ShowDropDown(){
-		var ButtonClick = document.getElementById("dropdowndiv");
-		ButtonClick.setAttribute = ("display", "inline-block");
-}
  function toggle_visibility(id) {
        var e = document.getElementById(id);
        if(e.style.display == 'block'){
@@ -32,12 +28,12 @@
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets\ProfilePicture.png">
 		</div>
-		<form id = "class-form" method = "post">
 			<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
+		<form id = "class-form" method = "post">
 			<input id = "profilename" type = "submit" value = "Patricia Dela Rosa" name = "profilenameBtn">
 			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
 		</form>
-		<div id = "dropdowndiv" display="none" name = "dropdowndiv" >
+		<div id = "dropdowndiv" name = "dropdowndiv" >
 		</div>
 	</div>
 	<div id = "mainpage">
