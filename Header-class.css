@@ -199,7 +199,7 @@
 }
 #dropdowndiv{
 	position: relative;
-	display: block;
+	display: none;
 	z-index: 1;
 	top: -42px;
 	left: 5px;
@@ -225,28 +225,71 @@
 }
 #creatediv{
 	position: relative;
-	display: block;
+	display: none;
 	z-index: 1;
 	top: -415px;
 	left: 285px;
-	height: 750%;
+	height: 622%;
 	width: 20%;
-	/*border:solid .9px;*/
+	/*border:solid 1px;*/
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
+	-webkit-animation: myfirst 5s; /* Chrome, Safari, Opera */
+    animation: myfirst 5s;
+}
+	/* Chrome, Safari, Opera */
+@-webkit-keyframes myfirst {
+   from {-42px: 5px;}
+    to {-415px: 285px;}
+}
+/* Standard syntax */
+@keyframes myfirst {
+   from {-42px: 5px;}
+    to {-415px: 285px;}
 }
 .create-form{
 	position: relative;
-	height: 38px;
-	width: 263px;
-	top: 6px;
-	left: 5px;
+	height: 33px;
+	width: 253px;
+	top: 2px;
+	margin-top: 8px;
+	left: 10px;
 	border-radius: 3px;
 	border: none;
 	background-color: fbbcab;
 	font-family: Calibri;
+	font-size: 17px;
+	color: 272727;
+	padding-left: 5px;
+}
+#classdescription{
+	position: relative;
+	height: 120px;
+	width: 253px;
+	top: 2px;
+	margin-top: 8px;
+	left: 10px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	font-family: Calibri;
+	font-size: 17px;
+	color: 272727;
+	padding-left: 5px;
+	resize: none;
+}
+.create-cancel{
+	position: relative;
+	height: 38px;
+	width: 122px;
+	top: -4px;
+	left: 5px;
+	margin-left: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
+	font-family: Calibri;
 	font-size: 20px;
 	color: white;
-	padding-left: 4px;
 }
