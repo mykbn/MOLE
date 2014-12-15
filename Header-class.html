@@ -7,8 +7,20 @@
 		var SearchTextBox = document.getElementById("enrollme");
 		if(SearchTextBox.value=='Search'){
 			SearchTextBox.value='';	
-		} 
+		}
+	}
+	function ShowDropDown(){
+		var ButtonClick = document.getElementById("dropdowndiv");
+		ButtonClick.setAttribute = ("display", "inline-block");
 }
+ function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block'){
+          e.style.display = 'none';
+      }else{
+          e.style.display = 'block';
+      }
+   }
 </script>
 </head>
 <body>
@@ -21,10 +33,12 @@
 			<img id = "profilepicture" src="_assets\ProfilePicture.png">
 		</div>
 		<form id = "class-form" method = "post">
-			<input id = "class" type = "submit" value = "Class" name = "classBtn">
+			<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
 			<input id = "profilename" type = "submit" value = "Patricia Dela Rosa" name = "profilenameBtn">
 			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
 		</form>
+		<div id = "dropdowndiv" display="none" name = "dropdowndiv" >
+		</div>
 	</div>
 	<div id = "mainpage">
 		<div id = "searchbar">
@@ -36,7 +50,7 @@
 		<p id = "classes">My Classes</p>
 			<form id = "form-div">
 				<p id = "capstone">Capstone</p>
-				<p id = "montero">Montero</p>
+				<p id = "montero">	Montero</p>
 				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
 			</form>
 	</div>

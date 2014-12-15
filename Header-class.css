@@ -150,33 +150,6 @@
 	transform: translate(0%, 101%);
 	-webkit-transform: translate(0%, 101%);
 }
-/*#classes-div{
-	position: relative;
-	border:solid;
-	top: 50%;
-	left:50%;
-	transform: translate(-50%,-56%);
-	-webkit-transform: translate(-50%,-56%);
-	width: 99.5%;
-	height: 100%;
-}*/
-/*#cards{
-	position: relative;
-	border: solid;
-	top: 0px;
-	left: 30px;
-	height: 120px;
-	width: 300px;
-	border: none;
-	border-radius: 5px;
-	background-color: fec4cd;
-	font-size: 20px;
-	font-family: Calibri;
-	color: 282828;
-	text-align: left;
-	text-indent: 5px;
-	text-align: top;
-}*/
 #classes{
 	position: relative;
 	top: -50px;
@@ -223,4 +196,16 @@
 	left: 9px;
 	font-size: 15px;
 	font-family: Calibri;
+}
+#dropdowndiv{
+	position: relative;
+	z-index: 1;
+	top: -42px;
+	left: 5px;
+	height: 750%;
+	width: 20%;
+	/*border:solid;*/
+	border-radius: 5px;
+	background-color: e8e8e8;
+	box-shadow: 3px 3px 3px gray;
 }
