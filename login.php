@@ -13,8 +13,8 @@ $resultFirstLast = mysqli_query($conn, $queryFirstLast)
 	or die ("Error: ".mysqli_error($conn));
 $rowFirstLast = mysqli_fetch_array($resultFirstLast);
 // $serverFirstLast = $rowFirstLast["Firstname"]["Lastname"];
-// Print ($rowFirstLast[0]);
-// Print ($rowFirstLast[1]);
+Print ($rowFirstLast[0]);
+Print ($rowFirstLast[1]);
 // foreach ($rowFirstLast as $item) {
 //     var_dump($item);
 // }

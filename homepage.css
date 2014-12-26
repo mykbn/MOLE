@@ -188,9 +188,9 @@
 	left: 5px;
 	height: 750%;
 	width: 20%;
-	/*border:solid;*/
+	/*border:solid .9px;*/
 	border-radius: 5px;
-	background-color: #e8e8e8;
+	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 }
 
