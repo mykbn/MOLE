@@ -188,10 +188,38 @@
 	left: 5px;
 	height: 750%;
 	width: 20%;
-	/*border:solid .9px;*/
+	/*border:solid 1px;*/
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
+}
+#creatediv{
+	position: relative;
+	display: none;
+	z-index: 1;
+	top: -415px;
+	left: 285px;
+	height: 622%;
+	width: 20%;
+	/*border:solid 1px;*/
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+	-webkit-animation: myfirst 5s;  Chrome, Safari, Opera 
+    animation: myfirst 5s;
+}
+#createclass{
+	position: relative;
+	height: 38px;
+	width: 263px;
+	top: 6px;
+	left: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: ef4d4a;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
 }
 
 /*//FOR PERUSAL*/

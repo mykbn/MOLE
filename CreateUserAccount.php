@@ -22,18 +22,18 @@ $serverUser = $rowUser["Username"];
 
 //Username already taken
 if($inputUsername == $serverUser && $inputPassword == $inputConfirm){
-	readfile("Create.html");
+	readfile("CreateUserAccount.html");
 	echo '<label class="invalid">Username Already Taken</label>';
 }
 
 //Check if password fields are equal
 else if($inputPassword != $inputConfirm && $inputUsername != $serverUser){
-	readfile("Create.html");
+	readfile("CreateUserAccount.html");
 	echo '<label class="invalid">Passwords do not match</label>';
 }
 
 else if($inputUsername == $serverUser && $inputPassword != $inputConfirm){
-	readfile("Create.html");
+	readfile("CreateUserAccount.html");
 	echo '<p class="invalid">Username Already Taken</p>';
 	echo '<br/><p class="invalid">Passwords do not match</p>';
 }
@@ -42,7 +42,7 @@ else{
 	$sql = "INSERT INTO users (`ID`, `Student No.`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, `School_College`, `Position`)
 			VALUES (NULL, '$inputStudNo', '$inputfName', '$inputlName', '$inputUsername', '$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition')";
 	if (mysqli_query($conn, $sql)) {
-		readfile("Login.html");
+		readfile("Index.html");
 	    echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
 	} else {
 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);

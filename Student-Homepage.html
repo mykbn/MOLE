@@ -76,7 +76,8 @@
 			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
 		</form>
 
-		<div id = "dropdowndiv">
+		<!-- REMOVED THIS BECAUSE THIS PAGE IS FOR STUDENTS, FIND SUITABLE REPLACEMENT -->
+		<!-- <div id = "dropdowndiv">
 			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
 		</div>
@@ -85,7 +86,7 @@
 		</div>
 
 		<div id = "creatediv">
-			<form id="create-class-form" method="post" action="CreateClasses.php">
+			<form id="create-class-form" method="post" action="addclasses.php">
 	            <p class="Class Name">
 	            	<label for="classname">Class Name</label>  
 	                <input type="text" name="classname" id="classname" /> 
@@ -106,10 +107,9 @@
 	                <input type="submit" value="Create" /> 
 	            </p> 
 			</form>
-			<!-- <input id = "create-class" class = "create-cancel" type = "submit" value = "Create"> -->
+			<input id = "create-class" class = "create-cancel" type = "submit" value = "Create">
 			<input id = "cancel-class" class = "create-cancel" type = "submit" value = "Cancel" onclick = "CreateCancel('creatediv')">
-		</div>
-
+		</div>-->
 	</div>
 
 	<div id = "mainpage">
