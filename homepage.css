@@ -176,9 +176,13 @@
 	font-size: 20px;
 	z-index:1;
 }
-#class-option{
-	border: solid;
-	border-width: thin;
+.class-option:hover{
+	background-color: rgb(51, 153, 255); 
+}
+.class-option{
+	/*border: solid;*/
+	/*border-width: thin;*/
+	/*background: red;*/
 }
 #dropdowndiv{
 	position: relative;

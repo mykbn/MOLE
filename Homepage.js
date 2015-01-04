@@ -16,6 +16,10 @@
 			listbox.style.display = 'block';
 		}
 	}
+	function GetValue(value){
+		alert (value);
+		// this.style.background = 'blue';
+	}
 	//HIDE SEARCH RESULTS
 	function Hide(){
 		var listbox = document.getElementById("output");
@@ -26,8 +30,9 @@
 		var listbox = document.getElementById("output");
 		listbox.style.display = 'block';
 	}
-	//TOGGLE CREATE CLASS DIV
+	//TOGGLE DIV VISIBILITY
 	function toggle_visibility(id) {
+		// alert ("LABAS!");
        var e = document.getElementById(id);
        if(e.style.display == 'block'){
           e.style.display = 'none';
@@ -35,24 +40,11 @@
           e.style.display = 'block';
       }
    }
-   //GET FIRST AND LAST NAME FROM DATABASE
-   function FirstLastName(){
-	   	alert("lalalalala");
-   		var firstName = <?php Print($someVar); ?>;
-   		var profileName = document.getElementById("profilename");
-   		alert(firstName);
-   		profileName.value = firstName;
-   }
-
-   function createclass(id){
-		var s = document.getElementById(id);
-		if(s.style.display == 'block'){
-			s.style.display = 'none';
-		}else{
-			s.style.display = 'block';
-		}
-	}
-	function CreateCancel(id){
-		var s = document.getElementById(id);
-			s.style.display = 'none';
-	}
+   // //GET FIRST AND LAST NAME FROM DATABASE
+   // function FirstLastName(){
+	  //  	alert("lalalalala");
+   // 		// var firstName = <?php Print($someVar); ?>;
+   // 		// var profileName = document.getElementById("profilename");
+   // 		// alert(firstName);
+   // 		// profileName.value = firstName;
+   // }

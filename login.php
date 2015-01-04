@@ -42,13 +42,15 @@ $serverPosition = $rowPosition["Position"];
 //Check if login credentials are correct
 if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Student"){
 	// echo "<br/>Correct Credentials!";
-	header("Location: Student-Homepage.html");
+	readfile("Student-Homepage.html");
+	echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Professor"){
-	header("Location: Homepage.html");
+	readfile("Homepage.html");
+	echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 	// echo "<br>";
 	// echo '<a id="add-classes" href="addclasses.html">Create a Class</a>';
 }else{
-	readfile("Login.html");
+	readfile("index.html");
 	echo '<label id="invalid"> Invalid Login </label>';
 }
 

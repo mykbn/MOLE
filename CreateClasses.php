@@ -20,7 +20,7 @@ $queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`)VALUES (NULL, '$inputC
 if (mysqli_query($conn, $queryCreateEntry)) {
 		readfile("Homepage.html");
 	    echo "<p>New class created successfully</p>";
-	    echo '<a id="add-classes" href="addclasses.html" align="right">Create a Class</a>';
+	    // echo '<a id="add-classes" href="addclasses.html" align="right">Create a Class</a>';
 	} else {
 	    echo "Error: " . $queryCreateEntry . "<br>" . mysqli_error($conn);
 	}
