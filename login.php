@@ -40,7 +40,7 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword && $server
 	readfile("Student-Homepage.html");
 	// echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Professor"){
-	readfile("Homepage.html");
+	header("Location:Homepage.html?user=$inputUsername");
 	// echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else{
 	readfile("index.html");

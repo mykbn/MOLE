@@ -1,3 +1,4 @@
+<?php
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "Homepage.css">
@@ -68,3 +69,4 @@
 </div>
 </body>
 </html>
+?>
