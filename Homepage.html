@@ -33,39 +33,29 @@
 		<div id = "dropdowndiv" name = "dropdowndiv" >
 		</div>
 
+		<div id = "dropdowndiv">
+			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" onclick = "createclass('creatediv')">
+		</div>
+
 		<div id = "creatediv">
-			<form id="create-class-form" method="post" action="CreateClasses.php">
-	            <p class="Class Name">
-	            	<label for="classname">Class Name</label>  
-	                <input type="text" name="classname" id="classname" /> 
-	        	</p>
-	        	<p class="Password">
-	        		<label for="password">Password</label>
-	        		<input type="password" name="password" id="password" />
-	        	</p>
-	        	<p class="ConfirmationPassword">
-	        		<label for="password">Password Confirmation</label>
-	        		<input type="password" name="confirmationpassword" id="confirmationpassword" />
-	        	</p>	 
-	            <p class="Class Description">
-	            	<label for="classdescription">Class Description: </label>   
-	                <textarea name="classdescription" id="classdescription"></textarea> 
-	            </p> 
-	            <p class="submit"> 
-	                <input type="submit" value="Create" /> 
-	            </p> 
+			<form id = "create-class-form" method = "post" action = "CreateClasses.php">
+	                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
+	        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
+	        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
+	                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
+	                <input class = "create-cancel" type = "submit" value = "Create"> 
+	                <input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
-			<input id = "cancel-class" class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 		</div>
 
 	</div>
 
 	<div id = "mainpage">
 		<div id = "searchbar">
-				<img id = "searchicon" src="_assets/SearchIcon.png">
-				<form method="post" action="Homepage.html" id="searchform">
-					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown="searchq()">	
-					<select id="output" size="5" style="display:none" name="output">
+				<img id = "searchicon" src = "_assets/SearchIcon.png">
+				<form method ="post" action = "Homepage.html" id = "searchform">
+					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
+					<select id ="output" size = "5" style = "display:none" name = "output">
 					</select>		
 				</form>	
 		</div>

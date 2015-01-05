@@ -187,30 +187,15 @@
 #dropdowndiv{
 	position: relative;
 	display: none;
-	z-index: 1;
+	z-index: 2;
 	top: -42px;
 	left: 5px;
 	height: 750%;
-	width: 20%;
-	/*border:solid 1px;*/
+	width: 20.3%;
+	/*border:solid .9px;*/
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
-}
-#creatediv{
-	position: relative;
-	display: none;
-	z-index: 1;
-	top: -415px;
-	left: 285px;
-	height: 622%;
-	width: 20%;
-	/*border:solid 1px;*/
-	border-radius: 5px;
-	background-color: white;
-	box-shadow: 3px 3px 3px gray;
-	-webkit-animation: myfirst 5s;  Chrome, Safari, Opera 
-    animation: myfirst 5s;
 }
 #createclass{
 	position: relative;
@@ -221,6 +206,79 @@
 	border-radius: 3px;
 	border: none;
 	background-color: ef4d4a;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+}
+#creatediv{
+	position: relative;
+	display: none;
+	z-index: 1;
+	top: -415px;
+	left: 285px;
+	height: 622%;
+	width: 20.2%;
+/*	border:solid 1px;
+*/	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+	-webkit-animation: creatediv 1s; /* Chrome, Safari, Opera */
+	-moz-animation: creatediv 1s; 
+	-o-animation: creatediv 1s; 
+	animation: creatediv 1s;
+}
+	/* Chrome, Safari, Opera */
+@-webkit-keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+/* Standard syntax */
+@keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+.form-textbox{
+	position: relative;
+	height: 33px;
+	width: 253px;
+	top: 2px;
+	margin-top: 8px;
+	left: 10px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	font-family: Calibri;
+	font-size: 17px;
+	color: 272727;
+	padding-left: 5px;
+}
+#classdescription{
+	position: relative;
+	height: 120px;
+	width: 253px;
+	top: 2px;
+	margin-top: 8px;
+	left: 10px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	font-family: Calibri;
+	font-size: 17px;
+	color: 272727;
+	padding-left: 5px;
+	/*padding-top: 6px;*/
+	resize: none;
+}
+.create-cancel{
+	position: relative;
+	height: 38px;
+	width: 122px;
+	top: 11px;
+	left: 5px;
+	margin-left: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
 	font-family: Calibri;
 	font-size: 20px;
 	color: white;
