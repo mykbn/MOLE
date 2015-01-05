@@ -12,12 +12,7 @@ $queryFirstLast = "SELECT Firstname, Lastname FROM users WHERE '$inputUsername' 
 $resultFirstLast = mysqli_query($conn, $queryFirstLast)
 	or die ("Error: ".mysqli_error($conn));
 $rowFirstLast = mysqli_fetch_array($resultFirstLast);
-// $serverFirstLast = $rowFirstLast["Firstname"]["Lastname"];
-Print ($rowFirstLast[0]);
-Print ($rowFirstLast[1]);
-// foreach ($rowFirstLast as $item) {
-//     var_dump($item);
-// }
+
 //Username
 $queryUsername = "SELECT * FROM users WHERE '$inputUsername' = Username";
 $resultUsername = mysqli_query($conn,$queryUsername)
@@ -43,12 +38,10 @@ $serverPosition = $rowPosition["Position"];
 if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Student"){
 	// echo "<br/>Correct Credentials!";
 	readfile("Student-Homepage.html");
-	echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
+	// echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Professor"){
 	readfile("Homepage.html");
-	echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
-	// echo "<br>";
-	// echo '<a id="add-classes" href="addclasses.html">Create a Class</a>';
+	// echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else{
 	readfile("index.html");
 	echo '<label id="invalid"> Invalid Login </label>';

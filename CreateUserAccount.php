@@ -39,45 +39,47 @@ else if($inputUsername == $serverUser && $inputPassword != $inputConfirm){
 }
 
 else{
-	$create_user_table =
-		"CREATE TABLE IF NOT EXISTS `$inputUsername` 
-		(
-			ID INT NOT NULL AUTO_INCREMENT,
-		    Student_No VARCHAR(10) NOT NULL,
-		    Firstname TEXT(50) NOT NULL,
-		    Lastname TEXT(50) NOT NULL,
-		    Email VARCHAR(50) NOT NULL,
-		    School_College TEXT(50) NOT NULL,
-		    Position TEXT(50) NOT NULL,
-		    Classes_Enrolled VARCHAR (50),
-		    PRIMARY KEY(id)
-		)";
-		$create_tbl = $conn->query($create_user_table);
-	if (mysqli_query($conn, $create_user_table)) {
-		$insert_to_users = "INSERT INTO users (`ID`, `Student No.`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, `School_College`, `Position`)
-			VALUES (NULL, '$inputStudNo', '$inputfName', '$inputlName', '$inputUsername', '$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition')";
+	// $create_user_table =
+	// 	"CREATE TABLE IF NOT EXISTS `$inputUsername` 
+	// 	(
+	// 		ID INT NOT NULL AUTO_INCREMENT,
+	// 	    Student_No VARCHAR(10) NOT NULL,
+	// 	    Firstname TEXT(50) NOT NULL,
+	// 	    Lastname TEXT(50) NOT NULL,
+	// 	    Email VARCHAR(50) NOT NULL,
+	// 	    School_College TEXT(50) NOT NULL,
+	// 	    Position TEXT(50) NOT NULL,
+	// 	    Classes_Enrolled VARCHAR (50),
+	// 	    PRIMARY KEY(id)
+	// 	)";
+	// 	$create_tbl = $conn->query($create_user_table);
+	// if (mysqli_query($conn, $create_user_table)) {
+		$insert_to_users = "INSERT INTO users (`Student_No`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, `School_College`, `Position`)
+			VALUES ('$inputStudNo', '$inputfName', '$inputlName', '$inputUsername', '$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition')";
 		
 		if (mysqli_query($conn, $insert_to_users)) {
-			$insert_to_new_table = "INSERT INTO `$inputUsername` (`ID`, `Student_No`, `Firstname`, `Lastname`, `Email`, `School_College`, `Position`, `Classes_Enrolled`)
-			VALUES (NULL, '$inputStudNo', '$inputfName', '$inputlName', '$inputEmail', '$inputSchoolCollege', '$inputPosition', NULL)";
-			
-			if (mysqli_query($conn, $insert_to_new_table)) {
-				readfile("Index.html");
-			    echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
+			// $insert_to_new_table = "INSERT INTO `$inputUsername` (`ID`, `Student_No`, `Firstname`, `Lastname`, `Email`, `School_College`, `Position`, `Classes_Enrolled`)
+			// VALUES (NULL, '$inputStudNo', '$inputfName', '$inputlName', '$inputEmail', '$inputSchoolCollege', '$inputPosition', NULL)";
+			readfile("Index.html");
+			echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
+			// if (mysqli_query($conn, $insert_to_new_table)) {
+			// 	readfile("Index.html");
+			//     echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
 			}else {
 			    echo "Error: " . $insert_to_users . "<br>" . mysqli_error($conn);
 			}
 
-		} else {
-		    echo "Error: " . $insert_to_users . "<br>" . mysqli_error($conn);
-		}
+		} 
+		// else {
+		//     echo "Error: " . $insert_to_users . "<br>" . mysqli_error($conn);
+		// }
 
-	}else {
-	    echo "Error: " . $create_tbl . "<br>" . mysqli_error($conn);
-	}
+	// }else {
+	//     echo "Error: " . $create_tbl . "<br>" . mysqli_error($conn);
+	// }
 
 	
-}
+// }
 mysqli_close($conn);
 
 ?>

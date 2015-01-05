@@ -4,8 +4,8 @@
 		var searchform = document.getElementById("searchform");
 		searchform.setAttribute("autocomplete", "off");
 		var searchTxt = $("input[name='searchTxt']").val();
-			$.post("search.php", {searchVal: searchTxt}, function(output){
-				$("#output").html(output);
+			$.post("search.php", {searchVal: searchTxt}, function(searchResult){
+				$("#output").html(searchResult);
 			});
 		var listbox = document.getElementById("output");
 		var searchbox = document.getElementById("enrollme");
@@ -18,6 +18,7 @@
 	}
 	function GetValue(value){
 		alert (value);
+		// $.post("getclassinfo.php", {result: value}, function(searchResult){
 		// this.style.background = 'blue';
 	}
 	//HIDE SEARCH RESULTS
@@ -40,11 +41,17 @@
           e.style.display = 'block';
       }
    }
-   // //GET FIRST AND LAST NAME FROM DATABASE
-   // function FirstLastName(){
-	  //  	alert("lalalalala");
-   // 		// var firstName = <?php Print($someVar); ?>;
-   // 		// var profileName = document.getElementById("profilename");
-   // 		// alert(firstName);
-   // 		// profileName.value = firstName;
-   // }
+   //GET FIRST AND LAST NAME FROM DATABASE
+   function FirstLastName(){
+   // 		var profileBtn = document.getElementById("profilename");
+   // 		var profi = $("input[name='profilenameBtn']").val();
+   // 		$.post('login.php', function(name){
+			// 	$("#profilename").html(name);
+			// });
+   		// $.post("login.php")
+	   	// alert("lalalalala");
+   		// var firstName = <?php Print($someVar); ?>;
+   		// var profileName = document.getElementById("profilename");
+   		// alert(firstName);
+   		// profileName.value = firstName;
+   }
