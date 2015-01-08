@@ -36,12 +36,10 @@
 	        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
 	        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
 	                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
-	                <input class = "create-cancel" type = "submit" value = "Create"> 
-	                
+	                <input id = "create" class = "create-cancel" type = "submit" value = "Create"> 
+	                <input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
-			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 		</div>
-
 	</div>
 
 	<div id = "mainpage">
@@ -55,11 +53,11 @@
 		</div>
 
 		<p id = "classes">My Classes</p>
-			<form id = "form-div">
+			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
 				<p id = "capstone">Capstone</p>
 				<p id = "montero">	Montero</p>
 				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
-			</form>
+ 		</form>
 
 		<div id = "class-div">
 		</div>
