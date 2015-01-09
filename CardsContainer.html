@@ -20,21 +20,15 @@
 		</div>
 
 		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
-		
+		<input id = "profilename" type = "button" value = "" name = "profilenameBtn">
 		<form id = "class-form" method = "post">
 			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
 		</form>
 
+<!-- CLASSDROPDOWN -->
 		<div id = "dropdowndiv">
 			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
-		</div>
-
-		<div id = "dropdowndiv" name = "dropdowndiv" >
-		</div>
-
-		<div id = "dropdowndiv">
-			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" onclick = "createclass('creatediv')">
 		</div>
 
 		<div id = "creatediv">
@@ -43,13 +37,14 @@
 	        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
 	        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
 	                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
-	                <input class = "create-cancel" type = "submit" value = "Create"> 
-	                <input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
+	                <input id = "create" class = "create-cancel" type = "submit" value = "Create"> 
+	                <input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
 		</div>
-
 	</div>
 
+
+<!-- SEARCH -->
 	<div id = "mainpage">
 		<div id = "searchbar">
 			<img id = "searchicon" src = "_assets/SearchIcon.png">
@@ -59,12 +54,8 @@
 				</select>		
 			</form>	
 		</div>
-		<!-- <p id = "classes">My Classes</p>
-			<form id = "form-div">
-				<p id = "capstone">Capstone</p>
-				<p id = "montero">	Montero</p>
-				<input id = "cards" type = "submit" value = "" name = "cardbutton">
-			</form> -->
+		
+<!-- CARDSCONTAINER -->
 		<p id = "classname">Capstone</p>
 
 		<div id = "cards-container-div1" class = "cards-container-div">

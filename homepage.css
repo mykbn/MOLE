@@ -146,6 +146,30 @@
 	width: 33px;
 
 }
+/*#classviewdiv{
+	position: absolute;
+	z-index: 10;
+	height: 101%;
+	width: 100.1%;
+	top: 0%;
+	left: -1px;
+	/*border: solid;*/
+	/*background-color: 3f3f3f;*/
+/*}*/
+/*.glass{
+	-webkit-webkit-transition: all 1s ease;
+	 -moz-webkit-transition: all 1s ease;
+	 -o-webkit-transition: all 1s ease;
+	 -ms-webkit-transition: all 1s ease;
+	 transition: all 1s ease;
+	 webkit-transition: blur(5px;)
+}*/
+#blurimage{
+	height: 100%;
+	width: 30%;
+    -webkit-filter: blur(2px);
+} 
+
 #add-classes{
 	position: relative;
 	top: 95%;
