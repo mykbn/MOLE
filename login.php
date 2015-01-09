@@ -10,10 +10,10 @@ $inputPassword = $_POST['passTxt'];
 $_SESSION['UNAME'] = $inputUsername;
 
 //GET FIRSTNAME AND LASTNAME FOR HOMEPAGE
-$queryFirstLast = "SELECT Firstname, Lastname FROM users WHERE '$inputUsername' = Username";
-$resultFirstLast = mysqli_query($conn, $queryFirstLast)
-	or die ("Error: ".mysqli_error($conn));
-$rowFirstLast = mysqli_fetch_array($resultFirstLast);
+// $queryFirstLast = "SELECT Firstname, Lastname FROM users WHERE '$inputUsername' = Username";
+// $resultFirstLast = mysqli_query($conn, $queryFirstLast)
+// 	or die ("Error: ".mysqli_error($conn));
+// $rowFirstLast = mysqli_fetch_array($resultFirstLast);
 
 //Username
 $queryUsername = "SELECT * FROM users WHERE '$inputUsername' = Username";

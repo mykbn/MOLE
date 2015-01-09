@@ -13,7 +13,6 @@ function CHANGE(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
 }
-  
 </script>
 </head>
 <body  onload="CHANGE()">
@@ -68,6 +67,10 @@ function CHANGE(){
 				<p id = "capstone">Capstone</p>
 				<p id = "montero">	Montero</p>
 				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
+			</form>
+
+			<form>
+				<input id = "Enroll" type="submit" value = "Enroll">
 			</form>
 
 		<div id = "class-div">
