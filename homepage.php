@@ -8,15 +8,36 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
+<script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
 function CHANGE(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
 }
+
+function GetValue(value){
+		$(document).ready(function(){
+			$("div").css("-webkit-filter", "blur(1px)")
+			// $("#main").css("z-index")	
+			$.blockUI();
+			$('.blockOverlay').attr().click($.unblockUI); 
+				// {overlayCSS:{ 
+				// 	backgroundColor: '#000000'
+				// } }); 
+		});
+		var enrollButt = document.getElementById('Enroll');
+		enrollButt.style.visibility = 'visible';
+}
+// $(document).ready(function{
+// 	$.blockUI({ 
+// 	            onOverlayClick: $.unblockUI 
+// 	        });
+// });
 </script>
 </head>
 <body  onload="CHANGE()">
 <div id="main">
+	<!-- <img id="lala" src="_assets/Mykel.jpg" class="test"> -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
 			<img id = "logo" src = "_assets/Logo.png">
@@ -70,7 +91,7 @@ function CHANGE(){
 			</form>
 
 			<form>
-				<input id = "Enroll" type="submit" value = "Enroll">
+				<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
 			</form>
 
 		<div id = "class-div">

@@ -15,12 +15,7 @@
 			listbox.style.display = 'block';
 		}
 	}
-	function GetValue(value){
-		// alert (value);
-		var enrollButt = document.getElementById('Enroll');
-		enrollButt.style.visibility = 'visible';
-
-	}
+	
 	//HIDE SEARCH RESULTS
 	function Hide(){
 		var listbox = document.getElementById("output");
