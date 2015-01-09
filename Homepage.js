@@ -41,24 +41,3 @@
           e.style.display = 'block';
       }
    }
-   	$(document).ready(function(){
-   		$.get("homepage.php", function(name){
-   			alert(name);
-   		// 	$("#profilename").html(name);
-   		})
-   	});
-   //GET FIRST AND LAST NAME FROM DATABASE
-   function FirstLastName(){
-
-   // 		var profileBtn = document.getElementById("profilename");
-   // 		var profi = $("input[name='profilenameBtn']").val();
-   // 		$.post('login.php', function(name){
-			// 	$("#profilename").html(name);
-			// });
-   		// $.post("login.php")
-	   	// alert("lalalalala");
-   		// var firstName = <?php Print($someVar); ?>;
-   		// var profileName = document.getElementById("profilename");
-   		// alert(firstName);
-   		// profileName.value = firstName;
-   }

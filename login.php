@@ -1,11 +1,13 @@
 <?php
 
 include "connect.php";
+session_start();
 // include "CheckDatabase.php";
 // include "CreateDatabase.php";
 
 $inputUsername = $_POST['emailTxt'];
 $inputPassword = $_POST['passTxt'];
+$_SESSION['UNAME'] = $inputUsername;
 
 //GET FIRSTNAME AND LASTNAME FOR HOMEPAGE
 $queryFirstLast = "SELECT Firstname, Lastname FROM users WHERE '$inputUsername' = Username";
@@ -40,7 +42,7 @@ if($inputUsername == $serverUser && $inputPassword == $serverPassword && $server
 	readfile("Student-Homepage.html");
 	// echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else if($inputUsername == $serverUser && $inputPassword == $serverPassword && $serverPosition == "Professor"){
-	header("Location:Homepage.html?user=$inputUsername");
+	header("Location:Homepage.php");
 	// echo '<input id = "profilename" type = "button" value = '.$rowFirstLast[0].' '.$rowFirstLast[1].' name = "profilenameBtn" onclick="FirstLastName()">';
 }else{
 	readfile("index.html");
