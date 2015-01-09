@@ -1,5 +1,5 @@
 <?php
-
+// session_start();
 include "connect.php";
 $inputClassName = $_POST['classname'];
 $inputPassword = $_POST['password'];
@@ -33,6 +33,7 @@ $create_table =
     Class_Name VARCHAR(200) NOT NULL,
     Password VARCHAR(50) NOT NULL,
     Class_Description VARCHAR(300) NOT NULL,
+    Student_No VARCHAR(8),
     PRIMARY KEY(id)
 )";
 $create_tbl = $conn->query($create_table);

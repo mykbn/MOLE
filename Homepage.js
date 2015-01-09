@@ -1,6 +1,5 @@
 //SEARCH RESULTS
 	function searchq(){
-		// alert("lalalalalalalalalala");
 		var searchform = document.getElementById("searchform");
 		searchform.setAttribute("autocomplete", "off");
 		var searchTxt = $("input[name='searchTxt']").val();
@@ -17,9 +16,10 @@
 		}
 	}
 	function GetValue(value){
-		alert (value);
-		// $.post("getclassinfo.php", {result: value}, function(searchResult){
-		// this.style.background = 'blue';
+		// alert (value);
+		var enrollButt = document.getElementById('Enroll');
+		enrollButt.style.visibility = 'visible';
+
 	}
 	//HIDE SEARCH RESULTS
 	function Hide(){
@@ -40,25 +40,4 @@
       }else{
           e.style.display = 'block';
       }
-   }
-   	$(document).ready(function(){
-   		$.get("homepage.php", function(name){
-   			alert(name);
-   		// 	$("#profilename").html(name);
-   		})
-   	});
-   //GET FIRST AND LAST NAME FROM DATABASE
-   function FirstLastName(){
-
-   // 		var profileBtn = document.getElementById("profilename");
-   // 		var profi = $("input[name='profilenameBtn']").val();
-   // 		$.post('login.php', function(name){
-			// 	$("#profilename").html(name);
-			// });
-   		// $.post("login.php")
-	   	// alert("lalalalala");
-   		// var firstName = <?php Print($someVar); ?>;
-   		// var profileName = document.getElementById("profilename");
-   		// alert(firstName);
-   		// profileName.value = firstName;
    }
