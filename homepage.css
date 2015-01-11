@@ -122,7 +122,33 @@
 	left: 2px;
 	height: 30px;
 	width: 30px;
+<<<<<<< HEAD
+}
+#classviewdescription{
+	position: relative;
+	z-index: 10;
+	display: none;
+	height: 100%;
+	width: 100%;
+	left: 0%; 
+	/*border: solid;*/
+	border-radius: 5px; 
+	font-size: 15px;
+	font-family: Calibri;
+	padding: 10px;
+	resize: none;
+=======
 
+
+>>>>>>> parent of 6f05c2f... Textarea
+}
+#enrollbutton{
+	/*position: relative;*/
+	display: none;
+	height: 10%;
+	width: 30%;
+	border: solid;
+	border-radius: 5px;
 
 }
 #enrollme{
@@ -215,7 +241,7 @@
 	top: -42px;
 	left: 5px;
 	height: 750%;
-	width: 20.3%;
+	width: 20%;
 	/*border:solid .9px;*/
 	border-radius: 5px;
 	background-color: white;
@@ -225,7 +251,7 @@
 	position: relative;
 	height: 38px;
 	width: 263px;
-	top: 6px;
+	top: 9px;
 	left: 5px;
 	border-radius: 3px;
 	border: none;
@@ -240,8 +266,8 @@
 	z-index: 1;
 	top: -415px;
 	left: 285px;
-	height: 622%;
-	width: 20.2%;
+	height: 619%;
+	width: 20%;
 /*	border:solid 1px;
 */	border-radius: 5px;
 	background-color: white;
@@ -295,6 +321,8 @@
 }
 .create-cancel{
 	position: relative;
+	top: 11px;
+	left: 5.1px;
 	height: 38px;
 	width: 122px;
 	margin-left: 5px;
@@ -304,14 +332,6 @@
 	font-family: Calibri;
 	font-size: 20px;
 	color: white;
-}
-#create{
-	top: 12px;
-	left: 6px;
-}
-#cancel{
-	top: 12px;
-	left: 6px;
 }
 /*//FOR PERUSAL*/
 #classes{

@@ -15,16 +15,23 @@ function CHANGE(){
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
 }
 
-function GetValue(value){
+function GetValue(value){ 	
 		$(document).ready(function(){
 			$("div").css("-webkit-filter", "blur(1px)")
-			// $("#main").css("z-index")	
-			$.blockUI();
-			$('.blockOverlay').attr().click($.unblockUI); 
-				// {overlayCSS:{ 
-				// 	backgroundColor: '#000000'
-				// } }); 
+			$.blockUI({ 
+				message: $('#classviewdescription'),
+				css: {  display: 'block', 
+						height: '60%', 
+						width: '40%', 
+						position: 'absolute', 
+						top: '15%', 
+						left: '30%', 
+						border: 'none', 
+						'-webkit-border-radius': '5px', 
+			            '-moz-border-radius': '5px', }
+			});  
 		});
+		
 		var enrollButt = document.getElementById('Enroll');
 		enrollButt.style.visibility = 'visible';
 }
@@ -54,6 +61,7 @@ function GetValue(value){
 			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
 		</form>
 
+<!-- CLASSDROPDOWN -->
 		<div id = "dropdowndiv">
 			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
@@ -66,13 +74,12 @@ function GetValue(value){
 	        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
 	                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
 	                <input class = "create-cancel" type = "submit" value = "Create"> 
-	                
+        			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
-			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 		</div>
-
 	</div>
 
+<!-- SEARCH -->
 	<div id = "mainpage">
 		<div id = "searchbar">
 				<img id = "searchicon" src = "_assets/SearchIcon.png">
@@ -82,20 +89,19 @@ function GetValue(value){
 					</select>		
 				</form>	
 		</div>
-
 		<p id = "classes">My Classes</p>
-			<form id = "form-div">
+			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
 				<p id = "capstone">Capstone</p>
 				<p id = "montero">	Montero</p>
 				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
 			</form>
-
 			<form>
 				<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
 			</form>
-
-		<div id = "class-div">
-		</div>
+		<form id = "classviewdiv">
+			<textarea readonly id = "classviewdescription">ankldfllllllnadfkllllllllllllllllllllllllllllllsnldakhndslfjkhndlkjfhalkjdhflakjdbflakjsdbflaksjdbfglaksjdbflaskdjbfalskdjfbalskdjbf</textarea>
+			<!-- <input id = "enrollbutton" type = "submit" value = "Enroll"> -->
+		</form>
 
 	</div>
 </div>
