@@ -122,7 +122,6 @@
 	left: 2px;
 	height: 30px;
 	width: 30px;
-<<<<<<< HEAD
 }
 #classviewdescription{
 	position: relative;
@@ -137,10 +136,6 @@
 	font-family: Calibri;
 	padding: 10px;
 	resize: none;
-=======
-
-
->>>>>>> parent of 6f05c2f... Textarea
 }
 #enrollbutton{
 	/*position: relative;*/
@@ -195,7 +190,6 @@
 	width: 30%;
     -webkit-filter: blur(2px);
 } 
-
 #add-classes{
 	position: relative;
 	top: 95%;
@@ -343,7 +337,6 @@
 	font-size: 25px;
 	font-family: Calibri;
 	font-weight: 3px;
-        
 }
 #cards{
 	position: relative;
@@ -353,7 +346,7 @@
 	border: none;
 	border-radius: 5px;
 	background-color: rgba(0,0,0,0);
-	}
+}
 #form-div{
 	position: relative;
 	height: 120px;
@@ -364,7 +357,6 @@
 	border: none;
 	border-radius: 5px;
 	background-color: fec4cd;
-	
 }
 #capstone{
 	position: relative;
@@ -373,7 +365,6 @@
 	font-size: 20px;
 	font-family: Calibri;
 }
-
 #montero{
 	position: relative;
 	top: -15px;
@@ -381,7 +372,6 @@
 	font-size: 15px;
 	font-family: Calibri;
 }
-
 /*NEW*/
 #Enroll{
 	visibility: hidden;

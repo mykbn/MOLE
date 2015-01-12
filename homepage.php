@@ -19,7 +19,7 @@ function GetValue(value){
 		$(document).ready(function(){
 			$("div").css("-webkit-filter", "blur(1px)")
 			$.blockUI({ 
-				message: $('#classviewdescription'),
+				message: $('#classviewdiv'),	
 				css: {  display: 'block', 
 						height: '60%', 
 						width: '40%', 
@@ -29,6 +29,7 @@ function GetValue(value){
 						border: 'none', 
 						'-webkit-border-radius': '5px', 
 			            '-moz-border-radius': '5px', }
+			    // onOverlayClick: $.unblockUI();
 			});  
 		});
 		
@@ -95,12 +96,12 @@ function GetValue(value){
 				<p id = "montero">	Montero</p>
 				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
 			</form>
-			<form>
-				<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
-			</form>
+
+<!-- POP-UP -->
 		<form id = "classviewdiv">
-			<textarea readonly id = "classviewdescription">ankldfllllllnadfkllllllllllllllllllllllllllllllsnldakhndslfjkhndlkjfhalkjdhflakjdbflakjsdbflaksjdbfglaksjdbflaskdjbfalskdjfbalskdjbf</textarea>
-			<!-- <input id = "enrollbutton" type = "submit" value = "Enroll"> -->
+			 <!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
+			<!-- <textarea readonly id = "classviewdescription"></textarea> -->
+			<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
 		</form>
 
 	</div>
