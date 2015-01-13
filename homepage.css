@@ -1,8 +1,8 @@
 #main{
 	position: absolute;
-	/*border: solid;*/
-	width: 100%;
-	height: 100%;
+	border: solid;
+	width: 99.5%;
+	height: 99%;
 	min-width: 900px;
 	top: 0px;
 	left: 0px;
@@ -77,10 +77,10 @@
 	position: absolute;
 	display: none;
 	z-index: 2;
-	top: -55%;
-	left: 81.5%;
-	height: 330%;
-	width: 14.8%;
+	top: 0%;
+	left: 81.7%;
+	height: 21%;
+	width: 14.7%;
 	border: solid 1px;
 	border-color: gray;
 	border-radius: 5px;
@@ -89,7 +89,8 @@
 }
 .namedropdown{
 	position: relative;
-	left: 10px;
+	left: 9px;
+	top: 9px;
 	height: 38px;
 	width: 182px;
 	border-radius: 3px;
@@ -98,9 +99,6 @@
 	font-family: Calibri;
 	font-size: 20px;
 	color: white;
-}
-#viewprofile{
-	top: 9px;
 }
 #logout{
 	top: 18px;
@@ -122,9 +120,9 @@
 }
 #mainpage{
 	position: absolute;
-	/*border: solid;*/
-	height: 611px;
-	width: 100%;
+	border: solid;
+	height: 91.5%;
+	width: 99.5%;
 	top: 50px;
 	left: 0px;
 }
@@ -261,12 +259,12 @@
 	/*background: red;*/
 }
 #dropdowndiv{
-	position: relative;
+	position: absolute;
 	display: none;
 	z-index: 2;
-	top: -50%;
+	top: 0%;
 	left: 5px;
-	height: 750%;
+	height: 60%;
 	width: 20%;
 	border: solid 1px;
 	border-color: gray;
@@ -279,7 +277,7 @@
 	height: 38px;
 	width: 253px;
 	top: 9px;
-	left: 10px;
+	left: 9px;
 	border-radius: 3px;
 	border: none;
 	background-color: ef4d4a;
@@ -288,13 +286,13 @@
 	color: white;
 }
 #creatediv{
-	position: relative;
+	position: absolute;
 	display: none;
 	z-index: 1;
-	top: -50%;
+	top: 0%;
 	left: 285px;
-	height: 619%;
-	width: 20%;
+	height: 51.1%;
+	width: 20.1%;
 	border:solid 1px;
 	border-color: gray;
 	border-radius: 5px;
@@ -321,7 +319,7 @@
 	width: 253px;
 	top: 2px;
 	margin-top: 8px;
-	left: 10px;
+	left: 9px;
 	border-radius: 3px;
 	border: none;
 	background-color: fbbcab;

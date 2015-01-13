@@ -41,7 +41,8 @@ function GetValue(value){
 </head>
 <body  onload="CHANGE()">
 <div id="main">
-	<!-- <img id="lala" src="_assets/Mykel.jpg" class="test"> -->
+
+<!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
 			<img id = "logo" src = "_assets/Logo.png">
@@ -54,13 +55,36 @@ function GetValue(value){
 
 		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
 		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
+		
+		<form id = "class-form" method = "post">
+			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
+		</form>
+	</div>
+
+
+	<div id = "mainpage">
+
+<!-- NAMEDROPDOWN -->
 		<div id = "namedropdown">
 			<input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
 			<input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
 		</div>
-		<form id = "class-form" method = "post">
-			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
-		</form>
+
+<!-- SEARCH -->
+		<div id = "searchbar">
+				<img id = "searchicon" src = "_assets/SearchIcon.png">
+				<form method ="post" action = "Homepage.html" id = "searchform">
+					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
+					<select id ="output" size = "5" style = "display:none" name = "output">
+					</select>		
+				</form>	
+		</div>
+		<p id = "classes">My Classes</p>
+			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
+				<p id = "capstone">Capstone</p>
+				<p id = "montero">	Montero</p>
+				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
+			</form>
 
 <!-- CLASSDROPDOWN -->
 		<div id = "dropdowndiv">
@@ -78,24 +102,6 @@ function GetValue(value){
         			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
 		</div>
-	</div>
-
-<!-- SEARCH -->
-	<div id = "mainpage">
-		<div id = "searchbar">
-				<img id = "searchicon" src = "_assets/SearchIcon.png">
-				<form method ="post" action = "Homepage.html" id = "searchform">
-					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
-					<select id ="output" size = "5" style = "display:none" name = "output">
-					</select>		
-				</form>	
-		</div>
-		<p id = "classes">My Classes</p>
-			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
-				<p id = "capstone">Capstone</p>
-				<p id = "montero">	Montero</p>
-				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
-			</form>
 
 <!-- POP-UP -->
 		<form id = "classviewdiv" method="POST" >
