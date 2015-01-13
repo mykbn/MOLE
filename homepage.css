@@ -1,7 +1,7 @@
 #main{
 	position: absolute;
-	border: solid;
-	width: 99.5%;
+	/*border: solid;*/
+	width: 99.99%;
 	height: 99%;
 	min-width: 900px;
 	top: 0px;
@@ -59,6 +59,20 @@
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 }
+#notificationdiv{
+	position: absolute;
+	z-index: 3;
+	display: none;
+	height: 50%;
+	width: 18.5%;
+	right: -0.5%;
+	border: solid 1px;
+	border-color: gray;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color: white;
+	box-shadow: 0px 3px 3px gray;
+}
 #profilename{
 	position: absolute;
 	height: 38px;
@@ -78,14 +92,13 @@
 	display: none;
 	z-index: 2;
 	top: 0%;
-	left: 81.7%;
+	right: 3.2%;
 	height: 21%;
 	width: 14.7%;
 	border: solid 1px;
 	border-color: gray;
 	border-radius: 5px;
 	background-color: white;
-	box-shadow: 3px 3px 3px gray;
 }
 .namedropdown{
 	position: relative;
@@ -120,7 +133,7 @@
 }
 #mainpage{
 	position: absolute;
-	border: solid;
+	/*border: solid;*/
 	height: 91.5%;
 	width: 99.5%;
 	top: 50px;
@@ -142,8 +155,8 @@
 	font-size: 20px;
 	font-family: Calibri;
 	color: #2b88b6;
-	transform: translate(-101%, 0%);
-	-webkit-transform: translate(-101%, 0%);
+	transform: translate(-99%, 0%);
+	-webkit-transform: translate(-99%, 0%);
 	/*padding-left: 35px;*/
 }
 #searchicon{
@@ -174,7 +187,6 @@
 	width: 30%;
 	border: solid;
 	border-radius: 5px;
-
 }
 #enrollme{
 	position: relative;
@@ -195,7 +207,6 @@
 	position: relative;
 	height: 33px;
 	width: 33px;
-
 }
 /*#classviewdiv{
 	position: absolute;

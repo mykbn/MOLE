@@ -55,14 +55,16 @@ function GetValue(value){
 
 		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
 		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
-		
-		<form id = "class-form" method = "post">
-			<input id = "notification" type = "submit" value = "" name = "notificationBtn">
-		</form>
+		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')">
 	</div>
 
 
 	<div id = "mainpage">
+
+<!-- NOTIFICATIONSIDE -->
+	<div id = "notificationdiv">
+	
+	</div>
 
 <!-- NAMEDROPDOWN -->
 		<div id = "namedropdown">
