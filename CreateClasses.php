@@ -18,9 +18,10 @@ $create_class = $conn->query($create_classes);
 //CREATE DATABASE ENTRY
 $queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`)VALUES (NULL, '$inputClassName')"; ;
 if (mysqli_query($conn, $queryCreateEntry)) {
-		readfile("Homepage.html");
-	    echo "<p>New class created successfully</p>";
-	    // echo '<a id="add-classes" href="addclasses.html" align="right">Create a Class</a>';
+		echo "<script> 
+		alert('Class Successfully Created!');
+		window.location.href='homepage.php';
+		</script>";
 	} else {
 	    echo "Error: " . $queryCreateEntry . "<br>" . mysqli_error($conn);
 	}
@@ -29,18 +30,18 @@ if (mysqli_query($conn, $queryCreateEntry)) {
 $create_table =
 "CREATE TABLE IF NOT EXISTS `$inputClassName` 
 (
-    ID INT NOT NULL AUTO_INCREMENT,
+	ID INT NOT NULL AUTO_INCREMENT,
+    ID_No VARCHAR(8),
     Class_Name VARCHAR(200) NOT NULL,
     Password VARCHAR(50) NOT NULL,
     Class_Description VARCHAR(300) NOT NULL,
-    Student_No VARCHAR(8),
     PRIMARY KEY(id)
 )";
 $create_tbl = $conn->query($create_table);
 
 //INSERT VALUES
-$sql = "INSERT INTO `$inputClassName` (`ID`, `Class_Name`, `Password`, `Class_Description`)
-		VALUES (NULL, '$inputClassName', '$inputPassword', '$inputClassDescription')";
+$sql = "INSERT INTO `$inputClassName` (`ID`, `ID_No`, `Class_Name`, `Password`, `Class_Description`)
+		VALUES (NULL, NULL, '$inputClassName', '$inputPassword', '$inputClassDescription')";
 if (mysqli_query($conn, $sql)) {
 	    // echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
 	} else {

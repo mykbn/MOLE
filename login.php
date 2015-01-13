@@ -8,7 +8,7 @@ session_start('user_credentials');
 $inputUsername = $_POST['emailTxt'];
 $inputPassword = $_POST['passTxt'];
 $_SESSION['UNAME'] = $inputUsername;
-
+$_SESSION['ID'] = '';
 $Position = '';
 //Position
 $queryPosition = "SELECT Position FROM professors WHERE '$inputUsername' = Username";
@@ -25,8 +25,6 @@ if($count == 0){
 	$Position = 'Professor';
 }
 
-//GET ID. NO
-//$queryID = "SELECT Student_No. FROM users WHERE '$inputUsername' = Username"
 if ($Position == 'Professor'){
 	//Username
 	$queryUsername = "SELECT * FROM professors WHERE '$inputUsername' = Username";
@@ -41,6 +39,14 @@ if ($Position == 'Professor'){
 		or die("Error: ".mysqli_error($conn));
 	$rowPassword = mysqli_fetch_array($resultPassword);
 	$serverPassword = $rowPassword["Password"];
+
+	//GET ID. NO
+	$queryID = "SELECT ID_No FROM professors WHERE '$inputUsername' = Username";
+	$resultID = mysqli_query($conn,$queryID)
+		or die("Error: ".mysqli_error($conn));
+	$rowID = mysqli_fetch_array($resultID);
+	$serverID = $rowID["ID"];
+	$_SESSION['ID'] = $rowID[0];
 
 	//Check if login credentials are correct
 	if($inputUsername == $serverUser && $inputPassword == $serverPassword){
@@ -63,6 +69,14 @@ if ($Position == 'Professor'){
 		or die("Error: ".mysqli_error($conn));
 	$rowPassword = mysqli_fetch_array($resultPassword);
 	$serverPassword = $rowPassword["Password"];
+
+	//GET ID. NO
+	$queryID = "SELECT ID_No FROM students WHERE '$inputUsername' = Username";
+	$resultID = mysqli_query($conn,$queryID)
+		or die("Error: ".mysqli_error($conn));
+	$rowID = mysqli_fetch_array($resultID);
+	$serverID = $rowID["ID"];
+	$_SESSION['ID'] = $rowID[0];
 
 	//Check if login credentials are correct
 	if($inputUsername == $serverUser && $inputPassword == $serverPassword){

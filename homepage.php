@@ -17,7 +17,7 @@ function CHANGE(){
 
 function GetValue(value){ 	
 		var enrollDiv = document.getElementById('classviewdiv');
-		enrollDiv.action = "enroll.php?v=" + value;
+		enrollDiv.action = "enroll.php?subject=" + value;
 		$(document).ready(function(){
 			$.blockUI({ 
 				message: $('#classviewdiv'),	
@@ -108,7 +108,7 @@ function GetValue(value){
 		</div>
 
 <!-- POP-UP -->
-		<form id = "classviewdiv" method="POST" >
+		<form id = "classviewdiv" method="POST"  style="display:none">
 			 <!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
 			<!-- <textarea readonly id = "classviewdescription"></textarea> -->
 			<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">

@@ -2,7 +2,8 @@
 
 include "connect.php";
 
-$inputStudNo = $_POST['idnoText'];
+$studNo = $_POST['idnoText'];
+$inputStudNo = (str_replace("-", "", $studNo));
 $inputfName = $_POST['firstnameText'];
 $inputlName = $_POST['lastnameText'];
 $inputUsername = $_POST['usernameText'];
