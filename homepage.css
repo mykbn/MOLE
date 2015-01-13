@@ -73,6 +73,38 @@
 	font-size: 20px;
 	color: white;
 }
+#namedropdown{
+	position: absolute;
+	display: none;
+	z-index: 2;
+	top: -55%;
+	left: 81.5%;
+	height: 330%;
+	width: 14.8%;
+	border: solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+}
+.namedropdown{
+	position: relative;
+	left: 10px;
+	height: 38px;
+	width: 182px;
+	border-radius: 3px;
+	border: none;
+	background-color: ef4d4a;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+}
+#viewprofile{
+	top: 9px;
+}
+#logout{
+	top: 18px;
+}
 #profilepic-div{
 	position: relative;
 	height: 38px;
@@ -232,11 +264,12 @@
 	position: relative;
 	display: none;
 	z-index: 2;
-	top: -42px;
+	top: -50%;
 	left: 5px;
 	height: 750%;
 	width: 20%;
-	/*border:solid .9px;*/
+	border: solid 1px;
+	border-color: gray;
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
@@ -244,9 +277,9 @@
 #createclass{
 	position: relative;
 	height: 38px;
-	width: 263px;
+	width: 253px;
 	top: 9px;
-	left: 5px;
+	left: 10px;
 	border-radius: 3px;
 	border: none;
 	background-color: ef4d4a;
@@ -258,12 +291,13 @@
 	position: relative;
 	display: none;
 	z-index: 1;
-	top: -415px;
+	top: -50%;
 	left: 285px;
 	height: 619%;
 	width: 20%;
-/*	border:solid 1px;
-*/	border-radius: 5px;
+	border:solid 1px;
+	border-color: gray;
+	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 	-webkit-animation: creatediv 1s; /* Chrome, Safari, Opera */
