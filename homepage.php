@@ -17,7 +17,6 @@ function CHANGE(){
 
 function GetValue(value){ 	
 		$(document).ready(function(){
-			$("div").css("-webkit-filter", "blur(1px)")
 			$.blockUI({ 
 				message: $('#classviewdiv'),	
 				css: {  display: 'block', 
@@ -29,18 +28,13 @@ function GetValue(value){
 						border: 'none', 
 						'-webkit-border-radius': '5px', 
 			            '-moz-border-radius': '5px', }
-			    // onOverlayClick: $.unblockUI();
 			});  
+			$('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
 		});
 		
 		var enrollButt = document.getElementById('Enroll');
 		enrollButt.style.visibility = 'visible';
 }
-// $(document).ready(function{
-// 	$.blockUI({ 
-// 	            onOverlayClick: $.unblockUI 
-// 	        });
-// });
 </script>
 </head>
 <body  onload="CHANGE()">
