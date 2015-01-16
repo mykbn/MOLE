@@ -10,13 +10,13 @@ $create_classes =
 "CREATE TABLE IF NOT EXISTS classes
 (
     ID INT NOT NULL AUTO_INCREMENT,
-    Classes VARCHAR(200) NOT NULL,
+    Classes VARCHAR(100) NOT NULL,
     PRIMARY KEY(id)
 )";
 $create_class = $conn->query($create_classes);
 
 //CREATE DATABASE ENTRY
-$queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`)VALUES (NULL, '$inputClassName')"; ;
+$queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`)VALUES (NULL, '$inputClassName')";
 if (mysqli_query($conn, $queryCreateEntry)) {
 		echo "<script> 
 		alert('Class Successfully Created!');
@@ -28,25 +28,28 @@ if (mysqli_query($conn, $queryCreateEntry)) {
 
 //CREATE CLASS TABLE
 $create_table =
-"CREATE TABLE IF NOT EXISTS `$inputClassName` 
+"CREATE TABLE IF NOT EXISTS enrollment 
 (
-	ID INT NOT NULL AUTO_INCREMENT,
-    ID_No VARCHAR(8),
-    Class_Name VARCHAR(200) NOT NULL,
-    Password VARCHAR(50) NOT NULL,
-    Class_Description VARCHAR(300) NOT NULL,
+	ID INT(10) NOT NULL AUTO_INCREMENT,
     PRIMARY KEY(id)
 )";
 $create_tbl = $conn->query($create_table);
 
 //INSERT VALUES
-$sql = "INSERT INTO `$inputClassName` (`ID`, `ID_No`, `Class_Name`, `Password`, `Class_Description`)
-		VALUES (NULL, NULL, '$inputClassName', '$inputPassword', '$inputClassDescription')";
-if (mysqli_query($conn, $sql)) {
-	    // echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
-	} else {
-	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-	}
+// $alter = "ALTER TABLE enrollment ADD `$inputClassName` VARCHAR(8) NOT NULL" ;
+// if (mysqli_query($conn, $alter)) {
+// 	    // echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
+// 	} else {
+// 	    echo "Error: " . $alter . "<br>" . mysqli_error($conn);
+// 	}
+	
+// $sql = "INSERT INTO enrollment (`ID`, `ID_No`, `Class_Name`, `Password`, `Class_Description`)
+// 		VALUES (NULL, NULL, '$inputClassName', '$inputPassword', '$inputClassDescription')";
+// if (mysqli_query($conn, $sql)) {
+// 	    // echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
+// 	} else {
+// 	    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+// 	}
 
 mysqli_close($conn);
 ?>

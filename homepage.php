@@ -1,4 +1,5 @@
 <?php	
+	include "connect.php";
 	session_start('user_credentials');
 ?>
 <html>
@@ -13,6 +14,14 @@
 function CHANGE(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
+}
+
+function LoadClasses(){
+	$(document).ready(function(){
+		$.get( "checkclasses.php", function(data) {
+		  $( "#form-div" ).html(data);
+		});
+	});
 }
 
 function GetValue(value){ 	
@@ -39,7 +48,7 @@ function GetValue(value){
 }
 </script>
 </head>
-<body  onload="CHANGE()">
+<body  onload="CHANGE(); LoadClasses()">
 <div id="main">
 
 <!-- HEADER -->
@@ -85,9 +94,6 @@ function GetValue(value){
 		</div>
 		<p id = "classes">My Classes</p>
 			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
-				<p id = "capstone">Capstone</p>
-				<p id = "montero">	Montero</p>
-				<input id = "cards" type = "submit" value = "" name = "cardsBtn">
 			</form>
 
 <!-- CLASSDROPDOWN -->
