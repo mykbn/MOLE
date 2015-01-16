@@ -40,6 +40,7 @@ function GetValue(value){
 </script>
 </head>
 <body  onload="CHANGE()">
+
 <div id="main">
 
 <!-- HEADER -->
@@ -48,23 +49,18 @@ function GetValue(value){
 			<img id = "logo" src = "_assets/Logo.png">
 			<img id = "mole" src = "_assets/Mole.png">
 		</div>
-
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/ProfilePicture.png">
 		</div>
-
 		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
 		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
 		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')">
 	</div>
 
-
 	<div id = "mainpage">
-
 <!-- NOTIFICATIONSIDE -->
-	<div id = "notificationdiv">
-	
-	</div>
+		<div id = "notificationdiv" class = "notificationdiv">
+		</div>
 
 <!-- NAMEDROPDOWN -->
 		<div id = "namedropdown">
@@ -74,12 +70,11 @@ function GetValue(value){
 
 <!-- SEARCH -->
 		<div id = "searchbar">
-				<img id = "searchicon" src = "_assets/SearchIcon.png">
-				<form method ="post" action = "Homepage.html" id = "searchform">
-					<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
-					<select id ="output" size = "5" style = "display:none" name = "output">
-					</select>		
-				</form>	
+			<img id = "searchicon" src = "_assets/SearchIcon.png">
+			<form method ="post" action = "Homepage.html" id = "searchform">
+				<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
+				<select id ="output" size = "5" style = "display:none" name = "output"></select>		
+			</form>	
 		</div>
 		<p id = "classes">My Classes</p>
 			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
@@ -93,25 +88,23 @@ function GetValue(value){
 			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
 		</div>
-
 		<div id = "creatediv">
 			<form id = "create-class-form" method = "post" action = "CreateClasses.php">
-	                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
-	        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
-	        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
-	                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
-	                <input class = "create-cancel" type = "submit" value = "Create"> 
-        			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
+                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
+        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
+        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
+                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
+                <input class = "create-cancel" type = "submit" value = "Create"> 
+    			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
 		</div>
 
 <!-- POP-UP -->
 		<form id = "classviewdiv" method="POST" >
-			 <!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
+			<!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
 			<!-- <textarea readonly id = "classviewdescription"></textarea> -->
 			<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
 		</form>
-
 	</div>
 </div>
 </body>
