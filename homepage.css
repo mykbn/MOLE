@@ -7,6 +7,7 @@
 	top: 0px;
 	left: 0px;
 }
+/*HEADER*/
 #header{
 	position: absolute;
 	/*border: solid;*/
@@ -22,7 +23,7 @@
 	height: 38px;
 	width: 150px;
 	top: 6px;
-	left: 47%;
+	left: 44.5%;
 }
 #mole{
 	position: relative;
@@ -46,6 +47,7 @@
 	font-size: 20px;
 	color: white;
 }
+/*NOTIFICATION*/
 #notification{
 	position: absolute;
 	height: 38px;
@@ -59,20 +61,36 @@
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 }
-#notificationdiv{
+.notificationdiv{
 	position: absolute;
-	z-index: 3;
+	/*visibility: hidden;*/
+	overflow: hidden;
+	position: fixed;
 	display: none;
+	z-index: 3;
 	height: 50%;
-	width: 18.5%;
-	right: -0.5%;
+	width: 18.45%;
+	right: 0%;
+	/*right: -0.5%;*/
 	border: solid 1px;
 	border-color: gray;
 	border-top-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	background-color: white;
 	box-shadow: 0px 3px 3px gray;
+	-webkit-animation: notificationdiv 1s;
+	-moz-animation: notificationdiv 1s; 
 }
+@-webkit-keyframes notificationdiv {
+   from {right: -19.2%}
+    to {right: 0%}
+}
+/* Standard syntax */
+@keyframes notificationdiv {
+   from {right: -19.2%}
+    to {right: 0%}
+}
+/*NAME*/
 #profilename{
 	position: absolute;
 	height: 38px;
@@ -87,6 +105,7 @@
 	font-size: 20px;
 	color: white;
 }
+/*NAMEDROPDOWN*/
 #namedropdown{
 	position: absolute;
 	display: none;
@@ -94,7 +113,7 @@
 	top: 0%;
 	right: 3.2%;
 	height: 21%;
-	width: 14.7%;
+	width: 12.1%;
 	border: solid 1px;
 	border-color: gray;
 	border-radius: 5px;
@@ -104,18 +123,19 @@
 	position: relative;
 	left: 9px;
 	top: 9px;
-	height: 38px;
-	width: 182px;
+	height: 29px;
+	width: 148px;
 	border-radius: 3px;
 	border: none;
 	background-color: ef4d4a;
 	font-family: Calibri;
-	font-size: 20px;
+	font-size: 16px;
 	color: white;
 }
 #logout{
 	top: 18px;
 }
+/*PROFILEPICTURE*/
 #profilepic-div{
 	position: relative;
 	height: 38px;
@@ -139,6 +159,7 @@
 	top: 50px;
 	left: 0px;
 }
+/*SEARCH*/
 #searchbar{
 	position: relative;
 	height: 37px;
@@ -166,6 +187,12 @@
 	height: 30px;
 	width: 30px;
 }
+#searchicon{
+	position: relative;
+	height: 33px;
+	width: 33px;
+}
+/*CLASSVIEW*/
 #classviewdescription{
 	position: relative;
 	z-index: 10;
@@ -203,34 +230,12 @@
 	color: #3a89ff;
 	/*padding-left: 35px;*/
 }
-#searchicon{
-	position: relative;
-	height: 33px;
-	width: 33px;
-}
-/*#classviewdiv{
-	position: absolute;
-	z-index: 10;
-	height: 101%;
-	width: 100.1%;
-	top: 0%;
-	left: -1px;
-	/*border: solid;*/
-	/*background-color: 3f3f3f;*/
-/*}*/
-/*.glass{
-	-webkit-webkit-transition: all 1s ease;
-	 -moz-webkit-transition: all 1s ease;
-	 -o-webkit-transition: all 1s ease;
-	 -ms-webkit-transition: all 1s ease;
-	 transition: all 1s ease;
-	 webkit-transition: blur(5px;)
-}*/
 #blurimage{
 	height: 100%;
 	width: 30%;
     -webkit-filter: blur(2px);
 } 
+/*CLASSDROPDOWN*/
 #add-classes{
 	position: relative;
 	top: 95%;
@@ -264,11 +269,6 @@
 .class-option:hover{
 	background-color: rgb(51, 153, 255); 
 }
-.class-option{
-	/*border: solid;*/
-	/*border-width: thin;*/
-	/*background: red;*/
-}
 #dropdowndiv{
 	position: absolute;
 	display: none;
@@ -283,6 +283,7 @@
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 }
+/*ADDCLASSSLIDESIDE*/
 #createclass{
 	position: relative;
 	height: 38px;
@@ -370,7 +371,7 @@
 	font-size: 20px;
 	color: white;
 }
-/*//FOR PERUSAL*/
+/*FOR PERUSAL*/
 #classes{
 	position: relative;
 	top: -50px;
