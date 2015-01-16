@@ -1,5 +1,5 @@
 <?php	
-	session_start();
+	session_start('user_credentials');
 ?>
 <html>
 <head>
@@ -17,7 +17,7 @@ function CHANGE(){
 
 function GetValue(value){ 	
 		var enrollDiv = document.getElementById('classviewdiv');
-		enrollDiv.action = "enroll.php?v=".value;
+		enrollDiv.action = "enroll.php?subject=" + value;
 		$(document).ready(function(){
 			$.blockUI({ 
 				message: $('#classviewdiv'),	
@@ -65,7 +65,9 @@ function GetValue(value){
 <!-- NAMEDROPDOWN -->
 		<div id = "namedropdown">
 			<input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
-			<input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
+			<form action="index.html"> 
+				<input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
+			</form>
 		</div>
 
 <!-- SEARCH -->
@@ -100,8 +102,13 @@ function GetValue(value){
 		</div>
 
 <!-- POP-UP -->
+<<<<<<< HEAD
 		<form id = "classviewdiv" method="POST" >
 			<!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
+=======
+		<form id = "classviewdiv" method="POST"  style="display:none">
+			 <!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
+>>>>>>> origin/master
 			<!-- <textarea readonly id = "classviewdescription"></textarea> -->
 			<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
 		</form>
