@@ -17,6 +17,7 @@
 								<label id = "classname" class = "classname">Capstone</label>
 								<label id = "author-label" class = "classname">Author:</label>
 								<label id = "author" class = "classname">Mrs. Montero</label>
+								<input id = "deleteclass" type = "submit" value = "x">
 				        	</div>';
 	        }
 	        

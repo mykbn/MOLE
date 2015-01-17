@@ -76,7 +76,7 @@ function Stud_Prof_Dropdowns(){
 			<img id = "mole" src = "_assets/Mole.png">
 		</div>
 		<div id = "profilepic-div">
-			<img id = "profilepicture" src="_assets/ProfilePicture.png">
+			<img id = "profilepicture" src="_assets/Profile-icon.jpg">
 		</div>
 		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns()">
 		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">

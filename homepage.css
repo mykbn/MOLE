@@ -388,10 +388,18 @@
 	font-family: Calibri;
 	font-weight: 3px;
 }
+#form-div{
+	position: absolute;
+	height: 88%;
+	width: 77%;
+	top: 9%;
+	left: 30px;
+	/*border: solid;*/
+}
 #cards{
 	position: relative;
 	top: 0%;
-	margin-right: 13px;
+	/*margin-right: 13px;*/
 	margin-bottom: 13px;
 	height: 45px;
 	width: 550px;
@@ -413,13 +421,19 @@
 #classname,
 #author{
 	padding-left: 2px;
-	padding-right: 12px;
+	/*padding-right: 12px;*/
 }
-#form-div{
-	position: absolute;
-	height: 88%;
-	width: 77%;
-	top: 9%;
-	left: 30px;
-	/*border: solid;*/
+#deleteclass{
+	position: relative;
+	left: 163px;
+	width: 45px;
+	height: 45px;
+	border: none;
+	border-radius: 3px;
+	font-size: 20px;
+	font-family: arial;
+	font-weight: 10px;
+	background-color: #fec4cd;
+	color: gray;
 }
+
