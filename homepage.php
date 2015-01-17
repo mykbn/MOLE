@@ -85,8 +85,8 @@ function GetClassValue(classV){
 			</form>	
 		</div>
 		<p id = "classes">My Classes</p>
-			<form id = "form-div" method = "LINK" action = "CardsContainer.php">
-			</form>
+			<div id = "form-div">
+			</div>
 
 <!-- CLASSDROPDOWN -->
 		<div id = "dropdowndiv">

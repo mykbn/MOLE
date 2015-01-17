@@ -12,7 +12,12 @@
 	    foreach($row as $key => $val){
 	        //generate output
 	        if($val != ""){
-	        	$class .= '<input id = "cards" type = "submit" value = "'. $val .'" name = "cardsBtn">';
+	        	$class .=  '<div id = "cards" name = "cardsBtn">
+								<label id = "classname-label" class = "classname">Class Name:</label>
+								<label id = "classname" class = "classname">Capstone</label>
+								<label id = "author-label" class = "classname">Author:</label>
+								<label id = "author" class = "classname">Mrs. Montero</label>
+				        	</div>';
 	        }
 	        
 	       
