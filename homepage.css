@@ -388,35 +388,22 @@
 }
 #cards{
 	position: relative;
-	/*top: -78px;*/
-	height: 120px;
-	width: 300px;
-	border: solid 1px;
+	top: 0%;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	height: 20%;
+	width: 23%;
+	border: none;
 	border-radius: 5px;
 	background-color: #fec4cd;
+	padding-top: 2px;
+	box-shadow: 1px 1px 3px gray;
 }
 #form-div{
-	position: relative;
-	height: 120px;
-	width: 300px;
-	top: -60px;
+	position:absolute;
+	height: 90%;
+	width: 77%;
+	top: 9%;
 	left: 30px;
 	/*border: solid;*/
-	/*border: none;*/
-	/*border-radius: 5px;*/
-	/*background-color: fec4cd;*/
-}
-#capstone{
-	position: relative;
-	top: 8px;
-	left: 8px;
-	font-size: 20px;
-	font-family: Calibri;
-}
-#montero{
-	position: relative;
-	top: -15px;
-	left: 9px;
-	font-size: 15px;
-	font-family: Calibri;
 }
