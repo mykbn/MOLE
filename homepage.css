@@ -286,12 +286,10 @@
 	box-shadow: 3px 3px 3px gray;
 }
 /*ADD CLASS SLIDESIDE*/
-#createclass{
+.dropdowncontent{
 	position: relative;
 	height: 38px;
 	width: 253px;
-	top: 9px;
-	left: 9px;
 	border-radius: 3px;
 	border: none;
 	background-color: ef4d4a;
@@ -299,13 +297,26 @@
 	font-size: 20px;
 	color: white;
 }
+#createclass{
+	position: relative;
+	top: 9px;
+	left: 9px;
+}
+#editclass{
+	top: 16px;
+	left: 9px;
+}
+#deleteclass-dropdowncontent{
+	top: 23px;
+	left: 9px;
+}
 #creatediv{
 	position: absolute;
 	display: none;
 	z-index: 1;
 	top: 0%;
 	left: 285px;
-	height: 54.9%;
+	height: 51.4%;
 	width: 20%;
 	border:solid 1px;
 	border-color: gray;
