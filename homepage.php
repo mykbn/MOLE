@@ -85,7 +85,7 @@ function GetValue(value){
 			</form>	
 		</div>
 		<p id = "classes">My Classes</p>
-			<form id = "form-div" method = "LINK" action = "CardsContainer.html">
+			<form id = "form-div" method = "LINK" action = "CardsContainer.php">
 			</form>
 
 <!-- CLASSDROPDOWN -->

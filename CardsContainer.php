@@ -1,3 +1,7 @@
+<?php	
+	include "connect.php";
+	session_start('user_credentials');
+?>
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "CardsContainer.css">
@@ -5,8 +9,15 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
+<script type = "text/javascript">
+function CHANGE(){
+	var profile = document.getElementById('profilename');
+   	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
+}
+</script>
 
 </head>
+<body onload = "CHANGE()">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
