@@ -11,7 +11,7 @@
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
-function CHANGE(){
+function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
 }
@@ -22,9 +22,9 @@ function LoadClasses(){
 		});
 	});
 }
-function GetValue(value){ 	
+function GetClassValue(classV){ 	
 		var enrollDiv = document.getElementById('classviewdiv');
-		enrollDiv.action = "enroll.php?subject=" + value;
+		enrollDiv.action = "enroll.php?subject=" + classV;
 		$(document).ready(function(){
 			$.blockUI({ 
 				message: $('#classviewdiv'),	
@@ -46,7 +46,7 @@ function GetValue(value){
 }
 </script>
 </head>
-<body  onload="CHANGE(); LoadClasses()">
+<body  onload="ChangeProfileName(); LoadClasses()">
 <div id="main">
 
 <!-- HEADER -->

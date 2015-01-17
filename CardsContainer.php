@@ -10,14 +10,14 @@
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript">
-function CHANGE(){
+function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
 }
 </script>
 
 </head>
-<body onload = "CHANGE()">
+<body onload = "ChangeProfileName()">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">

@@ -18,7 +18,7 @@ if(isset($_POST['searchVal'])){
 		while($row = mysqli_fetch_array($result)){
 			$classes = $row['Classes'];
 
-			$output .= '<option value='.$classes.' class="class-option" onclick="GetValue(output.value)"> '.$classes.'</option>';
+			$output .= '<option value='.$classes.' class="class-option" onclick="GetClassValue(output.value)"> '.$classes.'</option>';
 		}
 	}
 
