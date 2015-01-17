@@ -26,9 +26,15 @@
 								<label id = "classname-label" class = "classname">Class Name:</label>
 								<label id = "classname" class = "classname">'.$val.'</label>
 								<label id = "author-label" class = "classname">Author:</label>
+<<<<<<< HEAD
 								<label id = "author" class = "classname">'.$serverAuthor.'</label>
 				        	</div>
 				        	</a>';
+=======
+								<label id = "author" class = "classname">Mrs. Montero</label>
+								<input id = "deleteclass" type = "submit" value = "x">
+				        	</div>';
+>>>>>>> origin/master
 	        }
 	        
 	       

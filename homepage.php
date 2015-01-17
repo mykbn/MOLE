@@ -76,7 +76,7 @@ function Stud_Prof_Dropdowns(){
 			<img id = "mole" src = "_assets/Mole.png">
 		</div>
 		<div id = "profilepic-div">
-			<img id = "profilepicture" src="_assets/ProfilePicture.png">
+			<img id = "profilepicture" src="_assets/Profile-icon.jpg">
 		</div>
 		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns()">
 		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
@@ -108,11 +108,13 @@ function Stud_Prof_Dropdowns(){
 			<div id = "form-div">
 			</div>
 
-<!-- CLASSDROPDOWN -->
+<!-- CLASS DROPDOWN -->
 <!-- FOR PROFESSOR -->
 		<div id = "dropdowndivPROF">
-			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" 
+			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
+			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class">
+			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class">
 		</div>
 		<div id = "creatediv">
 			<form id = "create-class-form" method = "post" action = "CreateClasses.php">
