@@ -71,10 +71,10 @@ function Stud_Prof_Dropdowns(){
 
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
-		<div id = "logo-mole">
+		<div id = "logo-mole"><a href = "Homepage.php">
 			<img id = "logo" src = "_assets/Logo.png">
 			<img id = "mole" src = "_assets/Mole.png">
-		</div>
+		</a></div>
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/Profile-icon.jpg">
 		</div>
