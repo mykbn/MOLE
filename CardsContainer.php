@@ -12,7 +12,7 @@
 <script type = "text/javascript">
 function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
-   	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
+   	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
 </script>
 

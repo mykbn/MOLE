@@ -1,7 +1,7 @@
 <?php	
 	include "connect.php";
 	session_start('user_credentials');
-	$status = $_GET['p'];
+	$status = $_SESSION['POSITION'];
 ?>
 <html>
 <head>
@@ -14,7 +14,7 @@
 <script type = "text/javascript">
 function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
-   	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
+   	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
 function LoadClasses(){
 	$(document).ready(function(){
@@ -49,7 +49,7 @@ function Stud_Prof_Dropdowns(){
 	var studDrop = document.getElementById('dropdowndivSTUDENT');
 	var profDrop = document.getElementById('dropdowndivPROF');
 	var status = <?php echo json_encode ($status); ?>;
-	if (status == "professor"){
+	if (status == "Professor"){
 		 if(profDrop.style.display == 'block'){
 		          profDrop.style.display = 'none';
 		      }else{

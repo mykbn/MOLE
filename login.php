@@ -9,7 +9,9 @@ $inputUsername = $_POST['emailTxt'];
 $inputPassword = $_POST['passTxt'];
 $_SESSION['UNAME'] = $inputUsername;
 $_SESSION['ID'] = '';
+$_SESSION['POSITION'] = '';
 $Position = '';
+
 //Position
 $queryPosition = "SELECT Position FROM professors WHERE '$inputUsername' = Username";
 $resultPosition = mysqli_query($conn,$queryPosition)
@@ -26,6 +28,24 @@ if($count == 0){
 }
 
 if ($Position == 'Professor'){
+	$_SESSION['POSITION'] = 'Professor';
+
+	//GET FIRSTNAME
+	$queryFName = "SELECT Firstname FROM professors WHERE '$inputUsername' = Username";
+	$resultFName = mysqli_query($conn,$queryFName)
+		or die("Error: ".mysqli_error($conn));
+	$rowFName = mysqli_fetch_array($resultFName);
+	$serverFName = $rowFName["Firstname"];
+
+	//GET LASTNAME
+	$queryLName = "SELECT Lastname FROM professors WHERE '$inputUsername' = Username";
+	$resultLName = mysqli_query($conn,$queryLName)
+		or die("Error: ".mysqli_error($conn));
+	$rowLName = mysqli_fetch_array($resultLName);
+	$serverLName = $rowLName["Lastname"];
+
+	$_SESSION['REALNAME'] = $serverFName." ".$serverLName;
+	
 	//Username
 	$queryUsername = "SELECT * FROM professors WHERE '$inputUsername' = Username";
 	$resultUsername = mysqli_query($conn,$queryUsername)
@@ -56,6 +76,24 @@ if ($Position == 'Professor'){
 		echo '<label id="invalid"> Invalid Login </label>';
 	}
 }else if ($Position == 'Student'){
+	$_SESSION['POSITION'] = 'Student';
+	
+	//GET FIRSTNAME
+	$queryFName = "SELECT Firstname FROM students WHERE '$inputUsername' = Username";
+	$resultFName = mysqli_query($conn,$queryFName)
+		or die("Error: ".mysqli_error($conn));
+	$rowFName = mysqli_fetch_array($resultFName);
+	$serverFName = $rowFName["Firstname"];
+
+	//GET LASTNAME
+	$queryLName = "SELECT Lastname FROM students WHERE '$inputUsername' = Username";
+	$resultLName = mysqli_query($conn,$queryLName)
+		or die("Error: ".mysqli_error($conn));
+	$rowLName = mysqli_fetch_array($resultLName);
+	$serverLName = $rowLName["Lastname"];
+
+	$_SESSION['REALNAME'] = $serverFName." ".$serverLName;
+
 	//Username
 	$queryUsername = "SELECT * FROM students WHERE '$inputUsername' = Username";
 	$resultUsername = mysqli_query($conn,$queryUsername)

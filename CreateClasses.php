@@ -61,7 +61,7 @@ if($inputClassName == $serverClassName && $inputPassword == $inputConfirmationPa
 	)";
 	$create_tbl = $conn->query($create_class_table);
 	//CREATE DATABASE ENTRY
-	$queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`, `Password`, `Class_Description`, `Created_By`)VALUES (NULL, '$inputClassName', '$inputPassword', '$inputClassDescription', '$user')";
+	$queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`, `Password`, `Class_Description`, `Created_By`)VALUES (NULL, '$inputClassName', '$inputPassword', '$inputClassDescription', '".$_SESSION['REALNAME']."')";
 	if (mysqli_query($conn, $queryCreateEntry)) {
 			echo "<script> 
 			alert('Class Successfully Created!');
