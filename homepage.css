@@ -235,7 +235,7 @@
 	width: 30%;
     -webkit-filter: blur(2px);
 } 
-/*CLASSDROPDOWN*/
+/*CLASS DROPDOWN*/
 #add-classes{
 	position: relative;
 	top: 95%;
@@ -283,7 +283,7 @@
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 }
-/*ADDCLASSSLIDESIDE*/
+/*ADD CLASS SLIDESIDE*/
 #createclass{
 	position: relative;
 	height: 38px;
@@ -304,7 +304,7 @@
 	top: 0%;
 	left: 285px;
 	height: 54.9%;
-	width: 20.1%;
+	width: 20%;
 	border:solid 1px;
 	border-color: gray;
 	border-radius: 5px;
@@ -346,7 +346,7 @@
 	width: 253px;
 	top: 2px;
 	margin-top: 8px;
-	left: 10px;
+	left: 9px;
 	border-radius: 3px;
 	border: none;
 	background-color: fbbcab;
@@ -372,8 +372,8 @@
 	color: white;
 }
 #cancel{
-	top: -45px;
-	right: 10px;
+	top: -43px;
+	left: 49.5%;
 }
 /*CARDS*/
 #classes{
