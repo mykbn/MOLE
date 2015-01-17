@@ -1,12 +1,13 @@
 #main{
 	position: absolute;
 	/*border: solid;*/
-	width: 100%;
-	height: 100%;
+	width: 99.99%;
+	height: 99%;
 	min-width: 900px;
 	top: 0px;
 	left: 0px;
 }
+/*HEADER*/
 #header{
 	position: absolute;
 	/*border: solid;*/
@@ -22,7 +23,7 @@
 	height: 38px;
 	width: 150px;
 	top: 6px;
-	left: 47%;
+	left: 44.5%;
 }
 #mole{
 	position: relative;
@@ -46,6 +47,7 @@
 	font-size: 20px;
 	color: white;
 }
+/*NOTIFICATION*/
 #notification{
 	position: absolute;
 	height: 38px;
@@ -59,6 +61,36 @@
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 }
+.notificationdiv{
+	position: absolute;
+	/*visibility: hidden;*/
+	overflow: hidden;
+	position: fixed;
+	display: none;
+	z-index: 3;
+	height: 50%;
+	width: 18.45%;
+	right: 0%;
+	/*right: -0.5%;*/
+	border: solid 1px;
+	border-color: gray;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color: white;
+	box-shadow: 0px 3px 3px gray;
+	-webkit-animation: notificationdiv 1s;
+	-moz-animation: notificationdiv 1s; 
+}
+@-webkit-keyframes notificationdiv {
+   from {right: -19.2%}
+    to {right: 0%}
+}
+/* Standard syntax */
+@keyframes notificationdiv {
+   from {right: -19.2%}
+    to {right: 0%}
+}
+/*NAME*/
 #profilename{
 	position: absolute;
 	height: 38px;
@@ -73,6 +105,37 @@
 	font-size: 20px;
 	color: white;
 }
+/*NAMEDROPDOWN*/
+#namedropdown{
+	position: absolute;
+	display: none;
+	z-index: 2;
+	top: 0%;
+	right: 3.2%;
+	height: 21%;
+	width: 12.1%;
+	border: solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+}
+.namedropdown{
+	position: relative;
+	left: 9px;
+	top: 9px;
+	height: 29px;
+	width: 148px;
+	border-radius: 3px;
+	border: none;
+	background-color: ef4d4a;
+	font-family: Calibri;
+	font-size: 16px;
+	color: white;
+}
+#logout{
+	top: 18px;
+}
+/*PROFILEPICTURE*/
 #profilepic-div{
 	position: relative;
 	height: 38px;
@@ -91,11 +154,12 @@
 #mainpage{
 	position: absolute;
 	/*border: solid;*/
-	height: 611px;
-	width: 100%;
+	height: 91.5%;
+	width: 99.5%;
 	top: 50px;
 	left: 0px;
 }
+/*SEARCH*/
 #searchbar{
 	position: relative;
 	height: 37px;
@@ -112,8 +176,8 @@
 	font-size: 20px;
 	font-family: Calibri;
 	color: #2b88b6;
-	transform: translate(-101%, 0%);
-	-webkit-transform: translate(-101%, 0%);
+	transform: translate(-99%, 0%);
+	-webkit-transform: translate(-99%, 0%);
 	/*padding-left: 35px;*/
 }
 #searchicon{
@@ -122,8 +186,34 @@
 	left: 2px;
 	height: 30px;
 	width: 30px;
-
-
+}
+#searchicon{
+	position: relative;
+	height: 33px;
+	width: 33px;
+}
+/*CLASSVIEW*/
+#classviewdescription{
+	position: relative;
+	z-index: 10;
+	display: none;
+	height: 100%;
+	width: 100%;
+	left: 0%; 
+	/*border: solid;*/
+	border-radius: 5px; 
+	font-size: 15px;
+	font-family: Calibri;
+	padding: 10px;
+	resize: none;
+}
+#enrollbutton{
+	/*position: relative;*/
+	display: none;
+	height: 10%;
+	width: 30%;
+	border: solid;
+	border-radius: 5px;
 }
 #enrollme{
 	position: relative;
@@ -140,12 +230,12 @@
 	color: #3a89ff;
 	/*padding-left: 35px;*/
 }
-#searchicon{
-	position: relative;
-	height: 33px;
-	width: 33px;
-
-}
+#blurimage{
+	height: 100%;
+	width: 30%;
+    -webkit-filter: blur(2px);
+} 
+/*CLASSDROPDOWN*/
 #add-classes{
 	position: relative;
 	top: 95%;
@@ -179,30 +269,27 @@
 .class-option:hover{
 	background-color: rgb(51, 153, 255); 
 }
-.class-option{
-	/*border: solid;*/
-	/*border-width: thin;*/
-	/*background: red;*/
-}
 #dropdowndiv{
-	position: relative;
+	position: absolute;
 	display: none;
 	z-index: 2;
-	top: -42px;
+	top: 0%;
 	left: 5px;
-	height: 750%;
-	width: 20.3%;
-	/*border:solid .9px;*/
+	height: 60%;
+	width: 20%;
+	border: solid 1px;
+	border-color: gray;
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 }
+/*ADDCLASSSLIDESIDE*/
 #createclass{
 	position: relative;
 	height: 38px;
-	width: 263px;
-	top: 6px;
-	left: 5px;
+	width: 253px;
+	top: 9px;
+	left: 9px;
 	border-radius: 3px;
 	border: none;
 	background-color: ef4d4a;
@@ -211,15 +298,16 @@
 	color: white;
 }
 #creatediv{
-	position: relative;
+	position: absolute;
 	display: none;
 	z-index: 1;
-	top: -415px;
+	top: 0%;
 	left: 285px;
-	height: 622%;
-	width: 20.2%;
-/*	border:solid 1px;
-*/	border-radius: 5px;
+	height: 51.1%;
+	width: 20.1%;
+	border:solid 1px;
+	border-color: gray;
+	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 	-webkit-animation: creatediv 1s; /* Chrome, Safari, Opera */
@@ -243,7 +331,7 @@
 	width: 253px;
 	top: 2px;
 	margin-top: 8px;
-	left: 10px;
+	left: 9px;
 	border-radius: 3px;
 	border: none;
 	background-color: fbbcab;
@@ -271,10 +359,10 @@
 }
 .create-cancel{
 	position: relative;
+	top: 11px;
+	left: 5.1px;
 	height: 38px;
 	width: 122px;
-	top: 11px;
-	left: 5px;
 	margin-left: 5px;
 	border-radius: 3px;
 	border: none;
@@ -283,86 +371,42 @@
 	font-size: 20px;
 	color: white;
 }
-
-/*//FOR PERUSAL*/
-#classes{
-	position: relative;
-	top: -50px;
-	/*border: solid;*/
-	width: 200px;
+/*INSIDE CLASS*/
+/*CLASS TITLE*/
+#classname{
+	position: absolute;
+	top: -3%;
 	padding-left: 10px;
 	font-size: 25px;
 	font-family: Calibri;
 	font-weight: 3px;
-        
 }
-#cards{
-	position: relative;
-	top: -78px;
-	height: 120px;
-	width: 300px;
-	border: none;
-	border-radius: 5px;
-	background-color: rgba(0,0,0,0);
-}
-#form-div{
-	position: relative;
-	height: 120px;
-	width: 300px;
-	top: -60px;
-	left: 30px;
-	/*border: solid;*/
-	border: none;
-	border-radius: 5px;
-	background-color: fec4cd;	
-}
-#classname{
-	position: relative;
-	top: -65px;
-	/*border: solid;*/
-	width: 200px;
-	padding-left: 15px;
-	font-size: 35px;
-	font-family: Calibri;
-	font-weight: 3px;
-}
-.cards-container-div{
-	position: relative;
-	/*border: solid;*/
-	width: 20.3%;
+#cards-container-div{
+	position: absolute;
+	top: 10%;
+	left: 2%;
+	width: 19%;
 	height: 80%;
-	border-radius: 5px;
+	border-radius: 4px;
 	background-color: b8b8b8;
 }
-#cards-container-div1{
+#containertitle{
 	position: relative;
-	top: -13%;
-	right: -3%;
-}
-#cards-container-div2{
-	position: relative;
-	/*border: solid;*/
-	top: -93%;
-	right: -25%;
-}
-.containertitle{
-	position: relative;
-	/*top: -3px;*/
-	width: 277px;
-	height: 45px;
+	top: 0%;
+	width: 100%;
+	height: 8.5%;
 	border: none;
 	background-color: transparent;
-	font-size: 25px;
+	font-size: 22px;
 	font-family: Calibri;
-	font-weight: 3px;
 	padding-left: 10px;
 }
-.cardtitle{
+#cardtitle{
 	position: relative;
-	top: 1px;
+	top: 0%;
 	/*left: 10px;*/
-	width: 227px;
-	height: 40px;
+	width: 90%;
+	height: 8%;
 	border: none;
 	/*border-radius: 5px;*/
 	font-size: 20px;
@@ -371,51 +415,55 @@
 	padding-left: 10px;
 	background-color: 8c8d8d;
 }
-.buttondiv{
+#buttondiv{
 	position: relative;
 	width: 50px;
-	height: 40px;
+	height: 8%;
+	top: -7.8%;
+	left: 80%;
 	/*border: solid;*/
 	background-color: 8c8d8d;
 }
-#buttondiv1{
-	top: -39px;
-	left: 227px;
-}
-#buttondiv2{
-	top: -39px;
-	left: 227px;
-}
-#buttondiv3{
-	top: -172.8%;
-	left: 63.5%;
-	/*border: solid;*/
-}
-#addbutton{
+.addbutton{
 	position: relative;
-	top: 5px;
 	width: 43px;
-	height: 30px;
+	height: 29px;
 	border: none;
 	border-radius: 5px;
-	font-size: 18px;
+	font-size: 17px;
 	font-family: Calibri;
 	color: white;
 	background-color: ff6699;
 }
+#addcard{
+	top: 4px;
+	left: 3px;
+}
+#card{
+	position: relative;
+	width: 95%;
+	height: 20%;
+	top: -6%;
+	left: 2.4%;
+	border-radius: 3px;
+	background-color: white;
+}
 #addcontainer{
 	position: absolute;
-	top: 12%;
-	left: 47%;
-	width: 277px;
-	height: 40px;
-	border-radius: 5px;
+	top: 10%;
+	left: 79.5%;
+	width: 19%;
+	height: 7%;
+	border-radius: 4px;
 	border: none;
-	background-color: 8c8d8d; 
+	background-color:  b8b8b8; 
 	font-size: 20px;
 	font-family: Calibri;
-	font-weight: 3px;
 	padding-left: 10px;
 	color: rgba(0,0,0, 0.5);
+}
+#addbuttoncontainer{
+	top: 10.92%;
+	left: 95%;
 }
 

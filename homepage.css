@@ -303,7 +303,7 @@
 	z-index: 1;
 	top: 0%;
 	left: 285px;
-	height: 51.1%;
+	height: 54.9%;
 	width: 20.1%;
 	border:solid 1px;
 	border-color: gray;
@@ -371,10 +371,14 @@
 	font-size: 20px;
 	color: white;
 }
-/*FOR PERUSAL*/
+#cancel{
+	top: -45px;
+	right: 10px;
+}
+/*CARDS*/
 #classes{
-	position: relative;
-	top: -50px;
+	position: absolute;
+	top: -3%;
 	/*border: solid;*/
 	width: 200px;
 	padding-left: 10px;

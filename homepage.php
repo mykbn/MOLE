@@ -100,8 +100,8 @@ function GetValue(value){
         		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
                 <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
                 <input class = "create-cancel" type = "submit" value = "Create"> 
-    			<input class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 			</form>
+			<input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 		</div>
 
 <!-- POP-UP -->
