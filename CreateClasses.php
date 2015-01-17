@@ -52,6 +52,14 @@ if($inputClassName == $serverClassName && $inputPassword == $inputConfirmationPa
 		window.location.href='homepage.php';
 		</script>";
 }else if($inputClassName != $serverClassName && $inputPassword == $inputConfirmationPassword){
+	//CREATE CLASS TABLE
+	$create_class_table =
+	"CREATE TABLE IF NOT EXISTS `$inputClassName` 
+	(
+		ID INT(10) NOT NULL AUTO_INCREMENT,
+	    PRIMARY KEY(id)
+	)";
+	$create_tbl = $conn->query($create_class_table);
 	//CREATE DATABASE ENTRY
 	$queryCreateEntry = "INSERT INTO classes (`ID`, `Classes`, `Password`, `Class_Description`, `Created_By`)VALUES (NULL, '$inputClassName', '$inputPassword', '$inputClassDescription', '$user')";
 	if (mysqli_query($conn, $queryCreateEntry)) {

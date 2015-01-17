@@ -1,6 +1,7 @@
 <?php	
 	include "connect.php";
 	session_start('user_credentials');
+	$status = $_GET['p'];
 ?>
 <html>
 <head>
@@ -44,6 +45,25 @@ function GetClassValue(classV){
 		var enrollButt = document.getElementById('Enroll');
 		enrollButt.style.visibility = 'visible';
 }
+function Stud_Prof_Dropdowns(){
+	var studDrop = document.getElementById('dropdowndivSTUDENT');
+	var profDrop = document.getElementById('dropdowndivPROF');
+	var status = <?php echo json_encode ($status); ?>;
+	if (status == "professor"){
+		 if(profDrop.style.display == 'block'){
+		          profDrop.style.display = 'none';
+		      }else{
+		          profDrop.style.display = 'block';
+		      }
+	}else{
+		if(profDrop.style.display == 'block'){
+		          studDrop.style.display = 'none';
+		      }else{
+		          studDrop.style.display = 'block';
+		      }
+	}
+}
+
 </script>
 </head>
 <body  onload="ChangeProfileName(); LoadClasses()">
@@ -58,7 +78,7 @@ function GetClassValue(classV){
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/ProfilePicture.png">
 		</div>
-		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "toggle_visibility('dropdowndiv')">
+		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns()">
 		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
 		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')">
 	</div>
@@ -89,7 +109,8 @@ function GetClassValue(classV){
 			</div>
 
 <!-- CLASSDROPDOWN -->
-		<div id = "dropdowndiv">
+<!-- FOR PROFESSOR -->
+		<div id = "dropdowndivPROF">
 			<input id = "createclass" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
 		</div>
@@ -102,6 +123,11 @@ function GetClassValue(classV){
                 <input class = "create-cancel" type = "submit" value = "Create"> 
 			</form>
 			<input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
+		</div>
+
+<!-- FOR STUDENT -->
+		<div id = "dropdowndivSTUDENT">
+					
 		</div>
 
 <!-- POP-UP -->

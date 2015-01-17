@@ -269,6 +269,8 @@
 .class-option:hover{
 	background-color: rgb(51, 153, 255); 
 }
+#dropdowndivSTUD,
+#dropdowndivPROF,
 #dropdowndiv{
 	position: absolute;
 	display: none;
