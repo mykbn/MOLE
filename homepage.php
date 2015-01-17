@@ -15,7 +15,6 @@ function CHANGE(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['UNAME']); ?>;
 }
-
 function LoadClasses(){
 	$(document).ready(function(){
 		$.get( "checkclasses.php", function(data) {
@@ -23,7 +22,6 @@ function LoadClasses(){
 		});
 	});
 }
-
 function GetValue(value){ 	
 		var enrollDiv = document.getElementById('classviewdiv');
 		enrollDiv.action = "enroll.php?subject=" + value;
@@ -48,12 +46,7 @@ function GetValue(value){
 }
 </script>
 </head>
-<<<<<<< HEAD
 <body  onload="CHANGE(); LoadClasses()">
-=======
-<body  onload="CHANGE()">
-
->>>>>>> origin/master
 <div id="main">
 
 <!-- HEADER -->
@@ -112,16 +105,10 @@ function GetValue(value){
 		</div>
 
 <!-- POP-UP -->
-<<<<<<< HEAD
-		<form id = "classviewdiv" method="POST" >
-			<!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
-=======
 		<form id = "classviewdiv" method="POST"  style="display:none">
-			 <!-- <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname">  -->
->>>>>>> origin/master
-			<!-- <textarea readonly id = "classviewdescription"></textarea> -->
 			<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
 		</form>
+
 	</div>
 </div>
 </body>
