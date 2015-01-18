@@ -440,8 +440,9 @@ a{
 	/*padding-right: 12px;*/
 }
 #deleteclass{
-	position: relative;
-	left: 163px;
+	position: absolute;
+	right: 0%;
+	/*left: 100%;*/
 	width: 45px;
 	height: 45px;
 	border: none;
