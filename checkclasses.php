@@ -22,11 +22,12 @@
 				$serverAuthor = $rowAuthor["Created_By"];
 
 	        	$class .=  "<div id = 'cards' name = 'cardsBtn'>
-	        				
-								<label id = 'classname-label' class = 'classname'>Class Name:</label>
-								<label id = 'classname' class = 'classname'>".$val."</label>
-								<label id = 'author-label' class = 'classname'>Author:</label>
-								<label id = 'author' class = 'classname'>".$serverAuthor."</label>
+		        				<span id = ".$val." onclick='GoToClass(this.id)' style='display:block; position:absolute; width:100%'>
+									<label id = 'classname-label' class = 'classname'>Class Name:</label>
+									<label id = 'classname' class = 'classname'>".$val."</label>
+									<label id = 'author-label' class = 'classname'>Author:</label>
+									<label id = 'author' class = 'classname'>".$serverAuthor."</label>
+								</span>
 								<input id = 'deleteclass' type='button' value = 'x' name=".$val." onclick='UnEnroll(this.name)'>
 							
 				        	</div>";

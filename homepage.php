@@ -65,7 +65,11 @@ function Stud_Prof_Dropdowns(){
 }
 function UnEnroll(value){
 	alert(value);
-	
+
+}
+function GoToClass(classV){
+	// alert ("Go To "+ classV);
+	window.location.href = "CardsContainer.php?subj=" + classV;
 }
 
 </script>
