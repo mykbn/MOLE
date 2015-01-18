@@ -55,8 +55,8 @@ function Stud_Prof_Dropdowns(){
 		      }else{
 		          profDrop.style.display = 'block';
 		      }
-	}else{
-		if(profDrop.style.display == 'block'){
+	}else if(status == "Student"){
+		if(studDrop.style.display == 'block'){
 		          studDrop.style.display = 'none';
 		      }else{
 		          studDrop.style.display = 'block';
