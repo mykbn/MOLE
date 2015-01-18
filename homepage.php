@@ -63,6 +63,10 @@ function Stud_Prof_Dropdowns(){
 		      }
 	}
 }
+function UnEnroll(value){
+	alert(value);
+	
+}
 
 </script>
 </head>

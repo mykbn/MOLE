@@ -21,15 +21,15 @@
 				$rowAuthor = mysqli_fetch_array($resultAuthor);
 				$serverAuthor = $rowAuthor["Created_By"];
 
-	        	$class .=  '<div id = "cards" name = "cardsBtn">
-	        				<a href="CardsContainer.php?c='.$val.' style = "display:block">
-								<label id = "classname-label" class = "classname">Class Name:</label>
-								<label id = "classname" class = "classname">'.$val.'</label>
-								<label id = "author-label" class = "classname">Author:</label>
-								<label id = "author" class = "classname">'.$serverAuthor.'</label>
-								<input id = "deleteclass" type = "submit" value = "x">
-							</a>
-				        	</div>';
+	        	$class .=  "<div id = 'cards' name = 'cardsBtn'>
+	        				
+								<label id = 'classname-label' class = 'classname'>Class Name:</label>
+								<label id = 'classname' class = 'classname'>".$val."</label>
+								<label id = 'author-label' class = 'classname'>Author:</label>
+								<label id = 'author' class = 'classname'>".$serverAuthor."</label>
+								<input id = 'deleteclass' type='button' value = 'x' name=".$val." onclick='UnEnroll(this.name)'>
+							
+				        	</div>";
 
 								
 				    
