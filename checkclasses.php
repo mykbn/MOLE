@@ -21,15 +21,15 @@
 				$rowAuthor = mysqli_fetch_array($resultAuthor);
 				$serverAuthor = $rowAuthor["Created_By"];
 
-	        	$class .=  '<a href="CardsContainer.php?c='.$val.' style = "display:block">
-	        				<div id = "cards" name = "cardsBtn">
+	        	$class .=  '<div id = "cards" name = "cardsBtn">
+	        				<a href="CardsContainer.php?c='.$val.' style = "display:block">
 								<label id = "classname-label" class = "classname">Class Name:</label>
 								<label id = "classname" class = "classname">'.$val.'</label>
 								<label id = "author-label" class = "classname">Author:</label>
 								<label id = "author" class = "classname">'.$serverAuthor.'</label>
 								<input id = "deleteclass" type = "submit" value = "x">
-				        	</div>
-				        	</a>';
+							</a>
+				        	</div>';
 
 								
 				    
