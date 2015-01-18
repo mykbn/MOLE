@@ -137,7 +137,9 @@ function GoToClass(classV){
 
 <!-- FOR STUDENT -->
 		<div id = "dropdowndivSTUDENT">
-					
+			<div id = "dropdowncards" class = "cards">
+				<label id = "dropdowncardsclassname"><center>Capstone</center></label>
+			</div>
 		</div>
 
 <!-- POP-UP -->

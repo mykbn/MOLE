@@ -136,6 +136,7 @@ a{
 	font-family: Calibri;
 	font-size: 16px;
 	color: white;
+	box-shadow: 1px 1px 3px gray;
 }
 #logout{
 	top: 18px;
@@ -290,6 +291,21 @@ a{
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 }
+/*STUDENT CLASS DROPDOWN*/
+#dropdowncards{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	height: 38px;
+	width: 253px;
+	border-radius: 3px;
+	border: none;
+}
+#dropdowncardsclassname{
+	line-height: 35px;
+	font-size: 20px;
+	font-family: Calibri;
+}
 /*ADD CLASS SLIDESIDE*/
 .dropdowncontent{
 	position: relative;
@@ -301,6 +317,7 @@ a{
 	font-family: Calibri;
 	font-size: 20px;
 	color: white;
+	box-shadow: 1px 1px 3px gray;
 }
 #createclass{
 	position: relative;
@@ -412,7 +429,7 @@ a{
 	left: 30px;
 	/*border: solid;*/
 }
-#cards{
+.cards{
 	position: relative;
 	top: 0%;
 	/*margin-right: 13px;*/

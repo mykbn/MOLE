@@ -21,7 +21,7 @@
 				$rowAuthor = mysqli_fetch_array($resultAuthor);
 				$serverAuthor = $rowAuthor["Created_By"];
 
-	        	$class .=  "<div id = 'cards' name = 'cardsBtn'>
+	        	$class .=  "<div id = 'cards' class = 'cards' name = 'cardsBtn'>
 		        				<span id = ".$val." onclick='GoToClass(this.id)' style='display:block; position:absolute; width:100%'>
 									<label id = 'classname-label' class = 'classname'>Class Name:</label>
 									<label id = 'classname' class = 'classname'>".$val."</label>
