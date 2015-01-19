@@ -147,7 +147,8 @@ function GoToClass(classV){
 <!-- FOR STUDENT -->
 		<div id = "dropdowndivSTUDENT">
 			<div id = "dropdowncards" class = "cards">
-				<label id = "dropdowncardsclassname"><center>Capstone</center></label>
+				<label id = "dropdowncardsclassname">Capstone</label>
+				<input id = "dropdowndeletebutton" type = "submit" value = "x">
 			</div>
 		</div>
 
