@@ -64,7 +64,16 @@ function Stud_Prof_Dropdowns(){
 	}
 }
 function UnEnroll(value){
-	alert(value);
+	// alert(value);
+	if(confirm('Unenroll from this class?')){
+		$.post("unenroll.php",{classV:value},function(classdata){
+		// $("#form-div").html(classdata);
+		window.location.href = "homepage.php";
+	});
+	}else{
+		window.location.href = "homepage.php";
+	}
+	
 
 }
 function GoToClass(classV){
