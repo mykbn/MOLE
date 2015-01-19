@@ -100,6 +100,7 @@ function GoToClass(classV){
 		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')">
 	</div>
 
+
 	<div id = "mainpage">
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
@@ -114,6 +115,8 @@ function GoToClass(classV){
 		</div>
 
 <!-- SEARCH -->
+		<div id = "searchbardiv">
+		</div>
 		<div id = "searchbar">
 			<img id = "searchicon" src = "_assets/SearchIcon.png">
 			<form method ="post" action = "Homepage.html" id = "searchform">
@@ -121,9 +124,11 @@ function GoToClass(classV){
 				<select id ="output" size = "5" style = "display:none" name = "output"></select>		
 			</form>	
 		</div>
+
+
 		<p id = "classes">My Classes</p>
-			<div id = "form-div">
-			</div>
+		<div id = "form-div">
+		</div>
 
 <!-- CLASS DROPDOWN -->
 <!-- FOR PROFESSOR -->

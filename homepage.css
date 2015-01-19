@@ -166,6 +166,29 @@ a{
 	left: 0px;
 }
 /*SEARCH*/
+#searchbardiv{
+	position: absolute;
+	overflow: hidden;
+	position: fixed;
+	right: -.1%;
+	height: 102%;
+	width: 19%;
+	background-color: 00496b;
+	-webkit-animation: searchbardiv 1s;
+	-moz-animation: searchbardiv 1s; 
+}
+-webkit-animation: searchbardiv 1s;
+	-moz-animation: nsearchbardiv 1s; 
+}
+@-webkit-keyframes searchbardiv {
+   from {right: -19.2%}
+    to {right: -.1%}
+}
+/* Standard syntax */
+@keyframes searchbardiv {
+   from {right: -19.2%}
+    to {right: -.1%}
+}
 #searchbar{
 	position: relative;
 	height: 37px;
@@ -173,7 +196,7 @@ a{
 	top: 7px;
 	left:100%;
 	right: 0px;
-	/*border: solid;*/
+	border: solid;
 	height: 37px;
 	width: 245px;
 	border: solid 1px;
@@ -234,7 +257,17 @@ a{
 	font-size: 20px;
 	font-family: Calibri;
 	color: #3a89ff;
+	background-color: transparent;
 	/*padding-left: 35px;*/
+}
+::-webkit-input-placeholder {
+   color: #3a89ff;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #3a89ff;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #3a89ff;  
 }
 #blurimage{
 	height: 100%;
