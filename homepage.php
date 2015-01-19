@@ -121,7 +121,7 @@ function GoToClass(classV){
 			<img id = "searchicon" src = "_assets/SearchIcon.png">
 			<form method ="post" action = "Homepage.html" id = "searchform">
 				<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
-				<select id ="output" size = "5" style = "display:none" name = "output"></select>		
+				<!-- <select id ="output" size = "5" style = "display:none" name = "output"></select>		 -->
 			</form>	
 		</div>
 

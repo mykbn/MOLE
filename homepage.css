@@ -168,6 +168,7 @@ a{
 /*SEARCH*/
 #searchbardiv{
 	position: absolute;
+	display:none;
 	overflow: hidden;
 	position: fixed;
 	right: -.1%;
@@ -178,7 +179,7 @@ a{
 	-moz-animation: searchbardiv 1s; 
 }
 -webkit-animation: searchbardiv 1s;
-	-moz-animation: nsearchbardiv 1s; 
+	-moz-animation: searchbardiv 1s; 
 }
 @-webkit-keyframes searchbardiv {
    from {right: -19.2%}

@@ -4,9 +4,9 @@
 		searchform.setAttribute("autocomplete", "off");
 		var searchTxt = $("input[name='searchTxt']").val();
 			$.post("search.php", {searchVal: searchTxt}, function(searchResult){
-				$("#output").html(searchResult);
+				$("#searchbardiv").html(searchResult);
 			});
-		var listbox = document.getElementById("output");
+		var listbox = document.getElementById("searchbardiv");
 		var searchbox = document.getElementById("enrollme");
 
 		if(searchbox.value == "Search"){
