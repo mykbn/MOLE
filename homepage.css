@@ -171,14 +171,12 @@ a{
 	display:none;
 	overflow: hidden;
 	position: fixed;
+	display: none;
 	right: -.1%;
 	height: 102%;
 	width: 19%;
 	background-color: 00496b;
 	-webkit-animation: searchbardiv 1s;
-	-moz-animation: searchbardiv 1s; 
-}
--webkit-animation: searchbardiv 1s;
 	-moz-animation: searchbardiv 1s; 
 }
 @-webkit-keyframes searchbardiv {
@@ -308,6 +306,14 @@ a{
 }
 .class-option:hover{
 	background-color: rgb(51, 153, 255); 
+}
+.class-option{
+	position: relative;
+	top: 40px;
+	left: 45px;
+	font-size: 21px;
+	font-family: Calibri;
+	color: #2b88b6;
 }
 #dropdowndivSTUDENT,
 #dropdowndivPROF,
