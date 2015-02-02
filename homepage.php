@@ -108,7 +108,9 @@ function GoToClass(classV){
 
 <!-- NAMEDROPDOWN -->
 		<div id = "namedropdown">
-			<input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
+			<form action="userprofile.php">
+				<input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
+			</form>
 			<form action="index.html"> 
 				<input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
 			</form>

@@ -1,0 +1,267 @@
+.wrapper { width: 850px; overflow: hidden; margin: 0 auto; background: none; }
+header { height: 70px; background-color: #006599; }
+
+
+
+/*#profiletabs {
+  display: block;
+  margin-bottom: 4px;
+  height: 50px;
+}
+ 
+#profiletabs ul { list-style: none; display: block; width: 70%; height: 50px; }
+#profiletabls ul li { float: left; }
+#profiletabs ul li a { 
+  display: block;
+  float: left;
+  padding: 8px 11px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background: #EF97B5;
+  color: #FFFFFF;
+  margin-right: 7px;
+  border: 1px solid #fff;
+  -webkit-border-radius: 5px;
+  -webkit-border-bottom-left-radius: 0;
+  -moz-border-radius: 5px;
+  -moz-border-radius-bottomleft: 0;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+}
+#profiletabs ul li a:hover {
+  text-decoration: none;
+  background: #dad7c2;
+  color: #565656;
+}
+ 
+#profiletabs ul li a.sel {
+  background: #F2DBE0;
+  border-color: #38152A;
+}
+*/
+
+.tabberlive .tabbertabhide {
+
+  display:none;
+}
+
+.tabber {
+ } 
+  .tabberlive{
+  margin-top: 5px;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 90%;
+  font-weight: 300;
+  font-size: 1.25em;
+  background: white;
+
+}
+
+ul.tabbernav
+{
+  /*margin:0;
+  padding: 3px 0;
+  border-bottom: 1px solid #778;
+  font: bold 12px Verdana, sans-serif;*/
+  position: relative;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  margin: 0 auto;
+  padding: 3px 0;
+  max-width: 1200px;
+  list-style: none;
+  -ms-box-orient: horizontal;
+  -ms-box-pack: center;
+  -webkit-flex-flow: row wrap;
+  -moz-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+}
+}
+
+ul.tabbernav li
+{
+  list-style:none;
+  margin: 0;
+  display: inline;
+}
+ul.tabbernav li a
+{
+  padding: 3px 0.5em;
+  margin-left: 3px;
+  background: #CCC6CA;
+  text-decoration: none;
+}
+
+ul.tabbernav li a:link {
+  vertical-align: middle;
+  color: #2987BA;
+}
+/*ul.tabbernav li a: visited {color: #667;}*/
+
+ul.tabbernav li a:hover
+{
+  color: #000;
+  background: #aae;
+  border-color: #227;
+}
+
+ul.tabbernav li.tabberactive a
+{
+  background-color: #fff;
+  /*border-bottom: 1px solid red;*/
+}
+ul.tabbernav li.tabberactive a:hover
+{
+  color: #000;
+  background:white;
+  border-bottom: 1px solid white;
+}
+
+.tabberlive .tabbertab {
+  padding:5px;
+  border: 0;
+  border-top: 0;
+}
+
+.tabberlive .tabbertab h2 {
+  display:none;
+}
+.tabberlive .tabbertab h3 {
+  display: none;
+}
+
+.tabberlive#activity {
+
+}
+.tabberlive#tab2 {
+
+}
+.tabberlive#tab2 .tabbertab {
+  height:200px;
+  overflow: auto;
+}
+
+
+#aboutstudent{
+  position: relative;
+  border: 2px red;
+}
+
+#userphoto img {
+  border-radius: 10px;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 90px;
+  margin-left: 35px;
+  margin-right: auto;
+  padding: 5px;
+  background: #fff;
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+#content { 
+	background-color: #e8e8e8;
+	display: block; 
+	width: 98%;
+	height: auto; 
+	margin-top: 3px;
+  margin-left: auto;
+  margin-right: auto; 
+	border: 1px solid;
+    border-radius: 2px;
+    color: #ECECEC
+
+}
+
+#aboutholder{
+  width: 850px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+}
+
+#aboutstudent{
+  border: solid 1px;
+  color: white;
+  position: absolute;
+  width: 420px;
+  height: 160px;
+  margin-left: 220px;
+  margin-top: 3px;
+}
+
+
+/*.tab {
+  display: none;
+}
+
+.tab {
+  display: block;
+}*/
+
+
+.activity {
+  border-bottom: 1px solid #d6d1af;
+  padding-bottom: 4px;
+  color: black;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto; 
+}
+
+#aboutme{
+  position: relative;
+
+}
+.bio{
+  position: relative;
+  color: black;
+}
+
+.name{
+  font-weight: bold;
+  color: black;
+  position: center;
+  font-family: sans-serif;
+  font-size: 25px;
+  padding-left: 30px;
+}
+.studentnum{
+  color: black;
+  position: center;
+  font-family: cursive;
+  font-size: 15px;
+  padding-left: 35px;
+}
+.changedp{
+  color: black;
+  font-size: 15px;
+  padding-left: 30px;
+
+}
+#settings{
+
+  position: relative;
+}
+#dpbutton{
+  padding-left: 30px;
+}
+
+
+
+
