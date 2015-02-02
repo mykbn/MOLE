@@ -14,10 +14,14 @@ function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
+function ChangeClassName(){
+	var className = document.getElementById('classname');
+	className.value = <?php echo json_encode($_GET['subj']); ?>;
+}
 </script>
 
 </head>
-<body onload = "ChangeProfileName()">
+<body onload = "ChangeProfileName(); ChangeClassName()">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
@@ -46,7 +50,7 @@ function ChangeProfileName(){
 		</div>
 		
 <!-- CARDSCONTAINER -->
-		<p id = "classname">Capstone</p>
+		<input id = "classname" type="text" value="" readonly>
 
 		<div id = "cards-container-div">
 			<input id = "containertitle" type = "text" name = "containertitle" placeholder = "Container Title">
