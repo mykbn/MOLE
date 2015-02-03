@@ -18,6 +18,16 @@ function ChangeClassName(){
 	var className = document.getElementById('classname');
 	className.value = <?php echo json_encode($_GET['subj']); ?>;
 }
+function AddList(){
+	// var listName = $("input[name='listName']").val();
+	// $.post("addlist_class.php", {listLabel:listName}, function(list){
+	// 	$("#lists-container").html(list);
+	// });
+	var className = document.getElementById('classname');
+	var listName = document.getElementById('addcontainer');
+
+	window.location.href = "addlist_class.php?subj=" + className.value+ "&list=" + listName.value;
+}
 </script>
 
 </head>
@@ -51,20 +61,24 @@ function ChangeClassName(){
 		
 <!-- CARDSCONTAINER -->
 		<input id = "classname" type="text" value="" readonly>
-
-		<div id = "cards-container-div">
-			<input id = "containertitle" type = "text" name = "containertitle" placeholder = "Container Title">
-			<input id = "cardtitle" type = "textbox" placeholder = "Card Title">
-				<div id = "buttondiv">
-					<input id = "addcard" class = "addbutton" type = "submit" value = "Add">
-				</div>
-			<div id = "card">
+			<div id="lists-container">
+				<!-- <div id = "cards-container-div">
+					<input id = "containertitle" type = "text" name = "containertitle" placeholder = "Container Title">
+					<input id = "cardtitle" type = "textbox" placeholder = "Card Title">
+						<div id = "buttondiv">
+							<input id = "addcard" class = "addbutton" type = "submit" value = "Add">
+						</div>
+					<div id = "card">
+					</div>
+				</div> -->
 			</div>
+
+		<div id = "add-lists-container">
+			<!-- <form method = "POST" action = "addlist_class.php?"> -->
+				<input id = "addcontainer" type = "textbox" placeholder = "Add List" name = "listName">
+				<input id = "addbuttoncontainer" class = "addbutton" type = "submit" value = "Add" onclick="AddList()">
+			<!-- </form> -->
 		</div>
-		<input id = "addcontainer" type = "textbox" placeholder = "Add List">
-					<input id = "addbuttoncontainer" class = "addbutton" type = "submit" value = "Add">
-				</div>
-	</div>
-</div>
+
 </body>
 </html>
