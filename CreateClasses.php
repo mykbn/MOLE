@@ -57,6 +57,7 @@ if($inputClassName == $serverClassName && $inputPassword == $inputConfirmationPa
 	"CREATE TABLE IF NOT EXISTS `$inputClassName` 
 	(
 		ID INT(10) NOT NULL AUTO_INCREMENT,
+		Lists VARCHAR (100),
 	    PRIMARY KEY(id)
 	)";
 	$create_tbl = $conn->query($create_class_table);

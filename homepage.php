@@ -7,7 +7,7 @@
 <head>
 <link type = "text/css" rel = "stylesheet" href = "Homepage.css">
 <title>Home</title>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery_min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
@@ -23,7 +23,8 @@ function LoadClasses(){
 		});
 	});
 }
-function GetClassValue(classV){ 	
+function GetClassValue(classV){ 
+		alert(classV);	
 		var enrollDiv = document.getElementById('classviewdiv');
 		enrollDiv.action = "enroll.php?subject=" + classV;
 		$(document).ready(function(){
