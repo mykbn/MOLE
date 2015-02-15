@@ -5,11 +5,21 @@
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "CardsContainer.css">
-<title>Home</title>
+<title><?php echo ($_GET['subj'] ); echo " Home"; ?> </title>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript">
+function LoadLists(){
+	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
+	var className = document.getElementById('classname');
+	$(document).ready(function(){
+		// alert();
+		$.post( "LoadLists.php", {subj:getSubj}, function(list) {
+		  $( "#lists-container").html(list);
+		});
+	});
+}
 function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
@@ -19,19 +29,20 @@ function ChangeClassName(){
 	className.value = <?php echo json_encode($_GET['subj']); ?>;
 }
 function AddList(){
-	// var listName = $("input[name='listName']").val();
-	// $.post("addlist_class.php", {listLabel:listName}, function(list){
-	// 	$("#lists-container").html(list);
-	// });
 	var className = document.getElementById('classname');
-	var listName = document.getElementById('addcontainer');
+	var listName = $("input[name='listName']").val();
+	$.post("addlist_class.php?subj=" + className.value, {listLabel:listName}, function(list){
+		$("#lists-container").html(list);
+	});
+	// var className = document.getElementById('classname');
+	// var listName = document.getElementById('addcontainer');
 
-	window.location.href = "addlist_class.php?subj=" + className.value+ "&list=" + listName.value;
+	// window.location.href = "addlist_class.php?subj=" + className.value+ "&list=" + listName.value;
 }
 </script>
 
 </head>
-<body onload = "ChangeProfileName(); ChangeClassName()">
+<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists()">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
@@ -74,10 +85,8 @@ function AddList(){
 			</div>
 
 		<div id = "add-lists-container">
-			<!-- <form method = "POST" action = "addlist_class.php?"> -->
 				<input id = "addcontainer" type = "textbox" placeholder = "Add List" name = "listName">
 				<input id = "addbuttoncontainer" class = "addbutton" type = "submit" value = "Add" onclick="AddList()">
-			<!-- </form> -->
 		</div>
 
 </body>
