@@ -1,6 +1,14 @@
 <?php	
 	include "connect.php";
 	session_start('user_credentials');
+
+	$subj = $_GET['subj'];
+	$author = '';
+	$queryAuthor = "SELECT `Created_By` FROM classes WHERE '$subj' = Classes";
+	$resultAuthor = mysqli_query($conn,$queryAuthor)
+			or die("");
+	$rowAuthor = mysqli_fetch_array($resultAuthor);
+	$serverAuthor = $rowAuthor["Created_By"];
 ?>
 <html>
 <head>
@@ -39,10 +47,38 @@ function AddList(){
 
 	// window.location.href = "addlist_class.php?subj=" + className.value+ "&list=" + listName.value;
 }
+function CheckAuthor(){
+	var addListTextBox = document.getElementById('add-lists-container')
+	var author = <?php echo json_encode($serverAuthor); ?>;
+	var currentUser = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+	// alert (author);
+	// alert (currentUser);
+	if (author == currentUser){
+		// alert ("SHOW TEXTBOX");
+		addListTextBox.style.display = 'block';
+	}else{
+		// alert ("HIDE TEXTBOX");
+		addListTextBox.style.display = 'none';
+	}
+	// alert (author);
+	// alert (currentUser);
+
+}
+
+function AddCard(){
+	var className = document.getElementById('classname');
+	var cardtitle = $("input[name='cardtitle']").val();
+	$(document).ready(function(){
+		$.post("addcards_class.php?subj=" + className.value, {cardName:cardtitle}, function(card){
+			$("#cardcontainer").html(card);
+		});
+	});
+	
+}
 </script>
 
 </head>
-<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists()">
+<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists(); CheckAuthor()">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">

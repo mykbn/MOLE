@@ -24,7 +24,7 @@ function LoadClasses(){
 	});
 }
 function GetClassValue(classV){ 
-		alert(classV);	
+		// alert(classV);	
 		var enrollDiv = document.getElementById('classviewdiv');
 		enrollDiv.action = "enroll.php?subject=" + classV;
 		$(document).ready(function(){
@@ -102,7 +102,7 @@ function GoToClass(classV){
 	</div>
 
 
-	<div id = "mainpage">
+	<div id = "mainpage" >
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
 		</div>

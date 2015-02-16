@@ -24,10 +24,12 @@
 
 	        	$list .= '<div id = "cards-container-div">
 							<input id = "containertitle" type = "text" name = "containertitle" placeholder = '.$val.' readonly>
-							<input id = "cardtitle" type = "textbox" placeholder = "Card Title">
+							<input id = "cardtitle" name= "cardtitle" type = "textbox" placeholder = "Card Title">
 							<div id = "buttondiv">
-							 	<input id = "addcard" class = "addbutton" type = "submit" value = "Add">
+							 	<input id = "addcard" class = "addbutton" type = "submit" value = "Add" onclick="AddCard()">
 							 </div>
+
+							 <div id = "cardcontainer"></div>
 						 </div>';
 
 	        }
