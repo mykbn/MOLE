@@ -65,15 +65,27 @@ function CheckAuthor(){
 
 }
 
-function AddCard(){
+function AddCard(listname){
 	var className = document.getElementById('classname');
-	var cardtitle = $("input[name='cardtitle']").val();
+	var cardtitle = $("input[name='"+listname+"']").val();
+
+	// $(document).ready(function(){
+	// 	$.post("addcards_class.php?subj=" + className.value +"&list=" + listname, {cardName:cardtitle}, function(card){
+	// 		$("#cardcontainer").html(card);
+	// 	});
+	// });
+	
+}
+
+function LoadCards(listname){
+	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
+	alert (listname);
+	var className = document.getElementById('classname');
 	$(document).ready(function(){
-		$.post("addcards_class.php?subj=" + className.value, {cardName:cardtitle}, function(card){
-			$("#cardcontainer").html(card);
+		$.post( "LoadCards.php", {subj:getSubj}, function(card) {
+		  $( "#"+listname).html(card);
 		});
 	});
-	
 }
 </script>
 

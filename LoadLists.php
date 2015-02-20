@@ -5,6 +5,8 @@
 
 	$subj = $_POST['subj'];
 	$list = '';
+	// $counter = 0;
+	// $name = '';
 
 	//Do the query
 	$query = "SELECT Lists FROM `$subj`";
@@ -21,12 +23,15 @@
 				// 		or die("");
 				// $rowAuthor = mysqli_fetch_array($resultAuthor);
 				// $serverAuthor = $rowAuthor["Created_By"];
-
-	        	$list .= '<div id = "cards-container-div">
-							<input id = "containertitle" type = "text" name = "containertitle" placeholder = '.$val.' readonly>
-							<input id = "cardtitle" name= "cardtitle" type = "textbox" placeholder = "Card Title">
+	        	// $name = str_replace(' ', '_', $val);
+	        	// $counter = $counter + 1;
+	        	// $name = "cardtitle".$counter;
+	        	$list .= '<div id = "cards-container-div" class="'.$val.'" onload = LoadCards(this.class)>
+							<input id = "containertitle" type = "text" name = "containertitle" placeholder = "'.$val.'" readonly>
+							<input id = "cardtitle" name="'.$val.'" type = "textbox" placeholder = "Card Title" >
 							<div id = "buttondiv">
-							 	<input id = "addcard" class = "addbutton" type = "submit" value = "Add" onclick="AddCard()">
+							 	<input id = "addcard" class = "addbutton" type = "submit" value = "Add" name ="'.$val.'" 
+							 	onclick="AddCard(this.name)">
 							 </div>
 
 							 <div id = "cardcontainer"></div>

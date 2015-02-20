@@ -4,6 +4,7 @@ include "connect.php";
 
 $subj = $_GET['subj'];
 $listName = $_POST['listLabel'];
+// $listConvert = str_replace(' ', '_', $listName);
 
 $list = '';
 // $addColumn = "ALTER TABLE ".$subj." ADD `".$list."` VARCHAR(100) NOT NULL" ;
