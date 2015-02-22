@@ -19,6 +19,24 @@ function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
+function LoadClassesForEdit(){
+	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+	$(document).ready(function(){
+		$.post( "CheckCreatedClasses.php", {user:userName}, function(cards) {
+			alert ("LOADED");
+		  $( "#editclassdiv" ).html(cards);
+		});
+	});
+}
+// function LoadClassesForDelete(){
+// 	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+// 	$(document).ready(function(){
+// 		$.post( "CheckCreatedClassesForDelete.php", {user:userName}, function(cards) {
+// 			alert ("LOADED");
+// 		  $( "#editclassdiv" ).html(cards);
+// 		});
+// 	});
+// }
 function LoadClasses(){
 	$(document).ready(function(){
 		$.get( "checkclasses.php", function(data) {
@@ -97,7 +115,7 @@ function GoToClass(classV){
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses()">
+<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete()">
 <div id="main">
 
 <!-- HEADER -->
@@ -152,16 +170,20 @@ function GoToClass(classV){
 <!-- CLASS DROPDOWN -->
 <!-- FOR PROFESSOR -->
 		<div id = "dropdowndivPROF">
-			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" onclick = "toggle_visibility('creatediv'); Hide(editclassdiv)">
-			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" onclick = "toggle_visibility('editclassdiv'); Hide(creatediv)">
-			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" onclick = "toggle_visibility('deleteclassdiv')">
+			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" 
+				onclick = "toggle_visibility('creatediv'); Hide(editclassdiv); Hide(deleteclassdiv)">
+			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
+				onclick = "toggle_visibility('editclassdiv'); Hide(creatediv); Hide(deleteclassdiv)">
+			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" 
+				onclick = "toggle_visibility('deleteclassdiv'); Hide(creatediv); Hide(editclassdiv)">
 		</div>
 		<!-- EDIT CLASS SLIDESIDE DIV -->
 		<div id = "editclassdiv">
-			<div id = "editdropdowncards" class = "cards">
-				<label id = "editdropdowncardsclassname">Capstone</label>
-				<input id = "editdropdowndeletebutton" type = "submit" value = "x">
-			</div>
+
+			<!-- <div id = "editdropdowncards" class = "cards"> -->
+				<!-- <label id = "editdropdowncardsclassname">Capstone</label>
+				<input id = "editdropdowndeletebutton" type = "submit" value = "x"> -->
+			<!-- </div> -->
 		</div>
 		<!-- DELETE CLASS SLIDESIDE DIC -->
 		<div id = "deleteclassdiv">
@@ -202,10 +224,7 @@ function GoToClass(classV){
 			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll" onclick="AskForPass()">
 		</form>
 
-<!-- ASK FOR PASS -->
-	<!-- 	<form id = "askforpass"  style="display:none">
-			<input type="text" placeholder="Password" name="classpass" id="classpass">
-		</form> -->
+
 	</div>
 </div>
 </body>
