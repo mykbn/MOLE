@@ -8,7 +8,7 @@
 ?>
 <html>
 <head>
-<link type = "text/css" rel = "stylesheet" href = "Homepage.css">
+<link type = "text/css" rel = "stylesheet" href = "CreateQuiz.css">
 <title>Home</title>
 <script type="text/javascript" src="jquery_min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
@@ -19,6 +19,24 @@ function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
+function LoadClassesForEdit(){
+	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+	$(document).ready(function(){
+		$.post( "CheckCreatedClasses.php", {user:userName}, function(cards) {
+			alert ("LOADED");
+		  $( "#editclassdiv" ).html(cards);
+		});
+	});
+}
+// function LoadClassesForDelete(){
+// 	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+// 	$(document).ready(function(){
+// 		$.post( "CheckCreatedClassesForDelete.php", {user:userName}, function(cards) {
+// 			alert ("LOADED");
+// 		  $( "#editclassdiv" ).html(cards);
+// 		});
+// 	});
+// }
 function LoadClasses(){
 	$(document).ready(function(){
 		$.get( "checkclasses.php", function(data) {
@@ -97,7 +115,7 @@ function GoToClass(classV){
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses()">
+<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete()">
 <div id="main">
 
 <!-- HEADER -->
@@ -109,16 +127,12 @@ function GoToClass(classV){
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/Profile-icon.jpg">
 		</div>
-		<input id = "class" type = "submit" value = "Classes" name = "classBtn" 
-			onclick = "Stud_Prof_Dropdowns(); Hide(editclassdiv); Hide(creatediv)">
-		<input id = "profilename" type = "button"  name = "profilename" 
-			onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
-		<input id = "notification" type = "submit" value = "" name = "notificationBtn" 
-			onclick = "toggle_visibility('notificationdiv'); Hide(namedropdown)">
+		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns(); Hide(editclassdiv); Hide(creatediv)">
+		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
+		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv'); Hide(namedropdown)">
 	</div>
-
-
 	<div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
+
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
 		</div>
@@ -133,29 +147,17 @@ function GoToClass(classV){
 			</form>
 		</div>
 
-<!-- SEARCH -->
-		<div id = "searchbardiv">
-		</div>
-		<div id = "searchbar">
-			<img id = "searchicon" src = "_assets/SearchIcon.png">
-			<form method ="post" action = "Homepage.html" id = "searchform">
-				<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
-				<!-- <select id ="output" size = "5" style = "display:none" name = "output"></select>		 -->
-			</form>	
-		</div>
-<!-- END SEARCH -->
-
-		<p id = "classes">My Classes</p>
-		<div id = "form-div">
-		</div>
-
 <!-- CLASS DROPDOWN -->
 <!-- FOR PROFESSOR -->
 		<div id = "dropdowndivPROF">
-			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" onclick = "toggle_visibility('creatediv'); Hide(editclassdiv)">
-			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" onclick = "toggle_visibility('editclassdiv'); Hide(creatediv)">
-			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" onclick = "toggle_visibility('deleteclassdiv')">
+			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" 
+				onclick = "toggle_visibility('creatediv'); Hide(editclassdiv); Hide(deleteclassdiv)">
+			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
+				onclick = "toggle_visibility('editclassdiv'); Hide(creatediv); Hide(deleteclassdiv)">
+			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" 
+				onclick = "toggle_visibility('deleteclassdiv'); Hide(creatediv); Hide(editclassdiv)">
 		</div>
+
 		<!-- EDIT CLASS SLIDESIDE DIV -->
 		<div id = "editclassdiv">
 			<div id = "editdropdowncards" class = "cards">
@@ -163,6 +165,7 @@ function GoToClass(classV){
 				<input id = "editdropdowndeletebutton" type = "submit" value = "x">
 			</div>
 		</div>
+
 		<!-- DELETE CLASS SLIDESIDE DIC -->
 		<div id = "deleteclassdiv">
 			<div id = "deletedropdowncards">
@@ -185,28 +188,30 @@ function GoToClass(classV){
 			onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 		</div>
 
-<!-- FOR STUDENT -->
-		<div id = "dropdowndivSTUDENT">
-			<div id = "dropdowncards" class = "cards">
-				<label id = "dropdowncardsclassname">Capstone</label>
-				<input id = "dropdowndeletebutton" type = "submit" value = "x">
-			</div>
-		</div>
-
-<!-- ENROLL DESCRIPTION -->
-		<form id = "classviewdiv" method = 'POST' style="display:none">
-			<div id = "classviewtitle"></div>
-			<div id = "classviewprofessor"></div>
-			<textarea id = "classviewdescription" value = "classviewdescription" disabled readonly></textarea>
-			<input id = "classviewpassword" type = "password" placeholder = "Password">
-			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll" onclick="AskForPass()">
+	<!-- CREATE QUIZ -->
+	<div id = "createquizdiv">
+		<form id = "questiondiv">
+			<input id = "quiztitle" type = "text" placeholder = "Title">
+			<label id = "questionnumber">1.</label>
+			<input id = "questiontext" type = "text" placeholder = "Question">
+			<select id = "checkchoices" placeholder = "Choices">			
+				<option value="textbox">Text Box</option>
+				<option value="checkbox">Check Box</option>
+				<option value="radiobutton">Radio Button</option>
+			</select>
+			<select id = "numberchoices" placeholder = "Number Choices">			
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+			</select>
 		</form>
-
-<!-- ASK FOR PASS -->
-	<!-- 	<form id = "askforpass"  style="display:none">
-			<input type="text" placeholder="Password" name="classpass" id="classpass">
-		</form> -->
+		<div id = "questionchoicesdiv">
+			<label id = "rightanswerlabel">Select the right answer.</label>
+			<form id = "answerchoicesform">
+				<input id = "checkbox" class = "checkbox" type="radio" name="blue" value="blue" checked>
+				<input id = "answerchoicestext" class = "answerchoicestext" type = "text">
+			</form> 
+		</div>
 	</div>
-</div>
-</body>
-</html>
+
