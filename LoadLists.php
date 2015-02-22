@@ -26,15 +26,15 @@
 	        	// $name = str_replace(' ', '_', $val);
 	        	// $counter = $counter + 1;
 	        	// $name = "cardtitle".$counter;
-	        	$list .= '<div id = "cards-container-div" class="'.$val.'" onload = LoadCards(this.class)>
-							<input id = "containertitle" type = "text" name = "containertitle" placeholder = "'.$val.'" readonly>
+	        	$list .= '<div class = "cards-container-div" id="'.$val.'">
+							<input id = "containertitle" type = "text" name = "containertitle" value = "'.$val.'" readonly>
 							<input id = "cardtitle" name="'.$val.'" type = "textbox" placeholder = "Card Title" >
 							<div id = "buttondiv">
 							 	<input id = "addcard" class = "addbutton" type = "submit" value = "Add" name ="'.$val.'" 
 							 	onclick="AddCard(this.name)">
 							 </div>
 
-							 <div id = "cardcontainer"></div>
+							 <div class = "cardcontainer" id="cardcontainer"></div>
 						 </div>';
 
 	        }

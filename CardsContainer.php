@@ -21,12 +21,12 @@
 function LoadLists(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	var className = document.getElementById('classname');
-	$(document).ready(function(){
+	// $(document).ready(function(){
 		// alert();
 		$.post( "LoadLists.php", {subj:getSubj}, function(list) {
 		  $( "#lists-container").html(list);
 		});
-	});
+	// });
 }
 function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
@@ -70,27 +70,47 @@ function AddCard(listname){
 	var cardtitle = $("input[name='"+listname+"']").val();
 
 	// $(document).ready(function(){
-	// 	$.post("addcards_class.php?subj=" + className.value +"&list=" + listname, {cardName:cardtitle}, function(card){
-	// 		$("#cardcontainer").html(card);
-	// 	});
+		$.post("addcards_class.php?subj=" + className.value +"&list=" + listname, {cardName:cardtitle}, function(card){
+			$("#cardcontainer").html(card);
+		});
 	// });
 	
 }
+// $(document).ready(function(){
+// 	LoadCards();
+// 	var id = document.getElementById('mainpage');
+// 	// // alert (id.id);
+// 	// var cards = id.document.getElementsByClassName('card');
+// 	// alert(cards.length);
+// 	// for (i = 0; i < cards.length; i++) {
+// 	//   cards[i].value = "red";
+// 	// }	
+// });
 
-function LoadCards(listname){
+
+function LoadCards(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
-	alert (listname);
-	var className = document.getElementById('classname');
-	$(document).ready(function(){
+	// $(document).ready(function(){
 		$.post( "LoadCards.php", {subj:getSubj}, function(card) {
-		  $( "#"+listname).html(card);
+		  $( "#cardcontainer").html(card);
 		});
-	});
+	// });
+}
+
+function ChangeCardPosition(object){
+	alert (object);
+	// var id = document.getElementById('cardcontainer');
+	// // alert (id.id);
+	// var cards = id.document.getElementsByClassName('card');
+	// alert(cards.length);
+	// for (i = 0; i < cards.length; i++) {
+	//   cards[i].value = "red";
+	// }	
 }
 </script>
 
 </head>
-<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists(); CheckAuthor()">
+<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists(); CheckAuthor();LoadCards();">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">
