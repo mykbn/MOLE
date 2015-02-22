@@ -160,15 +160,19 @@ function GoToClass(classV){
 <!-- CLASS DROPDOWN -->
 <!-- FOR PROFESSOR -->
 		<div id = "dropdowndivPROF">
-			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" 
-			name = "createclassBtn" onclick = "toggle_visibility('creatediv'); Hide(editclassdiv)">
-			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
-			onclick = "toggle_visibility('editclassdiv'); Hide(creatediv)">
-			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class">
+			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" onclick = "toggle_visibility('creatediv'); Hide(editclassdiv)">
+			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" onclick = "toggle_visibility('editclassdiv'); Hide(creatediv)">
+			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" onclick = "toggle_visibility('deleteclassdiv')">
 		</div>
 		<!-- EDIT CLASS SLIDESIDE DIV -->
 		<div id = "editclassdiv">
 		</div>
+		<!-- DELETE CLASS SLIDESIDE DIC -->
+		<div id = "deleteclassdiv">
+			<div id = "deletedropdowncards">
+				<label id = "deletedropdowncardsclassname" class = "deletedropdowncardsclassname">Capstone</label>
+				<input id = "deletedropdowndeletebutton" class = "deletedropdowndeletebutton" type = "submit" value = "x">
+			</div>
 
 		<!-- CREATE CLASS SLIDESIDE DIV -->
 		<div id = "creatediv">
@@ -197,6 +201,7 @@ function GoToClass(classV){
 			<div id = "classviewtitle"></div>
 			<div id = "classviewprofessor"></div>
 			<textarea id = "classviewdescription" value = "classviewdescription" disabled readonly></textarea>
+			<input id = "classviewpassword" type = "password" placeholder = "Password">
 			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll" onclick="AskForPass()">
 		</form>
 

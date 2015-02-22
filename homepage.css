@@ -178,8 +178,8 @@ a{
 	height: 102%;
 	width: 19%;
 	background-color: 00496b;
-	-webkit-animation: searchbardiv 1s;
-	-moz-animation: searchbardiv 1s; 
+	-webkit-animation: searchbardiv .8s;
+	-moz-animation: searchbardiv .8s; 
 }
 @-webkit-keyframes searchbardiv {
    from {right: -19.2%}
@@ -307,6 +307,19 @@ a{
 	line-height: 50px;
 	font-size: 20pt;
 	/*font-weight: bold;*/
+}
+#classviewpassword{
+	position: absolute;
+	height: 9%;
+	width: 70%;
+	top: 88%;
+	left: 15%;
+	border: none;
+	border-radius: 4px;
+	background-color: rgba(0,0,0,0.1);
+	font-family: Calibri;
+	font-size: 17px;
+	padding-left: 8px;
 }
 #enrollbutton{
 	position: absolute;
@@ -530,7 +543,8 @@ a{
 	left: 49.5%;
 }
 /*EDIT CLASS SLIDESIDE*/
-#editclassdiv{
+#editclassdiv,
+#deleteclassdiv{
 	position: absolute;
 	display: none;
 	z-index: 1;
@@ -558,7 +572,8 @@ a{
    from {left: 5px}
     to {left: 285px}
 }
-#editdropdowncards{
+#editdropdowncards,
+#deletedropdowncards{
 	position: relative;
 	top: 9px;
 	left: 9px;
@@ -569,17 +584,19 @@ a{
 	background-color: fbbcab;
 	box-shadow: none;
 }
-#editdropdowncardsclassname{
+#editdropdowncardsclassname,
+#deletedropdowncardsclassname{
 	position: relative;
 	line-height: 35px;
-	left: 10;
+	left: 11px;
 	font-size: 18px;
 	font-family: Calibri;
 }
-#editdropdowndeletebutton{
+#editdropdowndeletebutton,
+#deletedropdowndeletebutton{
 	position: relative;
-	top: -3px;
-	left: 135px;
+	top: -2px;
+	left: 140px;
 	height: 30px;
 	width: 38px;
 	border: none;
