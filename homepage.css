@@ -83,8 +83,8 @@ a{
 	border-bottom-left-radius: 5px;
 	background-color: white;
 	box-shadow: 0px 3px 3px gray;
-	-webkit-animation: notificationdiv 1s;
-	-moz-animation: notificationdiv 1s; 
+	-webkit-animation: notificationdiv .8s;
+	-moz-animation: notificationdiv .8s; 
 }
 @-webkit-keyframes notificationdiv {
    from {right: -19.2%}
@@ -117,7 +117,7 @@ a{
 	z-index: 2;
 	top: 0%;
 	right: 3.2%;
-	height: 21%;
+	height: 14.7%;
 	width: 12.1%;
 	border: solid 1px;
 	border-color: gray;
@@ -140,7 +140,7 @@ a{
 	box-shadow: 1px 1px 3px gray;
 }
 #logout{
-	top: 18px;
+	top: 4px;
 }
 /*PROFILEPICTURE*/
 #profilepic-div{
@@ -221,29 +221,7 @@ a{
 	height: 33px;
 	width: 33px;
 }
-/*CLASSVIEW*/
-#classviewdescription{
-	position: relative;
-	z-index: 10;
-	display: none;
-	height: 100%;
-	width: 100%;
-	left: 0%; 
-	/*border: solid;*/
-	border-radius: 5px; 
-	font-size: 15px;
-	font-family: Calibri;
-	padding: 10px;
-	resize: none;
-}
-#enrollbutton{
-	/*position: relative;*/
-	display: none;
-	height: 10%;
-	width: 30%;
-	border: solid;
-	border-radius: 5px;
-}
+/*SEARCHBAR*/
 #enrollme{
 	position: relative;
 	top: -33px;
@@ -260,20 +238,74 @@ a{
 	background-color: transparent;
 	/*padding-left: 35px;*/
 }
-::-webkit-input-placeholder {
+/*::-webkit-input-placeholder {
    color: #3a89ff;
 }
-:-moz-placeholder { /* Firefox 18- */
-   color: #3a89ff;  
+:-moz-placeholder {    
+	color: #3a89ff;  
 }
-::-moz-placeholder {  /* Firefox 19+ */
+::-moz-placeholder {  
    color: #3a89ff;  
-}
+}*/
 #blurimage{
 	height: 100%;
 	width: 30%;
     -webkit-filter: blur(2px);
 } 
+/*ENROLL DESCRIPTION*/
+#classviewdiv{
+	position: relative;
+	/*border: solid;*/
+	background-color: white;
+	height: 90%;
+	border-radius: 4px;
+}
+#classviewtitle{
+	position: relative;
+	/*border: solid;*/
+	top: 2%;
+	height: 7%;
+	width: 99%;
+	font-family: Calibri;
+	font-size: 23px;
+}
+#classviewprofessor{
+	position: relative;
+	/*border: solid;*/
+	top: 2%;
+	height: 5%;
+	width: 99%;
+	font-family: Calibri;
+	font-size: 16px;
+}
+#classviewdescription{
+	position: absolute;
+	border: none;
+	padding-left: 9px;
+	padding-right: 6px;
+	/*padding-top: 0px;*/
+	left: 0%;
+	top: 14%;
+	width: 100%;
+	height: 85.9%;
+	padding-top: 2px;
+	border-radius: 4px;
+	font-family: Calibri;
+	font-size: 18px;
+	resize: none;
+}
+#enrollbutton{
+	position: absolute;
+	border: none;
+	top: 103%;
+	left: 0%;
+	height: 10%;
+	width: 99.9%;
+	border-radius: 4px;
+	background-color: ff7285;
+	font-family: Calibri;
+	font-size: 22px;
+}
 /*CLASS DROPDOWN*/
 #add-classes{
 	position: relative;
@@ -361,7 +393,7 @@ a{
 	font-family: Calibri;
 	background-color: #fec4cd;
 }
-/*ADD CLASS SLIDESIDE*/
+/*CREATE CLASS SLIDESIDE*/
 .dropdowncontent{
 	position: relative;
 	height: 38px;
@@ -400,10 +432,10 @@ a{
 	border-radius: 5px;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
-	-webkit-animation: creatediv 1s; /* Chrome, Safari, Opera */
-	-moz-animation: creatediv 1s; 
-	-o-animation: creatediv 1s; 
-	animation: creatediv 1s;
+	-webkit-animation: creatediv .8s; /* Chrome, Safari, Opera */
+	-moz-animation: creatediv .8s; 
+	-o-animation: creatediv .8s; 
+	animation: creatediv .8s;
 }
 	/* Chrome, Safari, Opera */
 @-webkit-keyframes creatediv {
@@ -428,6 +460,9 @@ a{
 	font-family: Calibri;
 	font-size: 17px;
 	color: 272727;
+	padding-left: 5px;
+}
+#classname{
 	padding-left: 5px;
 }
 #classdescription{
@@ -464,6 +499,65 @@ a{
 #cancel{
 	top: -43px;
 	left: 49.5%;
+}
+/*EDIT CLASS SLIDESIDE*/
+#editclassdiv{
+	position: absolute;
+	display: none;
+	z-index: 1;
+	top: 0%;
+	left: 285px;
+	height: 51.4%;
+	width: 20%;
+	border:solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+	-webkit-animation: creatediv .8s; /* Chrome, Safari, Opera */
+	-moz-animation: creatediv .8s; 
+	-o-animation: creatediv .8s; 
+	animation: creatediv .8s;
+}
+	/* Chrome, Safari, Opera */
+@-webkit-keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+/* Standard syntax */
+@keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+#editdropdowncards{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	height: 33px;
+	width: 253px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	box-shadow: none;
+}
+#editdropdowncardsclassname{
+	position: relative;
+	line-height: 35px;
+	left: 10;
+	font-size: 18px;
+	font-family: Calibri;
+}
+#editdropdowndeletebutton{
+	position: relative;
+	top: -3px;
+	left: 135px;
+	height: 30px;
+	width: 38px;
+	border: none;
+	border-radius: 3px;
+	font-size: 19px;
+	font-family: Calibri;
+	background-color: fbbcab;
 }
 /*CARDS*/
 #classes{

@@ -31,12 +31,13 @@ function GetClassValue(classV){
 			$.blockUI({ 
 				message: $('#classviewdiv'),	
 				css: {  display: 'block', 
-						height: '60%', 
-						width: '40%', 
+						height: '70%', 
+						width: '30%', 
 						position: 'absolute', 
 						top: '15%', 
-						left: '30%', 
+						left: '35%', 
 						border: 'none', 
+						'background-color': 'rgba(0,0,0,0)',
 						'-webkit-border-radius': '5px', 
 			            '-moz-border-radius': '5px', }
 			});  
@@ -127,7 +128,7 @@ function GoToClass(classV){
 				<!-- <select id ="output" size = "5" style = "display:none" name = "output"></select>		 -->
 			</form>	
 		</div>
-
+<!-- END SEARCH -->
 
 		<p id = "classes">My Classes</p>
 		<div id = "form-div">
@@ -138,9 +139,18 @@ function GoToClass(classV){
 		<div id = "dropdowndivPROF">
 			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" = name = "createclassBtn" 
 				onclick = "toggle_visibility('creatediv')">
-			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class">
+			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" onclick = "toggle_visibility('editclassdiv')">
 			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class">
 		</div>
+		<!-- EDIT CLASS SLIDESIDE DIV -->
+		<div id = "editclassdiv">
+			<div id = "editdropdowncards" class = "cards">
+				<label id = "editdropdowncardsclassname">Capstone</label>
+				<input id = "editdropdowndeletebutton" type = "submit" value = "x">
+			</div>
+		</div>
+
+		<!-- CREATE CLASS SLIDESIDE DIV -->
 		<div id = "creatediv">
 			<form id = "create-class-form" method = "post" action = "CreateClasses.php">
                 <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
@@ -160,9 +170,12 @@ function GoToClass(classV){
 			</div>
 		</div>
 
-<!-- POP-UP -->
+<!-- ENROLL DESCRIPTION -->
 		<form id = "classviewdiv" method="POST"  style="display:none">
-			<input id = "Enroll" type="submit" value = "Enroll" class="Enroll">
+			<div id = "classviewtitle">Capstone</div>
+			<div id = "classviewprofessor">Montero</div>
+			<textarea id = "classviewdescription" value = "classviewdescription" readonly>cdsfgsdfgsfgsfgsdfgdsfssssssssssssssssssssssssssssssssgdfgdfg</textarea>
+			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll">
 		</form>
 
 	</div>
