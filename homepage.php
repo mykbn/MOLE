@@ -1,7 +1,10 @@
 <?php	
 	include "connect.php";
 	session_start('user_credentials');
+	// session_start("class_info");
 	$status = $_SESSION['POSITION'];
+	
+
 ?>
 <html>
 <head>
@@ -23,11 +26,19 @@ function LoadClasses(){
 		});
 	});
 }
+
 function GetClassValue(classV){ 
 		// alert(classV);	
 		var enrollDiv = document.getElementById('classviewdiv');
 		enrollDiv.action = "enroll.php?subject=" + classV;
+		$('#classviewtitle').html(classV);
 		$(document).ready(function(){
+			$.post("GetClassInfo.php", {subj:classV}, function(author){
+				$('#classviewprofessor').html(author);
+			});
+			$.post("GetClassDesc.php", {subj:classV}, function(desc){
+				$('#classviewdescription').html('"' +desc+'"');
+			});
 			$.blockUI({ 
 				message: $('#classviewdiv'),	
 				css: {  display: 'block', 
@@ -37,6 +48,7 @@ function GetClassValue(classV){
 						top: '15%', 
 						left: '35%', 
 						border: 'none', 
+						cursor: 'default',
 						'background-color': 'rgba(0,0,0,0)',
 						'-webkit-border-radius': '5px', 
 			            '-moz-border-radius': '5px', }
@@ -171,13 +183,17 @@ function GoToClass(classV){
 		</div>
 
 <!-- ENROLL DESCRIPTION -->
-		<form id = "classviewdiv" method="POST"  style="display:none">
-			<div id = "classviewtitle">Capstone</div>
-			<div id = "classviewprofessor">Montero</div>
-			<textarea id = "classviewdescription" value = "classviewdescription" readonly>cdsfgsdfgsfgsfgsdfgdsfssssssssssssssssssssssssssssssssgdfgdfg</textarea>
-			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll">
+		<form id = "classviewdiv" method = 'POST' style="display:none">
+			<div id = "classviewtitle"></div>
+			<div id = "classviewprofessor"></div>
+			<textarea id = "classviewdescription" value = "classviewdescription" disabled readonly></textarea>
+			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll" onclick="AskForPass()">
 		</form>
 
+<!-- ASK FOR PASS -->
+	<!-- 	<form id = "askforpass"  style="display:none">
+			<input type="text" placeholder="Password" name="classpass" id="classpass">
+		</form> -->
 	</div>
 </div>
 </body>
