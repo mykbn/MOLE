@@ -21,8 +21,6 @@
 function LoadLists(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	var className = document.getElementById('classname');
-	// $(document).ready(function(){
-		// alert();
 		$.post( "LoadLists.php", {subj:getSubj}, function(list) {
 		  $( "#lists-container").html(list);
 		});
@@ -42,26 +40,16 @@ function AddList(){
 	$.post("addlist_class.php?subj=" + className.value, {listLabel:listName}, function(list){
 		$("#lists-container").html(list);
 	});
-	// var className = document.getElementById('classname');
-	// var listName = document.getElementById('addcontainer');
-
-	// window.location.href = "addlist_class.php?subj=" + className.value+ "&list=" + listName.value;
 }
 function CheckAuthor(){
 	var addListTextBox = document.getElementById('add-lists-container')
 	var author = <?php echo json_encode($serverAuthor); ?>;
 	var currentUser = <?php echo json_encode($_SESSION['REALNAME']); ?>;
-	// alert (author);
-	// alert (currentUser);
 	if (author == currentUser){
-		// alert ("SHOW TEXTBOX");
 		addListTextBox.style.display = 'block';
 	}else{
-		// alert ("HIDE TEXTBOX");
 		addListTextBox.style.display = 'none';
 	}
-	// alert (author);
-	// alert (currentUser);
 
 }
 
