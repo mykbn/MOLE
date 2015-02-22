@@ -252,6 +252,14 @@ a{
 	width: 30%;
     -webkit-filter: blur(2px);
 } 
+/*ASK FOR PASS*/
+#askforpass{
+	position: relative;
+	/*border: solid;*/
+	background-color: white;
+	height: 90%;
+	border-radius: 4px;
+}
 /*ENROLL DESCRIPTION*/
 #classviewdiv{
 	position: relative;
@@ -293,6 +301,11 @@ a{
 	font-family: Calibri;
 	font-size: 18px;
 	resize: none;
+	text-align: center;
+	/*vertical-align: middle;*/
+	line-height: 50px;
+	font-size: 20pt;
+	/*font-weight: bold;*/
 }
 #enrollbutton{
 	position: absolute;
