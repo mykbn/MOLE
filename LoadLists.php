@@ -34,7 +34,7 @@
 							 	onclick="AddCard(this.name)">
 							 </div>
 
-							 <div class = "cardcontainer" id="cardcontainer"></div>
+							 <div class = "cardcontainer" id="cardcontainer_'.$val.'"></div>
 						 </div>';
 
 	        }

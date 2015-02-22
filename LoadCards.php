@@ -20,8 +20,10 @@ while($row = mysqli_fetch_assoc($resultCards)){
 	        	$getList = "SELECT List From `".$subj."_cards` WHERE `CardTitle` = '".$val."'";
 				$resultList = mysqli_query($conn, $getList) 
 					or die (mysqli_error($conn));
-					
-	        	$card .= '<div id = "card" class="card" name="'.$val.'"> '.$val.'
+				$rowList = mysqli_fetch_array($resultList);
+				$serverList = $rowList["List"];
+
+	        	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'"> '.$val.'
 							</div>';
 
 	        }
