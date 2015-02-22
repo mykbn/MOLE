@@ -619,6 +619,7 @@ a{
 	background-color: #fec4cd;
 	padding-top: 2px;
 	box-shadow: 1px 1px 3px gray;
+	cursor: pointer;
 }
 .classname{
 	font-size: 17px;
@@ -647,5 +648,6 @@ a{
 	font-weight: 10px;
 	background-color: #fec4cd;
 	color: gray;
+	cursor: pointer;
 }
 
