@@ -21,10 +21,9 @@
 	    foreach($row as $key => $val){
 	        //generate output
 	        if($val != ""){
-	        	$text = (string)$val;
-	        	$class .=  '<div class = "editdropdowncards" id="'.$val.'"class = "cards" 
-	        					onclick="EditClass(this)">
-							<label id = "editdropdowncardsclassname">'.$val.'</label>
+	        	$class .=  '<div id = "deletedropdowncards">
+								<label id = "deletedropdowncardsclassname" class = "deletedropdowncardsclassname">'.$val.'</label>
+								<input id = "deletedropdowndeletebutton" class = "deletedropdowndeletebutton" type = "submit" value = "x">
 							</div>';
 
 								
