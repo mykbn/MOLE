@@ -57,7 +57,7 @@ function GetClassValue(classV){
 		});
 		
 		var enrollButt = document.getElementById('Enroll');
-		enrollButt.style.visibility = 'visible';
+		// enrollButt.style.visibility = 'visible';
 }
 function Stud_Prof_Dropdowns(){
 	var studDrop = document.getElementById('dropdowndivSTUDENT');
@@ -109,13 +109,16 @@ function GoToClass(classV){
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/Profile-icon.jpg">
 		</div>
-		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns()">
-		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
-		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')">
+		<input id = "class" type = "submit" value = "Classes" name = "classBtn" 
+			onclick = "Stud_Prof_Dropdowns(); Hide(editclassdiv); Hide(creatediv)">
+		<input id = "profilename" type = "button"  name = "profilename" 
+			onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
+		<input id = "notification" type = "submit" value = "" name = "notificationBtn" 
+			onclick = "toggle_visibility('notificationdiv'); Hide(namedropdown)">
 	</div>
 
 
-	<div id = "mainpage" >
+	<div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
 		</div>
@@ -149,9 +152,10 @@ function GoToClass(classV){
 <!-- CLASS DROPDOWN -->
 <!-- FOR PROFESSOR -->
 		<div id = "dropdowndivPROF">
-			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" = name = "createclassBtn" 
-				onclick = "toggle_visibility('creatediv')">
-			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" onclick = "toggle_visibility('editclassdiv')">
+			<input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" 
+			name = "createclassBtn" onclick = "toggle_visibility('creatediv'); Hide(editclassdiv)">
+			<input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
+			onclick = "toggle_visibility('editclassdiv'); Hide(creatediv)">
 			<input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class">
 		</div>
 		<!-- EDIT CLASS SLIDESIDE DIV -->
@@ -167,11 +171,13 @@ function GoToClass(classV){
 			<form id = "create-class-form" method = "post" action = "CreateClasses.php">
                 <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
         		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
-        		<input id = "confirmationpassword" class = "form-textbox" type = "password" name = "confirmationpassword" placeholder = "Confirmation Password">
+        		<input id = "confirmationpassword" class = "form-textbox" type = "password" 
+        		name = "confirmationpassword" placeholder = "Confirmation Password">
                 <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
                 <input class = "create-cancel" type = "submit" value = "Create"> 
 			</form>
-			<input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
+			<input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" 
+			onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
 		</div>
 
 <!-- FOR STUDENT -->

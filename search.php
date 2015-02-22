@@ -13,7 +13,7 @@ if(isset($_POST['searchVal'])){
 	$count = mysqli_num_rows($result);
 
 	if($count == 0){
-		$output = 'There was no search results';
+		$output = '<p id="no_results">There are no <br>classes named <br><i>"'.$searchq.'"<i> </p>';
 	}else{
 		while($row = mysqli_fetch_array($result)){
 			$classes = $row['Classes'];

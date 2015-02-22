@@ -9,22 +9,21 @@
 		var listbox = document.getElementById("searchbardiv");
 		var searchbox = document.getElementById("enrollme");
 
-		if(searchbox.value == "Search"){
+		if(searchbox.value == ""){
 			listbox.style.display = 'none';
 		}else{
 			listbox.style.display = 'block';
 		}
 	}
 	
-	//HIDE SEARCH RESULTS
-	function Hide(){
-		var listbox = document.getElementById("output");
-		listbox.style.display = 'none';
+	//HIDE DIV
+	function Hide(x){
+		// var listbox = document.getElementById("output");
+		x.style.display = 'none';
 	}
-	//SHOW SEARCH RESULTS
-	function Show(){
-		var listbox = document.getElementById("output");
-		listbox.style.display = 'block';
+	//SHOW DIV
+	function Show(x){
+		x.style.display = 'block';
 	}
 	//TOGGLE DIV VISIBILITY
 	function toggle_visibility(id) {
@@ -36,4 +35,6 @@
           e.style.display = 'block';
       }
    }
+
+
    

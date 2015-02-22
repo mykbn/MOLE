@@ -165,6 +165,7 @@ a{
 	width: 99.5%;
 	top: 50px;
 	left: 0px;
+	z-index: 0;
 }
 /*SEARCH*/
 #searchbardiv{
@@ -350,13 +351,28 @@ a{
 	font-size: 20px;
 	z-index:1;
 }
+#no_results{
+	position: relative;
+	top: 40px;
+	left: 45px;
+	height: 10px;
+	/*margin-top:30px; */
+	font-size: 21px;
+	font-family: Calibri;
+	color: #2b88b6;
+}
 .class-option:hover{
-	background-color: rgb(51, 153, 255); 
+	background-color: rgb(255, 255, 255); 
+	cursor:pointer;
 }
 .class-option{
 	position: relative;
 	top: 40px;
 	left: 45px;
+	height: 30px;
+	line-height: 30px;
+	/*margin-top:30px; */
+	/*vertical-align: baseline;*/
 	font-size: 21px;
 	font-family: Calibri;
 	color: #2b88b6;
@@ -366,7 +382,7 @@ a{
 #dropdowndiv{
 	position: absolute;
 	display: none;
-	z-index: 2;
+	z-index: 5;
 	top: 0%;
 	left: 5px;
 	height: 60%;
