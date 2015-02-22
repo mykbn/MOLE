@@ -585,7 +585,7 @@ a{
 	box-shadow: none;
 }
 #editdropdowncardsclassname,
-#deletedropdowncardsclassname{
+.deletedropdowncardsclassname{
 	position: relative;
 	line-height: 35px;
 	left: 11px;
@@ -593,7 +593,7 @@ a{
 	font-family: Calibri;
 }
 #editdropdowndeletebutton,
-#deletedropdowndeletebutton{
+.deletedropdowndeletebutton{
 	position: relative;
 	top: -2px;
 	left: 140px;

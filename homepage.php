@@ -19,14 +19,6 @@ function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
-function LoadClassesForEdit(){
-	$(document).ready(function(){
-		$.get( "CheckCreatedClasses.php", function(data) {
-		  $("#editclassdiv").html(data);
-		});
-	});
-}
-
 function LoadClasses(){
 	$(document).ready(function(){
 		$.get( "checkclasses.php", function(data) {
@@ -105,7 +97,7 @@ function GoToClass(classV){
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit()">
+<body  onload="ChangeProfileName(); LoadClasses()">
 <div id="main">
 
 <!-- HEADER -->
@@ -166,6 +158,10 @@ function GoToClass(classV){
 		</div>
 		<!-- EDIT CLASS SLIDESIDE DIV -->
 		<div id = "editclassdiv">
+			<div id = "editdropdowncards" class = "cards">
+				<label id = "editdropdowncardsclassname">Capstone</label>
+				<input id = "editdropdowndeletebutton" type = "submit" value = "x">
+			</div>
 		</div>
 		<!-- DELETE CLASS SLIDESIDE DIC -->
 		<div id = "deleteclassdiv">
@@ -173,6 +169,7 @@ function GoToClass(classV){
 				<label id = "deletedropdowncardsclassname" class = "deletedropdowncardsclassname">Capstone</label>
 				<input id = "deletedropdowndeletebutton" class = "deletedropdowndeletebutton" type = "submit" value = "x">
 			</div>
+		</div>
 
 		<!-- CREATE CLASS SLIDESIDE DIV -->
 		<div id = "creatediv">
