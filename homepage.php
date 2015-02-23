@@ -3,7 +3,6 @@
 	session_start('user_credentials');
 	// session_start("class_info");
 	$status = $_SESSION['POSITION'];
-	
 
 ?>
 <html>
@@ -16,6 +15,9 @@
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
 function ChangeProfileName(){
+	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
+	var pic = document.getElementById('profilepicture');
+	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }

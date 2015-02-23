@@ -8,7 +8,7 @@ $subj = $_POST['subj'];
 $card = ''; 
 
 $getCards = "SELECT CardTitle FROM `".$subj."_cards`";
-$resultCards = mysqli_query($conn, $getCards) or die (mysqli_error($getCards));
+$resultCards = mysqli_query($conn, $getCards) or die ("");
 
 
 
@@ -18,8 +18,7 @@ while($row = mysqli_fetch_assoc($resultCards)){
 	        //generate output
 	        if($val != ""){
 	        	$getList = "SELECT List From `".$subj."_cards` WHERE `CardTitle` = '".$val."'";
-				$resultList = mysqli_query($conn, $getList) 
-					or die (mysqli_error($conn));
+				$resultList = mysqli_query($conn, $getList);
 				$rowList = mysqli_fetch_array($resultList);
 				$serverList = $rowList["List"];
 

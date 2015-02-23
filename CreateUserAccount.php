@@ -44,9 +44,11 @@ else if($inputPassword != $inputConfirm && $inputUsername != $serverProfUser || 
 	//If User is Professor
 	if($inputPosition == "Professor"){
 		
-		$insert_to_users = "INSERT INTO professors (`ID_No`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, `School_College`, `Position`) VALUES ('$inputStudNo', '$inputfName', '$inputlName', '$inputUsername', '$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition')";
+		$insert_to_users = "INSERT INTO professors (`ID_No`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, 
+			`School_College`, `Position`, `Status`) VALUES ('$inputStudNo', '$inputfName', '$inputlName', '$inputUsername', 
+			'$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition', 'pending')";
 		if (mysqli_query($conn, $insert_to_users)) {
-			readfile("Index.html");
+			readfile("Index.php");
 			echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
 			}else {
 			    echo "Error: " . $insert_to_users . "<br>" . mysqli_error($conn);
@@ -57,9 +59,11 @@ else if($inputPassword != $inputConfirm && $inputUsername != $serverProfUser || 
 
 	else if($inputPosition == "Student"){
 
-		$insert_to_users = "INSERT INTO students (`ID_No`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, `School_College`, `Position`) VALUES ('$inputStudNo', '$inputfName', '$inputlName', '$inputUsername', '$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition')";
+		$insert_to_users = "INSERT INTO students (`ID_No`, `Firstname`, `Lastname`, `Username`, `Password`, `Email`, 
+			`School_College`, `Position`) VALUES ('$inputStudNo', '$inputfName', '$inputlName', '$inputUsername',
+			 '$inputPassword', '$inputEmail', '$inputSchoolCollege', '$inputPosition')";
 		if (mysqli_query($conn, $insert_to_users)) {
-			readfile("Index.html");
+			readfile("Index.php");
 			echo "<p id='invalid'> New user created successfully, Try logging in now </p>";
 			}else {
 			    echo "Error: " . $insert_to_users . "<br>" . mysqli_error($conn);

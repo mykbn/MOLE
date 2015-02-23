@@ -2,8 +2,6 @@
   include "connect.php";
   session_start('user_credentials');
   $status = $_SESSION['POSITION'];
- 
-
 ?>
 <html>
 <head>
@@ -57,31 +55,7 @@
           <p class="studentnum"> 11-00574 </p>   
 
   </div>
-    <div id="userphoto">
-      <?php
-        function change_profile_image($user_id, $file_temp, $file_extn){
-          include 'connect.php';
-          // echo ($file_temp);
-          $file_path = 'images/profile/' . substr(md5(time()), 0, 10) . '.' . $file_extn;
-          echo ($file_path);
-          move_uploaded_file($file_temp, $file_path);
-
-          $query = "UPDATE professors SET `profile` = '" . mysql_real_escape_string($file_path) . "' WHERE `ID_No` = " . (int)$_SESSION['ID'];
-          
-          if($insertPath = mysqli_query($conn, $query)){
-            echo "Uploaded Successfullyyyyyyy!";
-            $_SESSION['PROFILEPIC'] = $file_path;
-          }else{
-            echo "Error: " . mysqli_error($conn);
-          }
-        }
-      ?>
-     
-      <?php
-        if (empty($_SESSION['PROFILEPIC']) === false){
-          echo '<img id = "profilepic" src="', $_SESSION['PROFILEPIC'], '" alt="', $_SESSION['Firstname'] , '\'s Profile Image">';
-        }
-        ?>
+    <div id="userphoto"><img src="_assets/Profile-icon.jpg" alt="default avatar">
       </div>  
         </div>
           </div>   
@@ -106,39 +80,14 @@
         <h2>Settings</h2>
         <div>
         <!--<p>Lorem ipsum<p>-->
+
         <div id="settings">
-          <div class="profile"> 
-
-            <?php
-              if (isset($_FILES['profile']) === true){
-                if (empty ($_FILES['profile']['name']) === true){
-                  echo 'please choose a file';
-          } else {
-            $allowed = array('jpg', 'jpeg', 'gif', 'png');
-
-            $file_name = $_FILES['profile']['name'];
-            $file_extn = strtolower(end(explode('.', $file_name)));
-            $file_temp = $_FILES['profile']['tmp_name'];
-
-            if (in_array($file_extn, $allowed) === true){
-              change_profile_image($_SESSION['ID'], $file_temp, $file_extn);
-            } else {
-              echo 'Incorrect file type you stupid bitch! Allowed file types:';
-              echo implode(', ', $allowed);
-            
-            }
-        }
-      }
-      ?>
-          <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="profile"> <input type="submit">
-          </form>  
         <!--<tr>
           <th>-->
-            <!--<label for="my_file"><p class="changedp">Change display photo</p></label>
+            <label for="my_file"><p class="changedp">Change display photo</p></label>
           <!--</th>
         <td>-->
-          <!--<div id="dpbutton">
+          <div id="dpbutton">
           <input type="file" name="logo.png" data-max-width="500" data-max-height="300"/>
         <!--</td>
       </tr>-->

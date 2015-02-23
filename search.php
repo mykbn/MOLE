@@ -8,7 +8,7 @@ if(isset($_POST['searchVal'])){
 	$searchq = $_POST['searchVal'];
 	$query =  "SELECT `Classes` FROM classes WHERE `Classes` LIKE '%$searchq%'";
 	$result = mysqli_query($conn, $query)
-		or die("Error: ".mysqli_error($conn));
+		or die('<p id="no_results">There are no <br>classes named <br><i>"'.$searchq.'"<i> </p>');
 
 	$count = mysqli_num_rows($result);
 

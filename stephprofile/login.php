@@ -69,18 +69,24 @@ if ($Position == 'Professor'){
 	$_SESSION['ID'] = $rowID[0];
 
 	//profile
-	$queryprofile = "SELECT Profile FROM professors WHERE '$inputUsername' = Username";
+	$queryprofile = "SELECT profile FROM professors WHERE '$inputUsername' = Username";
 	$resultprofile = mysqli_query($conn,$queryprofile)
 		or die("Error: ".mysqli_error($conn));
 	$rowprofile = mysqli_fetch_array($resultprofile);
-	$serverprofile = $rowID["Profile"];
-	$_SESSION['PROFILEPIC'] = $serverprofile;
-	// echo ($rowprofile);
+	$serverprofile = $rowID["profile"];
+	$_SESSION['profile'] = $rowprofile[0];
 
-        // function change_profile_image($user_id, $file_temp, $file_extn){
-        //   //$file_path = 'images/profile/' . substr(md5(time()), 0, 10) . '.' . $file_extn;
-        //   //move_uploaded_file($file_temp, $file_path);
-        //   mysql_query("UPDATE 'professors' SET 'profile' = '" . ($file_path) . "'  WHERE 'ID_No' = " . (int) $_SESSION['ID']);
+
+        function change_profile_image($user_id, $file_temp, $file_extn){
+          //$file_path = 'images/profile/' . substr(md5(time()), 0, 10) . '.' . $file_extn;
+          //move_uploaded_file($file_temp, $file_path);
+          mysql_query("UPDATE 'professors' SET 'profile' = '" . ($file_path) . "'  WHERE 'ID_No' = " . (int) $_SESSION['ID']);
+  }
+
+
+
+          
+
 
 	//Check if login credentials are correct
 	if($inputUsername == $serverUser && $inputPassword == $serverPassword){

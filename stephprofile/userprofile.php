@@ -66,20 +66,27 @@
           echo ($file_path);
           move_uploaded_file($file_temp, $file_path);
 
+          // //mysql_query("UPDATE 'professors' SET 'profile' = '" . ($file_path) . "'  WHERE 'ID_No' = " . (int) $_SESSION['ID']);
           $query = "UPDATE professors SET `profile` = '" . mysql_real_escape_string($file_path) . "' WHERE `ID_No` = " . (int)$_SESSION['ID'];
           
           if($insertPath = mysqli_query($conn, $query)){
             echo "Uploaded Successfullyyyyyyy!";
-            $_SESSION['PROFILEPIC'] = $file_path;
           }else{
             echo "Error: " . mysqli_error($conn);
           }
+            
+          // echo ($insertPath);
+          // if($insertPath = mysqli_query($conn, $query)){
+          //   echo "SUCCESSSSSS!";
+          // }else{
+          //   echo "Error: " . mysqli_error($conn);
+          // }
         }
       ?>
      
       <?php
-        if (empty($_SESSION['PROFILEPIC']) === false){
-          echo '<img id = "profilepic" src="', $_SESSION['PROFILEPIC'], '" alt="', $_SESSION['Firstname'] , '\'s Profile Image">';
+        if (empty($_SESSION['profile']) === false){
+          echo '<img src="', $_SESSION['profile'], '" alt="', $_SESSION['Firstname'] , '\'s Profile Image">';
         }
         ?>
       </div>  

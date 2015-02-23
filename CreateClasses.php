@@ -6,6 +6,7 @@ $inputPassword = $_POST['password'];
 $inputConfirmationPassword = $_POST['confirmationpassword'];
 $inputClassDescription = $_POST['classdescription'];
 $user = $_SESSION['UNAME'];
+$ID = $_SESSION['ID'];
 
 $create_classes =
 "CREATE TABLE IF NOT EXISTS classes
@@ -68,6 +69,12 @@ if($inputClassName == $serverClassName && $inputPassword == $inputConfirmationPa
 			alert('Class Successfully Created!');
 			window.location.href='homepage.php';
 			</script>";
+			$queryEnroll = "INSERT INTO enrollment (`$ID`) VALUES ('$inputClassName')";
+			if (mysqli_query($conn, $queryEnroll)) {
+				
+			}else {
+				    echo "Error: " . $queryEnroll . "<br>" . mysqli_error($conn);
+			}
 		} else {
 		    echo "Error: " . $queryCreateEntry . "<br>" . mysqli_error($conn);
 		}

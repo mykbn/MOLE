@@ -519,3 +519,8 @@
 	height: 80%;
 	/*border: solid 1px;*/
 }
+
+#hiddencontainer{
+	display: none;
+	/*border: solid 1px;*/
+}

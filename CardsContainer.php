@@ -43,6 +43,9 @@ function LoadLists(){
 	// });
 }
 function ChangeProfileName(){
+	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
+	var pic = document.getElementById('profilepicture');
+	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
@@ -74,7 +77,7 @@ function AddCard(listname){
 	var cardtitle = $("input[name='"+listname+"']").val();
 	$(document).ready(function(){
 		$.post("addcards_class.php?subj=" + className.value +"&list=" + listname, {cardName:cardtitle}, function(card){
-			$("body").html(card);
+			$("#notificationdiv").html(card);
 		});
 	});
 	
@@ -85,7 +88,7 @@ function LoadCards(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	$(document).ready(function(){
 		$.post( "LoadCards.php", {subj:getSubj}, function(cards) {
-		  $( "#namedropdown").html(cards);
+		  $( "#notificationdiv").html(cards);
 		  ChangeCardPosition();
 		  // alert (getCards);
 		});
@@ -153,6 +156,8 @@ function ChangeCardPosition(){
 				<input id = "addcontainer" type = "textbox" placeholder = "Add List" name = "listName">
 				<input id = "addbuttoncontainer" class = "addbutton" type = "submit" value = "Add" onclick="AddList()">
 		</div>
+
+		<div id="hiddencontainer"></div>
 
 </body>
 </html>

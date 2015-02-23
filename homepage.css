@@ -321,6 +321,20 @@ a{
 	font-size: 17px;
 	padding-left: 8px;
 }
+#messagebox{
+	position: absolute;
+	border: none;
+	top: 120%;
+	left: 0%;
+	height: 10%;
+	width: 99.9%;
+	border-radius: 4px;
+	background-color: rgba(0,0,0,0);
+	font-family: Calibri;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+}
 #enrollbutton{
 	position: absolute;
 	border: none;

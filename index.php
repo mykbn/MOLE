@@ -1,9 +1,20 @@
+<?php
+	include 'connect.php';
+	include 'CreateUserTable.php';
+	
+?>
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "login.css">
-<title></title>
+<title>Welcome to MOLE!</title>
 </head>
 <script type="text/javascript">
+// window.onload = function(){
+// 	// window.location.href = "CreateUserTable.php";
+// 	$.get("CreateUserTable.php", function(){
+
+// 	});
+// }
 	// function FirstLastName(){
 	// 	$.post('login.php', {user: login-form.emailTxt.value},
 	// 		function(name){

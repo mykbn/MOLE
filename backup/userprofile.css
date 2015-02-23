@@ -17,10 +17,7 @@ header { height: 70px; background-color: #006599; }
   top: 60px;
   left: 0px;
 }
-#profilepic{
-  width:150px;
-  height:150px;
-}
+
 
 /*#profiletabs {
   display: block;
@@ -279,11 +276,6 @@ ul.tabbernav li.tabberactive a:hover
 }
 #dpbutton{
   padding-left: 30px;
-}
-.profile{
-  background: #f9f9f9;
-  border: 1px dashed #ccc;
-  padding: 5px;
 }
 
 /*HEADER*/
