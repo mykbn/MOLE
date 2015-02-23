@@ -17,12 +17,17 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
+<script type = "text/javascript" src="slimscroll.js"></script>
 <script type = "text/javascript">
+window.onload = function(){
+	var element = document.getElementsByClassName('cardcontainer');
+	var e = Array.prototype.slice.call(element);
+	alert (e[0]);
+	scroll.useSlimScroll(e[0]);
+}
 function LoadLists(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	var className = document.getElementById('classname');
-	// $(document).ready(function(){
-		// alert();
 		$.post( "LoadLists.php", {subj:getSubj}, function(list) {
 		  $( "#lists-container").html(list);
 		});
@@ -42,75 +47,58 @@ function AddList(){
 	$.post("addlist_class.php?subj=" + className.value, {listLabel:listName}, function(list){
 		$("#lists-container").html(list);
 	});
-	// var className = document.getElementById('classname');
-	// var listName = document.getElementById('addcontainer');
-
-	// window.location.href = "addlist_class.php?subj=" + className.value+ "&list=" + listName.value;
 }
 function CheckAuthor(){
 	var addListTextBox = document.getElementById('add-lists-container')
 	var author = <?php echo json_encode($serverAuthor); ?>;
 	var currentUser = <?php echo json_encode($_SESSION['REALNAME']); ?>;
-	// alert (author);
-	// alert (currentUser);
 	if (author == currentUser){
-		// alert ("SHOW TEXTBOX");
 		addListTextBox.style.display = 'block';
 	}else{
-		// alert ("HIDE TEXTBOX");
 		addListTextBox.style.display = 'none';
 	}
-	// alert (author);
-	// alert (currentUser);
 
 }
 
 function AddCard(listname){
 	var className = document.getElementById('classname');
 	var cardtitle = $("input[name='"+listname+"']").val();
-
-	// $(document).ready(function(){
+	$(document).ready(function(){
 		$.post("addcards_class.php?subj=" + className.value +"&list=" + listname, {cardName:cardtitle}, function(card){
-			$("#cardcontainer").html(card);
+			$("body").html(card);
 		});
-	// });
+	});
 	
 }
-// $(document).ready(function(){
-// 	LoadCards();
-// 	var id = document.getElementById('mainpage');
-// 	// // alert (id.id);
-// 	// var cards = id.document.getElementsByClassName('card');
-// 	// alert(cards.length);
-// 	// for (i = 0; i < cards.length; i++) {
-// 	//   cards[i].value = "red";
-// 	// }	
-// });
 
 
 function LoadCards(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
-	// $(document).ready(function(){
-		$.post( "LoadCards.php", {subj:getSubj}, function(card) {
-		  $( "#cardcontainer").html(card);
+	$(document).ready(function(){
+		$.post( "LoadCards.php", {subj:getSubj}, function(cards) {
+		  $( "#namedropdown").html(cards);
+		  ChangeCardPosition();
+		  // alert (getCards);
 		});
-	// });
+	});
 }
 
-function ChangeCardPosition(object){
-	alert (object);
-	// var id = document.getElementById('cardcontainer');
-	// // alert (id.id);
-	// var cards = id.document.getElementsByClassName('card');
-	// alert(cards.length);
-	// for (i = 0; i < cards.length; i++) {
-	//   cards[i].value = "red";
-	// }	
+function ChangeCardPosition(){
+	var getCards = document.getElementsByClassName('card');
+	var cards = Array.prototype.slice.call(getCards);
+	// alert (cards[1].id);
+	$(document).ready(function(){
+		for (i = 0; i < cards.length; i++) {
+		var theCard = document.getElementById(cards[i].id);
+		$("#cardcontainer_"+cards[i].id).append(theCard);
+		// alert(theCard.id);
+		}	
+	});
 }
 </script>
 
 </head>
-<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists(); CheckAuthor();LoadCards();">
+<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists(); CheckAuthor();LoadCards(); ">
 <!-- HEADER -->
 	<div id = "header" onclick="Hide()">
 		<div id = "logo-mole">

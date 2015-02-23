@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 19, 2015 at 09:50 AM
+-- Generation Time: Feb 22, 2015 at 02:14 PM
 -- Server version: 5.6.20
 -- PHP Version: 5.5.15
 
@@ -27,8 +27,42 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `capstone` (
-`ID` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+`ID` int(10) NOT NULL,
+  `Lists` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
+
+--
+-- Dumping data for table `capstone`
+--
+
+INSERT INTO `capstone` (`ID`, `Lists`) VALUES
+(37, 'To-Do-List'),
+(38, 'asdasda'),
+(39, 'List');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `capstone_cards`
+--
+
+CREATE TABLE IF NOT EXISTS `capstone_cards` (
+`ID` int(11) NOT NULL,
+  `List` varchar(100) NOT NULL,
+  `CardTitle` varchar(100) NOT NULL,
+  `Description` varchar(50) NOT NULL,
+  `Created_By` varchar(200) NOT NULL,
+  `Date_Created` varchar(50) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `capstone_cards`
+--
+
+INSERT INTO `capstone_cards` (`ID`, `List`, `CardTitle`, `Description`, `Created_By`, `Date_Created`) VALUES
+(1, 'To-Do-List', '123', '', '', ''),
+(2, 'asdasda', '456', '', '', ''),
+(3, 'To-Do-List', 'PANGET SI PAT', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -37,8 +71,16 @@ CREATE TABLE IF NOT EXISTS `capstone` (
 --
 
 CREATE TABLE IF NOT EXISTS `cisco` (
-`ID` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+`ID` int(10) NOT NULL,
+  `Lists` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `cisco`
+--
+
+INSERT INTO `cisco` (`ID`, `Lists`) VALUES
+(1, 'List1');
 
 -- --------------------------------------------------------
 
@@ -52,15 +94,18 @@ CREATE TABLE IF NOT EXISTS `classes` (
   `Password` varchar(50) NOT NULL,
   `Class_Description` varchar(200) NOT NULL,
   `Created_By` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `classes`
 --
 
 INSERT INTO `classes` (`ID`, `Classes`, `Password`, `Class_Description`, `Created_By`) VALUES
-(1, 'Capstone', '123', 'lalala', 'Mykel Abania'),
-(2, 'CISCO', '123', 'asdasdasdadsa', 'Mykel Abania');
+(1, 'Capstone', '123', 'asdadwdqdqwe', 'Mykel Abania'),
+(2, 'Cisco', '123', 'Floooooorrrr Plaaaaaannn', 'Mykel Abania'),
+(3, 'PHP', '123', 'LALALALALALALA', 'Steph Macaraeg'),
+(4, 'History', '123', 'HISTORYYYY!', 'Mykel Abania'),
+(5, 'Math', '123', 'asdasdasdas', 'Mykel Abania');
 
 -- --------------------------------------------------------
 
@@ -70,17 +115,52 @@ INSERT INTO `classes` (`ID`, `Classes`, `Password`, `Class_Description`, `Create
 
 CREATE TABLE IF NOT EXISTS `enrollment` (
 `ID` int(10) NOT NULL,
-  `1101373` varchar(50) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `1101373` varchar(50) NOT NULL,
+  `1111111` varchar(50) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `enrollment`
 --
 
-INSERT INTO `enrollment` (`ID`, `1101373`) VALUES
-(4, 'Capstone'),
-(5, 'CISCO'),
-(6, 'Capstone');
+INSERT INTO `enrollment` (`ID`, `1101373`, `1111111`) VALUES
+(3, '', 'Capstone'),
+(19, 'Capstone', ''),
+(20, 'Cisco', ''),
+(21, 'PHP', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `history`
+--
+
+CREATE TABLE IF NOT EXISTS `history` (
+`ID` int(10) NOT NULL,
+  `Lists` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `math`
+--
+
+CREATE TABLE IF NOT EXISTS `math` (
+`ID` int(10) NOT NULL,
+  `Lists` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `php`
+--
+
+CREATE TABLE IF NOT EXISTS `php` (
+`ID` int(10) NOT NULL,
+  `Lists` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -144,6 +224,12 @@ ALTER TABLE `capstone`
  ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `capstone_cards`
+--
+ALTER TABLE `capstone_cards`
+ ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `cisco`
 --
 ALTER TABLE `cisco`
@@ -159,6 +245,24 @@ ALTER TABLE `classes`
 -- Indexes for table `enrollment`
 --
 ALTER TABLE `enrollment`
+ ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+ ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `math`
+--
+ALTER TABLE `math`
+ ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `php`
+--
+ALTER TABLE `php`
  ADD PRIMARY KEY (`ID`);
 
 --
@@ -181,22 +285,42 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `capstone`
 --
 ALTER TABLE `capstone`
-MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+--
+-- AUTO_INCREMENT for table `capstone_cards`
+--
+ALTER TABLE `capstone_cards`
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `cisco`
 --
 ALTER TABLE `cisco`
-MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `enrollment`
 --
 ALTER TABLE `enrollment`
-MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `math`
+--
+ALTER TABLE `math`
+MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `php`
+--
+ALTER TABLE `php`
+MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

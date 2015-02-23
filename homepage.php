@@ -19,6 +19,30 @@ function ChangeProfileName(){
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
+<<<<<<< HEAD
+=======
+function LoadClassesForEdit(){
+	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+	$(document).ready(function(){
+		$.post( "CheckCreatedClasses.php", {user:userName}, function(cards) {
+			// alert ("LOADED");
+		  $( "#editclassdiv" ).html(cards);
+		});
+	});
+}
+function EditClass(classV){
+	alert(classV.id);
+}
+function LoadClassesForDelete(){
+	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+	$(document).ready(function(){
+		$.post( "CheckCreatedClassesForDelete.php", {user:userName}, function(cards) {
+			// alert ("LOADED");
+		  $( "#deleteclassdiv" ).html(cards);
+		});
+	});
+}
+>>>>>>> origin/master
 function LoadClasses(){
 	$(document).ready(function(){
 		$.get( "checkclasses.php", function(data) {
@@ -28,9 +52,12 @@ function LoadClasses(){
 }
 
 function GetClassValue(classV){ 
-		// alert(classV);	
-		var enrollDiv = document.getElementById('classviewdiv');
-		enrollDiv.action = "enroll.php?subject=" + classV;
+		var messagebox = document.getElementById('messagebox');
+		var passText = document.getElementById('classviewpassword');
+		passText.value = "";
+		messagebox.value = "";
+		var title = document.getElementById("classviewtitle");
+		title.value = classV;
 		$('#classviewtitle').html(classV);
 		$(document).ready(function(){
 			$.post("GetClassInfo.php", {subj:classV}, function(author){
@@ -56,8 +83,25 @@ function GetClassValue(classV){
 			$('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
 		});
 		
-		var enrollButt = document.getElementById('Enroll');
+		// var enrollButt = document.getElementById('Enroll');
 		// enrollButt.style.visibility = 'visible';
+}
+
+function Enroll(){
+	var title = document.getElementById("classviewtitle");
+	var realTitle = title.value;
+	var passText = document.getElementById("classviewpassword");
+	var messagebox = document.getElementById('messagebox');
+	passInput = passText.value;
+	// alert(title.value);
+		$.post("enroll.php", {subject:realTitle, classpass:passInput}, function(message){
+			messagebox.value = message;
+			if (message == "Enrolled successfully!"){
+				window.location.replace("homepage.php");
+			}
+			
+		});
+
 }
 function Stud_Prof_Dropdowns(){
 	var studDrop = document.getElementById('dropdowndivSTUDENT');
@@ -165,10 +209,7 @@ function GoToClass(classV){
 		</div>
 		<!-- DELETE CLASS SLIDESIDE DIC -->
 		<div id = "deleteclassdiv">
-			<div id = "deletedropdowncards">
-				<label id = "deletedropdowncardsclassname" class = "deletedropdowncardsclassname">Capstone</label>
-				<input id = "deletedropdowndeletebutton" class = "deletedropdowndeletebutton" type = "submit" value = "x">
-			</div>
+			
 		</div>
 
 		<!-- CREATE CLASS SLIDESIDE DIV -->
@@ -194,12 +235,13 @@ function GoToClass(classV){
 		</div>
 
 <!-- ENROLL DESCRIPTION -->
-		<form id = "classviewdiv" method = 'POST' style="display:none">
+		<form id = "classviewdiv" style="display:none">
 			<div id = "classviewtitle"></div>
 			<div id = "classviewprofessor"></div>
 			<textarea id = "classviewdescription" value = "classviewdescription" disabled readonly></textarea>
-			<input id = "classviewpassword" type = "password" placeholder = "Password">
-			<input id = "enrollbutton" type = "submit" value = "Enroll" class = "Enroll" onclick="AskForPass()">
+			<input id = "classviewpassword" name = "classpass" type = "password" placeholder = "Password">
+			<input id = "enrollbutton" type="button" value = "Enroll" class = "Enroll" onclick="Enroll()">
+			<input id = "messagebox" type="text" disabled>
 		</form>
 
 <!-- ASK FOR PASS -->
