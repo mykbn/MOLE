@@ -246,8 +246,6 @@ function GoToClass(classV){
 			<input id = "enrollbutton" type="button" value = "Enroll" class = "Enroll" onclick="Enroll()">
 			<input id = "messagebox" type="text" disabled>
 		</form>
-
-
 	</div>
 </div>
 </body>
