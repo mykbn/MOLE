@@ -22,8 +22,17 @@
 window.onload = function(){
 	var element = document.getElementsByClassName('cardcontainer');
 	var e = Array.prototype.slice.call(element);
-	alert (e[0]);
+	// alert (e[0]);
 	scroll.useSlimScroll(e[0]);
+}
+function GoToQuiz(){
+	// alert("LALALALALALA");
+	$(document).ready(function(){
+		window.location.href = "CreateQuiz.php";
+		// $.get("CreateQuiz.php",function(){
+
+		// });
+	});
 }
 function LoadLists(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;

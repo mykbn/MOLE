@@ -66,7 +66,7 @@ if($inputClassName == $serverClassName && $inputPassword == $inputConfirmationPa
 	if (mysqli_query($conn, $queryCreateEntry)) {
 			echo "<script> 
 			alert('Class Successfully Created!');
-			window.location.href='enroll.php?subject=".$inputClassName."';
+			window.location.href='homepage.php';
 			</script>";
 		} else {
 		    echo "Error: " . $queryCreateEntry . "<br>" . mysqli_error($conn);

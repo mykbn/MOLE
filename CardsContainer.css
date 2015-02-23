@@ -375,32 +375,32 @@
 /*CLASS TITLE*/
 #classname{
 	position: absolute;
-	border: 0px;
-	top: 1%;
-	padding-left: 10px;
+	border: none;
+	top: 2%;
+	/*padding-left: 10px;*/
+	left: 1.5%;
 	font-size: 25px;
 	font-family: Calibri;
 	font-weight: 3px;
 }
 .cards-container-div{
-	display: inline-block;
-	/*white-space: nowrap;*/
 	position: relative;
-	/*float: left;*/
-	margin-right: 10px;
+	display: inline-block;
+	/*border: solid;*/
+	margin-right: 1%;
 	right: 2px;
-	/*clear: left;*/
 	bottom: 0%;
-	top: 5%;
-	left: 1%;
+	top: 2.5%;
+	left: 2%;
 	width: 20%;
-	height: 90%;
+	height: 95%;
 	border-radius: 4px;
 	background-color: b8b8b8;
 }
 #containertitle{
 	position: relative;
-	top: 0%;
+	top: 2%;
+	/*border: solid;*/
 	width: 100%;
 	height: 8.5%;
 	border: none;
@@ -412,9 +412,9 @@
 }
 #cardtitle{
 	position: absolute;
-	top: 50px;
+	top: 8%;
 	left: 0px;
-	width: 90%;
+	width: 100%;
 	height: 8%;
 	border: none;
 	/*border-radius: 5px;*/
@@ -425,19 +425,23 @@
 	background-color: 8c8d8d;
 	z-index:5;
 }
-#buttondiv{
-	position: absolute;
+/*#buttondiv{
+	position: relative;
 	width: 50px;
-	top: 50px;
+	top: 0%;
 	height: 8%;
-	/*top: -7.8%;*/
+	top: -7.8%;
 	left: 80%;
-	/*border: solid;*/
+	border: solid;
 	background-color: 8c8d8d;
 	z-index:6;
-}
+}*/
 .addbutton{
 	position: relative;
+	top: 0%;
+	/*left: 90%;*/
+	/*right: 0%;*/
+	margin-left: 81%;
 	width: 43px;
 	height: 29px;
 	border: none;
@@ -446,25 +450,28 @@
 	font-family: Calibri;
 	color: white;
 	background-color: ff6699;
+	z-index: 20;
 }
 #addcard{
 	top: 4px;
 	left: 3px;
 }
 .card{
-	position: relative;
+	position: absolute;
+	/*border: solid;*/
 	width: 95%;
 	height: 20%;
 	margin-bottom: 5px;
-	/*top: 0%;*/
+	top: 0%;
 	left: 2.4%;
 	border-radius: 3px;
 	background-color: white;
 	box-shadow: 1px 1px 3px gray;
+	z-index: 30;
 }
 #addcontainer{
 	position: relative;
-	/*top: 10%;*/
+	top: 2%;
 	/*left: 79.5%;*/
 	width: 80%;
 	height: 100%;
@@ -477,14 +484,10 @@
 	color: rgba(0,0,0, 0.5);
 }
 #addbuttoncontainer{
-	position: absolute;
-	top: 25%;
+	position: relative;
+	top: 2%;
 	/*left: 95%;*/
 }
-
-
-
-
 #add-lists-container{
 	position: absolute;
 	top: 1%;
@@ -492,24 +495,22 @@
 	width: 19%;
 	height: 7%;
 	border-radius: 4px;
-	/*border: solid 1px;*/
+	/*border: solid;*/
 	background-color:  b8b8b8; 
 	font-size: 20px;
 	font-family: Calibri;
 	color: rgba(0,0,0, 0.5);
 }
-
 #lists-container{
 	position: relative;
 	white-space: nowrap;
 	overflow-y: hidden;
 	overflow-x: scroll;
-	/*border: solid 1px;*/
+	/*border: solid;*/
 	top:50px;
 	width: 100%;
 	height: 90%;
 }
-
 .cardcontainer{
 	position: relative;
 	overflow-y: scroll;

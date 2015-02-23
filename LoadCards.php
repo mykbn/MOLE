@@ -23,7 +23,7 @@ while($row = mysqli_fetch_assoc($resultCards)){
 				$rowList = mysqli_fetch_array($resultList);
 				$serverList = $rowList["List"];
 
-	        	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'"> '.$val.'
+	        	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'" onclick="GoToQuiz()"> '.$val.'
 							</div>';
 
 	        }
