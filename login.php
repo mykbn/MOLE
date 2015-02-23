@@ -86,7 +86,7 @@ if ($Position == 'Professor'){
 	if($inputUsername == $serverUser && $inputPassword == $serverPassword){
 		header("Location:homepage.php?p=professor");
 	}else{
-		readfile("index.html");
+		readfile("index.php");
 		echo '<label id="invalid"> Invalid Login </label>';
 	}
 }else if ($Position == 'Student'){
@@ -134,7 +134,7 @@ if ($Position == 'Professor'){
 	if($inputUsername == $serverUser && $inputPassword == $serverPassword){
 		header("Location:homepage.php?p=student");
 	}else{
-		readfile("index.html");
+		readfile("index.php");
 		echo '<label id="invalid"> Invalid Login </label>';
 	}
 }
