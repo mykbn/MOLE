@@ -193,7 +193,7 @@ function GoToClass(classV){
 		<form id = "questiondiv">
 			<input id = "quiztitle" type = "text" placeholder = "Title">
 			<label id = "questionnumber">1.</label>
-			<input id = "questiontext" type = "text" placeholder = "Question">
+			<textarea id = "questiontext" type = "text" placeholder = "Question"></textarea>
 			<select id = "checkchoices" placeholder = "Choices">			
 				<option value="textbox">Text Box</option>
 				<option value="checkbox">Check Box</option>
@@ -204,6 +204,7 @@ function GoToClass(classV){
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
+				<option value="4">4</option>
 			</select>
 		</form>
 		<div id = "questionchoicesdiv">
@@ -211,7 +212,14 @@ function GoToClass(classV){
 			<form id = "answerchoicesform">
 				<input id = "checkbox" class = "checkbox" type="radio" name="blue" value="blue" checked>
 				<input id = "answerchoicestext" class = "answerchoicestext" type = "text">
+				<input id = "checkbox" class = "checkbox" type="radio" name="blue" value="blue" checked>
+				<input id = "answerchoicestext" class = "answerchoicestext" type = "text">
 			</form> 
+			<form id = "buttonsform">
+				<input id = "clearbutton" type = "submit" value = "Clear">
+				<input id = "nextbutton" type = "submit" value = "Next">
+				<input id = "publishbutton" type = "submit" value = "Publish">
+			</form>
 		</div>
 	</div>
 
