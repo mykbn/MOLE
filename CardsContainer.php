@@ -28,7 +28,8 @@ window.onload = function(){
 function GoToQuiz(){
 	// alert("LALALALALALA");
 	$(document).ready(function(){
-		window.location.href = "CreateQuiz.php";
+		var subj = <?php echo json_encode($_GET['subj']); ?>;
+		window.location.href = "CreateQuiz.php?subj=" + subj;
 		// $.get("CreateQuiz.php",function(){
 
 		// });

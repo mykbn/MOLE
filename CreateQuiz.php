@@ -16,6 +16,9 @@
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
 function ChangeProfileName(){
+	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
+	var pic = document.getElementById('profilepicture');
+	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
@@ -23,7 +26,7 @@ function LoadClassesForEdit(){
 	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 	$(document).ready(function(){
 		$.post( "CheckCreatedClasses.php", {user:userName}, function(cards) {
-			alert ("LOADED");
+			// alert ("LOADED");
 		  $( "#editclassdiv" ).html(cards);
 		});
 	});
@@ -95,27 +98,54 @@ function Stud_Prof_Dropdowns(){
 		      }
 	}
 }
-function UnEnroll(value){
-	// alert(value);
-	if(confirm('Unenroll from this class?')){
-		$.post("unenroll.php",{classV:value},function(classdata){
-		// $("#form-div").html(classdata);
-		window.location.href = "homepage.php";
-	});
+function BlurNumberOfChoices(){
+	var choicesComboBox = document.getElementById('checkchoices');
+	var numberOfChoicesCB = document.getElementById('numberchoices');
+	// alert (choicesComboBox.value);
+	if (choicesComboBox.value == "text"){
+		numberOfChoicesCB.disabled = true;
+		numberOfChoicesCB.value = 1;
+		$('#rightanswerlabel').html('Type the right answer:');
 	}else{
-		window.location.href = "homepage.php";
+		$('#rightanswerlabel').html('Select the right answer:');
+		numberOfChoicesCB.disabled = false;
+	}
+}
+
+function CreateChoices(){
+	var radiobuttons =  document.getElementsByClassName('radiobutt');
+	var radios = Array.prototype.slice.call(radiobuttons);
+	var numberOfChoicesCB = document.getElementById('numberchoices');
+	var choicesComboBox = document.getElementById('checkchoices');
+	var type = choicesComboBox.value;
+	var num = numberOfChoicesCB.value;
+	$.post("CreateChoices.php", {numOfChoices:num, typeOfChoice:type},function(choices){
+		$('#answerchoicesform').html(choices);
+	});
+}
+
+function CreateNextQuestion(){
+	// alert("CLICKED");
+	var subj = <?php echo json_encode($_GET['subj']); ?>;
+	quiz_title = document.getElementById('quiztitle');
+	quiz_question = document.getElementById('questiontext');
+	if (quiz_title.value == ""){
+		quiz_title.style.border = '2px solid red';
+		quiz_title.placeholder = 'Enter a Quiz Title!';
+		
+	}else{
+		// alert ("REDDDD");
+		quiz_title.disabled = true;
+		$.post("InsertQuizItem.php", {title:quiz_title.value, subject:subj, question:quiz_question.value}, function(data){
+			$('#notificationdiv').html(data)
+		});
 	}
 	
-
-}
-function GoToClass(classV){
-	// alert ("Go To "+ classV);
-	window.location.href = "CardsContainer.php?subj=" + classV;
-}
+} 
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete()">
+<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); BlurNumberOfChoices();CreateChoices(); ">
 <div id="main">
 
 <!-- HEADER -->
@@ -127,9 +157,12 @@ function GoToClass(classV){
 		<div id = "profilepic-div">
 			<img id = "profilepicture" src="_assets/Profile-icon.jpg">
 		</div>
-		<input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns(); Hide(editclassdiv); Hide(creatediv)">
-		<input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
-		<input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv'); Hide(namedropdown)">
+		<input id = "class" type = "submit" value = "Classes" name = "classBtn" 
+			onclick = "Stud_Prof_Dropdowns(); Hide(editclassdiv); Hide(creatediv)">
+		<input id = "profilename" type = "button"  name = "profilename" 
+			onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
+		<input id = "notification" type = "submit" value = "" name = "notificationBtn" 
+			onclick = "toggle_visibility('notificationdiv'); Hide(namedropdown)">
 	</div>
 	<div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
 
@@ -194,30 +227,39 @@ function GoToClass(classV){
 			<input id = "quiztitle" type = "text" placeholder = "Title">
 			<label id = "questionnumber">1.</label>
 			<textarea id = "questiontext" type = "text" placeholder = "Question"></textarea>
-			<select id = "checkchoices" placeholder = "Choices">			
-				<option value="textbox">Text Box</option>
+			
+			<select id = "checkchoices" placeholder = "Choices" onchange="BlurNumberOfChoices();CreateChoices()">			
+				<option value="text">Text Box</option>
 				<option value="checkbox">Check Box</option>
-				<option value="radiobutton">Radio Button</option>
+				<option value="radio">Radio Button</option>
 			</select>
-			<select id = "numberchoices" placeholder = "Number Choices">			
+
+			<select id = "numberchoices" placeholder = "Number Choices" onchange="CreateChoices();"  disabled>			
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
-				<option value="4">4</option>
 			</select>
+
 		</form>
 		<div id = "questionchoicesdiv">
-			<label id = "rightanswerlabel">Select the right answer.</label>
+			<label id = "rightanswerlabel">Select the right answer:</label>
 			<form id = "answerchoicesform">
-				<input id = "checkbox" class = "checkbox" type="radio" name="blue" value="blue" checked>
-				<input id = "answerchoicestext" class = "answerchoicestext" type = "text">
-				<input id = "checkbox" class = "checkbox" type="radio" name="blue" value="blue" checked>
-				<input id = "answerchoicestext" class = "answerchoicestext" type = "text">
+				<!-- <input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
+				<input id = "answer" class = "answerchoicestext" type = "text"><br> -->
+<!-- 
+				<input id = "radio_b" class = "radiobutt" type="radio" name="b" value="b" >
+				<input id = "answer_b" class = "answerchoicestext" type = "text"><br>
+
+				<input id = "radio_c" class = "radiobutt" type="radio" name="c" value="c" >
+				<input id = "answer_c" class = "answerchoicestext" type = "text"><br>
+
+				<input id = "radio_d" class = "radiobutt" type="radio" name="d" value="d" >
+				<input id = "answer_d" class = "answerchoicestext" type = "text"> -->
 			</form> 
 			<form id = "buttonsform">
 				<input id = "clearbutton" type = "submit" value = "Clear">
-				<input id = "nextbutton" type = "submit" value = "Next">
+				<input id = "nextbutton" type = "button" value = "Next" onclick="CreateNextQuestion()">
 				<input id = "publishbutton" type = "submit" value = "Publish">
 			</form>
 		</div>

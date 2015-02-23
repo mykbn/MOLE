@@ -12,10 +12,38 @@
     <title>CEU-MOLE</title>
     <script type="text/javascript" src="tabber.js"></script>
     <link rel ="stylesheet" href="userprofile.css" type="text/css" media="screen">
+    <link rel ="stylesheet" href="homepage.css" type="text/css" media="screen">
     <script type = "text/javascript" src="Homepage.js"></script>
+    <script type = "text/javascript">
+      function ChangeProfileName(){
+        // alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
+        var pic = document.getElementById('profilepicture');
+        pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
+        var profile = document.getElementById('profilename');
+        profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+      }
+      function Stud_Prof_Dropdowns(){
+        var studDrop = document.getElementById('dropdowndivSTUDENT');
+        var profDrop = document.getElementById('dropdowndivPROF');
+        var status = <?php echo json_encode ($status); ?>;
+        if (status == "Professor"){
+           if(profDrop.style.display == 'block'){
+                    profDrop.style.display = 'none';
+                }else{
+                    profDrop.style.display = 'block';
+                }
+        }else if(status == "Student"){
+          if(studDrop.style.display == 'block'){
+                    studDrop.style.display = 'none';
+                }else{
+                    studDrop.style.display = 'block';
+                }
+        }
+      }
+    </script>
 </head>
  
-<body>
+<body onload = "ChangeProfileName()">
 <div id="main">
 <!-- HEADER -->
   <div id = "header" onclick="Hide()">
@@ -26,35 +54,81 @@
     <div id = "profilepic-div">
       <img id = "profilepicture" src="_assets/Profile-icon.jpg">
     </div>
-    <input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns()">
-    <input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
-    <input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')">
+    <input id = "class" type = "submit" value = "Classes" name = "classBtn" 
+      onclick = "Stud_Prof_Dropdowns(); Hide(editclassdiv); Hide(creatediv); Hide(deleteclassdiv)">
+    <input id = "profilename" type = "button"  name = "profilename" 
+      onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
+    <input id = "notification" type = "submit" value = "" name = "notificationBtn" 
+      onclick = "toggle_visibility('notificationdiv'); Hide(namedropdown)">
   </div>
-<!-- END HEADER -->
 
-<div id = "mainpage">
 
+  <div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
 <!-- NOTIFICATIONSIDE -->
     <div id = "notificationdiv" class = "notificationdiv">
     </div>
 
 <!-- NAMEDROPDOWN -->
-<div id = "namedropdown">
-  <form action="userprofile.php">
-    <input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
-  </form>
-  <form action="index.html"> 
-    <input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
-  </form>
-</div>
+    <div id = "namedropdown">
+      <form action="userprofile.php">
+        <input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
+      </form>
+      <form action="index.html"> 
+        <input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
+      </form>
+    </div>
 
+<!-- CLASS DROPDOWN -->
+<!-- FOR PROFESSOR -->
+    <div id = "dropdowndivPROF">
+      <input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" 
+        onclick = "toggle_visibility('creatediv'); Hide(editclassdiv); Hide(deleteclassdiv)">
+      <input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
+        onclick = "toggle_visibility('editclassdiv'); Hide(creatediv); Hide(deleteclassdiv)">
+      <input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" 
+        onclick = "toggle_visibility('deleteclassdiv'); Hide(creatediv); Hide(editclassdiv)">
+    </div>
+    <!-- EDIT CLASS SLIDESIDE DIV -->
+    <div id = "editclassdiv">
+
+      <!-- <div id = "editdropdowncards" class = "cards"> -->
+        <!-- <label id = "editdropdowncardsclassname">Capstone</label>
+        <input id = "editdropdowndeletebutton" type = "submit" value = "x"> -->
+      <!-- </div> -->
+    </div>
+    <!-- DELETE CLASS SLIDESIDE DIC -->
+    <div id = "deleteclassdiv">
+      
+    </div>
+
+    <!-- CREATE CLASS SLIDESIDE DIV -->
+    <div id = "creatediv">
+      <form id = "create-class-form" method = "post" action = "CreateClasses.php">
+                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
+            <input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
+            <input id = "confirmationpassword" class = "form-textbox" type = "password" 
+            name = "confirmationpassword" placeholder = "Confirmation Password">
+                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
+                <input class = "create-cancel" type = "submit" value = "Create"> 
+      </form>
+      <input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" 
+      onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
+    </div>
+
+<!-- FOR STUDENT -->
+    <div id = "dropdowndivSTUDENT">
+      <div id = "dropdowncards" class = "cards">
+        <label id = "dropdowncardsclassname">Capstone</label>
+        <input id = "dropdowndeletebutton" type = "submit" value = "x">
+      </div>
+    </div>
 
 <!-- GAWA NI STEPH -->
 	<div id="content">
     <div id="aboutholder">
       <div id="aboutstudent">
-        <p class="name"> STEPHANIE MACARAEG </p>
-          <p class="studentnum"> 11-00574 </p>   
+        <p class="name"> <?php echo json_encode($_SESSION['REALNAME']); ?> </p>
+          <p class="studentnum"> <?php echo json_encode($_SESSION['ID']); ?> </p>   
 
   </div>
     <div id="userphoto">

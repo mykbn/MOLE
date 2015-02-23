@@ -526,14 +526,17 @@ a{
 	font-family: Calibri;
 	font-size: 18px;
 }
-.checkbox{
-	position: absolute;
-	top: 17%;
+.radiobutt{
+	position: relative;
+	top:40px;
+	margin-top: 5%;
 	left: 5%;
+	/*display: none;*/
 }
 .answerchoicestext{
-	position: absolute;
-	top: 15%;
+	position: relative;
+	margin-top: 5%;
+	top: 40px;
 	left: 8%;
 	height: 8%;
 	width: 80%;
