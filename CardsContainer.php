@@ -202,6 +202,7 @@ function ChangeCardPosition(){
 					<input id = "listtitle" type = "text" placeholder = "List Title">
 					<input id = "addcardbutton" type = "submit" value = "+">
 					<div id = "card">
+						<input id = "deletecardbutton" type = "submit" value = "x">
 					</div>
 				</div>
 				<div id = "addcardcontent">

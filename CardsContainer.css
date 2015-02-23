@@ -449,12 +449,22 @@
 	border-color: gray;*/
 	top: 1.5%;
 	left: 3.8%;
-	height: 30%;
+	height: 25%;
 	width: 92%;
 	border-radius: 3px;
 	box-shadow: 1px 1px 5px gray;
 	background-color: white;
 	z-index: 10;
+}
+#deletecardbutton{
+	position: relative;
+	border: none;
+	top: 0%;
+	left: 90%;
+	height: 15%;
+	width: 10%;
+	background-color: white;
+	color: gray;
 }
 #addcardbutton{
 	position: absolute;
@@ -509,9 +519,10 @@
 	border: none;
 	left: 2.4%;
 	width: 45%;
-	background-color: 76E764;
+	background-color: FD8595;
 	margin-top: 3.5%;
 	box-shadow: none;
+	color: white;
 }
 #createbutton{
 	margin-right: 2.6%;
