@@ -5,6 +5,11 @@ include 'connect.php';
 $subj = $_POST['subject'];
 $quizTitle = $_POST['title'];
 $question = $_POST['question'];
+$a = $_POST['a'];
+$b = $_POST['b'];
+$c = $_POST['c'];
+$d = $_POST['d'];
+$answer = $_POST['ans'];
 // echo($subj);
 // echo($quizTitle);
 
@@ -22,7 +27,8 @@ $create_quiz_table =
 )";
 $create_quiz = $conn->query($create_quiz_table);
 
-$insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`) VALUES ('$question')";
+$insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`,`A`,`B`,`C`,`D`,`Correct_Answer`) 
+                    VALUES ('$question','$a','$b','$c','$d','$answer')";
 if(mysqli_query($conn,$insert_quiz_item)){
 	echo "SUCCESS!";
 }else{

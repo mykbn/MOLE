@@ -9,7 +9,7 @@
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "CreateQuiz.css">
-<title>Home</title>
+<title>Create A Quiz</title>
 <script type="text/javascript" src="jquery_min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
@@ -130,22 +130,38 @@ function CreateChoices(){
 function CreateNextQuestion(){
 	// alert("CLICKED");
 	var subj = <?php echo json_encode($_GET['subj']); ?>;
-	quiz_title = document.getElementById('quiztitle');
-	quiz_question = document.getElementById('questiontext');
+	var quiz_title = document.getElementById('quiztitle');
+	var quiz_question = document.getElementById('questiontext');
+	var quiz_choice_0 = document.getElementById('answer_0');
+	var quiz_choice_1 = document.getElementById('answer_1');
+	var quiz_choice_2 = document.getElementById('answer_2');
+	var quiz_choice_3 = document.getElementById('answer_3');
+	var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 	if (quiz_title.value == ""){
 		quiz_title.style.border = '2px solid red';
 		quiz_title.placeholder = 'Enter a Quiz Title!';
 		
 	}else{
-		// alert ("REDDDD");
-		quiz_title.disabled = true;
-		$.post("InsertQuizItem.php", {title:quiz_title.value, subject:subj, question:quiz_question.value}, function(data){
-			$('#notificationdiv').html(data)
+		// alert (answer);
+		// quiz_title.disabled = true;
+		$.post("InsertQuizItem.php", {title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
+										ans:answer},
+				 function(data){
+				 			alert (answer);
+
+			// $('#notificationdiv').html(data)
+			// window.location.href = 
 		});
 	}
 	
 } 
-
+function ChangeRadioButtonValue(text, choice){
+	// alert(choice);
+	var radio = document.getElementById('radio_'+choice);
+	radio.value = text;
+	// $('#questiontext').append(text);
+}
 </script>
 </head>
 <body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); BlurNumberOfChoices();CreateChoices(); ">
@@ -228,6 +244,10 @@ function CreateNextQuestion(){
 	<div id = "createquizdiv">
 		<form id = "questiondiv">
 			<input id = "quiztitle" type = "text" placeholder = "Title" disabled>
+			<select id = "questioncreated" placeholder = "Quiz Number">
+				<option value = "1">1</option>
+			</select>
+
 			<label id = "questionnumber">1.</label>
 			<textarea id = "questiontext" name="questiontext" type = "text" placeholder = "Question"></textarea>
 			
@@ -247,7 +267,7 @@ function CreateNextQuestion(){
 		</form>
 		<div id = "questionchoicesdiv">
 			<label id = "rightanswerlabel">Select the right answer:</label>
-			<form id = "answerchoicesform">
+			<form id = "answerchoicesform" name="answerchoicesform">
 				<!-- <input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
 				<input id = "answer" class = "answerchoicestext" type = "text"><br> -->
 <!-- 
