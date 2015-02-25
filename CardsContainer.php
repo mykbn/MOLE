@@ -47,6 +47,8 @@ function LoadLists(){
 	// });
 }
 function ChangeProfileName(){
+	var pic = document.getElementById('profilepicture');
+	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
