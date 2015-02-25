@@ -22,7 +22,13 @@ while($row = mysqli_fetch_assoc($resultCards)){
 				$rowList = mysqli_fetch_array($resultList);
 				$serverList = $rowList["List"];
 
-	        	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'" onclick="GoToQuiz()"> '.$val.'
+	      //   	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'" onclick="GoToQuiz()"> '.$val.'
+							// </div>';
+
+				$card .= '<div class = "card" id="'.$serverList.'" name="cards_'.$serverList.'" onclick="GoToQuiz()">
+								<label id = "createdcardtitle">'.$val.'</label>
+								<input id = "deletecardbutton" type = "submit" value = "x"><br>
+								<label id = "cardcreateddescription">Quiz</label>
 							</div>';
 
 	        }

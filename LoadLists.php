@@ -26,16 +26,18 @@
 	        	// $name = str_replace(' ', '_', $val);
 	        	// $counter = $counter + 1;
 	        	// $name = "cardtitle".$counter;
-	        	$list .= '<div class = "cards-container-div" id="'.$val.'">
-							<input id = "containertitle" type = "text" name = "containertitle" value = "'.$val.'" readonly>
-							<input id = "cardtitle" name="'.$val.'" type = "textbox" placeholder = "Card Title" >
-							<div id = "buttondiv">
-							 	<input id = "addcard" class = "addbutton" type = "submit" value = "Add" name ="'.$val.'" 
-							 	onclick="AddCard(this.name)">
-							 </div>
-
-							 <div class = "cardcontainer" id="cardcontainer_'.$val.'"></div>
-						 </div>';
+	        	$list .= "<div class = 'list' id = 'list_".$val."'>
+							<input id = 'listtitle' type = 'text' value = '".$val."' disabled>
+							<input name = $val id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
+						  </div>
+						  <div id = '$val' class = 'addcardcontent' style='display:none;'>
+							<input id = 'cardstitle' name = cardstitle_".$val." type = 'text' placeholder = 'Card Title'>
+							<input id = 'createquizbutton' type = 'submit' value = 'Quiz'>
+							<input id = 'attachfilebutton' type = 'submit' value = 'Attach File'>
+							<input id = 'createbutton' type = 'submit' name = $val value = 'Create' onclick='AddCard(this.name)'>
+							<input id = 'cancelbutton' type = 'submit' value = 'Cancel'>
+						</div>";
+						// echo ($val);
 
 	        }
 	    }

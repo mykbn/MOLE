@@ -35,6 +35,16 @@
           e.style.display = 'block';
       }
    }
+   function toggle_visible(idd) {
+		// alert ("LABAS!");
+		// alert(idd);
+       var e = document.getElementById(idd);
+       if(e.style.display == 'inline-block'){
+          e.style.display = 'none';
+      }else{
+          e.style.display = 'inline-block';
+      }
+   }
 
 
    

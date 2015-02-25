@@ -3,6 +3,7 @@
 	session_start('user_credentials');
 
 	$subj = $_GET['subj'];
+	$status = $_SESSION['POSITION'];
 	$author = '';
 	$queryAuthor = "SELECT `Created_By` FROM classes WHERE '$subj' = Classes";
 	$resultAuthor = mysqli_query($conn,$queryAuthor)
@@ -20,12 +21,12 @@
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript" src="slimscroll.js"></script>
 <script type = "text/javascript">
-window.onload = function(){
-	var element = document.getElementsByClassName('cardcontainer');
-	var e = Array.prototype.slice.call(element);
-	// alert (e[0]);
-	scroll.useSlimScroll(e[0]);
-}
+// window.onload = function(){
+// 	var element = document.getElementsByClassName('cardcontainer');
+// 	var e = Array.prototype.slice.call(element);
+// 	// alert (e[0]);
+// 	scroll.useSlimScroll(e[0]);
+// }
 function GoToQuiz(){
 	// alert("LALALALALALA");
 	$(document).ready(function(){
@@ -40,7 +41,8 @@ function LoadLists(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	var className = document.getElementById('classname');
 		$.post( "LoadLists.php", {subj:getSubj}, function(list) {
-		  $( "#lists-container").html(list);
+		  $( "#listframe").html(list);
+		  LoadCards();
 		});
 	// });
 }
@@ -49,45 +51,37 @@ function ChangeProfileName(){
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 }
 function ChangeClassName(){
-	var className = document.getElementById('classname');
+	var className = document.getElementById('classtitle');
 	className.value = <?php echo json_encode($_GET['subj']); ?>;
+	$('#classtitle').html(<?php echo json_encode($_GET['subj']); ?>)
 }
 function AddList(){
-	var className = document.getElementById('classname');
+	var className = document.getElementById('classtitle');
 	var listName = $("input[name='listName']").val();
-	$.post("addlist_class.php?subj=" + className.value, {listLabel:listName}, function(list){
-		$("#lists-container").html(list);
+	$.post("addlist_class.php?subj=" + <?php echo json_encode($_GET['subj']); ?>, {listLabel:listName}, function(list){
+		$("#listframe").html(list);
 	});
 }
-function CheckAuthor(){
-	var addListTextBox = document.getElementById('add-lists-container')
-	var author = <?php echo json_encode($serverAuthor); ?>;
-	var currentUser = <?php echo json_encode($_SESSION['REALNAME']); ?>;
-	if (author == currentUser){
-		addListTextBox.style.display = 'block';
-	}else{
-		addListTextBox.style.display = 'none';
-	}
 
-}
 
-function AddCard(listname){
-	var className = document.getElementById('classname');
-	var cardtitle = $("input[name='"+listname+"']").val();
+function AddCard(list){
+	// alert (list);
+	var className = <?php echo json_encode($_GET['subj']); ?>;
+	var cardtitle = $("input[name='cardstitle_"+list+"']").val();
+	// alert(cardtitle);
 	$(document).ready(function(){
-		$.post("addcards_class.php?subj=" + className.value +"&list=" + listname, {cardName:cardtitle}, function(card){
+		$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle}, function(card){
 			$("body").html(card);
 		});
 	});
 	
 }
 
-
 function LoadCards(){
 	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	$(document).ready(function(){
 		$.post( "LoadCards.php", {subj:getSubj}, function(cards) {
-		  $( "#namedropdown").html(cards);
+		  $( "#notificationdiv").html(cards);
 		  ChangeCardPosition();
 		  // alert (getCards);
 		});
@@ -97,19 +91,39 @@ function LoadCards(){
 function ChangeCardPosition(){
 	var getCards = document.getElementsByClassName('card');
 	var cards = Array.prototype.slice.call(getCards);
+	// alert (cards.length);
 	// alert (cards[1].id);
 	$(document).ready(function(){
 		for (i = 0; i < cards.length; i++) {
 		var theCard = document.getElementById(cards[i].id);
-		$("#cardcontainer_"+cards[i].id).append(theCard);
+		// alert(cards[i].id);
+		$("#list_"+cards[i].id).append(theCard);
 		// alert(theCard.id);
 		}	
 	});
 }
+function Stud_Prof_Dropdowns(){
+	var studDrop = document.getElementById('dropdowndivSTUDENT');
+	var profDrop = document.getElementById('dropdowndivPROF');
+	var status = <?php echo json_encode ($status); ?>;
+	if (status == "Professor"){
+		 if(profDrop.style.display == 'block'){
+		          profDrop.style.display = 'none';
+		      }else{
+		          profDrop.style.display = 'block';
+		      }
+	}else if(status == "Student"){
+		if(studDrop.style.display == 'block'){
+		          studDrop.style.display = 'none';
+		      }else{
+		          studDrop.style.display = 'block';
+		      }
+	}
+}
 </script>
 
 </head>
-<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists(); CheckAuthor();LoadCards(); ">
+<body onload = "ChangeProfileName(); ChangeClassName(); LoadLists();">
 <div id="main">
 
 <!-- HEADER -->
@@ -193,16 +207,18 @@ function ChangeCardPosition(){
 <!-- INSIDE CLASS -->
 		<div id = "insideclass">
 			<div id = "classtitle-addlist">
-				<label id = "classtitle">Class Title</label>
-				<input id = "addlist" type = "text" placeholder = "Add List">
-				<input id = "addlistbutton" type = "submit" value = "Add">
+				<label id = "classtitle" value="value">Class Title</label>
+				<input id = "addlist" type = "text" placeholder = "Add List" name="listName">
+				<input id = "addlistbutton" type="button" value = "Add" onclick="AddList()">
 			</div>
 			<div id = "listframe">
-				<div id = "list">
+				<!-- <div id = "list">
 					<input id = "listtitle" type = "text" placeholder = "List Title">
-					<input id = "addcardbutton" type = "submit" value = "+">
+					<input id = "addcardbutton" type = "submit" value = "+" onclick="toggle_visibility('addcardcontent')">
 					<div id = "card">
-						<input id = "deletecardbutton" type = "submit" value = "x">
+						<label id = "createdcardtitle">Your Card</label>
+						<input id = "deletecardbutton" type = "submit" value = "x"><br>
+						<label id = "cardcreateddescription">Quiz</label>
 					</div>
 				</div>
 				<div id = "addcardcontent">
@@ -212,7 +228,7 @@ function ChangeCardPosition(){
 					<input id = "createbutton" type = "submit" value = "Create">
 					<input id = "cancelbutton" type = "submit" value = "Cancel">
 				</div>
-			</div>
+			</div> -->
 		</div>
 
 
