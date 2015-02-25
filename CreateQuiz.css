@@ -528,7 +528,7 @@ a{
 }
 .radiobutt{
 	position: relative;
-	top:40px;
+	top:1.5px;
 	margin-top: 5%;
 	left: 5%;
 	/*display: none;*/
@@ -536,7 +536,7 @@ a{
 .answerchoicestext{
 	position: relative;
 	margin-top: 5%;
-	top: 40px;
+	top: 1.5px;
 	left: 8%;
 	height: 8%;
 	width: 80%;
@@ -549,7 +549,7 @@ a{
 #buttonsform{
 	position: absolute;
 	/*border: solid;*/
-	top: 80%;
+	top:85%;
 	width: 100%;
 }
 #clearbutton,

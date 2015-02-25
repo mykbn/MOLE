@@ -3,7 +3,7 @@
 	session_start('user_credentials');
 	// session_start("class_info");
 	$status = $_SESSION['POSITION'];
-	
+	$title = $_GET['title'];
 
 ?>
 <html>
@@ -21,6 +21,9 @@ function ChangeProfileName(){
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+   	var quiz_title = document.getElementById('quiztitle');
+   	quiz_title.value = <?php echo json_encode($title) ?>;
+
 }
 function LoadClassesForEdit(){
 	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
@@ -224,9 +227,9 @@ function CreateNextQuestion(){
 	<!-- CREATE QUIZ -->
 	<div id = "createquizdiv">
 		<form id = "questiondiv">
-			<input id = "quiztitle" type = "text" placeholder = "Title">
+			<input id = "quiztitle" type = "text" placeholder = "Title" disabled>
 			<label id = "questionnumber">1.</label>
-			<textarea id = "questiontext" type = "text" placeholder = "Question"></textarea>
+			<textarea id = "questiontext" name="questiontext" type = "text" placeholder = "Question"></textarea>
 			
 			<select id = "checkchoices" placeholder = "Choices" onchange="BlurNumberOfChoices();CreateChoices()">			
 				<option value="text">Text Box</option>

@@ -27,11 +27,13 @@
 // 	// alert (e[0]);
 // 	scroll.useSlimScroll(e[0]);
 // }
-function GoToQuiz(){
-	// alert("LALALALALALA");
+function GoToQuiz(name){
+	// alert(name);
+	var cardtitle = $("input[name='cardstitle_"+name+"']").val();
+	// alert (cardtitle);
 	$(document).ready(function(){
 		var subj = <?php echo json_encode($_GET['subj']); ?>;
-		window.location.href = "CreateQuiz.php?subj=" + subj;
+		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle;
 		// $.get("CreateQuiz.php",function(){
 
 		// });
@@ -97,10 +99,10 @@ function ChangeCardPosition(){
 	// alert (cards[1].id);
 	$(document).ready(function(){
 		for (i = 0; i < cards.length; i++) {
-		var theCard = document.getElementById(cards[i].id);
-		// alert(cards[i].id);
-		$("#list_"+cards[i].id).append(theCard);
-		// alert(theCard.id);
+			var theCard = document.getElementById("cards_"+cards[i].getAttribute('name'));
+			// alert("cards_"+cards[i].getAttribute('name'));
+			$("#list_"+cards[i].getAttribute('name')).append(theCard);
+			// alert(theCard.id);
 		}	
 	});
 }

@@ -7,6 +7,9 @@
 	top: 0px;
 	left: 0px;
 }
+input[type="button"], input[type="submit"] { 
+	cursor: pointer;
+}
 /*HEADER*/
 #header{
 	position: absolute;
@@ -450,6 +453,7 @@
 	position: relative;
 /*	border: solid 1px;
 	border-color: gray;*/
+	margin-top: 10px;
 	top: 1.5%;
 	left: 3.8%;
 	height: 25%;
@@ -458,6 +462,7 @@
 	box-shadow: 1px 1px 5px gray;
 	background-color: white;
 	z-index: 10;
+	cursor: pointer;
 }
 #deletecardbutton,
 #createdcardtitle,

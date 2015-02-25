@@ -32,9 +32,9 @@
 						  </div>
 						  <div id = '$val' class = 'addcardcontent' style='display:none;'>
 							<input id = 'cardstitle' name = cardstitle_".$val." type = 'text' placeholder = 'Card Title'>
-							<input id = 'createquizbutton' type = 'submit' value = 'Quiz'>
+							<input id = 'createquizbutton' type = 'submit' name=$val value = 'Quiz' onclick='GoToQuiz(this.name)'>
 							<input id = 'attachfilebutton' type = 'submit' value = 'Attach File'>
-							<input id = 'createbutton' type = 'submit' name = $val value = 'Create' onclick='AddCard(this.name)'>
+							<input id = 'createbutton' type = 'submit' name=$val value = 'Create' onclick='AddCard(this.name)'>
 							<input id = 'cancelbutton' type = 'submit' value = 'Cancel'>
 						</div>";
 						// echo ($val);

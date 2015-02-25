@@ -25,7 +25,7 @@ while($row = mysqli_fetch_assoc($resultCards)){
 	      //   	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'" onclick="GoToQuiz()"> '.$val.'
 							// </div>';
 
-				$card .= '<div class = "card" id="'.$serverList.'" name="cards_'.$serverList.'" onclick="GoToQuiz()">
+				$card .= '<div class = "card" id="cards_'.$serverList.'" name="'.$serverList.'" value="'.$serverList.'" >
 								<label id = "createdcardtitle">'.$val.'</label>
 								<input id = "deletecardbutton" type = "submit" value = "x"><br>
 								<label id = "cardcreateddescription">Quiz</label>

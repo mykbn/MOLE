@@ -407,7 +407,7 @@ a{
 #dropdowndivSTUDENT,
 #dropdowndivPROF,
 #dropdowndiv{
-	position: relative;
+	position: absolute;
 	display: none;
 	z-index: 100;
 	top: 0%;
