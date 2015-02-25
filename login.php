@@ -74,13 +74,12 @@ if ($Position == 'Professor'){
 		or die("Error: ".mysqli_error($conn));
 	$rowprofile = mysqli_fetch_array($resultprofile);
 	$serverprofile = $rowID["Profile"];
-	$_SESSION['PROFILEPIC'] = $serverprofile;
-	// echo ($rowprofile);
-
-        // function change_profile_image($user_id, $file_temp, $file_extn){
-        //   //$file_path = 'images/profile/' . substr(md5(time()), 0, 10) . '.' . $file_extn;
-        //   //move_uploaded_file($file_temp, $file_path);
-        //   mysql_query("UPDATE 'professors' SET 'profile' = '" . ($file_path) . "'  WHERE 'ID_No' = " . (int) $_SESSION['ID']);
+	if ($rowprofile[0] == ''){
+		$_SESSION['PROFILEPIC'] = "images\profile\default.jpg";
+	}else{
+		$_SESSION['PROFILEPIC'] = $rowprofile[0];
+	}
+	
 
 	//Check if login credentials are correct
 	if($inputUsername == $serverUser && $inputPassword == $serverPassword){
