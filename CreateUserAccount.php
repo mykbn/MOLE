@@ -13,6 +13,13 @@ $inputEmail = $_POST['emailText'];
 $inputSchoolCollege = $_POST['school/college'];
 $inputPosition = $_POST['position'];
 
+//Admin Username
+$queryAdminUsername = "SELECT * FROM admin WHERE '$inputUsername' = Username";
+$resultAdminUsername = mysqli_query($conn,$queryAdminUsername)
+	or die("Error: ".mysqli_error($conn));
+$rowAdminUser = mysqli_fetch_array($resultAdminUsername);
+$serverAdminUser = $rowAdminUser["Username"];
+
 //Professor Username
 $queryProfUsername = "SELECT * FROM professors WHERE '$inputUsername' = Username";
 $resultProfUsername = mysqli_query($conn,$queryProfUsername)
@@ -28,15 +35,15 @@ $rowStudUser = mysqli_fetch_array($resultStudUsername);
 $serverStudUser = $rowStudUser["Username"];
 
 //Username already taken
-if($inputUsername == $serverProfUser && $inputPassword == $inputConfirm || $inputUsername == $serverStudUser && $inputPassword == $inputConfirm){
+if($inputUsername == $serverProfUser && $inputPassword == $inputConfirm || $inputUsername == $serverStudUser && $inputPassword == $inputConfirm || $inputUsername == $serverAdminUser && $inputPassword == $inputConfirm){
 	readfile("CreateUserAccount.html");
 	echo '<label class="invalid">Username Already Taken</label>';
 }
 //Check if password fields are equal
-else if($inputPassword != $inputConfirm && $inputUsername != $serverProfUser || $inputPassword != $inputConfirm && $inputUsername != $serverStudUser){
+else if($inputPassword != $inputConfirm && $inputUsername != $serverProfUser || $inputPassword != $inputConfirm && $inputUsername != $serverStudUser || $inputUsername != $serverAdminUser && $inputPassword != $inputConfirm){
 	readfile("CreateUserAccount.html");
 	echo '<label class="invalid">Passwords do not match</label>';
-}else if($inputUsername == $serverProfUser && $inputPassword != $inputConfirm || $inputUsername == $serverStudUser && $inputPassword != $inputConfirm ){
+}else if($inputUsername == $serverProfUser && $inputPassword != $inputConfirm || $inputUsername == $serverStudUser && $inputPassword != $inputConfirm || $inputUsername == $serverAdminUser && $inputPassword != $inputConfirm){
 		readfile("CreateUserAccount.html");
 		echo '<p class="invalid">Username Already Taken</p>';
 		echo '<br/><p class="invalid">Passwords do not match</p>';

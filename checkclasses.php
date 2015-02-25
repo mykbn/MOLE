@@ -28,7 +28,7 @@
 									<label id = 'author-label' class = 'classname'>Author:</label>
 									<label id = 'author' class = 'classname'>".$serverAuthor."</label>
 								</span>
-								<input id = 'deleteclass' type='button' value = 'x' name=".$val." onclick='UnEnroll(this.name)'>
+								<input class='count' id = 'deleteclass' type='button' value = 'x' name=".$val." onclick='UnEnroll(this.name)'>
 							
 				        	</div>";
 

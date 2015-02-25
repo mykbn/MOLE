@@ -681,14 +681,4 @@ a{
 	color: gray;
 	cursor: pointer;
 }
-#text{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	color: black;
-	font: 30px arial, sans-serif;
-	opacity: 0.2;
-	transform: translate(-50%, -50%);
-	-webkit-transform: translate(-50%, -50%);
-}
 

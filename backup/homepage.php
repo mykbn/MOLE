@@ -16,7 +16,6 @@
 <script type = "text/javascript">
 function ChangeProfileName(){
 	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
-	var no_classes_enrolled_text = document.getElementById('text');
 	var pic = document.getElementById('profilepicture');
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
@@ -47,14 +46,6 @@ function LoadClasses(){
 	$(document).ready(function(){
 		$.get( "checkclasses.php", function(data) {
 		  $( "#form-div" ).html(data);
-		  var classes_enrolled = document.getElementsByClassName('count');
-		  var classes = Array.prototype.slice.call(classes_enrolled);
-		  // alert (classes.length);
-		  if (classes.length == 0){
-		     $('#text').html('You are not yet enrolled in any class.');
-		  }else{
-			$('#text').html('');		
-		  }
 		});
 	});
 }
@@ -171,8 +162,6 @@ function GoToClass(classV){
 
 
 	<div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
-		<p id="text"></p>
-
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
 		</div>
