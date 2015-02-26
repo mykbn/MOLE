@@ -148,14 +148,28 @@ function CreateNextQuestion(){
 										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
 										ans:answer},
 				 function(data){
-				 			alert (answer);
-
+				 			// alert (answer);
+				 	Clear();
 			// $('#notificationdiv').html(data)
 			// window.location.href = 
 		});
 	}
 	
 } 
+var counter = 1;
+function Clear(){
+	alert('Clear!');
+	counter = counter + 1;
+	$('#questionnumber').html(counter + ".");
+	// $(':input').not(":button").val('');
+	$('#questiontext').val(" ");
+	$('#checkchoices').val('text');
+	$('#numberchoices').val('1');
+	$('#questioncreated').append('<option value = "'+counter+'">'+counter+'</option>');
+	$('#questioncreated').val(''+counter+'');
+	BlurNumberOfChoices();	
+	CreateChoices();
+}
 function ChangeRadioButtonValue(text, choice){
 	// alert(choice);
 	var radio = document.getElementById('radio_'+choice);
