@@ -179,9 +179,7 @@ function ChangeRadioButtonValue(text, choice){
 function JumpToQuestion(){
 	alert("jump to class!");
 	
-	$.post("JumpToQuestion.php" {},function(){
 
-	});
 }
 </script>
 </head>
