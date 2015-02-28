@@ -129,9 +129,17 @@ function CreateChoices(){
 
 function CreateNextQuestion(){
 	// alert("CLICKED");
+	var choice = document.getElementById('checkchoices');
+	var choiceType = choice.value;
+
 	var subj = <?php echo json_encode($_GET['subj']); ?>;
 	var quiz_title = document.getElementById('quiztitle');
 	var quiz_question = document.getElementById('questiontext');
+	
+	if (choiceType == "text"){
+
+	}
+	
 	var quiz_choice_0 = document.getElementById('answer_0');
 	var quiz_choice_1 = document.getElementById('answer_1');
 	var quiz_choice_2 = document.getElementById('answer_2');
@@ -178,8 +186,12 @@ function ChangeRadioButtonValue(text, choice){
 }
 function JumpToQuestion(){
 	alert("jump to class!");
-	
-
+	var subject = <?php echo json_encode($_GET['subj']); ?>;
+	var questionDropDown = document.getElementById('questioncreated');
+	var quizTitle = document.getElementById('quiztitle');
+	$.post("JumpToQuestion.php", {num: questionDropDown.value, subj:subject, title:quizTitle.value},function(data){
+		$('#questionnumber').html(data);
+	});
 }
 </script>
 </head>
