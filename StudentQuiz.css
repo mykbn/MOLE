@@ -1,0 +1,792 @@
+a{
+	color: #000000;
+	text-decoration: none;
+	display: block;
+}
+#main{
+	position: absolute;
+	/*border: solid;*/
+	width: 99.99%;
+	height: 99%;
+	min-width: 900px;
+	top: 0px;
+	left: 0px;
+}
+/*HEADER*/
+#header{
+	position: absolute;
+	/*border: solid;*/
+	background-color: 006699;	
+	height: 50px;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+}
+#logo-mole{
+	position: relative;
+	/*border: solid;*/
+	height: 38px;
+	width: 150px;
+	top: 6px;
+	left: 44.5%;
+}
+#mole{
+	position: relative;
+	height: 100%;
+}
+#logo{
+	position: relative;
+	height: 100%;
+	width: 26%;
+}
+#class{
+	position: absolute;
+	height: 38px;
+	width: 100px;
+	top: 6px;
+	left: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+}
+/*NOTIFICATION*/
+#notification{
+	position: absolute;
+	height: 38px;
+	width: 38px;
+	right: 5px;
+	top: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
+	background-image: url("_assets/Bell.png");
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+}
+.notificationdiv{
+	position: absolute;
+	/*visibility: hidden;*/
+	overflow: hidden;
+	position: fixed;
+	display: none;
+	z-index: 3;
+	height: 50%;
+	width: 18.45%;
+	right: 0%;
+	/*right: -0.5%;*/
+	border: solid 1px;
+	border-color: gray;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	background-color: white;
+	box-shadow: 0px 3px 3px gray;
+	-webkit-animation: notificationdiv .8s;
+	-moz-animation: notificationdiv .8s; 
+}
+@-webkit-keyframes notificationdiv {
+   from {right: -19.2%}
+    to {right: 0%}
+}
+/* Standard syntax */
+@keyframes notificationdiv {
+   from {right: -19.2%}
+    to {right: 0%}
+}
+/*NAME*/
+#profilename{
+	position: absolute;
+	height: 38px;
+	width: 165px;
+	right: 50px;
+	top: 5px;
+	border: none;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	background-color: 2b88b6;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+}
+/*NAMEDROPDOWN*/
+#namedropdown{
+	position: absolute;
+	display: none;
+	z-index: 2;
+	top: 0%;
+	right: 3.2%;
+	height: 14.7%;
+	width: 12.1%;
+	border: solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+}
+.namedropdown{
+	position: relative;
+	left: 9px;
+	top: 9px;
+	height: 29px;
+	width: 148px;
+	border-radius: 3px;
+	border: none;
+	background-color: ff7285;
+	font-family: Calibri;
+	font-size: 16px;
+	color: white;
+	box-shadow: 1px 1px 3px gray;
+}
+#logout{
+	top: 4px;
+}
+/*PROFILEPICTURE*/
+#profilepic-div{
+	position: relative;
+	height: 38px;
+	width: 38px;
+	right: 0%;
+	top: -65.1%;
+	left: 81.5%;
+	/*border: solid;*/
+}
+#profilepicture{
+	position: relative;
+	height: 100%;
+	border-top-left-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+#mainpage{
+	position: absolute;
+	/*border: solid;*/
+	height: 91.5%;
+	width: 99.5%;
+	top: 50px;
+	left: 0px;
+	z-index: 0;
+}
+/*SEARCH*/
+#searchbardiv{
+	position: absolute;
+	display:none;
+	overflow: hidden;
+	position: fixed;
+	display: none;
+	right: -.1%;
+	height: 102%;
+	width: 19%;
+	background-color: 00496b;
+	-webkit-animation: searchbardiv .8s;
+	-moz-animation: searchbardiv .8s; 
+}
+@-webkit-keyframes searchbardiv {
+   from {right: -19.2%}
+    to {right: -.1%}
+}
+/* Standard syntax */
+@keyframes searchbardiv {
+   from {right: -19.2%}
+    to {right: -.1%}
+}
+#searchbar{
+	position: relative;
+	height: 37px;
+	width: 245px;
+	top: 7px;
+	left:100%;
+	right: 0px;
+	border: solid;
+	height: 37px;
+	width: 245px;
+	border: solid 1px;
+	border-radius: 19px;
+	border-color: #2b88b6;
+	font-size: 20px;
+	font-family: Calibri;
+	color: #2b88b6;
+	transform: translate(-99%, 0%);
+	-webkit-transform: translate(-99%, 0%);
+	/*padding-left: 35px;*/
+}
+#searchicon{
+	position: relative;
+	top: 3px;
+	left: 2px;
+	height: 30px;
+	width: 30px;
+}
+#searchicon{
+	position: relative;
+	height: 33px;
+	width: 33px;
+}
+/*SEARCHBAR*/
+#enrollme{
+	position: relative;
+	top: -33px;
+	left: 15%;
+	height: 37px;
+	width: 207px;
+	/*border: none;*/
+	border-color: rgba(0,0,0,0);
+	border-radius: 19px;
+	/*border-color: black;*/
+	font-size: 20px;
+	font-family: Calibri;
+	color: #3a89ff;
+	background-color: transparent;
+	/*padding-left: 35px;*/
+}
+/*::-webkit-input-placeholder {
+   color: #3a89ff;
+}
+:-moz-placeholder {    
+	color: #3a89ff;  
+}
+::-moz-placeholder {  
+   color: #3a89ff;  
+}*/
+#blurimage{
+	height: 100%;
+	width: 30%;
+    -webkit-filter: blur(2px);
+} 
+/*ASK FOR PASS*/
+#askforpass{
+	position: relative;
+	/*border: solid;*/
+	background-color: white;
+	height: 90%;
+	border-radius: 4px;
+}
+/*ENROLL DESCRIPTION*/
+#classviewdiv{
+	position: relative;
+	/*border: solid;*/
+	background-color: white;
+	height: 90%;
+	border-radius: 4px;
+}
+#classviewtitle{
+	position: relative;
+	/*border: solid;*/
+	top: 2%;
+	height: 7%;
+	width: 99%;
+	font-family: Calibri;
+	font-size: 23px;
+}
+#classviewprofessor{
+	position: relative;
+	/*border: solid;*/
+	top: 2%;
+	height: 5%;
+	width: 99%;
+	font-family: Calibri;
+	font-size: 16px;
+}
+#classviewdescription{
+	position: absolute;
+	border: none;
+	padding-left: 9px;
+	padding-right: 6px;
+	/*padding-top: 0px;*/
+	left: 0%;
+	top: 14%;
+	width: 100%;
+	height: 85.9%;
+	padding-top: 2px;
+	border-radius: 4px;
+	font-family: Calibri;
+	font-size: 18px;
+	resize: none;
+	text-align: center;
+	/*vertical-align: middle;*/
+	line-height: 50px;
+	font-size: 20pt;
+	/*font-weight: bold;*/
+}
+#classviewpassword{
+	position: absolute;
+	height: 9%;
+	width: 70%;
+	top: 88%;
+	left: 15%;
+	border: none;
+	border-radius: 4px;
+	background-color: rgba(0,0,0,0.1);
+	font-family: Calibri;
+	font-size: 17px;
+	padding-left: 8px;
+}
+#messagebox{
+	position: absolute;
+	border: none;
+	top: 120%;
+	left: 0%;
+	height: 10%;
+	width: 99.9%;
+	border-radius: 4px;
+	background-color: rgba(0,0,0,0);
+	font-family: Calibri;
+	font-size: 22px;
+	color: white;
+	text-align: center;
+}
+#enrollbutton{
+	position: absolute;
+	border: none;
+	top: 103%;
+	left: 0%;
+	height: 10%;
+	width: 99.9%;
+	border-radius: 4px;
+	background-color: ff7285;
+	font-family: Calibri;
+	font-size: 22px;
+}
+/*CLASS DROPDOWN*/
+#add-classes{
+	position: relative;
+	top: 95%;
+	left: 1%;
+	transform: translate(0%, 101%);
+	-webkit-transform: translate(0%, 101%);
+}
+#class-div{
+	position: relative;
+	/*border:solid;*/
+	/*background-color:Black; */
+	top: 50%;
+	left:50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+	width: 90%;
+	height: 90%;
+	z-index: -1;
+}
+#output{
+	position: absolute;
+	/*border:solid;*/
+	width:200px;
+	top:40px;
+	right:3px;
+	overflow: hidden;
+	font-family: Calibri;
+	font-size: 20px;
+	z-index:1;
+}
+#no_results{
+	position: relative;
+	top: 40px;
+	left: 45px;
+	height: 10px;
+	/*margin-top:30px; */
+	font-size: 21px;
+	font-family: Calibri;
+	color: #2b88b6;
+}
+.class-option:hover{
+	background-color: rgb(255, 255, 255); 
+	cursor:pointer;
+}
+.class-option{
+	position: relative;
+	top: 40px;
+	left: 45px;
+	height: 30px;
+	line-height: 30px;
+	/*margin-top:30px; */
+	/*vertical-align: baseline;*/
+	font-size: 21px;
+	font-family: Calibri;
+	color: #2b88b6;
+}
+#dropdowndivSTUDENT,
+#dropdowndivPROF,
+#dropdowndiv{
+	position: absolute;
+	display: none;
+	z-index: 100;
+	top: 0%;
+	left: 5px;
+	height: 60%;
+	width: 20%;
+	border: solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+}
+/*STUDENT CLASS DROPDOWN*/
+#dropdowncards{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	height: 38px;
+	width: 253px;
+	border-radius: 3px;
+	border: none;
+}
+#dropdowncardsclassname{
+	position: relative;
+	line-height: 35px;
+	left: 10;
+	font-size: 20px;
+	font-family: Calibri;
+}
+#dropdowndeletebutton{
+	position: relative;
+	top: 0px;
+	left: 135px;
+	height: 38px;
+	width: 38px;
+	border: none;
+	border-radius: 3px;
+	font-size: 20px;
+	font-family: Calibri;
+	background-color: #fec4cd;
+}
+/*CREATE CLASS SLIDESIDE*/
+.dropdowncontent{
+	position: relative;
+	height: 38px;
+	width: 253px;
+	border-radius: 3px;
+	border: none;
+	background-color: ff7285;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+	box-shadow: 1px 1px 3px gray;
+}
+#createclass{
+	position: relative;
+	top: 9px;
+	left: 9px;
+}
+#editclass{
+	top: 16px;
+	left: 9px;
+}
+#deleteclass-dropdowncontent{
+	top: 23px;
+	left: 9px;
+}
+#creatediv{
+	position: absolute;
+	display: none;
+	z-index: 50;
+	top: 0%;
+	left: 285px;
+	height: 51.4%;
+	width: 20%;
+	border:solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+	-webkit-animation: creatediv .8s; /* Chrome, Safari, Opera */
+	-moz-animation: creatediv .8s; 
+	-o-animation: creatediv .8s; 
+	animation: creatediv .8s;
+}
+	/* Chrome, Safari, Opera */
+@-webkit-keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+/* Standard syntax */
+@keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+.form-textbox{
+	position: relative;
+	height: 33px;
+	width: 253px;
+	top: 2px;
+	margin-top: 8px;
+	left: 9px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	font-family: Calibri;
+	font-size: 17px;
+	color: 272727;
+	padding-left: 5px;
+}
+#classname{
+	padding-left: 5px;
+}
+#classdescription{
+	position: relative;
+	height: 120px;
+	width: 253px;
+	top: 2px;
+	margin-top: 8px;
+	left: 9px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	font-family: Calibri;
+	font-size: 17px;
+	color: 272727;
+	padding-left: 5px;
+	/*padding-top: 6px;*/
+	resize: none;
+}
+.create-cancel{
+	position: relative;
+	top: 11px;
+	left: 5.1px;
+	height: 38px;
+	width: 122px;
+	margin-left: 5px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+}
+#cancel{
+	top: -43px;
+	left: 49.5%;
+}
+/*EDIT CLASS SLIDESIDE*/
+#editclassdiv,
+#deleteclassdiv{
+	position: absolute;
+	display: none;
+	z-index: 50;
+	top: 0%;
+	left: 285px;
+	height: 51.4%;
+	width: 20%;
+	border:solid 1px;
+	border-color: gray;
+	border-radius: 5px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+	-webkit-animation: creatediv .8s; /* Chrome, Safari, Opera */
+	-moz-animation: creatediv .8s; 
+	-o-animation: creatediv .8s; 
+	animation: creatediv .8s;
+}
+	/* Chrome, Safari, Opera */
+@-webkit-keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+/* Standard syntax */
+@keyframes creatediv {
+   from {left: 5px}
+    to {left: 285px}
+}
+.editdropdowncards,
+#deletedropdowncards{
+	position: relative;
+	top: 9px;
+	left: 9px;
+	height: 33px;
+	width: 253px;
+	border-radius: 3px;
+	border: none;
+	background-color: fbbcab;
+	box-shadow: none;
+}
+#editdropdowncardsclassname,
+.deletedropdowncardsclassname{
+	position: relative;
+	line-height: 35px;
+	left: 11px;
+	font-size: 18px;
+	font-family: Calibri;
+}
+#editdropdowndeletebutton,
+.deletedropdowndeletebutton{
+	position: relative;
+	top: -2px;
+	left: 140px;
+	height: 30px;
+	width: 38px;
+	border: none;
+	border-radius: 3px;
+	font-size: 19px;
+	font-family: Calibri;
+	background-color: fbbcab;
+}
+/*CARDS*/
+#classes{
+	position: absolute;
+	top: -3%;
+	/*border: solid;*/
+	width: 200px;
+	padding-left: 10px;
+	font-size: 25px;
+	font-family: Calibri;
+	font-weight: 3px;
+}
+#form-div{
+	position: absolute;
+	height: 88%;
+	width: 77%;
+	top: 9%;
+	left: 30px;
+	/*border: solid;*/
+}
+.cards{
+	position: relative;
+	top: 0%;
+	/*margin-right: 13px;*/
+	margin-bottom: 13px;
+	height: 45px;
+	width: 550px;
+	border: none;
+	border-radius: 3px;
+	background-color: #fec4cd;
+	padding-top: 2px;
+	box-shadow: 1px 1px 3px gray;
+	cursor: pointer;
+}
+.classname{
+	font-size: 17px;
+	font-family: Calibri;
+}
+#classname-label,
+#author-label{
+	line-height: 43px;
+	padding-left: 12px;
+}
+#classname,
+#author{
+	padding-left: 2px;
+	/*padding-right: 12px;*/
+}
+#deleteclass{
+	position: absolute;
+	right: 0%;
+	/*left: 100%;*/
+	width: 45px;
+	height: 45px;
+	border: none;
+	border-radius: 3px;
+	font-size: 20px;
+	font-family: arial;
+	font-weight: 10px;
+	background-color: #fec4cd;
+	color: gray;
+	cursor: pointer;
+}
+#text{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	color: black;
+	font: 30px arial, sans-serif;
+	opacity: 0.2;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+}
+/*TAKE QUIZ*/
+#takequizpopupdiv{
+	position: absolute;
+	top: 0%;
+	height: 102%;
+	width: 100.5%;
+	background-color: white;
+	/*z-index: 22;*/
+}
+#studentquiz{
+	position: relative;
+	height: 100%;
+	width: 70%;
+	left: 15%;
+	background-color: white;
+	box-shadow: 0px 0px 20px gray;
+}
+#studentquiztitle{
+	position: absolute;
+	border: none;
+	top: 35%;
+	left: 5%;
+	background-color: FDDBEE;
+	font-family: Calibri;
+	font-size: 25px;
+	/*z-index: 23;*/
+}
+#studentquestions{
+	position: relative;
+	border: none;
+	top: 32%;
+	left: 87%;
+	height: 42%;
+	width: 7%;
+	border-radius: 4px;
+	padding-left: 5px;
+	font-family: Calibri;
+	font-size: 19px;
+}
+#questiondiv{
+	position: absolute;
+	top: 0%;
+	height: 12%;
+	width: 100%;
+	background-color: FDDBEE;
+}
+#studentquiestionandanswer{
+	position: relative;
+	border: none;
+	top: 12%;
+	height: 87.8%;
+	width: 99.7%;
+}
+#studentquestionnumber{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	font-family: Calibri;
+	font-size: 18px;
+}
+#studentquestion,
+#studentanswerchoices{
+	position: relative;
+	border: none;
+	top: 4.3%;
+	left: 7%;
+	height: 18%;
+	width: 87%;
+	font-size: 20px;
+	font-family: Calibri;
+	padding-left: 5px;
+	resize: none;
+}
+#radio{
+	position: absolute;
+	top: 30%;
+	left: 4.2%;
+}
+#studentanswerchoices{
+	position: relative;
+	top: 10.3%;
+	height: 9%;
+	width: 87%;
+	font-size: 18px; 
+}
+#nextbutton{
+	position: absolute;
+	top: 88%;
+	left: 5%;
+	height: 38px;
+	width: 110px;
+	margin-left: 10px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+}
