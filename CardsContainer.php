@@ -235,6 +235,12 @@ function Stud_Prof_Dropdowns(){
 			</div> -->
 		</div>
 
+		<!-- TAKE QUIZ -->
+		<div id = "takequizpopupdiv">
+			<div id = "">
+			</div>
+		</div>
+
 
 	</div>
 </div>

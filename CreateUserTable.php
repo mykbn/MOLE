@@ -52,6 +52,7 @@ $create_prof_table =
 	$create_admin = $conn->query($create_admin_table);
 	// $create_prof = mysqli_query($conn, $create_stud_table) or die ("Error: ".mysqli_error($conn));
 	
+	
 	mysqli_close($conn);
 
 	?>
