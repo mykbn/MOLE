@@ -176,6 +176,13 @@ function ChangeRadioButtonValue(text, choice){
 	radio.value = text;
 	// $('#questiontext').append(text);
 }
+function JumpToQuestion(){
+	alert("jump to class!");
+	
+	$.post("JumpToQuestion.php" {},function(){
+
+	});
+}
 </script>
 </head>
 <body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); BlurNumberOfChoices();CreateChoices(); ">
@@ -258,7 +265,7 @@ function ChangeRadioButtonValue(text, choice){
 	<div id = "createquizdiv">
 		<form id = "questiondiv">
 			<input id = "quiztitle" type = "text" placeholder = "Title" disabled>
-			<select id = "questioncreated" placeholder = "Quiz Number">
+			<select id = "questioncreated" placeholder = "Quiz Number" onchange="JumpToQuestion()">
 				<option value = "1">1</option>
 			</select>
 
