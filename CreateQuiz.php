@@ -128,39 +128,101 @@ function CreateChoices(){
 }
 
 function CreateNextQuestion(){
-	// alert("CLICKED");
 	var choice = document.getElementById('checkchoices');
 	var choiceType = choice.value;
 
 	var subj = <?php echo json_encode($_GET['subj']); ?>;
 	var quiz_title = document.getElementById('quiztitle');
 	var quiz_question = document.getElementById('questiontext');
-	
-	if (choiceType == "text"){
+	var no_of_choices = document.getElementById('numberchoices');
 
-	}
-	
-	var quiz_choice_0 = document.getElementById('answer_0');
-	var quiz_choice_1 = document.getElementById('answer_1');
-	var quiz_choice_2 = document.getElementById('answer_2');
-	var quiz_choice_3 = document.getElementById('answer_3');
-	var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
-	if (quiz_title.value == ""){
-		quiz_title.style.border = '2px solid red';
-		quiz_title.placeholder = 'Enter a Quiz Title!';
-		
-	}else{
-		// alert (answer);
-		// quiz_title.disabled = true;
-		$.post("InsertQuizItem.php", {title:quiz_title.value, subject:subj, question:quiz_question.value,
-										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
-										ans:answer},
+	if (choiceType == "text"){
+		var quiz_choice_0 = document.getElementById('answer_0');
+		$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, 
+										question:quiz_question.value, ans:quiz_choice_0.value},
 				 function(data){
-				 			// alert (answer);
 				 	Clear();
-			// $('#notificationdiv').html(data)
-			// window.location.href = 
 		});
+	}else if(choiceType == "checkbox"){
+		if(no_of_choices.value == "1"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value, ans:answer},
+					 function(data){
+					 	Clear();
+			});
+		}else if(no_of_choices.value == "2"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var quiz_choice_1 = document.getElementById('answer_1');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, ans:answer},
+				 function(data){
+				 	Clear();
+			});
+		}else if(no_of_choices.value == "3"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var quiz_choice_1 = document.getElementById('answer_1');
+			var quiz_choice_2 = document.getElementById('answer_2');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, ans:answer},
+				 function(data){
+				 	Clear();
+			});
+		}else if(no_of_choices.value == "4"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var quiz_choice_1 = document.getElementById('answer_1');
+			var quiz_choice_2 = document.getElementById('answer_2');
+			var quiz_choice_3 = document.getElementById('answer_3');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
+										 ans:answer},
+				 function(data){
+				 	Clear();
+			});
+		}
+	}else if(choiceType == "radio"){
+		if(no_of_choices.value == "1"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value, ans:answer},
+					 function(data){
+					 	Clear();
+			});
+		}else if(no_of_choices.value == "2"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var quiz_choice_1 = document.getElementById('answer_1');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, ans:answer},
+				 function(data){
+				 	Clear();
+			});
+		}else if(no_of_choices.value == "3"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var quiz_choice_1 = document.getElementById('answer_1');
+			var quiz_choice_2 = document.getElementById('answer_2');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, ans:answer},
+				 function(data){
+				 	Clear();
+			});
+		}else if(no_of_choices.value == "4"){
+			var quiz_choice_0 = document.getElementById('answer_0');
+			var quiz_choice_1 = document.getElementById('answer_1');
+			var quiz_choice_2 = document.getElementById('answer_2');
+			var quiz_choice_3 = document.getElementById('answer_3');
+			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
+										 ans:answer},
+				 function(data){
+				 	Clear();
+			});
+		}
 	}
 	
 } 
@@ -175,7 +237,7 @@ function Clear(){
 	$('#numberchoices').val('1');
 	$('#questioncreated').append('<option value = "'+counter+'">'+counter+'</option>');
 	$('#questioncreated').val(''+counter+'');
-	BlurNumberOfChoices();	
+	// BlurNumberOfChoices();	
 	CreateChoices();
 }
 function ChangeRadioButtonValue(text, choice){
@@ -185,12 +247,17 @@ function ChangeRadioButtonValue(text, choice){
 	// $('#questiontext').append(text);
 }
 function JumpToQuestion(){
-	alert("jump to class!");
 	var subject = <?php echo json_encode($_GET['subj']); ?>;
 	var questionDropDown = document.getElementById('questioncreated');
 	var quizTitle = document.getElementById('quiztitle');
-	$.post("JumpToQuestion.php", {num: questionDropDown.value, subj:subject, title:quizTitle.value},function(data){
-		$('#questionnumber').html(data);
+	alert("jump to class!");
+	$.post("Get_Quiz_Question.php", {num: questionDropDown.value, subj:subject, title:quizTitle.value},function(data){
+		data = jQuery.parseJSON(data);
+		// alert(data.a);
+		$('#questiontext').val(data.question);
+		$('#checkchoices').val(data.type_of_choice);
+		$('#numberchoices').val(data.num_of_choices);
+
 	});
 }
 </script>

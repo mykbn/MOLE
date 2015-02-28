@@ -236,7 +236,7 @@ function Stud_Prof_Dropdowns(){
 		</div>
 
 <!-- TAKE QUIZ -->
-		<div id = "takequizpopupdiv">
+		<!-- <div id = "takequizpopupdiv">
 			<div id = "studentquiz">
 				<div id = "questiondiv">
 					<label id = "studentquiztitle">Quiz 1</label>
@@ -244,7 +244,7 @@ function Stud_Prof_Dropdowns(){
 				<label id = "studentquestionnumber">1.</label>
 			</div>
 		</div>
-
+ -->
 
 	</div>
 </div>
