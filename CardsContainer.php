@@ -33,7 +33,7 @@ function GoToQuiz(name){
 	// alert (cardtitle);
 	$(document).ready(function(){
 		var subj = <?php echo json_encode($_GET['subj']); ?>;
-		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle;
+		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle+"&list="+name;
 		// $.get("CreateQuiz.php",function(){
 
 		// });

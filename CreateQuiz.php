@@ -262,6 +262,20 @@ function JumpToQuestion(){
 		// alert(data.A);
 	});
 }
+function CreateCard(){
+	alert ("PASOK!");
+	var className = <?php echo json_encode($_GET['subj']); ?>;
+	var cardtitle = <?php echo json_encode($_GET['list']); ?>;
+	$(document).ready(function(){
+		$.post("addcards_class.php?subj=" + className +"&list=" + list +"", {cardName:cardtitle}, function(card){
+			alert(cardtitle);
+	// 		// $("body").html(card);
+	// 		alert ("Quiz Created!");
+	// 		window.location.href = "CardsContainer.php?subj="+className;
+		});
+	});
+	
+}
 </script>
 </head>
 <body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); BlurNumberOfChoices();CreateChoices(); ">
@@ -383,7 +397,7 @@ function JumpToQuestion(){
 			<form id = "buttonsform">
 				<input id = "clearbutton" type = "submit" value = "Clear">
 				<input id = "nextbutton" type = "button" value = "Next" onclick="CreateNextQuestion()">
-				<input id = "publishbutton" type = "submit" value = "Publish">
+				<input id = "publishbutton" type="button" value = "Publish" onclick="CreateCard()">
 			</form>
 		</div>
 	</div>
