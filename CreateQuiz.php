@@ -241,24 +241,40 @@ function Clear(){
 	CreateChoices();
 }
 function ChangeRadioButtonValue(text, choice){
-	// alert(choice);
 	var radio = document.getElementById('radio_'+choice);
 	radio.value = text;
-	// $('#questiontext').append(text);
 }
 function JumpToQuestion(){
 	var subject = <?php echo json_encode($_GET['subj']); ?>;
 	var questionDropDown = document.getElementById('questioncreated');
 	var quizTitle = document.getElementById('quiztitle');
-	alert("jump to class!");
+	// alert("jump to class!");
 	$.post("Get_Quiz_Question.php", {num: questionDropDown.value, subj:subject, title:quizTitle.value},function(data){
 		data = jQuery.parseJSON(data);
 		// alert(data.a);
 		$('#questiontext').val(data.question);
 		$('#checkchoices').val(data.type_of_choice);
 		$('#numberchoices').val(data.num_of_choices);
-
+		CreateChoices();
+		// alert(document.getElementById('answer_0'));
+		// alert(data.A);
+		// $('#answer_0').val("data.A");
+		// alert(data.A);
 	});
+}
+function CreateCard(){
+	alert ("PASOK!");
+	var className = <?php echo json_encode($_GET['subj']); ?>;
+	var cardtitle = <?php echo json_encode($_GET['list']); ?>;
+	$(document).ready(function(){
+		$.post("addcards_class.php?subj=" + className +"&list=" + cardtitle +"", {cardName:cardtitle}, function(card){
+			alert(cardtitle);
+	// 		// $("body").html(card);
+	// 		alert ("Quiz Created!");
+	// 		window.location.href = "CardsContainer.php?subj="+className;
+		});
+	});
+	
 }
 </script>
 </head>
@@ -381,7 +397,7 @@ function JumpToQuestion(){
 			<form id = "buttonsform">
 				<input id = "clearbutton" type = "submit" value = "Clear">
 				<input id = "nextbutton" type = "button" value = "Next" onclick="CreateNextQuestion()">
-				<input id = "publishbutton" type = "submit" value = "Publish">
+				<input id = "publishbutton" type="button" value = "Publish" onclick="CreateCard()">
 			</form>
 		</div>
 	</div>

@@ -34,7 +34,7 @@ function GoToQuiz(name){
 	// alert (cardtitle);
 	$(document).ready(function(){
 		var subj = <?php echo json_encode($_GET['subj']); ?>;
-		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle;
+		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle+"&list="+name;
 		// $.get("CreateQuiz.php",function(){
 
 		// });
@@ -125,6 +125,7 @@ function Stud_Prof_Dropdowns(){
 		      }
 	}
 }
+<<<<<<< HEAD
 function ShowPopUp(){
 	$.blockUI({ 
 				message: $('#editcard'),	
@@ -150,6 +151,13 @@ function SubmitData(){
 	var cardDescription = document.getElementById('editcarddescription');
 	var Subject = <?php echo json_encode($_GET['subj']); ?>;
 	$.post("EditCard.php", {desc:cardDescription.value, subj:Subject}, function(){
+=======
+function DeleteCard(card){
+	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
+	$.post("DeleteCard.php", {cardTitle:card, subj:getSubj}, function(data){
+		// $('#header').html(data);
+		window.location.href = "CardsContainer.php?subj="+getSubj;
+>>>>>>> origin/master
 	});
 }
 </script>
