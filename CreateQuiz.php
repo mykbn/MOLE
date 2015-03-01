@@ -241,23 +241,25 @@ function Clear(){
 	CreateChoices();
 }
 function ChangeRadioButtonValue(text, choice){
-	// alert(choice);
 	var radio = document.getElementById('radio_'+choice);
 	radio.value = text;
-	// $('#questiontext').append(text);
 }
 function JumpToQuestion(){
 	var subject = <?php echo json_encode($_GET['subj']); ?>;
 	var questionDropDown = document.getElementById('questioncreated');
 	var quizTitle = document.getElementById('quiztitle');
-	alert("jump to class!");
+	// alert("jump to class!");
 	$.post("Get_Quiz_Question.php", {num: questionDropDown.value, subj:subject, title:quizTitle.value},function(data){
 		data = jQuery.parseJSON(data);
 		// alert(data.a);
 		$('#questiontext').val(data.question);
 		$('#checkchoices').val(data.type_of_choice);
 		$('#numberchoices').val(data.num_of_choices);
-
+		CreateChoices();
+		// alert(document.getElementById('answer_0'));
+		// alert(data.A);
+		// $('#answer_0').val("data.A");
+		// alert(data.A);
 	});
 }
 </script>

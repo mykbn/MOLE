@@ -31,13 +31,24 @@ $create_quiz_table =
 )";
 $create_quiz = $conn->query($create_quiz_table);
 
-$insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`, `Type`, `Num_Of_Choices`, `A`, `B`, `C`, `D`,`Correct_Answer`) 
-                    VALUES ('$question', '$type', '$num_of_choices','$a','$b','$c','$d','$answer')";
-if(mysqli_query($conn,$insert_quiz_item)){
-	echo "SUCCESS!";
+if ($type == "text"){
+    $insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`, `Type`, `Num_Of_Choices`, `A`, `B`, `C`, `D`,`Correct_Answer`) 
+                    VALUES ('$question', '$type', '$num_of_choices','$answer','$b','$c','$d','$answer')";
+    if(mysqli_query($conn,$insert_quiz_item)){
+        echo "SUCCESS!";
+    }else{
+        echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);
+    }
 }else{
-    echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);
+    $insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`, `Type`, `Num_Of_Choices`, `A`, `B`, `C`, `D`,`Correct_Answer`) 
+                    VALUES ('$question', '$type', '$num_of_choices','$a','$b','$c','$d','$answer')";
+    if(mysqli_query($conn,$insert_quiz_item)){
+        echo "SUCCESS!";
+    }else{
+        echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);
+    }
 }
+
 
 mysqli_close($conn);
 ?>
