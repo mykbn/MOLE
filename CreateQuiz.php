@@ -267,7 +267,7 @@ function CreateCard(){
 	var className = <?php echo json_encode($_GET['subj']); ?>;
 	var cardtitle = <?php echo json_encode($_GET['list']); ?>;
 	$(document).ready(function(){
-		$.post("addcards_class.php?subj=" + className +"&list=" + list +"", {cardName:cardtitle}, function(card){
+		$.post("addcards_class.php?subj=" + className +"&list=" + cardtitle +"", {cardName:cardtitle}, function(card){
 			alert(cardtitle);
 	// 		// $("body").html(card);
 	// 		alert ("Quiz Created!");
