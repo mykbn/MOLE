@@ -20,6 +20,7 @@
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript" src="slimscroll.js"></script>
+<script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
 // window.onload = function(){
 // 	var element = document.getElementsByClassName('cardcontainer');
@@ -123,6 +124,33 @@ function Stud_Prof_Dropdowns(){
 		          studDrop.style.display = 'block';
 		      }
 	}
+}
+function ShowPopUp(){
+	$.blockUI({ 
+				message: $('#editcard'),	
+				css: {  display: 'block', 
+						height: '55%', 
+						width: '25%', 
+						position: 'absolute', 
+						top: '15%', 
+						left: '37.5%', 
+						border: 'none', 
+						cursor: 'default',
+						'background-color': 'white',
+						'-webkit-border-radius': '5px', 
+			            '-moz-border-radius': '5px', }
+			});  
+			$('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
+}
+function ApplyChanges(){
+	var button = document.getElementById('okbutton');
+	button.value = 'Apply Changes';
+}
+function SubmitData(){
+	var cardDescription = document.getElementById('editcarddescription');
+	var Subject = <?php echo json_encode($_GET['subj']); ?>;
+	$.post("EditCard.php", {desc:cardDescription.value, subj:Subject}, function(){
+	});
 }
 </script>
 
@@ -245,6 +273,14 @@ function Stud_Prof_Dropdowns(){
 			</div>
 		</div>
  -->
+
+<!-- EDIT CARD POPUP -->
+		<div id = "editcard">
+			<input id = "editcardtitle" type = "text" value = "Quiz" disabled>
+			<input id = "edditcardby" type = "text" value = "Ms. Montero" disabled>
+			<textarea id = "editcarddescription" placeholder = "Add Description" onchange = "ApplyChanges()"></textarea>
+			<input id = "okbutton" type = "submit" value = "Ok" onlick = "SubmitData()">
+		</div>
 
 	</div>
 </div>

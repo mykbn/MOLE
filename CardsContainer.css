@@ -595,4 +595,60 @@ input[type="button"], input[type="submit"] {
 	font-size: 18px;
 }
 
+/*EDIT CARD POPUP*/
+#editcard{
+/*	position: absolute;
+	border: solid;
+	top: 15%;
+	left: 37.5%;
+	height: 55%;
+	width: 25%;
+	border-radius: 5px;
+	background-color: white;
+	z-index: 25;*/
+	display: none;
+}
+#editcardtitle,
+#edditcardby{
+	position: relative;
+	border: none;
+	top: 1%;
+	height: 10%;
+	width: 100%;
+	/*padding: center;*/
+	background-color: transparent;
+	font-family: Calibri;
+	font-size: 23px;
+	text-align: center;
+}
+#edditcardby{
+	position: relative;
+	height: 9%;
+	top: -1%;
+	font-size: 16px;
+}
+#editcarddescription{
+	position: relative;
+	border: none;
+	height: 81.5%;
+	width: 100%;
+	background-color: transparent;
+	font-family: Calibri;
+	font-size: 17px;
+	padding-left: 12px;
+	padding-right: 12px;
+	resize: none;
+}
+#okbutton{
+	position: absolute;
+	border: none;
+	top: 102%;
+	left: 0%;
+	height: 12%;
+	width: 100%;
+	border-radius: 3px;
+	background-color: ff7285;
+	font-family: Calibri;
+	font-size: 20px;
+}
 

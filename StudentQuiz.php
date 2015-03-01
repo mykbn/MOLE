@@ -146,10 +146,23 @@ function GoToClass(classV){
 	// alert ("Go To "+ classV);
 	window.location.href = "CardsContainer.php?subj=" + classV;
 }
+function LoadQuestions(){
+	var messagebox = document.getElementById('studentquiztitle');
+	var messagebox = document.getElementById('studentquestions');
+}
+function GetNumberofQuestions(){
+	var subject = <?php echo json_encode($_GET['Subj'])?>;
+	var messagebox = document.getElementById('studentquestions');
+	// alert(subject);
+	$.post("CountNumberofQuestions.php", {subj:subject, title:'finals'}, function(data){
+		alert(data);
+	});
+}
+
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete()">
+<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete(); LoadQuestions(); GetNumberofQuestions()">
 <div id="main">
 
 <!-- HEADER -->
@@ -251,9 +264,9 @@ function GoToClass(classV){
 				</div>
 				<div id = "studentquiestionandanswer">
 					<label id = "studentquestionnumber">1.</label>
-					<textarea id = "studentquestion" type = "text">Why did Ferdinand Marcos declare Martial Law?</textarea>
+					<textarea id = "studentquestion" type = "text" disabled>Why did Ferdinand Marcos declare Martial Law?</textarea>
 					<input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
-					<textarea id = "studentanswerchoices">Ewan</textarea>
+					<textarea id = "studentanswerchoices" disabled>Ewan</textarea>
 					<input id = "nextbutton" type = "submit" value = "Next">
 				</div?
 			</div>
