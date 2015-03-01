@@ -464,6 +464,21 @@ input[type="button"], input[type="submit"] {
 	z-index: 10;
 	cursor: pointer;
 }
+#deletecard{
+	position: absolute;
+	background-color: red;
+	border: none;
+	top:117%;
+	left: 50%;
+	height: 5%;
+	width: 25%;
+	border-radius: 3px;
+	/*box-shadow: 1px 1px 5px gray;*/
+	font-family: Calibri;
+	transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);
+	/*cursor: pointer;*/
+}
 #deletecardbutton,
 #createdcardtitle,
 #cardcreateddescription{
@@ -475,6 +490,7 @@ input[type="button"], input[type="submit"] {
 	width: 9%;
 	background-color: white;
 	color: gray;
+	z-index: 50;
 }
 #createdcardtitle,
 #cardcreateddescription{

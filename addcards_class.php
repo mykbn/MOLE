@@ -1,10 +1,11 @@
 <?php
-
+session_start ('user_credentials');
 include 'connect.php';
 
 $list = $_GET['list'];
 $subj = $_GET['subj'];
 $cardName = $_POST['cardName'];
+$date = $_POST['date'];
 // $createCard = '';
 // $createCard .= "<div id='card'></div>";
 
@@ -23,7 +24,8 @@ $create_cards_table =
 $create_table = $conn->query($create_cards_table);
 
 
-$create_card_query = "INSERT INTO `".$subj."_cards` (ID, List, CardTitle) VALUES (NULL, '$list', '$cardName')";
+$create_card_query = "INSERT INTO `".$subj."_cards` (ID, List, CardTitle, Created_By, Date_Created) VALUES (NULL, '$list', '$cardName', '".$_SESSION['REALNAME']."', '$date')";
+
 if(mysqli_query($conn, $create_card_query)){
 	echo "<script> 
 		alert('Card Created!');

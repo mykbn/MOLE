@@ -22,32 +22,36 @@
 <script type = "text/javascript" src="slimscroll.js"></script>
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
-// window.onload = function(){
-// 	var element = document.getElementsByClassName('cardcontainer');
-// 	var e = Array.prototype.slice.call(element);
-// 	// alert (e[0]);
-// 	scroll.useSlimScroll(e[0]);
-// }
+// GET DATE
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'/'+mm+'/'+yyyy;
+// END GET DATE
+
+//GET SUBJECT
+var getSubj = <?php echo json_encode($_GET['subj']); ?>;
+
 function GoToQuiz(name){
-	// alert(name);
 	var cardtitle = $("input[name='cardstitle_"+name+"']").val();
-	// alert (cardtitle);
 	$(document).ready(function(){
 		var subj = <?php echo json_encode($_GET['subj']); ?>;
 		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle+"&list="+name;
-		// $.get("CreateQuiz.php",function(){
-
-		// });
 	});
 }
 function LoadLists(){
-	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	var className = document.getElementById('classname');
 		$.post( "LoadLists.php", {subj:getSubj}, function(list) {
 		  $( "#listframe").html(list);
 		  LoadCards();
 		});
-	// });
 }
 function ChangeProfileName(){
 	var pic = document.getElementById('profilepicture');
@@ -70,12 +74,10 @@ function AddList(){
 
 
 function AddCard(list){
-	// alert (list);
 	var className = <?php echo json_encode($_GET['subj']); ?>;
 	var cardtitle = $("input[name='cardstitle_"+list+"']").val();
-	// alert(cardtitle);
 	$(document).ready(function(){
-		$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle}, function(card){
+		$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle, date:today}, function(card){
 			$("body").html(card);
 		});
 	});
@@ -83,12 +85,10 @@ function AddCard(list){
 }
 
 function LoadCards(){
-	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 	$(document).ready(function(){
 		$.post( "LoadCards.php", {subj:getSubj}, function(cards) {
 		  $( "#notificationdiv").html(cards);
 		  ChangeCardPosition();
-		  // alert (getCards);
 		});
 	});
 }
@@ -96,14 +96,10 @@ function LoadCards(){
 function ChangeCardPosition(){
 	var getCards = document.getElementsByClassName('card');
 	var cards = Array.prototype.slice.call(getCards);
-	// alert (cards.length);
-	// alert (cards[1].id);
 	$(document).ready(function(){
 		for (i = 0; i < cards.length; i++) {
 			var theCard = document.getElementById("cards_"+cards[i].getAttribute('name'));
-			// alert("cards_"+cards[i].getAttribute('name'));
 			$("#list_"+cards[i].getAttribute('name')).append(theCard);
-			// alert(theCard.id);
 		}	
 	});
 }
@@ -125,8 +121,14 @@ function Stud_Prof_Dropdowns(){
 		      }
 	}
 }
-<<<<<<< HEAD
-function ShowPopUp(){
+function ShowPopUp(clickedCard){
+	var card = clickedCard.getAttribute('value');
+	$.post("GetCardInfo.php", {subj:getSubj, cardTitle:card}, function(cardInfo){
+		cardInfo = jQuery.parseJSON(cardInfo);
+		$('#editcardtitle').val(cardInfo.titlee);
+		$('#edditcardby').val(cardInfo.createdby);
+		$('#editcarddescription').val(cardInfo.descriptionn);
+	});
 	$.blockUI({ 
 				message: $('#editcard'),	
 				css: {  display: 'block', 
@@ -148,17 +150,26 @@ function ApplyChanges(){
 	button.value = 'Apply Changes';
 }
 function SubmitData(){
+	// alert ("SUBMIT!");
+	var card = document.getElementById('editcardtitle');
 	var cardDescription = document.getElementById('editcarddescription');
-	var Subject = <?php echo json_encode($_GET['subj']); ?>;
-	$.post("EditCard.php", {desc:cardDescription.value, subj:Subject}, function(){
-=======
-function DeleteCard(card){
-	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
-	$.post("DeleteCard.php", {cardTitle:card, subj:getSubj}, function(data){
-		// $('#header').html(data);
-		window.location.href = "CardsContainer.php?subj="+getSubj;
->>>>>>> origin/master
+	$.post("EditCard.php", {desc:cardDescription.value, subj:getSubj, cardTitle:card.value}, function(){
+		// $.growlUI('Card Successfully Edited!', 'Have a nice day!');
+		window.location.href = "CardsContainer.php?subj="+getSubj; 
 	});
+}
+function DeleteCard(){
+	var card = document.getElementById('editcardtitle');
+	var toDeleteOrNot = confirm("Do You Really Want To Delete This Card?");
+	if (toDeleteOrNot == true){
+		$.post("DeleteCard.php", {cardTitle:card.value, subj:getSubj}, function(data){
+			window.location.href = "CardsContainer.php?subj="+getSubj;
+		});
+	}else{
+		// window.location.href = "CardsContainer.php?subj="+getSubj;
+	}
+	
+	
 }
 </script>
 
@@ -287,7 +298,8 @@ function DeleteCard(card){
 			<input id = "editcardtitle" type = "text" value = "Quiz" disabled>
 			<input id = "edditcardby" type = "text" value = "Ms. Montero" disabled>
 			<textarea id = "editcarddescription" placeholder = "Add Description" onchange = "ApplyChanges()"></textarea>
-			<input id = "okbutton" type = "submit" value = "Ok" onlick = "SubmitData()">
+			<input id = "okbutton" type = "submit" value = "Ok" onclick = "SubmitData()">
+			<input id = "deletecard" type="button" value = "Delete Card" onclick="DeleteCard()">
 		</div>
 
 	</div>

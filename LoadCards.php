@@ -4,7 +4,6 @@ include "connect.php";
 session_start("user_credentials");
 
 $subj = $_POST['subj'];
-// echo ($subj);
 $card = ''; 
 
 $getCards = "SELECT CardTitle FROM `".$subj."_cards`";
@@ -22,19 +21,20 @@ while($row = mysqli_fetch_assoc($resultCards)){
 				$rowList = mysqli_fetch_array($resultList);
 				$serverList = $rowList["List"];
 
-	      //   	$card .= '<div id = "'.$serverList.'" class="card" name="'.$serverList.'" onclick="GoToQuiz()"> '.$val.'
-							// </div>';
+				$getDesc = "SELECT Description From `".$subj."_cards` WHERE `CardTitle` = '".$val."'";
+				$resultDesc = mysqli_query($conn, $getDesc);
+				$rowDesc = mysqli_fetch_array($resultDesc);
+				$serverDesc = $rowDesc["Description"];
 
-				$card .= '<div class = "card" id="cards_'.$serverList.'" name="'.$serverList.'" value="'.$serverList.'" onclick = "ShowPopUp()">
+				$card .= '<div class = "card" id="cards_'.$serverList.'" name="'.$serverList.'" value="'.$val.'" onclick = "ShowPopUp(this)">
 								<label id = "createdcardtitle">'.$val.'</label>
-								<input id = "deletecardbutton" name="'.$val.'" type = "button" value = "x" onclick="DeleteCard(this.name)"><br>
-								<label id = "cardcreateddescription">Quiz</label>
+								<br>
+								<label id = "cardcreateddescription">'.$serverDesc.'</label>
 							</div>';
 
 	        }
 	    }
 	}
 	echo ($card);
-	// echo("POSITION");
 	mysqli_close($conn);
 ?>

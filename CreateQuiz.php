@@ -116,8 +116,8 @@ function BlurNumberOfChoices(){
 }
 
 function CreateChoices(){
-	var radiobuttons =  document.getElementsByClassName('radiobutt');
-	var radios = Array.prototype.slice.call(radiobuttons);
+	// var radiobuttons =  document.getElementsByClassName('radiobutt');
+	// var radios = Array.prototype.slice.call(radiobuttons);
 	var numberOfChoicesCB = document.getElementById('numberchoices');
 	var choicesComboBox = document.getElementById('checkchoices');
 	var type = choicesComboBox.value;
@@ -255,11 +255,29 @@ function JumpToQuestion(){
 		$('#questiontext').val(data.question);
 		$('#checkchoices').val(data.type_of_choice);
 		$('#numberchoices').val(data.num_of_choices);
-		CreateChoices();
-		// alert(document.getElementById('answer_0'));
+		$('#questionnumber').html(data.num +".");
 		// alert(data.A);
+		CreateChoicesForJumping(data.A, data.B, data.C, data.D, data.Ans);
+		// alert(data.C);
 		// $('#answer_0').val("data.A");
-		// alert(data.A);
+	});
+}
+function CreateChoicesForJumping(A,B,C,D,Ans){
+	// var radiobuttons =  document.getElementsByClassName('radiobutt');
+	// var radios = Array.prototype.slice.call(radiobuttons);
+	var numberOfChoicesCB = document.getElementById('numberchoices');
+	var choicesComboBox = document.getElementById('checkchoices');
+	var type = choicesComboBox.value;
+	var num = numberOfChoicesCB.value;
+	$.post("CreateChoices.php", {numOfChoices:num, typeOfChoice:type},function(choices){
+		$('#answerchoicesform').html(choices);
+		$('#answer_0').val(A);
+		$('#answer_1').val(B);
+		$('#answer_2').val(C);
+		$('#answer_3').val(D);
+		// var form = document.getElementById('answerchoicesform');
+		// $('#answerchoicesform').val(Ans);
+		// form.value = Ans;
 	});
 }
 function CreateCard(){
