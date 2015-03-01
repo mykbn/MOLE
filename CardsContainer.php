@@ -124,6 +124,13 @@ function Stud_Prof_Dropdowns(){
 		      }
 	}
 }
+function DeleteCard(card){
+	var getSubj = <?php echo json_encode($_GET['subj']); ?>;
+	$.post("DeleteCard.php", {cardTitle:card, subj:getSubj}, function(data){
+		// $('#header').html(data);
+		window.location.href = "CardsContainer.php?subj="+getSubj;
+	});
+}
 </script>
 
 </head>
