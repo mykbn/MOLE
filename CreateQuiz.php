@@ -15,6 +15,19 @@
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
+// GET DATE
+	var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+    if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'/'+mm+'/'+yyyy;
+// END GET DATE
 function ChangeProfileName(){
 	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
 	var pic = document.getElementById('profilepicture');
@@ -228,7 +241,7 @@ function CreateNextQuestion(){
 } 
 var counter = 1;
 function Clear(){
-	alert('Clear!');
+	// alert('Clear!');
 	counter = counter + 1;
 	$('#questionnumber').html(counter + ".");
 	// $(':input').not(":button").val('');
@@ -281,15 +294,16 @@ function CreateChoicesForJumping(A,B,C,D,Ans){
 	});
 }
 function CreateCard(){
-	alert ("PASOK!");
+	// alert ("PASOK!");
 	var className = <?php echo json_encode($_GET['subj']); ?>;
-	var cardtitle = <?php echo json_encode($_GET['list']); ?>;
+	var quizTitle = <?php echo json_encode($_GET['title']); ?>;
+	var listName = <?php echo json_encode($_GET['list']); ?>;
 	$(document).ready(function(){
-		$.post("addcards_class.php?subj=" + className +"&list=" + cardtitle +"", {cardName:cardtitle}, function(card){
-			alert(cardtitle);
+		$.post("add_quiz_as_card.php?subj=" + className +"&list=" + listName +"", {quizName:quizTitle}, function(card){
+			// alert(quizTitle);
 	// 		// $("body").html(card);
 	// 		alert ("Quiz Created!");
-	// 		window.location.href = "CardsContainer.php?subj="+className;
+			window.location.href = "CardsContainer.php?subj="+className;
 		});
 	});
 	

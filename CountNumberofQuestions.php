@@ -1,10 +1,23 @@
 <?php
 include 'connect.php';
 
-$s = $_POST['subj'];
-$cardsTitle = $_POST['title'];
-
+$subj = $_POST['subj'];
+$quizTitle = $_POST['quiz'];
+$option = '';
 // GET NUMBER OF QUESTIONS
-$askDataBase = "SELECT * FROM ".$s."_quiz_".$cardsTitle."";
+$askDataBase = "SELECT * FROM ".$subj."_quiz_".$quizTitle."";
+$getResult = mysqli_query($conn, $askDataBase) 
+	or die ("Error: " .mysqli_error($conn));
+
+$number = mysqli_num_rows($getResult);
+// echo($number);
+$count = 1;
+while($count <= $number){
+	$option .= '<option value = "'.$count.'">'.$count.'</option>';
+	$count = $count + 1;   
+}
+echo($option);
+
+mysqli_close($conn);
  
 ?>

@@ -1,114 +1,30 @@
 <?php	
 	include "connect.php";
 	session_start('user_credentials');
-	// session_start("class_info");
+	// $subj = $_GET['subj'];
 	$status = $_SESSION['POSITION'];
-
+	$quizTitle = $_GET['quiz'];
 ?>
 <html>
 <head>
 <link type = "text/css" rel = "stylesheet" href = "StudentQuiz.css">
-<title>Home</title>
-<script type="text/javascript" src="jquery_min.js"></script>
+<link type = "text/css" rel = "stylesheet" href = "homepage.css">
+<title>Quiz Time!</title>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
+<!-- <script type = "text/javascript" src="slimscroll.js"></script> -->
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
 <script type = "text/javascript">
+//GET SUBJECT
+var subject = <?php echo json_encode($_GET['subj']);?>;
+var quizTitle = <?php echo json_encode($quizTitle);?>;
 function ChangeProfileName(){
-	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
-	var no_classes_enrolled_text = document.getElementById('text');
+	// alert("LALALALALA");
 	var pic = document.getElementById('profilepicture');
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
-   	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
-}
-function LoadClassesForEdit(){
-	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
-	$(document).ready(function(){
-		$.post( "CheckCreatedClasses.php", {user:userName}, function(cards) {
-			// alert ("LOADED");
-		  $( "#editclassdiv" ).html(cards);
-		});
-	});
-}
-function EditClass(classV){
-	alert(classV.id);
-}
-function LoadClassesForDelete(){
-	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
-	$(document).ready(function(){
-		$.post( "CheckCreatedClassesForDelete.php", {user:userName}, function(cards) {
-			// alert ("LOADED");
-		  $( "#deleteclassdiv" ).html(cards);
-		});
-	});
-}
-function LoadClasses(){
-	$(document).ready(function(){
-		$.get( "checkclasses.php", function(data) {
-		  $( "#form-div" ).html(data);
-		  var classes_enrolled = document.getElementsByClassName('count');
-		  var classes = Array.prototype.slice.call(classes_enrolled);
-		  // alert (classes.length);
-		  if (classes.length == 0){
-		     $('#text').html('You are not yet enrolled in any class.');
-		  }else{
-			$('#text').html('');		
-		  }
-		});
-	});
-}
-
-function GetClassValue(classV){ 
-		var messagebox = document.getElementById('messagebox');
-		var passText = document.getElementById('classviewpassword');
-		passText.value = "";
-		messagebox.value = "";
-		var title = document.getElementById("classviewtitle");
-		title.value = classV;
-		$('#classviewtitle').html(classV);
-		$(document).ready(function(){
-			$.post("GetClassInfo.php", {subj:classV}, function(author){
-				$('#classviewprofessor').html(author);
-			});
-			$.post("GetClassDesc.php", {subj:classV}, function(desc){
-				$('#classviewdescription').html('"' +desc+'"');
-			});
-			$.blockUI({ 
-				message: $('#classviewdiv'),	
-				css: {  display: 'block', 
-						height: '70%', 
-						width: '30%', 
-						position: 'absolute', 
-						top: '15%', 
-						left: '35%', 
-						border: 'none', 
-						cursor: 'default',
-						'background-color': 'rgba(0,0,0,0)',
-						'-webkit-border-radius': '5px', 
-			            '-moz-border-radius': '5px', }
-			});  
-			$('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
-		});
-		
-		// var enrollButt = document.getElementById('Enroll');
-		// enrollButt.style.visibility = 'visible';
-}
-
-function Enroll(){
-	var title = document.getElementById("classviewtitle");
-	var realTitle = title.value;
-	var passText = document.getElementById("classviewpassword");
-	var messagebox = document.getElementById('messagebox');
-	passInput = passText.value;
-	// alert(title.value);
-		$.post("enroll.php", {subject:realTitle, classpass:passInput}, function(message){
-			messagebox.value = message;
-			if (message == "Enrolled successfully!"){
-				window.location.replace("homepage.php");
-			}
-			
-		});
+   	profile.value = <?php echo json_encode($_SESSION['REALNAME'])?>;
 
 }
 function Stud_Prof_Dropdowns(){
@@ -129,40 +45,46 @@ function Stud_Prof_Dropdowns(){
 		      }
 	}
 }
-function UnEnroll(value){
-	// alert(value);
-	if(confirm('Unenroll from this class?')){
-		$.post("unenroll.php",{classV:value},function(classdata){
-		// $("#form-div").html(classdata);
-		window.location.href = "homepage.php";
-	});
-	}else{
-		window.location.href = "homepage.php";
-	}
-	
-
-}
-function GoToClass(classV){
-	// alert ("Go To "+ classV);
-	window.location.href = "CardsContainer.php?subj=" + classV;
-}
-function LoadQuestions(){
-	var messagebox = document.getElementById('studentquiztitle');
-	var messagebox = document.getElementById('studentquestions');
-}
-function GetNumberofQuestions(){
-	var subject = <?php echo json_encode($_GET['Subj'])?>;
-	var messagebox = document.getElementById('studentquestions');
-	// alert(subject);
-	$.post("CountNumberofQuestions.php", {subj:subject, title:'finals'}, function(data){
-		alert(data);
+function LoadClassesForDropDown(){
+	$(document).ready(function(){
+		$.get( "checkclassesfordropdown.php", function(data) {
+		  $( "#dropdowndivSTUDENT" ).html(data);
+		});
 	});
 }
 
+function LoadTitleAndNumberOfQuestions(){
+	var title = document.getElementById('studentquiztitle');
+	title.value = <?php echo json_encode($quizTitle)?>;
+	var questions = document.getElementById('studentquestions');
+	$.post("CountNumberofQuestions.php", {subj:subject, quiz:quizTitle}, function(data){
+		$('#studentquestions').append(data);
+	});
+}
+
+
+function LoadQuestion(){
+	var questionsDropDown = document.getElementById('studentquestions');
+	// var choice = questionsDropDown.getAttribute('value');
+	// alert(questionsDropDown.value);
+	$.post("Get_Quiz_Question.php", {num:questionsDropDown.value, subj:subject, title:quizTitle}, function(data){
+		data = jQuery.parseJSON(data);
+		// alert(data.question);
+		$('#studentquestionnumber').html(questionsDropDown.value+".");
+		$('#studentquestion').val(data.question);
+		var counter = data.num_of_choices;
+		// alert(counter); 
+		for(i = 0; i < counter; i++){
+			// var strin = '<input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
+			// 						<textarea id = "studentanswerchoices" disabled>Ewan</textarea>';
+			// $('#choicecontainer').append(strin);
+		}
+	});
+}
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete(); LoadQuestions(); GetNumberofQuestions()">
+<body onload="ChangeProfileName(); LoadClassesForDropDown(); LoadTitleAndNumberOfQuestions(); LoadQuestion()">
 <div id="main">
 
 <!-- HEADER -->
@@ -257,16 +179,18 @@ function GetNumberofQuestions(){
 		<div id = "takequizpopupdiv">
 			<div id = "studentquiz">
 				<div id = "questiondiv">
-					<input id = "studentquiztitle" type = "text" value = "Quiz 1">
-					<select id = "studentquestions" placeholder = "Quiz Number" onchange="JumpToQuestion()">
-						<option value = "1">1</option>
+					<input id = "studentquiztitle" type = "text" value = "">
+					<select id = "studentquestions" placeholder = "Quiz Number" onchange="LoadQuestion()">
+						<!-- <option value = "1">1</option> -->
 					</select>
 				</div>
 				<div id = "studentquiestionandanswer">
 					<label id = "studentquestionnumber">1.</label>
-					<textarea id = "studentquestion" type = "text" disabled>Why did Ferdinand Marcos declare Martial Law?</textarea>
-					<input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
-					<textarea id = "studentanswerchoices" disabled>Ewan</textarea>
+					<textarea id = "studentquestion" type = "text" disabled></textarea>
+					<div id="choicecontainer">
+						<!-- <input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
+						<textarea id = "studentanswerchoices" disabled>Ewan</textarea> -->
+					</div>
 					<input id = "nextbutton" type = "submit" value = "Next">
 				</div?
 			</div>

@@ -29,7 +29,7 @@ while($row = mysqli_fetch_assoc($resultCards)){
 				$card .= '<div class = "card" id="cards_'.$serverList.'" name="'.$serverList.'" value="'.$val.'" onclick = "ShowPopUp(this)">
 								<label id = "createdcardtitle">'.$val.'</label>
 								<br>
-								<label id = "cardcreateddescription">'.$serverDesc.'</label>
+								<label class = "cardcreateddescription" id = "cardcreateddescription_'.$val.'" name = "'.$serverDesc.'">'.$serverDesc.'</label>
 							</div>';
 
 	        }

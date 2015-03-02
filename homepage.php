@@ -38,7 +38,6 @@ function LoadClassesForDelete(){
 	var userName = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 	$(document).ready(function(){
 		$.post( "CheckCreatedClassesForDelete.php", {user:userName}, function(cards) {
-			// alert ("LOADED");
 		  $( "#deleteclassdiv" ).html(cards);
 		});
 	});
@@ -55,6 +54,14 @@ function LoadClasses(){
 		  }else{
 			$('#text').html('');		
 		  }
+		});
+	});
+}
+
+function LoadClassesForDropDown(){
+	$(document).ready(function(){
+		$.get( "checkclassesfordropdown.php", function(data) {
+		  $( "#dropdowndivSTUDENT" ).html(data);
 		});
 	});
 }
@@ -149,7 +156,7 @@ function GoToClass(classV){
 
 </script>
 </head>
-<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete()">
+<body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete(); LoadClassesForDropDown()">
 <div id="main">
 
 <!-- HEADER -->
@@ -242,10 +249,10 @@ function GoToClass(classV){
 
 <!-- FOR STUDENT -->
 		<div id = "dropdowndivSTUDENT">
-			<div id = "dropdowncards" class = "cards">
+			<!-- <div id = "dropdowncards" class = "cards">
 				<label id = "dropdowncardsclassname">Capstone</label>
 				<input id = "dropdowndeletebutton" type = "submit" value = "x">
-			</div>
+			</div> -->
 		</div>
 
 <!-- ENROLL DESCRIPTION -->

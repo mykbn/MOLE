@@ -26,17 +26,31 @@
 	        	// $name = str_replace(' ', '_', $val);
 	        	// $counter = $counter + 1;
 	        	// $name = "cardtitle".$counter;
-	        	$list .= "<div class = 'list' id = 'list_".$val."'>
+	        	if($_SESSION['POSITION'] == "Professor"){
+	        		$list .= "<div class = 'list' id = 'list_".$val."'>
 							<input id = 'listtitle' type = 'text' value = '".$val."' disabled>
 							<input name = $val id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
 						  </div>
-						  <div id = '$val' class = 'addcardcontent' style='display:none;'>
+						  <div id = '".$val."' class = 'addcardcontent' style='display:none;'>
 							<input id = 'cardstitle' name = cardstitle_".$val." type = 'text' placeholder = 'Card Title'>
 							<input id = 'createquizbutton' type = 'submit' name=$val value = 'Quiz' onclick='GoToQuiz(this.name)'>
 							<input id = 'attachfilebutton' type = 'submit' value = 'Attach File'>
 							<input id = 'createbutton' type = 'submit' name=$val value = 'Create' onclick='AddCard(this.name)'>
-							<input id = 'cancelbutton' type = 'submit' value = 'Cancel'>
+							<input id = 'cancelbutton' name = '".$val."' type = 'submit' value = 'Cancel' onclick='toggle_visibility(this.name)'>
 						</div>";
+					}else if($_SESSION['POSITION'] == "Student"){
+						$list .= "<div class = 'list' id = 'list_".$val."'>
+							<input id = 'listtitle' type = 'text' value = '".$val."' disabled>
+							<input name = $val id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
+						  </div>
+						  <div id = '".$val."' class = 'addcardcontent' style='display:none;'>
+							<input id = 'cardstitle' name = cardstitle_".$val." type = 'text' placeholder = 'Card Title'>
+							<input id = 'attachfilebutton' type = 'submit' value = 'Attach File'>
+							<input id = 'createbutton' type = 'submit' name=$val value = 'Create' onclick='AddCard(this.name)'>
+							<input id = 'cancelbutton' name = '".$val."' type = 'submit' value = 'Cancel' onclick='toggle_visibility(this.name)'>
+						</div>";
+					}
+	        	
 						// echo ($val);
 
 	        }

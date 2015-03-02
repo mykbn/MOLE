@@ -138,6 +138,18 @@ if ($adminCount >= 1){
 		$serverID = $rowID["ID"];
 		$_SESSION['ID'] = $rowID[0];
 
+		//profile
+		$queryprofile = "SELECT Profile FROM students WHERE '$inputUsername' = Username";
+		$resultprofile = mysqli_query($conn,$queryprofile)
+			or die("Error: ".mysqli_error($conn));
+		$rowprofile = mysqli_fetch_array($resultprofile);
+		$serverprofile = $rowID["Profile"];
+		if ($rowprofile[0] == ''){
+			$_SESSION['PROFILEPIC'] = "images\profile\default.jpg";
+		}else{
+			$_SESSION['PROFILEPIC'] = $rowprofile[0];
+		}
+
 		//Check if login credentials are correct
 		if($inputUsername == $serverUser && $inputPassword == $serverPassword){
 			header("Location:homepage.php?p=student");

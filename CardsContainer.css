@@ -481,7 +481,7 @@ input[type="button"], input[type="submit"] {
 }
 #deletecardbutton,
 #createdcardtitle,
-#cardcreateddescription{
+.cardcreateddescription{
 	position: relative;
 	border: none;
 	top: 1.5%;
@@ -493,7 +493,7 @@ input[type="button"], input[type="submit"] {
 	z-index: 50;
 }
 #createdcardtitle,
-#cardcreateddescription{
+.cardcreateddescription{
 	top: 3%;
 	left: 3%;
 	font-family: Calibri;

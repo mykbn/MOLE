@@ -58,6 +58,14 @@ function ChangeProfileName(){
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+
+   	var addTitle = document.getElementById('classtitle-addlist');
+   	var status = <?php echo json_encode($status)?>;
+   	if (status == 'Professor'){
+   		addTitle.style.display = 'block';
+   	}else{
+   		addTitle.style.display = 'none';
+   	}
 }
 function ChangeClassName(){
 	var className = document.getElementById('classtitle');
@@ -123,27 +131,36 @@ function Stud_Prof_Dropdowns(){
 }
 function ShowPopUp(clickedCard){
 	var card = clickedCard.getAttribute('value');
-	$.post("GetCardInfo.php", {subj:getSubj, cardTitle:card}, function(cardInfo){
-		cardInfo = jQuery.parseJSON(cardInfo);
-		$('#editcardtitle').val(cardInfo.titlee);
-		$('#edditcardby').val(cardInfo.createdby);
-		$('#editcarddescription').val(cardInfo.descriptionn);
-	});
-	$.blockUI({ 
-				message: $('#editcard'),	
-				css: {  display: 'block', 
-						height: '55%', 
-						width: '25%', 
-						position: 'absolute', 
-						top: '15%', 
-						left: '37.5%', 
-						border: 'none', 
-						cursor: 'default',
-						'background-color': 'white',
-						'-webkit-border-radius': '5px', 
-			            '-moz-border-radius': '5px', }
-			});  
-			$('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
+	var descrip = document.getElementById('cardcreateddescription_'+card+'');
+	var desc = descrip.getAttribute('name');
+
+	// alert(card);
+	if(desc === "Quiz"){
+		window.location.href = "StudentQuiz.php?subj="+getSubj+"&quiz="+card;
+	}else{
+		$.post("GetCardInfo.php", {subj:getSubj, cardTitle:card}, function(cardInfo){
+			cardInfo = jQuery.parseJSON(cardInfo);
+			$('#editcardtitle').val(cardInfo.titlee);
+			$('#edditcardby').val(cardInfo.createdby);
+			$('#editcarddescription').val(cardInfo.descriptionn);
+		});
+		$.blockUI({ 
+					message: $('#editcard'),	
+					css: {  display: 'block', 
+							height: '55%', 
+							width: '25%', 
+							position: 'absolute', 
+							top: '15%', 
+							left: '37.5%', 
+							border: 'none', 
+							cursor: 'default',
+							'background-color': 'white',
+							'-webkit-border-radius': '5px', 
+				            '-moz-border-radius': '5px', }
+				});  
+				$('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
+	}
+	
 }
 function ApplyChanges(){
 	var button = document.getElementById('okbutton');
