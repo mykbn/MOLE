@@ -61,10 +61,13 @@ function ChangeProfileName(){
 
    	var addTitle = document.getElementById('classtitle-addlist');
    	var status = <?php echo json_encode($status)?>;
+   	var descript = document.getElementById('editcarddescription');
    	if (status == 'Professor'){
    		addTitle.style.display = 'block';
+   		descript.disabled = false;
    	}else{
    		addTitle.style.display = 'none';
+   		descript.disabled = true;
    	}
 }
 function ChangeClassName(){
@@ -314,7 +317,7 @@ function DeleteCard(){
 		<div id = "editcard">
 			<input id = "editcardtitle" type = "text" value = "Quiz" disabled>
 			<input id = "edditcardby" type = "text" value = "Ms. Montero" disabled>
-			<textarea id = "editcarddescription" placeholder = "Add Description" onchange = "ApplyChanges()"></textarea>
+			<textarea id = "editcarddescription" placeholder = "No Description" onchange = "ApplyChanges()"></textarea>
 			<input id = "okbutton" type = "submit" value = "Ok" onclick = "SubmitData()">
 			<input id = "deletecard" type="button" value = "Delete Card" onclick="DeleteCard()">
 		</div>

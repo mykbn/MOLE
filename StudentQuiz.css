@@ -752,7 +752,7 @@ a{
 	font-size: 18px;
 }
 #studentquestion,
-#studentanswerchoices{
+.studentanswerchoices{
 	position: relative;
 	border: none;
 	top: 4.3%;
@@ -764,21 +764,26 @@ a{
 	padding-left: 5px;
 	resize: none;
 }
-#radio{
+.radiobutt{
 	position: absolute;
-	top: 13%;
+	margin-top: 3.7%;
 	left: 4.2%;
+	display: none;
 }
-#studentanswerchoices{
+.studentanswerchoices{
 	position: relative;
-	top: 10.3%;
+	margin-top: 20px;
+	top: 1%;
 	height: 13%;
 	width: 87%;
-	font-size: 18px; 
+	font-size: 23px; 
+	/*vertical-align: middle;*/
+	display: none;
+	background-color: white;
 }
 #nextbutton{
 	position: absolute;
-	top: 88%;
+	top: 100%;
 	left: 5%;
 	height: 38px;
 	width: 110px;
@@ -795,5 +800,14 @@ a{
 	top: 25%;
 	width: 100%;
 	height:60%;
-	border: solid 1px;
+	/*border: solid 1px;*/
+}
+#backbutton{
+	position: absolute;
+	left:2%;
+	top:2%;
+	width: 50px;
+	height: 50px;
+	z-index: 50;
+
 }

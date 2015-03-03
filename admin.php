@@ -44,12 +44,6 @@
         <img id = "logo" src = "_assets/Logo.png">
         <img id = "mole" src = "_assets/Mole.png">
       </div>
-    <!-- <div id = "profilepic-div">
-      <img id = "profilepicture" src="_assets/Profile-icon.jpg">
-    </div>
-    <input id = "class" type = "submit" value = "Classes" name = "classBtn" onclick = "Stud_Prof_Dropdowns()">
-    <input id = "profilename" type = "button"  name = "profilename" onclick = "toggle_visibility('namedropdown')">
-    <input id = "notification" type = "submit" value = "" name = "notificationBtn" onclick = "toggle_visibility('notificationdiv')"> -->
   </div>
 
 

@@ -31,6 +31,16 @@ $create_quiz_table =
 )";
 $create_quiz = $conn->query($create_quiz_table);
 
+$create_student_answer_table =
+"CREATE TABLE IF NOT EXISTS `".$subj."_quiz_".$quizTitle."_answers`
+(
+    ID INT NOT NULL AUTO_INCREMENT,
+    Question VARCHAR(500) NOT NULL,
+    Correct_Answer VARCHAR(200) NOT NULL,
+    PRIMARY KEY(ID)
+)";
+$create_answers = $conn->query($create_student_answer_table);
+
 if ($type == "text"){
     $insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`, `Type`, `Num_Of_Choices`, `A`, `B`, `C`, `D`,`Correct_Answer`) 
                     VALUES ('$question', '$type', '$num_of_choices','$answer','$b','$c','$d','$answer')";
@@ -39,10 +49,25 @@ if ($type == "text"){
     }else{
         echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);
     }
+    
+    $insert_answer_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."_answers` (`Question`, `Correct_Answer`) VALUES ('$question', '$answer')";
+    if(mysqli_query($conn,$insert_answer_item)){
+        echo "SUCCESS!";
+    }else{
+        echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);
+    }
+
 }else{
     $insert_quiz_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."` (`Question`, `Type`, `Num_Of_Choices`, `A`, `B`, `C`, `D`,`Correct_Answer`) 
                     VALUES ('$question', '$type', '$num_of_choices','$a','$b','$c','$d','$answer')";
     if(mysqli_query($conn,$insert_quiz_item)){
+        echo "SUCCESS!";
+    }else{
+        echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);
+    }
+
+    $insert_answer_item = "INSERT INTO `".$subj."_quiz_".$quizTitle."_answers` (`Question`, `Correct_Answer`) VALUES ('$question', '$answer')";
+    if(mysqli_query($conn,$insert_answer_item)){
         echo "SUCCESS!";
     }else{
         echo "Error: " . $insert_quiz_item . "<br>" . mysqli_error($conn);

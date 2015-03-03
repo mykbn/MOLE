@@ -59,32 +59,136 @@ function LoadTitleAndNumberOfQuestions(){
 	var questions = document.getElementById('studentquestions');
 	$.post("CountNumberofQuestions.php", {subj:subject, quiz:quizTitle}, function(data){
 		$('#studentquestions').append(data);
+		LoadQuestion();
 	});
 }
 
 
 function LoadQuestion(){
 	var questionsDropDown = document.getElementById('studentquestions');
+
+	var radio_a = document.getElementById('radio_a');
+	var radio_b = document.getElementById('radio_b');
+	var text_a = document.getElementById('textarea_a');
+	var text_b = document.getElementById('textarea_b');
+	var radio_c = document.getElementById('radio_c');
+	var radio_d = document.getElementById('radio_d');
+	var text_c = document.getElementById('textarea_c');
+	var text_d = document.getElementById('textarea_d');
 	// var choice = questionsDropDown.getAttribute('value');
 	// alert(questionsDropDown.value);
+	radio_a.style.display = 'none';
+	text_a.style.display = 'none';
+	radio_b.style.display = 'none';
+	text_b.style.display = 'none';
+	radio_c.style.display = 'none';
+	text_c.style.display = 'none';
+	radio_d.style.display = 'none';
+	text_d.style.display = 'none';
+	text_a.disabled = true;
+	text_a.value = "";
+	text_a.placeholder ="";
+
 	$.post("Get_Quiz_Question.php", {num:questionsDropDown.value, subj:subject, title:quizTitle}, function(data){
 		data = jQuery.parseJSON(data);
-		// alert(data.question);
 		$('#studentquestionnumber').html(questionsDropDown.value+".");
 		$('#studentquestion').val(data.question);
 		var counter = data.num_of_choices;
-		// alert(counter); 
-		for(i = 0; i < counter; i++){
-			// var strin = '<input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
-			// 						<textarea id = "studentanswerchoices" disabled>Ewan</textarea>';
-			// $('#choicecontainer').append(strin);
+		
+		if (counter == 1){
+			if(data.type_of_choice == "text"){
+				text_a.style.display = 'block';
+				text_a.disabled = false;
+				text_a.value = "";
+				text_a.placeholder ="Type answer here";
+			}else{
+				radio_a.style.display = 'block';
+				text_a.style.display = 'block';
+				radio_a.value = data.A;
+				text_a.value = data.A;
+			}
+			
+		}else if (counter == 2){
+			radio_a.style.display = 'block';
+			text_a.style.display = 'block';
+			radio_b.style.display = 'block';
+			text_b.style.display = 'block';
+			radio_a.value = data.A;
+			text_a.value = data.A;
+			radio_b.value = data.B;
+			text_b.value = data.B;
+
+			radio_a.value = data.A;
+			text_a.value = data.A;
+			radio_b.value = data.B;
+			text_b.value = data.B;
+		}else if (counter == 3){
+			radio_a.style.display = 'block';
+			text_a.style.display = 'block';
+			radio_b.style.display = 'block';
+			text_b.style.display = 'block';
+			radio_c.style.display = 'block';
+			text_c.style.display = 'block';
+
+			radio_a.value = data.A;
+			text_a.value = data.A;
+			radio_b.value = data.B;
+			text_b.value = data.B;
+			radio_c.value = data.C;
+			text_c.value = data.C;
+		}else if (counter == 4){
+			radio_a.style.display = 'block';
+			text_a.style.display = 'block';
+			radio_b.style.display = 'block';
+			text_b.style.display = 'block';
+			radio_c.style.display = 'block';
+			text_c.style.display = 'block';
+			radio_d.style.display = 'block';
+			text_d.style.display = 'block';
+
+			radio_a.value = data.A;
+			text_a.value = data.A;
+			radio_b.value = data.B;
+			text_b.value = data.B;
+			radio_c.value = data.C;
+			text_c.value = data.C;
+			radio_d.value = data.D;
+			text_d.value = data.D;
 		}
+
+	});
+}
+
+function GoBackToClass(){
+	if (confirm('Are you sure? \nGoing back will forfiet your current attempt') == true) {
+		window.location.href = "CardsContainer.php?subj="+subject;
+    } else {
+    }
+}
+
+function SubmitAnswer(){
+	var radio_a = document.getElementById('radio_a');
+	var text_a = document.getElementById('textarea_a');
+	var radio_b = document.getElementById('radio_b');
+	var text_b = document.getElementById('textarea_b');
+	var radio_c = document.getElementById('radio_c');
+	var text_c = document.getElementById('textarea_c');
+	var radio_d = document.getElementById('radio_d');
+	var text_d = document.getElementById('textarea_d');
+
+	var dropDown = document.getElementById('studentquestions');
+	var answer = $('input[name=choicecontainer]:checked', '#choicecontainer').val()
+	alert(answer);
+	$.post("SubmitQuizAnswer.php", {num:dropDown.value, ans:answer}, function(data){
+		alert(answer);
+		$('#header').html(data);
+		// alert('SUBMITTED!');
 	});
 }
 
 </script>
 </head>
-<body onload="ChangeProfileName(); LoadClassesForDropDown(); LoadTitleAndNumberOfQuestions(); LoadQuestion()">
+<body onload="ChangeProfileName(); LoadClassesForDropDown(); LoadTitleAndNumberOfQuestions();">
 <div id="main">
 
 <!-- HEADER -->
@@ -105,6 +209,7 @@ function LoadQuestion(){
 	</div>
 
 	<div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
+		<input id = "backbutton" type="button" value="<<" onclick = "GoBackToClass()">
 
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
@@ -187,12 +292,16 @@ function LoadQuestion(){
 				<div id = "studentquiestionandanswer">
 					<label id = "studentquestionnumber">1.</label>
 					<textarea id = "studentquestion" type = "text" disabled></textarea>
-					<div id="choicecontainer">
-						<!-- <input id = "radio" class = "radiobutt" type="radio" name="a" value="a" >
-						<textarea id = "studentanswerchoices" disabled>Ewan</textarea> -->
-					</div>
-					<input id = "nextbutton" type = "submit" value = "Next">
-				</div?
+
+					<form id="choicecontainer" name="choicecontainer">
+						<input id = "radio_a" class = "radiobutt" type="radio" name="a" value="a" name="choicecontainer"> <input id="textarea_a" class = "studentanswerchoices" disabled><br>
+						<input id = "radio_b" class = "radiobutt" type="radio" name="a" value="b" name="choicecontainer"> <input id="textarea_b" class = "studentanswerchoices" disabled><br>
+						<input id = "radio_c" class = "radiobutt" type="radio" name="a" value="c" name="choicecontainer"> <input id="textarea_c" class = "studentanswerchoices" disabled><br>
+						<input id = "radio_d" class = "radiobutt" type="radio" name="a" value="d" name="choicecontainer"> <input id="textarea_d" class = "studentanswerchoices" disabled><br>
+						<input id = "nextbutton" type = "button" value = "Next" onclick="SubmitAnswer()">
+					</form>
+					
+				</div>
 			</div>
 		</div>
 
