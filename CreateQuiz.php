@@ -340,7 +340,7 @@ function CreateCard(){
 			<form action="userprofile.php">
 				<input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
 			</form>
-			<form action="index.html"> 
+			<form action="index.php"> 
 				<input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
 			</form>
 		</div>

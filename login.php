@@ -12,6 +12,7 @@ $_SESSION['ID'] = '';
 $_SESSION['POSITION'] = '';
 $Position = '';
  $_SESSION['PROFILEPIC'] = '';
+ $_SESSION['STATUS'] = '';
 //Position
 $queryPosition = "SELECT Position FROM professors WHERE '$inputUsername' = Username";
 $resultPosition = mysqli_query($conn,$queryPosition)
@@ -88,6 +89,14 @@ if ($adminCount >= 1){
 		}else{
 			$_SESSION['PROFILEPIC'] = $rowprofile[0];
 		}
+
+		//Verified?
+		$queryStat = "SELECT Status FROM professors WHERE '$inputUsername' = Username";
+		$resultStat = mysqli_query($conn,$queryStat)
+			or die("Error: ".mysqli_error($conn));
+		$rowStat = mysqli_fetch_array($resultStat);
+		$serverStat = $rowStat["Status"];
+		$_SESSION['STATUS'] = $serverStat;
 		
 
 		//Check if login credentials are correct

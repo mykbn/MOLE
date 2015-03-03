@@ -54,18 +54,37 @@ function LoadLists(){
 		});
 }
 function ChangeProfileName(){
+	var createClassButt = document.getElementById('createclass');
+	var editButt = document.getElementById('editclass');
+	var deleteButt = document.getElementById('deleteclass-dropdowncontent');
+	var stat = <?php echo json_encode($_SESSION['STATUS'])?>;
+	var addTitle = document.getElementById('classtitle-addlist');
+   	var status = <?php echo json_encode($status)?>;
+   	var descript = document.getElementById('editcarddescription');
+	// alert(stat);
+	if (stat == "pending"){
+		createClassButt.disabled = true;
+		createClassButt.style.backgroundColor = "gray";
+		createClassButt.style.opacity = 0.2;
+
+		editButt.disabled = true;
+		editButt.style.backgroundColor = "gray";
+		editButt.style.opacity = 0.2;
+
+		deleteButt.disabled = true;
+		deleteButt.style.backgroundColor = "gray";
+		deleteButt.style.opacity = 0.2;
+	}
+	var no_classes_enrolled_text = document.getElementById('text');
 	var pic = document.getElementById('profilepicture');
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 
-   	var addTitle = document.getElementById('classtitle-addlist');
-   	var status = <?php echo json_encode($status)?>;
-   	var descript = document.getElementById('editcarddescription');
-   	if (status == 'Professor'){
+   	if (status == 'Professor' && stat == 'verified'){
    		addTitle.style.display = 'block';
    		descript.disabled = false;
-   	}else{
+   	}else if (status == 'Professor' && stat == 'pending'){
    		addTitle.style.display = 'none';
    		descript.disabled = true;
    	}

@@ -2,36 +2,38 @@
 <head>
   <link type="text/css" rel="stylesheet" href="admin.css">
   <link type="text/css" rel="stylesheet" href="userprofile.css">
+  <link type="text/css" rel="stylesheet" href="homepage.css">
+
 <title>Admin Tool</title>
 <script type = "text/javascript" src="jQuery.js"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type = "text/javascript" src="Homepage.js"></script>
 <script type="text/javascript">
 
-  function myFunction() {
-  var x;
+  function Approve(user) {
     if (confirm('Do you allow her/him to be a course creator?') == true) {
-        x = 'You allowed this professor!';
+      $.post('Approve.php', {toApprove: 'true', username:user}, function(){
+            window.location.href = "admin.php";
+      });
     } else {
 
     }
-      alert(x);
-    // document.getElementById('demo').innerHTML = x;
+
   }
 
-  function myFunction2() {
-  var x;
-    if (confirm("You don't allow her/him to be a course creator?") == true) {
-        x = "You denied her/him to be a course creator.";
+  function Deny(user) {
+    if (confirm("Unauthorize this user?") == true) {
+      $.post('Approve.php', {toApprove: 'false', username:user}, function(){
+            window.location.href = "admin.php";
+      });
     } else {
 
     }
-    alert(x);
-    // document.getElementById("demo1").innerHTML = x;
+
   }
 
   function getData(){
     $.post("getUsers.php", {variable:'lala'},function(data){
-      // alert ('HAHAHAHAHAH');
       $('#table').append(data);
     });
   }
@@ -44,72 +46,27 @@
         <img id = "logo" src = "_assets/Logo.png">
         <img id = "mole" src = "_assets/Mole.png">
       </div>
+      <div id = "profilepic-div">
+        <img id = "profilepicture" src="_assets/Profile-icon.jpg">
+      </div>
+      <input id = "profilename" type = "button"  name = "profilename" value = "ADMIN"
+      onclick = "toggle_visibility('namedropdown'); Hide(notificationdiv)">
   </div>
+
+  <div id = "mainpage" onclick="Hide(namedropdown);">
+
+  <!-- NAMEDROPDOWN -->
+    <div id = "namedropdown">
+      <form action="index.php"> 
+        <input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
+      </form>
+    </div>
 
 
 <table id = "table" class="flatTable">
   <tr class="titleTr">
     <td class="titleTd">ADMIN TOOL</td>
-    <!-- <td colspan="4"></td> -->
-    <!-- <td class="plusTd button"></td> -->
-  </tr>
-<!--   <tr class="headingTr">
-    <td>ID NO</td>
-    <td>LAST NAME</td>
-    <td>FULL NAME</td>
-    <td>COLLEGE/SCHOOL</td>
-    <td>STATUS</td>
-    <td></td>
-  </tr>
   
-  <tr>
-    <td>24334324</td>
-    <td>Feb 21,2013</td>
-    <td>White Out</td>
-    <td>$2,000</td>
-    <td>Paid</td>
-    <td class="controlTd">
-      <div class="settingsIcons">
-        <span class="settingsIcon"><img src="http://i.imgur.com/nnzONel.png" alt="X" /></span>
-        <span class="settingsIcon"><img src="http://i.imgur.com/UAdSFIg.png" alt="placeholder icon" /></span>
-        <div class="settingsIcon"><img src="http://i.imgur.com/UAdSFIg.png" alt="placeholder icon" /></div>
-      </div>  
-    </td>
-  </tr>
-  
-  <tr>
-    <td>#2331212</td>
-    <td>Feb 21,2013</td>
-    <td>White Out</td>
-    <td>$2,000</td>
-    <td>Paid</td>
-    <td class="controlTd">
-      <div class="settingsIcons">
-        <span class="settingsIcon"><img src="http://i.imgur.com/nnzONel.png" alt="X" /></span>
-        <span class="settingsIcon"><img src="http://i.imgur.com/UAdSFIg.png" alt="placeholder icon" /></span>
-        <div class="settingsIcon"><img src="http://i.imgur.com/UAdSFIg.png" alt="placeholder icon" /></div>
-      </div> 
-    </td>
-  </tr>
-  
-  <tr>
-    <td>#2331212</td>
-    <td>Feb 21,2013</td>
-    <td>White Out</td>
-    <td>$2,000</td>
-    <td>Paid</td>
-    <td class="controlTd">      
-      <div class="settingsIcons">
-        <span class="settingsIcon"><img src="http://i.imgur.com/nnzONel.png" alt="X" /></span>
-        <span class="settingsIcon"><img src="http://i.imgur.com/UAdSFIg.png" alt="placeholder icon" /></span>
-        <div class="settingsIcon"><img src="http://i.imgur.com/UAdSFIg.png" alt="placeholder icon" /></div>
-      </div>    
-     </td>
-  </tr>
-
-</table> -->
-</body>
-</html>
 
 
 
