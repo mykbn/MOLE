@@ -1,4 +1,4 @@
-<?php	
+	<?php	
 	include "connect.php";
 	session_start('user_credentials');
 	// $subj = $_GET['subj'];
@@ -9,22 +9,33 @@
 <head>
 <link type = "text/css" rel = "stylesheet" href = "StudentQuiz.css">
 <link type = "text/css" rel = "stylesheet" href = "homepage.css">
+<link rel="stylesheet" href="flipclock.css">
 <title>Quiz Time!</title>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
 <!-- <script type = "text/javascript" src="slimscroll.js"></script> -->
 <script type = "text/javascript" src="jquery.blockUI.js"></script>
+<script src="flipclock.min.js"></script>
 <script type = "text/javascript">
 //GET SUBJECT
 var subject = <?php echo json_encode($_GET['subj']);?>;
 var quizTitle = <?php echo json_encode($quizTitle);?>;
+
+
+
+
+
 function ChangeProfileName(){
 	// alert("LALALALALA");
 	var pic = document.getElementById('profilepicture');
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME'])?>;
+
+   	var clock = $('.your-clock').FlipClock({
+	// ... your options here
+	});
 
 }
 function Stud_Prof_Dropdowns(){
@@ -63,7 +74,7 @@ function LoadTitleAndNumberOfQuestions(){
 	});
 }
 
-
+var choiceType;
 function LoadQuestion(){
 	var questionsDropDown = document.getElementById('studentquestions');
 
@@ -94,7 +105,7 @@ function LoadQuestion(){
 		$('#studentquestionnumber').html(questionsDropDown.value+".");
 		$('#studentquestion').val(data.question);
 		var counter = data.num_of_choices;
-		
+		choiceType = data.type_of_choice;
 		if (counter == 1){
 			if(data.type_of_choice == "text"){
 				text_a.style.display = 'block';
@@ -166,7 +177,11 @@ function GoBackToClass(){
     }
 }
 
+
 function SubmitAnswer(){
+	// alert (choiceType);
+	var questionsDropDown = document.getElementById('studentquestions');
+
 	var radio_a = document.getElementById('radio_a');
 	var text_a = document.getElementById('textarea_a');
 	var radio_b = document.getElementById('radio_b');
@@ -175,14 +190,22 @@ function SubmitAnswer(){
 	var text_c = document.getElementById('textarea_c');
 	var radio_d = document.getElementById('radio_d');
 	var text_d = document.getElementById('textarea_d');
-
+	var answer;
 	var dropDown = document.getElementById('studentquestions');
-	var answer = $('input[name=choicecontainer]:checked', '#choicecontainer').val()
-	alert(answer);
-	$.post("SubmitQuizAnswer.php", {num:dropDown.value, ans:answer}, function(data){
-		alert(answer);
-		$('#header').html(data);
-		// alert('SUBMITTED!');
+	if (choiceType == "text"){
+		answer = text_a.value;
+	}else if(choiceType == "radio"){
+		answer = $('input[name=choicecontainer]:checked').val()
+	}
+	// alert(answer);
+	$.post("SubmitQuizAnswer.php?subj="+subject+"&quiz="+quizTitle, {num:dropDown.value, ans:answer}, function(data){
+		var count = parseInt(questionsDropDown.value) + 1;
+		if (count <= questionsDropDown.length){
+			$('#studentquestions').val(count)
+			LoadQuestion();
+		}else{
+			alert ("BOUNDARY!");
+		}
 	});
 }
 
@@ -293,19 +316,23 @@ function SubmitAnswer(){
 					<label id = "studentquestionnumber">1.</label>
 					<textarea id = "studentquestion" type = "text" disabled></textarea>
 
-					<form id="choicecontainer" name="choicecontainer">
-						<input id = "radio_a" class = "radiobutt" type="radio" name="a" value="a" name="choicecontainer"> <input id="textarea_a" class = "studentanswerchoices" disabled><br>
-						<input id = "radio_b" class = "radiobutt" type="radio" name="a" value="b" name="choicecontainer"> <input id="textarea_b" class = "studentanswerchoices" disabled><br>
-						<input id = "radio_c" class = "radiobutt" type="radio" name="a" value="c" name="choicecontainer"> <input id="textarea_c" class = "studentanswerchoices" disabled><br>
-						<input id = "radio_d" class = "radiobutt" type="radio" name="a" value="d" name="choicecontainer"> <input id="textarea_d" class = "studentanswerchoices" disabled><br>
+					<form id="choicecontainer">
+						<input id = "radio_a" class = "radiobutt" type="radio" value="a" name="choicecontainer"> <input id="textarea_a" class = "studentanswerchoices" disabled><br>
+						<input id = "radio_b" class = "radiobutt" type="radio" value="b" name="choicecontainer"> <input id="textarea_b" class = "studentanswerchoices" disabled><br>
+						<input id = "radio_c" class = "radiobutt" type="radio" value="c" name="choicecontainer"> <input id="textarea_c" class = "studentanswerchoices" disabled><br>
+						<input id = "radio_d" class = "radiobutt" type="radio" value="d" name="choicecontainer"> <input id="textarea_d" class = "studentanswerchoices" disabled><br>
 						<input id = "nextbutton" type = "button" value = "Next" onclick="SubmitAnswer()">
+						<div class="your-clock"></div>
 					</form>
+
 					
 				</div>
 			</div>
 		</div>
 
 	</div>
+
+	
 </div>
 </body>
 </html>

@@ -384,6 +384,7 @@ input[type="button"], input[type="submit"] {
 }
 #classtitle{
 	position: relative;
+	line-height: 70px;
 	top: 10%;
 	left: 1%;
 	font-family: Calibri;
@@ -392,7 +393,7 @@ input[type="button"], input[type="submit"] {
 #addlist{
 	position: relative;
 	border: none;
-	top: 4%;
+	top: 15%;
 	left: 72.6%;
 	height: 80%;
 	width: 18.3%;
@@ -407,7 +408,7 @@ input[type="button"], input[type="submit"] {
 #addcardbutton{
 	position: relative;
 	border: solid 1px FF526A;
-	top: 1%;
+	top: 15%;
 	left: 68.6%;
 	height: 55%;
 	width: 3.2%;

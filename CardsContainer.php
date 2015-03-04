@@ -82,11 +82,14 @@ function ChangeProfileName(){
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 
    	if (status == 'Professor' && stat == 'verified'){
+   		// alert(stat);
    		addTitle.style.display = 'block';
    		descript.disabled = false;
    	}else if (status == 'Professor' && stat == 'pending'){
+   		// alert(stat);
    		addTitle.style.display = 'none';
    		descript.disabled = true;
+   		// ChangeClassName();
    	}
 }
 function ChangeClassName(){
@@ -296,8 +299,8 @@ function DeleteCard(){
 
 <!-- INSIDE CLASS -->
 		<div id = "insideclass">
+			<label id = "classtitle" value="value">Class Title</label>
 			<div id = "classtitle-addlist">
-				<label id = "classtitle" value="value">Class Title</label>
 				<input id = "addlist" type = "text" placeholder = "Add List" name="listName">
 				<input id = "addlistbutton" type="button" value = "Add" onclick="AddList()">
 			</div>

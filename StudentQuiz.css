@@ -811,3 +811,9 @@ a{
 	z-index: 50;
 
 }
+.your-clock{
+	position: relative;
+	width:20%;
+	height:10%;
+	
+}
