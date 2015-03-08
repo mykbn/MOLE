@@ -29,9 +29,9 @@
 	        	if($_SESSION['POSITION'] == "Professor"){
 	        		$list .= "<div class = 'list' id = 'list_".$val."'>
 							<input id = 'listtitle' type = 'text' value = '".$val."' disabled>
-							<input name = $val id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
+							<input name = '".$val."' id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
 						  </div>
-						  <div id = '".$val."' class = 'addcardcontent' style='display:none;'>
+						  <div id = '".($val)."' class = 'addcardcontent' style='display:none;'>
 							<input id = 'cardstitle' name = cardstitle_".$val." type = 'text' placeholder = 'Card Title'>
 							<input id = 'createquizbutton' type = 'submit' name=$val value = 'Quiz' onclick='GoToQuiz(this.name)'>
 							<input id = 'attachfilebutton' type = 'submit' value = 'Attach File'>

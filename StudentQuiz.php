@@ -32,10 +32,14 @@ function ChangeProfileName(){
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME'])?>;
-
-   	var clock = $('.your-clock').FlipClock({
+   	
+   	var clock = $('.your-clock').FlipClock(3000, {
 	// ... your options here
+		countdown: true,
+		clockFace: 'MinuteCounter'
+
 	});
+
 
 }
 function Stud_Prof_Dropdowns(){
@@ -202,11 +206,20 @@ function SubmitAnswer(){
 		var count = parseInt(questionsDropDown.value) + 1;
 		if (count <= questionsDropDown.length){
 			$('#studentquestions').val(count)
+			$('.radiobutt').prop('checked', false);
 			LoadQuestion();
 		}else{
-			alert ("BOUNDARY!");
+			// window.location.href = "CheckAnswered_Quiz.php?title="+quizTitle+"&subj="+subject;
+			window.location.href = "Answers.php?title="+quizTitle+"&subj="+subject;
 		}
 	});
+}
+
+function SubmitQuiz(){
+	// LoadQuestion();
+	alert("SUBMIT!");
+	window.location.href = "Answers.php?title="+quizTitle+"&subj="+subject;
+
 }
 
 </script>
@@ -322,8 +335,12 @@ function SubmitAnswer(){
 						<input id = "radio_c" class = "radiobutt" type="radio" value="c" name="choicecontainer"> <input id="textarea_c" class = "studentanswerchoices" disabled><br>
 						<input id = "radio_d" class = "radiobutt" type="radio" value="d" name="choicecontainer"> <input id="textarea_d" class = "studentanswerchoices" disabled><br>
 						<input id = "nextbutton" type = "button" value = "Next" onclick="SubmitAnswer()">
-						<div class="your-clock"></div>
+						
+
+						
 					</form>
+					<input id = "submitbutton" type = "button" value = "Submit" onclick="SubmitQuiz()">
+					<div class="your-clock"></div>
 
 					
 				</div>

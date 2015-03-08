@@ -1,0 +1,60 @@
+<html lang = "en">
+<head>
+<link type="text/css" rel="stylesheet" href="quiz.css">
+<meta charset="utf-8"/>
+<title>Panget si Mykel Abania!!!</title>
+<meta name="viewport" content="initial-scale=1.0;
+	maximum-scale=1.0; width=device-width;">
+
+<script type="text/javascript">
+function ChangeProfileName(){
+	// alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
+	var pic = document.getElementById('profilepicture');
+	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
+	var profile = document.getElementById('profilename');
+   	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
+   	// var quiz_title = document.getElementById('quiztitle');
+   	// quiz_title.value = <?php echo json_encode($title) ?>;
+
+}
+</script>
+</head>
+
+<body onload="ChangeProfileName()">
+<div class="table-title">
+<h3>Quiz</h3>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Item</th>
+<th class="text-right">Status</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+<tr>
+<td class="text-left">1</td>
+<td class="text-right">Answered</td>
+</tr>	
+<tr>
+<td class="text-left">2</td>
+<td class="text-right">Answered</td>
+</tr>	
+<tr>
+<td class="text-left">3</td>
+<td class="text-right">Unanswered</td>
+</tr>	
+<tr>
+<td class="text-left">4</td>
+<td class="text-right">Answered</td>
+</tr>	
+<tr>
+<td class="text-left">5</td>
+<td class="text-right">Answered</td>
+</tr>	
+<tr>
+<td class="text-left">6</td>
+<td class="text-right">Unanswered</td>
+</tr>	
+</tbody>
+</table>

@@ -755,7 +755,7 @@ a{
 .studentanswerchoices{
 	position: relative;
 	border: none;
-	top: 4.3%;
+	top: 20px;
 	left: 7%;
 	height: 18%;
 	width: 87%;
@@ -795,6 +795,21 @@ a{
 	font-size: 20px;
 	color: white;
 }
+#submitbutton{
+	position: relative;
+	top: 200px;
+	left: 80%;
+	height: 38px;
+	width: 110px;
+	margin-left: 10px;
+	border-radius: 3px;
+	border: none;
+	background-color: 2b88b6;
+	font-family: Calibri;
+	font-size: 20px;
+	color: white;
+	z-index: 100;
+}
 #choicecontainer{
 	position: absolute;
 	top: 25%;
@@ -813,7 +828,13 @@ a{
 }
 .your-clock{
 	position: relative;
-	width:20%;
-	height:10%;
+	top: 58%;
+	left: 15%;
+	/*width:20%;
+	height:10%;*/
+	/*zoom: 0.5;*/
+	transform: scale(.54);
+	/*transform: translate(-30%, 0%);
+	-webkit-transform: translate(-30%, 0%);*/
 	
 }

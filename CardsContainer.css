@@ -420,6 +420,9 @@ input[type="button"], input[type="submit"] {
 }
 #listframe{
 	position: absolute;
+	/*float: left;*/
+	overflow-y: hidden;
+	overflow-x: scroll; 
 	/*border: solid 1px;*/
 	top: 8%;
 	height: 93.5%;
@@ -428,6 +431,7 @@ input[type="button"], input[type="submit"] {
 .list{
 	position: relative;
 	display: inline-block;
+	float: left;
 	margin-right: 10px;
 	top: 1%;
 	left: 1.5%;
@@ -438,7 +442,7 @@ input[type="button"], input[type="submit"] {
 	box-shadow: 1px 1px 3px 1px gray inset;
 	/*box-shadow: 1px 1px 5px gray;*/
 	z-index: 9;
-	overflow-y: hidden; 
+	overflow-y: scroll; 
 }
 #listtitle{
 	position: relative;
