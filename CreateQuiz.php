@@ -36,6 +36,8 @@ function ChangeProfileName(){
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
    	var quiz_title = document.getElementById('quiztitle');
    	quiz_title.value = <?php echo json_encode($title) ?>;
+   	var time = document.getElementById('timelimit');
+   	time.value = <?php echo json_encode('Time Limit: '.$_GET['time'].' min/s')?>;
 
 }
 function LoadClassesForEdit(){
@@ -148,11 +150,12 @@ function CreateNextQuestion(){
 	var quiz_title = document.getElementById('quiztitle');
 	var quiz_question = document.getElementById('questiontext');
 	var no_of_choices = document.getElementById('numberchoices');
+	var time = <?php echo json_encode($_GET['time'])?>;
 
 	if (choiceType == "text"){
 		var quiz_choice_0 = document.getElementById('answer_0');
 		$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, 
-										question:quiz_question.value, ans:quiz_choice_0.value},
+										question:quiz_question.value, ans:quiz_choice_0.value, timeLimit:time},
 				 function(data){
 				 	Clear();
 		});
@@ -160,7 +163,7 @@ function CreateNextQuestion(){
 		if(no_of_choices.value == "1"){
 			var quiz_choice_0 = document.getElementById('answer_0');
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
-			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value, ans:answer},
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value, ans:answer, timeLimit:time},
 					 function(data){
 					 	Clear();
 			});
@@ -169,7 +172,7 @@ function CreateNextQuestion(){
 			var quiz_choice_1 = document.getElementById('answer_1');
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
-										a:quiz_choice_0.value, b:quiz_choice_1.value, ans:answer},
+										a:quiz_choice_0.value, b:quiz_choice_1.value, ans:answer, timeLimit:time},
 				 function(data){
 				 	Clear();
 			});
@@ -179,7 +182,7 @@ function CreateNextQuestion(){
 			var quiz_choice_2 = document.getElementById('answer_2');
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
-										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, ans:answer},
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, ans:answer, timeLimit:time},
 				 function(data){
 				 	Clear();
 			});
@@ -191,7 +194,7 @@ function CreateNextQuestion(){
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
 										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
-										 ans:answer},
+										 ans:answer, timeLimit:time},
 				 function(data){
 				 	Clear();
 			});
@@ -200,7 +203,7 @@ function CreateNextQuestion(){
 		if(no_of_choices.value == "1"){
 			var quiz_choice_0 = document.getElementById('answer_0');
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
-			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value, ans:answer},
+			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value, ans:answer, timeLimit:time},
 					 function(data){
 					 	Clear();
 			});
@@ -209,7 +212,7 @@ function CreateNextQuestion(){
 			var quiz_choice_1 = document.getElementById('answer_1');
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
-										a:quiz_choice_0.value, b:quiz_choice_1.value, ans:answer},
+										a:quiz_choice_0.value, b:quiz_choice_1.value, ans:answer, timeLimit:time},
 				 function(data){
 				 	Clear();
 			});
@@ -219,7 +222,7 @@ function CreateNextQuestion(){
 			var quiz_choice_2 = document.getElementById('answer_2');
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
-										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, ans:answer},
+										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, ans:answer, timeLimit:time},
 				 function(data){
 				 	Clear();
 			});
@@ -231,7 +234,7 @@ function CreateNextQuestion(){
 			var answer = $('input[name=answerchoicesform]:checked', '#answerchoicesform').val()
 			$.post("InsertQuizItem.php", {num_of_choices:no_of_choices.value, type:choiceType, title:quiz_title.value, subject:subj, question:quiz_question.value,
 										a:quiz_choice_0.value, b:quiz_choice_1.value, c:quiz_choice_2.value, d:quiz_choice_3.value,
-										 ans:answer},
+										 ans:answer, timeLimit:time},
 				 function(data){
 				 	Clear();
 			});
@@ -390,6 +393,7 @@ function CreateCard(){
 	<div id = "createquizdiv">
 		<form id = "questiondiv">
 			<input id = "quiztitle" type = "text" placeholder = "Title" disabled>
+			<input id = "timelimit" type = "text" placeholder = "asdasd" disabled>
 			<select id = "questioncreated" placeholder = "Quiz Number" onchange="JumpToQuestion()">
 				<option value = "1">1</option>
 			</select>

@@ -1,4 +1,4 @@
-	<?php	
+<?php	
 	include "connect.php";
 	session_start('user_credentials');
 	// $subj = $_GET['subj'];
@@ -24,21 +24,27 @@ var quizTitle = <?php echo json_encode($quizTitle);?>;
 
 
 
-
-
 function ChangeProfileName(){
 	// alert("LALALALALA");
 	var pic = document.getElementById('profilepicture');
 	pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
 	var profile = document.getElementById('profilename');
    	profile.value = <?php echo json_encode($_SESSION['REALNAME'])?>;
-   	
-   	var clock = $('.your-clock').FlipClock(3000, {
-	// ... your options here
-		countdown: true,
-		clockFace: 'MinuteCounter'
+   	$.post("GetTime.php", {subj:subject, title:quizTitle}, function(time){
+   		var clock = $('.your-clock').FlipClock(time, {
+		// ... your options here
+			countdown: true,
+			clockFace: 'MinuteCounter',
+			callbacks: {
+             stop: function() {
+               var times = clock.getTime().time;
+               if(times <= 0) { SubmitQuiz(); }
+             }
+            }
 
-	});
+		});
+   	});
+   	
 
 
 }
@@ -217,7 +223,8 @@ function SubmitAnswer(){
 
 function SubmitQuiz(){
 	// LoadQuestion();
-	alert("SUBMIT!");
+	// alert("SUBMIT!");
+	SubmitAnswer();
 	window.location.href = "Answers.php?title="+quizTitle+"&subj="+subject;
 
 }

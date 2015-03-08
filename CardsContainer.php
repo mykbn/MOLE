@@ -15,7 +15,8 @@
 <head>
 <link type = "text/css" rel = "stylesheet" href = "CardsContainer.css">
 <link type = "text/css" rel = "stylesheet" href = "homepage.css">
-<title><?php echo ($_GET['subj'] ); echo " Home"; ?> </title>
+<link href="uploadfile.min.css" rel="stylesheet">
+	<title><?php echo ($_GET['subj'] ); echo " Home"; ?> </title>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
 <script type = "text/javascript" src="jQuery.js"></script>
@@ -41,9 +42,19 @@ var getSubj = <?php echo json_encode($_GET['subj']); ?>;
 
 function GoToQuiz(name){
 	var cardtitle = $("input[name='cardstitle_"+name+"']").val();
+	
 	$(document).ready(function(){
 		var subj = <?php echo json_encode($_GET['subj']); ?>;
-		window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle+"&list="+name;
+		if (cardtitle == ''){
+			alert("Enter a Card Title!");
+		}else{
+			var timeLimit = prompt("Enter Time Limit (in minutes)", "");
+			if (timeLimit == null){
+			alert("Enter a time limit!");
+			}else{
+				window.location.href = "CreateQuiz.php?subj=" + subj+"&title="+cardtitle+"&list="+name+"&time="+timeLimit;
+			}
+		}
 	});
 }
 function LoadLists(){
@@ -110,9 +121,15 @@ function AddCard(list){
 	var className = <?php echo json_encode($_GET['subj']); ?>;
 	var cardtitle = $("input[name='cardstitle_"+list+"']").val();
 	$(document).ready(function(){
-		$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle, date:today}, function(card){
-			$("body").html(card);
-		});
+		// $.post('upload.php',function(data){
+		// 	// alert("UPLOAD!");
+		// 	$('#header').html(data);
+			$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle, date:today}, function(card){
+				window.location.href = "upload.php";
+				$("body").html(card);
+			});
+		// });
+		
 	});
 	
 }
@@ -212,6 +229,10 @@ function DeleteCard(){
 	}
 	
 	
+}
+function Upload(){
+	alert('UPLOAD!');
+	window.location.href = "upload.php";
 }
 </script>
 

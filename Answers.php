@@ -27,6 +27,13 @@ function ChangeProfileName(){
    	// quiz_title.value = <?php echo json_encode($title) ?>;
 
 }
+function GetScore(){
+	var subj = <?php echo json_encode($_GET['subj']); ?>;
+	var quizTitle = <?php echo json_encode($_GET['title']); ?>;
+	if(confirm("You are about to submit your answers") == true){
+		window.location.href = "ComputeScore.php?subj="+subj+"&title="+quizTitle;
+	}
+}
 </script>
 </head>
 
@@ -56,7 +63,7 @@ function ChangeProfileName(){
 <?php
 
 // session_start('user_credentials');
-include 'connect.php';
+// include 'connect.php';
 
 $subj = $_GET['subj'];
 $quizTitle = $_GET['title'];
@@ -82,7 +89,7 @@ while ($row = mysqli_fetch_array($query)){
 	
 }
 
-echo "<tr><td></td><td><input type='submit' value='Submit'></td></tr>";
+echo "<tr><td><input type='button' value='Go Back'></td><td><input type='submit' value='Submit' onclick='GetScore()'></td></tr>";
 echo "</table>";
 mysqli_close($conn);
 ?>

@@ -169,7 +169,6 @@ function GoToClass(classV){
 	// alert ("Go To "+ classV);
 	window.location.href = "CardsContainer.php?subj=" + classV;
 }
-
 </script>
 </head>
 <body  onload="ChangeProfileName(); LoadClasses(); LoadClassesForEdit(); LoadClassesForDelete(); LoadClassesForDropDown()">

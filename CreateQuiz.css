@@ -477,6 +477,22 @@ a{
 	padding-left: 10px;
 	z-index: 1;
 }
+#timelimit{
+	position: absolute;
+	top: 7%;
+	left: 40%;
+	height: 20%;
+	width: 40%;
+	border: none;
+	border-radius: 4px;
+	background-color: FDDBEE;
+	font-family: Calibri;
+	font-size: 20px;
+	/*padding-left: 10px;*/
+	z-index: 1;
+	/*transform: translate(-50%, 0%);
+	-webkit-transform: translate(-50%, 0%);*/
+}
 #questionnumber{
 	position: absolute;
 	top: 38%;
