@@ -8,31 +8,17 @@
 		<div id = "logo-mole">
 			<img id = "mole" src = "_assets/Mole.png">
 		</div>
+		<input id = "Backbutton" type = "submit" value = "Back" name = "backbutton">
 		<div id = "form-div">
 			<form id = "create-form" method = "post" action="CreateUserAccount.php">
-				<div id = "studentnodiv" class = "label">
-					Student No.<input id = "studentno" type = "textbox" placeholder = "ID No." name = "idnoText" class = "form-class">
-				</div>
-				<div id = "firstnamediv" class = "label">
-					First Name<input type = "textbox" placeholder = "First Name" name = "firstnameText" class = "form-class">
-				</div>
-				<div id = "lastnamediv" class = "label">
-					Last Name<input type = "textbox" placeholder = "Last Name" name = "lastnameText" class = "form-class">
-				</div>
-				<div id = "usernamediv" class = "label">
-					Username<input type = "textbox" placeholder = "User Name" name = "usernameText" class = "form-class">
-				</div>
-				<div id = "passworddiv" class = "label">
-					Password<input type = "password" placeholder = "Password" name = "passwordText" class = "form-class">
-				</div>
-				<div id = "confirmdiv" class = "label">
-					Confirm<input type = "password" placeholder = "Confirm" name = "confirmText" class = "form-class">
-				</div>
-				<div id = "emaildiv" class = "label">
-					Email<input type = "textbox" placeholder = "Email" name = "emailText" class = "form-class">
-				</div>
-				<div id = "schoolcollegediv" class = "label">
-					School/College
+				<div id = "form">
+					<input id = "studentno" type = "textbox" placeholder = "ID No." name = "idnoText" class = "form-class">
+					<input type = "textbox" placeholder = "First Name" name = "firstnameText" class = "form-class">
+					<input type = "textbox" placeholder = "Last Name" name = "lastnameText" class = "form-class">
+					<input type = "textbox" placeholder = "User Name" name = "usernameText" class = "form-class">
+					<input type = "password" placeholder = "Password" name = "passwordText" class = "form-class">
+					<input type = "password" placeholder = "Confirm" name = "confirmText" class = "form-class">
+					<input type = "textbox" placeholder = "Email" name = "emailText" class = "form-class">
 					<select id = "schoolcollegediv" placeholder = "School/College" name = "school/college" class = "form-class">
 						<option value="Sci-Tech">Science And Technology</option>
 						<option value="Dent">Dentistry</option>
@@ -44,9 +30,6 @@
 						<option value="SELAMS">SELAMS</option>
 						<option value="NHM">Nutrition and Hospitality Management</option>
 					</select>
-				</div>
-				<div id = "positiondiv" class = "label">
-					Position
 					<select id = "positiondiv" placeholder = "Position" name = "position" class = "form-class">
 						<option value="Student">Student</option>
 						<option value="Professor">Professor</option>
