@@ -2,7 +2,7 @@
 session_start ('user_credentials');
 include 'connect.php';
 
-$list = $_GET['list'];
+$list = $_POST['listName'];
 $subj = $_GET['subj'];
 $cardName = $_POST['cardName'];
 $date = $_POST['date'];

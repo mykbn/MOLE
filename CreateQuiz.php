@@ -403,7 +403,7 @@ function CreateCard(){
 			
 			<select id = "checkchoices" placeholder = "Choices" onchange="BlurNumberOfChoices();CreateChoices()">			
 				<option value="text">Text Box</option>
-				<option value="checkbox">Check Box</option>
+				<!-- <option value="checkbox">Check Box</option> -->
 				<option value="radio">Radio Button</option>
 			</select>
 

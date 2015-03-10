@@ -124,7 +124,7 @@ function AddCard(list){
 		// $.post('upload.php',function(data){
 		// 	// alert("UPLOAD!");
 		// 	$('#header').html(data);
-			$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle, date:today}, function(card){
+			$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle, date:today, listName:list}, function(card){
 				window.location.href = "upload.php";
 				$("body").html(card);
 			});
@@ -149,6 +149,8 @@ function ChangeCardPosition(){
 	$(document).ready(function(){
 		for (i = 0; i < cards.length; i++) {
 			var theCard = document.getElementById("cards_"+cards[i].getAttribute('name'));
+			// alert("cards_"+cards[i].getAttribute('name'));
+			// alert("list_"+cards[i].getAttribute('name'));
 			$("#list_"+cards[i].getAttribute('name')).append(theCard);
 		}	
 	});
