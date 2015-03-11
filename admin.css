@@ -7,9 +7,25 @@ body {
   padding: 0px;
   background: #e5e2e6;
 }
+#profilepic-div{
+  position: absolute;
+  /*border: solid;*/
+  top: -3%;
+  left: 100%;
+}
+#profilepicture{
+  position: relative;
+  top: -1%; 
+  left: 120%;
+  z-index: 50;
+}
+#profilename{
+  border: solid;
+  left: 87.5%;
+}
 .flatTable {
   position: absolute;
-  top: 10%;
+  top: 0%;
   width: 100%;
   min-width: 500px;
   border-collapse: collapse;
@@ -28,6 +44,7 @@ body {
 .flatTable .titleTr {
   height: 70px;
   color: #f6f3f7;
+  /*font-family: Calibri;*/
   background: #418a95;
   border: 0px solid;
 }

@@ -384,7 +384,8 @@ input[type="button"], input[type="submit"] {
 }
 #classtitle{
 	position: relative;
-	line-height: 70px;
+	line-height: 53px;
+	/*border: solid;*/
 	top: 10%;
 	left: 1%;
 	font-family: Calibri;
@@ -394,7 +395,7 @@ input[type="button"], input[type="submit"] {
 	position: relative;
 	border: none;
 	top: 15%;
-	left: 72.6%;
+	left: 81.8%;
 	height: 80%;
 	width: 18.3%;
 	border-radius: 3px;
@@ -408,8 +409,8 @@ input[type="button"], input[type="submit"] {
 #addcardbutton{
 	position: relative;
 	border: solid 1px FF526A;
-	top: 15%;
-	left: 68.6%;
+	top: 12%;
+	left: 77.9%;
 	height: 55%;
 	width: 3.2%;
 	border-radius: 4px;
@@ -527,7 +528,7 @@ input[type="button"], input[type="submit"] {
 	/*border: solid 1px;*/
 	top: 1%;
 	/*left: 19.9%;*/
-	height: 30%;
+	height: 24.8%;
 	width: 15.5%;
 	border-radius: 3px;
 	background-color: D7D7D7;
@@ -544,7 +545,7 @@ input[type="button"], input[type="submit"] {
 	border: none;
 	top: 5.5%;
 	left: 2.2%;
-	height: 19%;
+	height: 26%;
 	width: 95%;
 	border-radius: 3px;
 	font-family: Calibri;

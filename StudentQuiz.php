@@ -252,7 +252,7 @@ function SubmitQuiz(){
 	</div>
 
 	<div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
-		<input id = "backbutton" type="button" value="<<" onclick = "GoBackToClass()">
+		<input id = "backbutton" type = "button" value = "Back" onclick = "GoBackToClass()">
 
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">

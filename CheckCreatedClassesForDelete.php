@@ -12,7 +12,7 @@
 	$query = "SELECT Classes FROM classes WHERE `Created_By` = '$user'";
 	$result = mysqli_query($conn,$query)
 		or die("");
-	echo ("<p>Classes ".$user." Created:</p>");
+	echo ("<p id = 'DeleteClassTitle'>Classes ".$user." Created:</p>");
 	// $row = mysqli_fetch_array($result);
 	// $server = $row["Created_By"];
 	// // iterate over all the rows

@@ -586,10 +586,18 @@ a{
    from {left: 5px}
     to {left: 285px}
 }
+#DeleteClassTitle,
+#EditClassTitle{
+	position: absolute;
+	top: -2%;
+	font-family: Calibri;
+	font-size: 18px;
+	padding-left: 4%;
+}
 .editdropdowncards,
 #deletedropdowncards{
-	position: relative;
-	top: 9px;
+	position: absolute;
+	top: 14%;
 	left: 9px;
 	height: 33px;
 	width: 253px;
