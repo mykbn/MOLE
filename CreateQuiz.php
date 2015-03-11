@@ -249,6 +249,8 @@ function Clear(){
 	$('#questionnumber').html(counter + ".");
 	// $(':input').not(":button").val('');
 	$('#questiontext').val(" ");
+	var questions = document.getElementById('questiontext');
+	questions.placeholder = "Question";
 	$('#checkchoices').val('text');
 	$('#numberchoices').val('1');
 	$('#questioncreated').append('<option value = "'+counter+'">'+counter+'</option>');
@@ -431,7 +433,7 @@ function CreateCard(){
 				<input id = "answer_d" class = "answerchoicestext" type = "text"> -->
 			</form> 
 			<form id = "buttonsform">
-				<input id = "clearbutton" type = "submit" value = "Clear">
+				<!-- <input id = "clearbutton" type = "submit" value = "Clear"> -->
 				<input id = "nextbutton" type = "button" value = "Next" onclick="CreateNextQuestion()">
 				<input id = "publishbutton" type="button" value = "Publish" onclick="CreateCard()">
 			</form>

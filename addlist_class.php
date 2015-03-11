@@ -4,7 +4,7 @@ include "connect.php";
 
 $subj = $_GET['subj'];
 $listName = $_POST['listLabel'];
-// $listConvert = str_replace(' ', '_', $listName);
+$listConvert = str_replace(' ', '_', $listName);
 
 $list = '';
 // $addColumn = "ALTER TABLE ".$subj." ADD `".$list."` VARCHAR(100) NOT NULL" ;
@@ -20,7 +20,7 @@ if ($listName == ''){
             window.location.href='CardsContainer.php?subj=$subj';
             </script>";
 }else{
-	$insertNewList = "INSERT INTO ".$subj." (`ID`, `Lists`) VALUES (NULL, '$listName')";
+	$insertNewList = "INSERT INTO ".$subj." (`ID`, `Lists`) VALUES (NULL, '$listConvert')";
 	if(mysqli_query($conn, $insertNewList)){
 		echo "<script> 
 		alert('List Created!');

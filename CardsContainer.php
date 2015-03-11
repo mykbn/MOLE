@@ -124,11 +124,14 @@ function AddCard(list){
 		// $.post('upload.php',function(data){
 		// 	// alert("UPLOAD!");
 		// 	$('#header').html(data);
+		if(cardtitle != ''){
 			$.post("addcards_class.php?subj=" + className +"&list=" + list, {cardName:cardtitle, date:today, listName:list}, function(card){
 				window.location.href = "upload.php";
 				$("body").html(card);
 			});
-		// });
+		}else{
+			alert ("Please Enter a Card Title!");
+		}
 		
 	});
 	
@@ -231,10 +234,6 @@ function DeleteCard(){
 	}
 	
 	
-}
-function Upload(){
-	alert('UPLOAD!');
-	window.location.href = "upload.php";
 }
 </script>
 

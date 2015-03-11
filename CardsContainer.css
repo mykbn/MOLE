@@ -674,3 +674,8 @@ input[type="button"], input[type="submit"] {
 	font-size: 20px;
 }
 
+#attach{
+	position: relative;
+	margin-top: 5px;
+	padding-left: 3%;
+}

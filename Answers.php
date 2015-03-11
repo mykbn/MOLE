@@ -34,6 +34,11 @@ function GetScore(){
 		window.location.href = "ComputeScore.php?subj="+subj+"&title="+quizTitle;
 	}
 }
+function GoBack(){
+	var subj = <?php echo json_encode($_GET['subj']); ?>;
+	var quizTitle = <?php echo json_encode($_GET['title']); ?>;
+	window.location.href = "StudentQuiz.php?subj="+subj+"&quiz="+quizTitle;
+}
 </script>
 </head>
 
@@ -89,7 +94,8 @@ while ($row = mysqli_fetch_array($query)){
 	
 }
 
-echo "<tr><td><input type='button' value='Go Back'></td><td><input type='submit' value='Submit' onclick='GetScore()'></td></tr>";
+echo "<tr><td><input type='button' value='Go Back' onclick='GoBack()'></td>
+	<td><input type='submit' value='Submit' onclick='GetScore()'></td></tr>";
 echo "</table>";
 mysqli_close($conn);
 ?>

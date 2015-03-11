@@ -2,13 +2,18 @@
 <head>
 <link type = "text/css" rel = "stylesheet" href = "CreateUserAccount.css">
 <title></title>
+<script type = "text/javascript">
+function GoBack(){
+	window.location.href = 'index.php';
+}
+</script>
 </head>
 <body>
 	<div id = "main">
 		<div id = "logo-mole">
 			<img id = "mole" src = "_assets/Mole.png">
 		</div>
-		<input id = "Backbutton" type = "submit" value = "Back" 	name = "backbutton">
+		<input id = "Backbutton" type = "submit" value = "Back" name = "backbutton" onclick="GoBack()">
 		<div id = "form-div">
 			<form id = "create-form" method = "post" action="CreateUserAccount.php">
 				<div id = "form">

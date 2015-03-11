@@ -28,10 +28,10 @@
 	        	// $name = "cardtitle".$counter;
 
 				// <input id = 'attachfilebutton' type = 'file' name='file' value = 'Attach File'>
-
+				$val_without_space = str_replace('_', ' ', $val);
 	        	if($_SESSION['POSITION'] == "Professor"){
 	        		$list .= "<div class = 'list' id = 'list_".$val."'>
-							<input id = 'listtitle' type = 'text' value = '".$val."' disabled>
+							<input id = 'listtitle' type = 'text' value = '".$val_without_space."' disabled>
 							<input name = '".$val."' id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
 						  </div>
 						  <div id = '".$val."' class = 'addcardcontent' style='display:none;'>
@@ -43,12 +43,15 @@
 						</div>";
 					}else if($_SESSION['POSITION'] == "Student"){
 						$list .= "<div class = 'list' id = 'list_".$val."'>
-							<input id = 'listtitle' type = 'text' value = '".$val."' disabled>
+							<input id = 'listtitle' type = 'text' value = '".$val_without_space."' disabled>
 							<input name = '".$val."' id = 'addcardbutton' type='button' value = '+' onclick='toggle_visible(this.name)'>
 						  </div>
 						  <div id = '".$val."' class = 'addcardcontent' style='display:none;'>
 							<input id = 'cardstitle' name = 'cardstitle_".$val."' type = 'text' placeholder = 'Card Title'>
-							<input id = 'attachfilebutton' type = 'submit' value = 'Attach File' onclick='Upload()'>
+							<form action='upload.php?subj=".$subj."&list=".$val."' method='post' enctype='multipart/form-data'>
+								<input id= 'attach' name='file' type = 'file' value = 'Attach File'>
+								<input id = 'attachfilebutton' type='submit' value='Upload File'>
+							</form>
 							<input id = 'createbutton' type = 'submit' name='".$val."' value = 'Create' onclick='AddCard(this.name)'>
 							<input id = 'cancelbutton' name = '".$val."' type = 'submit' value = 'Cancel' onclick='toggle_visibility(this.name)'>
 						</div>";

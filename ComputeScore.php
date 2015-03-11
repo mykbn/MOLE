@@ -5,6 +5,7 @@
 <html>
 <head>
 <link type="text/css" rel="stylesheet" href="homepage.css">
+<link type="text/css" rel="stylesheet" href="results.css">
 	<title>Quiz Score</title>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type = "text/javascript" src="Homepage.js"></script>
@@ -17,6 +18,10 @@ function ChangeProfileName(){
    	profile.value = <?php echo json_encode($_SESSION['REALNAME']); ?>;
 
 
+}
+function GoBackToClass(){
+	var subj = <?php echo json_encode($_GET['subj']); ?>;
+	window.location.href = "CardsContainer.php?subj="+subj;
 }
 </script>
 </head>
@@ -39,9 +44,19 @@ function ChangeProfileName(){
 	</div>
 
 	<div id = "mainpage">
+		<div class="table-title">
+			<center><h3>Summary of your previous attempt:</h3></center>
+		</div>
 		<div id='scorecontainer'>
+			<table class="table-fill">
+				<thead>
+					<tr>
+					<th class="text-left">Marks</th>
+					<th class="text-right">Grade /100</th>
+					</tr>
+					<tbody class="table-hover">
+					<tr>
 			<?php
-
 				// session_start('user_credentials');
 				include 'connect.php';
 
@@ -61,9 +76,35 @@ function ChangeProfileName(){
 					}	
 				}
 
-				echo ("Your Score is: ".$score."/".$numberOfQuestions);
+				$computed_score = ($score/$numberOfQuestions)*100;
+				echo '<td class="text-left">'.$score.'</td>';
+				echo '<td class="text-right">'.$computed_score.'</td>';
+				echo '</tr></tr>';
+				echo '<center><h3>Your final grade for this quiz is '.$computed_score.' / 100</h3></center>';
 
-			?>
+				$create_grade_table =
+				"CREATE TABLE IF NOT EXISTS `grades_".$_SESSION['ID']."`
+				(
+				    ID_No INT(8) NOT NULL AUTO_INCREMENT,
+				    Quiz_Title VARCHAR(100) NOT NULL,
+				    Grade INT(100) NOT NULL,
+				    PRIMARY KEY(ID_No)
+				)";
+				$create_table = $conn->query($create_grade_table);
+
+				$insert_grade = "INSERT INTO `grades_".$_SESSION['ID']."` (`Quiz_Title`, `Grade`) VALUES ('$quizTitle', '$computed_score')";
+				if (mysqli_query($conn, $insert_grade)) {
+					// echo "Enrolled successfully!";
+				}else {
+					    echo "Error: " . $insert_grade . "<br>" . mysqli_error($conn);
+				}
+						?>
+			<!-- <tr><td>
+			
+			</td></tr> -->
+			</table>
+			<center><input type = "button" value="Continue" onclick="GoBackToClass()"></center>
+			
 		</div>
 <!-- NOTIFICATIONSIDE -->
 		<div id = "notificationdiv" class = "notificationdiv">
