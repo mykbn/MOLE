@@ -183,7 +183,16 @@ function ShowPopUp(clickedCard){
 
 	// alert(card);
 	if(desc === "Quiz"){
-		window.location.href = "StudentQuiz.php?subj="+getSubj+"&quiz="+card;
+		$.post("CheckIfQuizTaken.php", {subj:getSubj, quizTitle:card}, function(result){
+			// ('#mainpage').html(result);
+			// alert(result);
+			if(result == "FALSE"){
+				window.location.href = "StudentQuiz.php?subj="+getSubj+"&quiz="+card;
+
+			}else{
+				alert ("Quiz already taken!");
+			}
+		});
 	}else{
 		$.post("GetCardInfo.php", {subj:getSubj, cardTitle:card}, function(cardInfo){
 			cardInfo = jQuery.parseJSON(cardInfo);

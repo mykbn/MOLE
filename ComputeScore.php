@@ -78,21 +78,22 @@ function GoBackToClass(){
 
 				$computed_score = ($score/$numberOfQuestions)*100;
 				echo '<td class="text-left">'.$score.'</td>';
-				echo '<td class="text-right">'.$computed_score.'</td>';
+				echo '<td class="text-right">'.number_format($computed_score).'</td>';
 				echo '</tr></tr>';
-				echo '<center><h3>Your final grade for this quiz is '.$computed_score.' / 100</h3></center>';
+				echo '<center><h3>Your final grade for this quiz is '.number_format($computed_score).' / 100</h3></center>';
 
 				$create_grade_table =
 				"CREATE TABLE IF NOT EXISTS `grades_".$_SESSION['ID']."`
 				(
 				    ID_No INT(8) NOT NULL AUTO_INCREMENT,
+				    Subject VARCHAR(100) NOT NULL,
 				    Quiz_Title VARCHAR(100) NOT NULL,
 				    Grade INT(100) NOT NULL,
 				    PRIMARY KEY(ID_No)
 				)";
 				$create_table = $conn->query($create_grade_table);
 
-				$insert_grade = "INSERT INTO `grades_".$_SESSION['ID']."` (`Quiz_Title`, `Grade`) VALUES ('$quizTitle', '$computed_score')";
+				$insert_grade = "INSERT INTO `grades_".$_SESSION['ID']."` (`Subject`, `Quiz_Title`, `Grade`) VALUES ('$subj', '$quizTitle', '".number_format($computed_score)."')";
 				if (mysqli_query($conn, $insert_grade)) {
 					// echo "Enrolled successfully!";
 				}else {

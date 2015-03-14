@@ -65,184 +65,172 @@
 
 
   <div id = "mainpage" onclick="Hide(notificationdiv); Hide(namedropdown);">
-<!-- NOTIFICATIONSIDE -->
-    <div id = "notificationdiv" class = "notificationdiv">
-    </div>
+    <!-- NOTIFICATIONSIDE -->
+        <div id = "notificationdiv" class = "notificationdiv">
+        </div>
 
-<!-- NAMEDROPDOWN -->
-    <div id = "namedropdown">
-      <form action="userprofile.php">
-        <input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
-      </form>
-      <form action="index.php"> 
-        <input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
-      </form>
-    </div>
+    <!-- NAMEDROPDOWN -->
+        <div id = "namedropdown">
+          <form action="userprofile.php">
+            <input id = "viewprofile" class = "namedropdown" type = "submit" value = "View Profile">
+          </form>
+          <form action="index.php"> 
+            <input id = "logout" class = "namedropdown" type = "submit" value = "Logout">
+          </form>
+        </div>
 
-<!-- CLASS DROPDOWN -->
-<!-- FOR PROFESSOR -->
-    <div id = "dropdowndivPROF">
-      <input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" 
-        onclick = "toggle_visibility('creatediv'); Hide(editclassdiv); Hide(deleteclassdiv)">
-      <input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
-        onclick = "toggle_visibility('editclassdiv'); Hide(creatediv); Hide(deleteclassdiv)">
-      <input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" 
-        onclick = "toggle_visibility('deleteclassdiv'); Hide(creatediv); Hide(editclassdiv)">
-    </div>
-    <!-- EDIT CLASS SLIDESIDE DIV -->
-    <div id = "editclassdiv">
+    <!-- CLASS DROPDOWN -->
+    <!-- FOR PROFESSOR -->
+        <div id = "dropdowndivPROF">
+          <input id = "createclass" class = "dropdowncontent" type = "submit" value = "Create Class" name = "createclassBtn" 
+            onclick = "toggle_visibility('creatediv'); Hide(editclassdiv); Hide(deleteclassdiv)">
+          <input id = "editclass" class = "dropdowncontent" type = "submit" value = "Edit Class" 
+            onclick = "toggle_visibility('editclassdiv'); Hide(creatediv); Hide(deleteclassdiv)">
+          <input id = "deleteclass-dropdowncontent" class = "dropdowncontent" type = "submit" value = "Delete Class" 
+            onclick = "toggle_visibility('deleteclassdiv'); Hide(creatediv); Hide(editclassdiv)">
+        </div>
+        <!-- EDIT CLASS SLIDESIDE DIV -->
+        <div id = "editclassdiv">
+        </div>
+        <!-- DELETE CLASS SLIDESIDE DIC -->
+        <div id = "deleteclassdiv">
+          
+        </div>
 
-      <!-- <div id = "editdropdowncards" class = "cards"> -->
-        <!-- <label id = "editdropdowncardsclassname">Capstone</label>
-        <input id = "editdropdowndeletebutton" type = "submit" value = "x"> -->
-      <!-- </div> -->
-    </div>
-    <!-- DELETE CLASS SLIDESIDE DIC -->
-    <div id = "deleteclassdiv">
-      
-    </div>
+        <!-- CREATE CLASS SLIDESIDE DIV -->
+        <div id = "creatediv">
+          <form id = "create-class-form" method = "post" action = "CreateClasses.php">
+                    <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
+                <input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
+                <input id = "confirmationpassword" class = "form-textbox" type = "password" 
+                name = "confirmationpassword" placeholder = "Confirmation Password">
+                    <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
+                    <input class = "create-cancel" type = "submit" value = "Create"> 
+          </form>
+          <input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" 
+          onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
+        </div>
 
-    <!-- CREATE CLASS SLIDESIDE DIV -->
-    <div id = "creatediv">
-      <form id = "create-class-form" method = "post" action = "CreateClasses.php">
-                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
-            <input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
-            <input id = "confirmationpassword" class = "form-textbox" type = "password" 
-            name = "confirmationpassword" placeholder = "Confirmation Password">
-                <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
-                <input class = "create-cancel" type = "submit" value = "Create"> 
-      </form>
-      <input id = "cancel" class = "create-cancel" type = "submit" value = "Cancel" 
-      onclick = "toggle_visibility('creatediv'); toggle_visibility('dropdowndiv')">
-    </div>
+    <!-- FOR STUDENT -->
+        <div id = "dropdowndivSTUDENT">
+          <div id = "dropdowncards" class = "cards">
+            <label id = "dropdowncardsclassname">Capstone</label>
+            <input id = "dropdowndeletebutton" type = "submit" value = "x">
+          </div>
+        </div>
 
-<!-- FOR STUDENT -->
-    <div id = "dropdowndivSTUDENT">
-      <div id = "dropdowncards" class = "cards">
-        <label id = "dropdowncardsclassname">Capstone</label>
-        <input id = "dropdowndeletebutton" type = "submit" value = "x">
-      </div>
-    </div>
+    <!-- GAWA NI STEPH -->
+  	<div id="content">
+      <div id="aboutholder">
 
-<!-- GAWA NI STEPH -->
-	<div id="content">
-    <div id="aboutholder">
-      <div id="aboutstudent">
-        <p class="name"> <?php echo json_encode($_SESSION['REALNAME']); ?> </p>
+        <div id="aboutstudent">
+          <p class="name"> <?php echo json_encode($_SESSION['REALNAME']); ?> </p>
           <p class="studentnum"> <?php echo json_encode($_SESSION['ID']); ?> </p>   
+        </div>
+
+        <div id="userphoto">
+          <?php
+            function change_profile_image($user_id, $file_temp, $file_extn){
+              include 'connect.php';
+              // echo ($file_temp);
+              $file_path = 'images/profile/' . substr(md5(time()), 0, 10) . '.' . $file_extn;
+              echo ($file_path);
+              move_uploaded_file($file_temp, $file_path);
+
+              $query = "UPDATE professors SET `profile` = '" . mysql_real_escape_string($file_path) . "' WHERE `ID_No` = " . (int)$_SESSION['ID'];
+              
+              if($insertPath = mysqli_query($conn, $query)){
+                echo "Uploaded Successfullyyyyyyy!";
+                $_SESSION['PROFILEPIC'] = $file_path;
+              }else{
+                echo "Error: " . mysqli_error($conn);
+              }
+            }
+
+            if (empty($_SESSION['PROFILEPIC']) === false){
+              echo '<img id = "profilepic" src="', $_SESSION['PROFILEPIC'], '" alt="', $_SESSION['Firstname'] , '\'s Profile Image">';
+            }
+          ?>
+        </div>  
+
+      </div>
+
+    </div>   
+     
+    <div class="tabber">
+      <div class="tabbertab">
+        <h2>Activity</h2>
+          <div>
+            <?php
+              if($_SESSION['POSITION'] == "Student"){
+                echo "<p>Grades:</p>";
+                $get_grades = "SELECT * FROM `grades_".$_SESSION['ID']."`";
+                $execute_query = mysqli_query($conn, $get_grades) or die ("Error: ".mysqli_error($conn));
+                echo "<table class='table-fill' border='solid 1px'>";
+                echo "<th class='text-left'>Quiz Title</th>";
+                echo "<th class='text-right'>Grade</th>";
+                while ($row = mysqli_fetch_array($execute_query)){
+                  echo "<tr><td class='text-left'>";
+                  echo $row['Quiz_Title'];
+                  echo "</td><td class='text-right'>";
+                  echo $row['Grade'];
+                  echo "</td></tr>";
+                }
+                echo "</table>";
+              }else{
+                echo "<p>Students Grades:</p>";
+                
+
+              }
+            ?>
+          </div>
+        </div>
+
+        <div class="tabbertab">
+          <h2>Settings</h2>
+          <div>
+            <div id="settings">
+              <div class="profile"> 
+                <?php
+                  if (isset($_FILES['profile']) === true){
+
+                    if (empty ($_FILES['profile']['name']) === true){
+
+                      echo 'please choose a file';
+                    } else {
+
+                      $allowed = array('jpg', 'jpeg', 'gif', 'png');
+
+                      $file_name = $_FILES['profile']['name'];
+                      $file_extn = strtolower(end(explode('.', $file_name)));
+                      $file_temp = $_FILES['profile']['tmp_name'];
+
+                      if (in_array($file_extn, $allowed) === true){
+                        change_profile_image($_SESSION['ID'], $file_temp, $file_extn);
+                      } else {
+                        echo 'Incorrect file type you stupid bitch! Allowed file types:';
+                        echo implode(', ', $allowed);
+                      
+                      }
+                    }
+                  }
+                ?>
+
+              <form action="" method="post" enctype="multipart/form-data">
+                <input type="file" name="profile"> <input type="submit">
+              </form>
+
+              </div>
+            </div> 
+          </div>
+        </div>  
+    </div>
 
   </div>
-    <div id="userphoto">
-      <?php
-        function change_profile_image($user_id, $file_temp, $file_extn){
-          include 'connect.php';
-          // echo ($file_temp);
-          $file_path = 'images/profile/' . substr(md5(time()), 0, 10) . '.' . $file_extn;
-          echo ($file_path);
-          move_uploaded_file($file_temp, $file_path);
+  <!-- END MAINPAGE -->
 
-          $query = "UPDATE professors SET `profile` = '" . mysql_real_escape_string($file_path) . "' WHERE `ID_No` = " . (int)$_SESSION['ID'];
-          
-          if($insertPath = mysqli_query($conn, $query)){
-            echo "Uploaded Successfullyyyyyyy!";
-            $_SESSION['PROFILEPIC'] = $file_path;
-          }else{
-            echo "Error: " . mysqli_error($conn);
-          }
-        }
-      ?>
-     
-      <?php
-        if (empty($_SESSION['PROFILEPIC']) === false){
-          echo '<img id = "profilepic" src="', $_SESSION['PROFILEPIC'], '" alt="', $_SESSION['Firstname'] , '\'s Profile Image">';
-        }
-        ?>
-      </div>  
-        </div>
-          </div>   
-   
-  <div class="tabber">
-    <div class="tabbertab">
-      <h2>Activity</h2>
-        <div>
-      
-
-      <?php
-        if($_SESSION['POSITION'] == "Student"){
-            echo "<p>Grades:</p>";
-           $get_grades = "SELECT * FROM `grades_".$_SESSION['ID']."`";
-           $execute_query = mysqli_query($conn, $get_grades) or die ("Error: ".mysqli_error($conn));
-           echo "<table class='table-fill' border='solid 1px'>";
-           echo "<th class='text-left'>Quiz Title</th>";
-          echo "<th class='text-right'>Grade</th>";
-          while ($row = mysqli_fetch_array($execute_query)){
-            echo "<tr><td class='text-left'>";
-            echo $row['Quiz_Title'];
-            echo "</td><td class='text-right'>";
-            echo $row['Grade'];
-            echo "</td></tr>";
-          }
-          echo "</table>";
-        }else{
-           echo "<p>Recent Actions:</p>";
-        }
-      ?>
-        </div>
-      </div>
-
-      <div class="tabbertab">
-        <h2>Settings</h2>
-        <div>
-        <!--<p>Lorem ipsum<p>-->
-        <div id="settings">
-          <div class="profile"> 
-
-            <?php
-              if (isset($_FILES['profile']) === true){
-                if (empty ($_FILES['profile']['name']) === true){
-                  echo 'please choose a file';
-          } else {
-            $allowed = array('jpg', 'jpeg', 'gif', 'png');
-
-            $file_name = $_FILES['profile']['name'];
-            $file_extn = strtolower(end(explode('.', $file_name)));
-            $file_temp = $_FILES['profile']['tmp_name'];
-
-            if (in_array($file_extn, $allowed) === true){
-              change_profile_image($_SESSION['ID'], $file_temp, $file_extn);
-            } else {
-              echo 'Incorrect file type you stupid bitch! Allowed file types:';
-              echo implode(', ', $allowed);
-            
-            }
-        }
-      }
-      ?>
-          <form action="" method="post" enctype="multipart/form-data">
-            <input type="file" name="profile"> <input type="submit">
-          </form>  
-        <!--<tr>
-          <th>-->
-            <!--<label for="my_file"><p class="changedp">Change display photo</p></label>
-          <!--</th>
-        <td>-->
-          <!--<div id="dpbutton">
-          <input type="file" name="logo.png" data-max-width="500" data-max-height="300"/>
-        <!--</td>
-      </tr>-->
-          </div>
-      </div> 
-        </div>
-      </div>  
-
-    </div>
-</div>
-  </div>  
 </div> 
-
-
-
-</div>
+<!-- END MAIN  -->
 </body>
 </html>
 
