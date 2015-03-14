@@ -7,17 +7,18 @@
 ?>
 <html>
 <head>
-  <title>User Profile</title>
-    <meta charset="utf-8" />
-    <title>CEU-MOLE</title>
-    <script type="text/javascript" src="tabber.js"></script>
     <link rel ="stylesheet" href="userprofile.css" type="text/css" media="screen">
     <link rel ="stylesheet" href="homepage.css" type="text/css" media="screen">
     <link type="text/css" rel="stylesheet" href="user_quiz.css">
+    <title>User Profile</title>
+    <meta charset="utf-8" />
+    <!-- <title>CEU-MOLE</title> -->
+    <script type="text/javascript" src="tabber.js"></script>
+    <script type = "text/javascript" src="jQuery.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type = "text/javascript" src="Homepage.js"></script>
     <script type = "text/javascript">
       function ChangeProfileName(){
-        // alert (<?php echo json_encode($_SESSION['PROFILEPIC']); ?>);
         var pic = document.getElementById('profilepicture');
         pic.src = <?php echo json_encode($_SESSION['PROFILEPIC']); ?>;
         var profile = document.getElementById('profilename');
@@ -41,6 +42,14 @@
                 }
         }
       }
+
+      // function DisplayGrades(){
+      //   var a = "asdasdsad";
+      //   $.post("DisplayGradesForProfile.php", {b:a}, function(data){
+      //     ("#tabber").html(data);
+      //     alert (data);
+      //   });
+      // }
     </script>
 </head>
  
@@ -160,28 +169,31 @@
     <div class="tabber">
       <div class="tabbertab">
         <h2>Activity</h2>
-          <div>
+          <div id="gradecontainer">
+            <!-- <p id = 'gradescontainer'>asdasdasdas</p> -->
             <?php
               if($_SESSION['POSITION'] == "Student"){
-                echo "<p>Grades:</p>";
-                $get_grades = "SELECT * FROM `grades_".$_SESSION['ID']."`";
-                $execute_query = mysqli_query($conn, $get_grades) or die ("Error: ".mysqli_error($conn));
-                echo "<table class='table-fill' border='solid 1px'>";
-                echo "<th class='text-left'>Quiz Title</th>";
-                echo "<th class='text-right'>Grade</th>";
-                while ($row = mysqli_fetch_array($execute_query)){
-                  echo "<tr><td class='text-left'>";
-                  echo $row['Quiz_Title'];
-                  echo "</td><td class='text-right'>";
-                  echo $row['Grade'];
-                  echo "</td></tr>";
-                }
-                echo "</table>";
-              }else{
-                echo "<p>Students Grades:</p>";
-                
-
+              echo "<p>Grades:</p>";
+              $get_grades = "SELECT * FROM `grades_".$_SESSION['ID']."`";
+              $execute_query = mysqli_query($conn, $get_grades) or die ("Error: ".mysqli_error($conn));
+              echo "<table class='table-fill' border='solid 1px'>";
+              echo "<th class='text-left'>Quiz Title</th>";
+              echo "<th class='text-right'>Grade</th>";
+              while ($row = mysqli_fetch_array($execute_query)){
+                echo "<tr><td class='text-left'>";
+                echo $row['Quiz_Title'];
+                echo "</td><td class='text-right'>";
+                echo $row['Grade'];
+                echo "</td></tr>";
               }
+              echo "</table>";
+              }else{
+                $check_created_classes = "SELECT `Classes` From classes WHERE `Created_By` = ".$_SESSION['REALNAME'];
+                $run_query = mysqli_query($conn, $check_created_classes)or die ("Error: ".mysqli_error($conn));
+                echo "<p>Students Grades:</p>";
+
+
+            }
             ?>
           </div>
         </div>
