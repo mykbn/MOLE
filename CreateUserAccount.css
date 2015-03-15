@@ -44,8 +44,8 @@ body{
 	/*border: solid;*/
 	height: 68px;
 	width: 165px;
-	top: 80px;
-	left: 41.9%;
+	top: 5%;
+	left: 41.3%;
 }
 #mole{
 	position: relative;
@@ -59,6 +59,8 @@ body{
 }
 #studentno{
 	position: absolute;
+	/*border: solid;*/
+	top: -25%;
 	border-top-right-radius: 3px;
 	/*border-top-left-radius: 3px;*/
 }
