@@ -421,6 +421,7 @@ a{
 	box-shadow: 3px 3px 3px gray;
 }
 /*STUDENT CLASS DROPDOWN*/
+#profilegrades,
 #dropdowncards{
 	position: relative;
 	top: 9px;
@@ -430,6 +431,7 @@ a{
 	border-radius: 3px;
 	border: none;
 }
+#profilegradestext,
 #dropdowncardsclassname{
 	position: relative;
 	line-height: 35px;

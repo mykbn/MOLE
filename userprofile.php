@@ -16,6 +16,7 @@
     <script type="text/javascript" src="tabber.js"></script>
     <script type = "text/javascript" src="jQuery.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type = "text/javascript" src="jquery.blockUI.js"></script>
     <script type = "text/javascript" src="Homepage.js"></script>
     <script type = "text/javascript">
       function ChangeProfileName(){
@@ -43,13 +44,25 @@
         }
       }
 
-      // function DisplayGrades(){
-      //   var a = "asdasdsad";
-      //   $.post("DisplayGradesForProfile.php", {b:a}, function(data){
-      //     ("#tabber").html(data);
-      //     alert (data);
-      //   });
-      // }
+      function ShowGrades(object){
+        var subject = object.getAttribute('name'));
+        $.post("")
+        //   $.blockUI({ 
+        //   message: $('#gradescontainer'),  
+        //   css: {  display: 'block', 
+        //       height: '70%', 
+        //       width: '30%', 
+        //       position: 'absolute', 
+        //       top: '15%', 
+        //       left: '35%', 
+        //       border: 'none', 
+        //       cursor: 'default',
+        //       'background-color': 'rgba(0,0,0,0)',
+        //       '-webkit-border-radius': '5px', 
+        //             '-moz-border-radius': '5px', }
+        // });  
+        // $('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
+      }
     </script>
 </head>
  
@@ -188,9 +201,15 @@
               }
               echo "</table>";
               }else{
-                $check_created_classes = "SELECT `Classes` From classes WHERE `Created_By` = ".$_SESSION['REALNAME'];
+                $check_created_classes = "SELECT `Classes` From classes WHERE `Created_By` = '".$_SESSION['REALNAME']."'";
+                // echo ($check_created_classes);
                 $run_query = mysqli_query($conn, $check_created_classes)or die ("Error: ".mysqli_error($conn));
-                echo "<p>Students Grades:</p>";
+                while($row = mysqli_fetch_array($run_query)){
+                  echo "<div id='profilegrades' class='cards' name='".$row['Classes']."' onclick='ShowGrades(this)'>";
+                  echo "<label id='profilegradestext'>".$row['Classes']."</label>";
+                  echo "</div>";
+                }
+                // echo "<p>Students Grades:</p>";
 
 
             }
@@ -236,6 +255,10 @@
             </div> 
           </div>
         </div>  
+    </div>
+
+    <div id="gradescontainer">
+
     </div>
 
   </div>

@@ -400,5 +400,12 @@ ul.tabbernav li.tabberactive a:hover
 }
 /*END OF HEADER*/
 
+#gradescontainer{
+  display: none;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+}
+
 
 
