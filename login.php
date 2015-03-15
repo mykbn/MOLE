@@ -64,7 +64,7 @@ if ($adminCount >= 1){
 		$serverUser = $rowUser["Username"];
 
 		//Password
-		$queryPassword = "SELECT Password FROM professors WHERE '$inputPassword' = `Password`";
+		$queryPassword = "SELECT Password FROM professors WHERE '$inputUsername' = `Username`";
 		$resultPassword = mysqli_query($conn,$queryPassword)
 			or die("Error: ".mysqli_error($conn));
 		$rowPassword = mysqli_fetch_array($resultPassword);
@@ -100,8 +100,10 @@ if ($adminCount >= 1){
 		
 
 		//Check if login credentials are correct
-		if($inputUsername == $serverUser && $inputPassword == $serverPassword || $inputUsername == $serverUser && $inputPassword != ''){
+		if($inputUsername == $serverUser && $inputPassword == $serverPassword){
 			header("Location:homepage.php");
+			// echo($inputPassword);
+			// echo ($serverPassword);
 		}else{
 			readfile("index.php");
 			echo '<label id="invalid"> Invalid Login </label>';
@@ -133,7 +135,7 @@ if ($adminCount >= 1){
 		$serverUser = $rowUser["Username"];
 
 		//Password
-		$queryPassword = "SELECT Password FROM students WHERE '$inputPassword' = Password";
+		$queryPassword = "SELECT Password FROM students WHERE '$inputUsername' = Username";
 		$resultPassword = mysqli_query($conn,$queryPassword)
 			or die("Error: ".mysqli_error($conn));
 		$rowPassword = mysqli_fetch_array($resultPassword);
@@ -144,7 +146,7 @@ if ($adminCount >= 1){
 		$resultID = mysqli_query($conn,$queryID)
 			or die("Error: ".mysqli_error($conn));
 		$rowID = mysqli_fetch_array($resultID);
-		$serverID = $rowID["ID"];
+		$serverID = $rowID["ID_No"];
 		$_SESSION['ID'] = $rowID[0];
 
 		//profile
@@ -152,7 +154,7 @@ if ($adminCount >= 1){
 		$resultprofile = mysqli_query($conn,$queryprofile)
 			or die("Error: ".mysqli_error($conn));
 		$rowprofile = mysqli_fetch_array($resultprofile);
-		$serverprofile = $rowID["Profile"];
+		$serverprofile = $rowprofile["Profile"];
 		if ($rowprofile[0] == ''){
 			$_SESSION['PROFILEPIC'] = "images\profile\default.jpg";
 		}else{

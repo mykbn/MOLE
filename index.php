@@ -9,14 +9,14 @@
 <title>Welcome to MOLE!</title>
 </head>
 <script type="text/javascript">
-	window.onload = function(){
-		var logintextbox = document.getElementById('emailTxt');
-		logintextbox.value = "";
-		logintextbox.setAttribute("autocomplete", "off");
-		var passtextbox = document.getElementById('passTxt');
-		passtextbox.value = "";
-		passtextbox.setAttribute("autocomplete", "off");
-	}
+	// window.onload = function(){
+	// 	var logintextbox = document.getElementById('emailTxt');
+	// 	logintextbox.value = "";
+	// 	logintextbox.setAttribute("autocomplete", "off");
+	// 	var passtextbox = document.getElementById('passTxt');
+	// 	passtextbox.value = "";
+	// 	passtextbox.setAttribute("autocomplete", "off");
+	// }
 </script>
 <body>
 	<div id = "main">
