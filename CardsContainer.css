@@ -696,7 +696,8 @@ input[type="button"], input[type="submit"] {
 }
 
 #attach{
-	position: relative;
+	position: absolute;
+	top: 28%;
 	margin-top: 5px;
 	padding-left: 3%;
 }
