@@ -399,13 +399,18 @@ ul.tabbernav li.tabberactive a:hover
   top: 18px;
 }
 /*END OF HEADER*/
-
 #gradescontainer{
   display: none;
-  width: 50%;
+  /*width: 50%;
   height: 50%;
+  top: 50%
+  left: 50%;
   background-color: white;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);*/
 }
-
+#gradestable{
+  display: block;
+}
 
 

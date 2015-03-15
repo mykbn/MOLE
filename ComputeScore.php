@@ -82,17 +82,16 @@ function GoBackToClass(){
 				echo '</tr></tr>';
 				echo '<center><h3>Your final grade for this quiz is '.number_format($computed_score).' / 100</h3></center>';
 
-				$create_subject_grade_table = 
-				"CREATE TABLE IF NOT EXISTS `".$subj."_grades`
+				$create_subj_grade_table =
+				"CREATE TABLE IF NOT EXISTS `grades_".$subj."`
 				(
-					ID_No INT(8) NOT NULL AUTO_INCREMENT,
-					Quiz_Title VARCHAR(100) NOT NULL,
-					Student_Name TEXT(100) NOT NULL,
-					Grade INT(10) NO NULL,
-					PRIMARY KEY(ID_No)
-
+				    ID_No INT(8) NOT NULL AUTO_INCREMENT,
+				    Quiz_Title VARCHAR(100) NOT NULL,
+				    Student_Name TEXT(100) NOT NULL,
+				    Grade INT(100) NOT NULL,
+				    PRIMARY KEY(ID_No)
 				)";
-				$create_subject_grade_table = $conn ->query($create_subject_grade_table);
+				$create_subj_table = $conn->query($create_subj_grade_table);
 
 				$create_grade_table =
 				"CREATE TABLE IF NOT EXISTS `grades_".$_SESSION['ID']."`
@@ -112,7 +111,7 @@ function GoBackToClass(){
 					    echo "Error: " . $insert_grade . "<br>" . mysqli_error($conn);
 				}
 
-				$insert_subject_grade = "INSERT INTO `".$subj."_grades` (`Quiz_Title`, `Student_Name`, `Grade`) VALUES ('$quizTitle', '".$_SESSION['REALNAME']."','".number_format($computed_score)."')";
+				$insert_subject_grade = "INSERT INTO `grades_".$subj."` (`Quiz_Title`, `Student_Name`, `Grade`) VALUES ('$quizTitle', '".$_SESSION['REALNAME']."','".number_format($computed_score)."')";
 				if (mysqli_query($conn, $insert_subject_grade)) {
 					// echo "Enrolled successfully!";
 				}else {
