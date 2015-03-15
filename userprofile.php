@@ -45,23 +45,22 @@
       }
 
       function ShowGrades(object){
-        var subject = object.getAttribute('name'));
-        $.post("")
-        //   $.blockUI({ 
-        //   message: $('#gradescontainer'),  
-        //   css: {  display: 'block', 
-        //       height: '70%', 
-        //       width: '30%', 
-        //       position: 'absolute', 
-        //       top: '15%', 
-        //       left: '35%', 
-        //       border: 'none', 
-        //       cursor: 'default',
-        //       'background-color': 'rgba(0,0,0,0)',
-        //       '-webkit-border-radius': '5px', 
-        //             '-moz-border-radius': '5px', }
-        // });  
-        // $('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
+        var subject = object.getAttribute('name');
+          $.blockUI({ 
+          message: $('#gradescontainer'),  
+          css: {  display: 'block', 
+              height: '70%', 
+              width: '30%', 
+              position: 'absolute', 
+              top: '15%', 
+              left: '35%', 
+              border: 'none', 
+              cursor: 'default',
+              'background-color': 'rgba(0,0,0,0)',
+              '-webkit-border-radius': '5px', 
+                    '-moz-border-radius': '5px', }
+        });  
+        $('.blockOverlay').attr('title','Click to unblock').click($.unblockUI); 
       }
     </script>
 </head>

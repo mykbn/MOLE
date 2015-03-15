@@ -9,18 +9,14 @@
 <title>Welcome to MOLE!</title>
 </head>
 <script type="text/javascript">
-// window.onload = function(){
-// 	// window.location.href = "CreateUserTable.php";
-// 	$.get("CreateUserTable.php", function(){
-
-// 	});
-// }
-	// function FirstLastName(){
-	// 	$.post('login.php', {user: login-form.emailTxt.value},
-	// 		function(name){
-	// 			$("#profilename").html(name);
-	// 		});
-	// }
+	window.onload = function(){
+		var logintextbox = document.getElementById('emailTxt');
+		logintextbox.value = "";
+		logintextbox.setAttribute("autocomplete", "off");
+		var passtextbox = document.getElementById('passTxt');
+		passtextbox.value = "";
+		passtextbox.setAttribute("autocomplete", "off");
+	}
 </script>
 <body>
 	<div id = "main">
@@ -29,9 +25,9 @@
 			<input id = "create" type = "submit" value = "Create" name = "createBtn">
 		</form>
 		<div id = "form" class = "centered">
-			<form id = "login-form" method = "post" action="login.php" name = "login-form">
-				<input id = "emailTxt" type = "textbox" placeholder = "Username" name = "emailTxt" class = "emailtextbox">
-				<input id = "passTxt" type = "password" placeholder = "Password" name="passTxt" class="passtextbox">
+			<form id = "login-form" method = "POST" action="login.php" name = "login-form" autocomplete="off">
+				<input id = "emailTxt" type = "textbox" placeholder = "Username" name = "emailTxt" class = "emailtextbox" autocomplete="off">
+				<input id = "passTxt" type = "password" placeholder = "Password" name="passTxt" class="passtextbox" autocomplete="off">
 				<input id = "loginbutton" type = "submit" value = "Login" name = "loginBtn">
 			</form>
 		</div>	

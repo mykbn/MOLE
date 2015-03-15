@@ -214,7 +214,7 @@ function GoToClass(classV){
 		</div>
 		<div id = "searchbar">
 			<img id = "searchicon" src = "_assets/SearchIcon.png">
-			<form method ="post" action = "Homepage.html" id = "searchform">
+			<form id = "searchform">
 				<input id = "enrollme" type = "textbox" placeholder = "Search" name = "searchTxt" onkeydown = "searchq()">	
 				<!-- <select id ="output" size = "5" style = "display:none" name = "output"></select>		 -->
 			</form>	
@@ -251,10 +251,10 @@ function GoToClass(classV){
 		<!-- CREATE CLASS SLIDESIDE DIV -->
 		<div id = "creatediv">
 			<form id = "create-class-form" method = "post" action = "CreateClasses.php">
-                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname"> 
-        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password">
+                <input id = "classname" class = "form-textbox" type = "text" name = "classname" placeholder = "Classname" autocomplete="off"> 
+        		<input id = "password" class = "form-textbox" type = "password" name = "password" placeholder = "Password" autocomplete="off">
         		<input id = "confirmationpassword" class = "form-textbox" type = "password" 
-        		name = "confirmationpassword" placeholder = "Confirmation Password">
+        		name = "confirmationpassword" placeholder = "Confirmation Password" autocomplete="off">
                 <textarea id = "classdescription" name = "classdescription" placeholder = "Class Description"></textarea> 
                 <input class = "create-cancel" type = "submit" value = "Create"> 
 			</form>
